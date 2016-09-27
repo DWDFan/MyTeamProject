@@ -89,28 +89,37 @@
  *  fileURL 上传路径
  *
  */
-- (NSURLSessionUploadTask *)uploadTaskWithUrlString:(NSString *)urlString
++ (NSURLSessionUploadTask *)uploadTaskWithUrlString:(NSString *)urlString
                                          parameters:( id)parameters
                                            mimeType:(NSString *)mimeType
                                          sourceData:(NSData*)sourceData
                                            progress:(NSProgress * __autoreleasing *)downloadProgress
                                   completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler{
     
-    
+    //拼接URL
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@",PostUrl,urlString];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
     
     NSMutableURLRequest *request = [manager.requestSerializer
                                     multipartFormRequestWithMethod:@"POST"
-                                    URLString:urlString
+                                    URLString:URLStr
                                     parameters:parameters
                                     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                        [formData appendPartWithFileData:sourceData name:@"file" fileName:@"file" mimeType:mimeType];
+                                        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                                        formatter.dateFormat = @"yyyyMMddHHmmss";
+                                        NSString *str = [formatter stringFromDate:[NSDate date]];
+                                        NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
+                                        //上传文件参数
+                                        [formData appendPartWithFileData:sourceData name:@"myfile" fileName:fileName mimeType:mimeType];
                                     } error:nil];
     
     NSURLSessionUploadTask *tak = [manager uploadTaskWithStreamedRequest:request progress:downloadProgress completionHandler:completionHandler];
     [tak resume];
-    
+  
     return tak;
 }
+
+
+
 @end

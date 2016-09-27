@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55EB16981D9A525500C414EF /* UIActionSheet+camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EB16971D9A525500C414EF /* UIActionSheet+camera.m */; };
 		6C5919351D4FA3B600256363 /* MOTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5919341D4FA3B600256363 /* MOTool.m */; };
 		6C5919921D4FA44900256363 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5919391D4FA44900256363 /* AFHTTPRequestOperation.m */; };
 		6C5919931D4FA44900256363 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59193B1D4FA44900256363 /* AFHTTPRequestOperationManager.m */; };
@@ -454,6 +455,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55EB16961D9A525500C414EF /* UIActionSheet+camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+camera.h"; sourceTree = "<group>"; };
+		55EB16971D9A525500C414EF /* UIActionSheet+camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+camera.m"; sourceTree = "<group>"; };
 		6C5919331D4FA3B600256363 /* MOTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTool.h; sourceTree = "<group>"; };
 		6C5919341D4FA3B600256363 /* MOTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTool.m; sourceTree = "<group>"; };
 		6C5919381D4FA44900256363 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1186,9 +1189,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55EB16951D9A51F700C414EF /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				55EB16961D9A525500C414EF /* UIActionSheet+camera.h */,
+				55EB16971D9A525500C414EF /* UIActionSheet+camera.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
 		6C5919321D4FA3AC00256363 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				55EB16951D9A51F700C414EF /* Control */,
 				F19244BC1D5F0E0600F0FF5B /* SVProgressHUD */,
 				F19244B81D5F0D5900F0FF5B /* MOProgressHUD */,
 				F19244971D5F0CA100F0FF5B /* HTTP */,
@@ -3372,6 +3385,7 @@
 				F18679E31D5B73A100EF198E /* WLfather2ViewController.m in Sources */,
 				F1FB85E31D537365005AAED3 /* UIView+WebCacheOperation.m in Sources */,
 				F1E517F21D577C8600F3A885 /* WLjg1TableViewCell.m in Sources */,
+				55EB16981D9A525500C414EF /* UIActionSheet+camera.m in Sources */,
 				6C5919BA1D4FA44900256363 /* TTTAttributedLabel.m in Sources */,
 				F155904B1D5437F600EFD5F8 /* WLFinallyViewController.m in Sources */,
 				CD6414071D5050F0002D31AC /* WLCurriculumTableViewCell.m in Sources */,
