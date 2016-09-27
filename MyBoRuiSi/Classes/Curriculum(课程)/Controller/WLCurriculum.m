@@ -14,11 +14,13 @@
 #import "LiveTableViewCell.h"
 
 #import "DirectSeedingViewController.h"
+#import "WLVODCourseListViewController.h"
 
 #import "ZGCourseTypeModel.h"
 #import "WLZxzbViewController.h"
 #import "WLCourseDataHandle.h"
 #import "WLCourseTypeCell.h"
+#import "MOHTTP.h"
 
 @interface WLCurriculum ()
 
@@ -207,17 +209,10 @@
 
                     
                 };
-//                
- 
-                
+
             }
-            
-            
-            
+
         }else{
-            
-            
-            
             
             if (indexPath.row == 0) {
                 
@@ -229,28 +224,24 @@
                 cell = cellTwo;
                 
             }else{
-             
-                
-//                cellsF.WLCurriculumTableViewCellBlcok = ^(){
-//                    
-//                    DirectSeedingViewController *direct = [[DirectSeedingViewController alloc] init];
-////                    direct.title = @"在线直播";
-//                    [weakSelf.navigationController pushViewController:direct animated:YES];
-//                    
-//                };
 
                 cellsF.typeArray = _hotCourseArray;
-                [cellsF setBlock:^(NSInteger index) {
-                    WLLog(@"%ld",index);
-
+                [cellsF setBlock:^(NSString *typeId) {
+//                    DirectSeedingViewController *direct = [[DirectSeedingViewController alloc] init];
+//                    [weakSelf.navigationController pushViewController:direct animated:YES];
+                    WLVODCourseListViewController *vc = [[WLVODCourseListViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
+//                    UIImage *image = [UIImage imageNamed:@"矢量智能对象"];
+//                    NSData *data = UIImagePNGRepresentation(image);
+//                   
+//                    [MOHTTP Post:@"API/index.php?action=Upload&do=appUpload" parameters:@{@"uid":[WLUserInfo share].userId,@"Filedata":data} success:^(id responseObject) {
+//                        
+//                    } failure:^(NSError *error) {
+//                        
+//                    }];
                 }];
-                
                 cell = cellsF;
-                
             }
-
-            
-            
         }
     }else{
         if (_num == 1) {
@@ -279,17 +270,15 @@
             }else{
                 
                 cellThree.typeArray = _recommendArray;
-                [cellThree setBlock:^(NSInteger index) {
-                    WLLog(@"%ld",index);
+                [cellThree setBlock:^(NSString *typeId) {
+                    WLVODCourseListViewController *vc = [[WLVODCourseListViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
+
+//                    DirectSeedingViewController *direct = [[DirectSeedingViewController alloc] init];
+//                    [weakSelf.navigationController pushViewController:direct animated:YES];
+
                 }];
                 cell = cellThree;
-                //在线点播
-//                cellThree.WLCurriculumTableViewThreeCellblock = ^(){
-//                    
-//                    DirectSeedingViewController *direct = [[DirectSeedingViewController alloc] init];
-//                   // direct.title = @"在线直播";
-//                    [weakSelf.navigationController pushViewController:direct animated:YES];
-//                };
             }
         }
     }

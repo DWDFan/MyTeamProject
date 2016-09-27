@@ -105,7 +105,7 @@
                                     URLString:urlString
                                     parameters:parameters
                                     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                        [formData appendPartWithFileData:sourceData name:@"file" fileName:@"file" mimeType:mimeType];
+                                        [formData appendPartWithFileData:sourceData name:@"Filedata" fileName:@"file123123" mimeType:mimeType];
                                     } error:nil];
     
     NSURLSessionUploadTask *tak = [manager uploadTaskWithStreamedRequest:request progress:downloadProgress completionHandler:completionHandler];

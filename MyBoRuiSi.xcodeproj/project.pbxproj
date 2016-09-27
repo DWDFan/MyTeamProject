@@ -220,6 +220,9 @@
 		F181B2EE1D98C35200DE511D /* ZGArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F181B2ED1D98C35200DE511D /* ZGArticleCell.m */; };
 		F181B2F61D9921C900DE511D /* ZGTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F181B2F41D9921C900DE511D /* ZGTextCell.m */; };
 		F181B2F71D9921C900DE511D /* ZGTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F181B2F51D9921C900DE511D /* ZGTextCell.xib */; };
+		F185456F1D9A51120008F471 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F185456E1D9A51120008F471 /* BaseViewController.m */; };
+		F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */; };
+		F18545751D9A59D80008F471 /* WLFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545741D9A59D80008F471 /* WLFilterView.m */; };
 		F18679DC1D5B664C00EF198E /* WLxqusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18679DA1D5B664C00EF198E /* WLxqusViewController.m */; };
 		F18679DD1D5B664C00EF198E /* WLxqusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18679DB1D5B664C00EF198E /* WLxqusViewController.xib */; };
 		F18679E31D5B73A100EF198E /* WLfather2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18679E11D5B73A100EF198E /* WLfather2ViewController.m */; };
@@ -794,6 +797,12 @@
 		F181B2F31D9921C900DE511D /* ZGTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGTextCell.h; sourceTree = "<group>"; };
 		F181B2F41D9921C900DE511D /* ZGTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGTextCell.m; sourceTree = "<group>"; };
 		F181B2F51D9921C900DE511D /* ZGTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGTextCell.xib; sourceTree = "<group>"; };
+		F185456D1D9A51120008F471 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		F185456E1D9A51120008F471 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		F18545701D9A567B0008F471 /* WLVODCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVODCourseListViewController.h; sourceTree = "<group>"; };
+		F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVODCourseListViewController.m; sourceTree = "<group>"; };
+		F18545731D9A59D80008F471 /* WLFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFilterView.h; sourceTree = "<group>"; };
+		F18545741D9A59D80008F471 /* WLFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFilterView.m; sourceTree = "<group>"; };
 		F18679D91D5B664C00EF198E /* WLxqusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLxqusViewController.h; sourceTree = "<group>"; };
 		F18679DA1D5B664C00EF198E /* WLxqusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLxqusViewController.m; sourceTree = "<group>"; };
 		F18679DB1D5B664C00EF198E /* WLxqusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLxqusViewController.xib; sourceTree = "<group>"; };
@@ -2053,6 +2062,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F18545691D9A502F0008F471 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				F185456A1D9A502F0008F471 /* Controller */,
+				F185456B1D9A502F0008F471 /* Model */,
+				F185456C1D9A502F0008F471 /* View */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		F185456A1D9A502F0008F471 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F185456D1D9A51120008F471 /* BaseViewController.h */,
+				F185456E1D9A51120008F471 /* BaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F185456B1D9A502F0008F471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F185456C1D9A502F0008F471 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F188F4D51D5039F100A46FF1 /* Fathers Vc(父子控制器) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2471,6 +2513,7 @@
 				F1C5979B1D4CF9C700529553 /* Home(首页) */,
 				F1C597A01D4CF9C700529553 /* Main(主入口) */,
 				F1C597A41D4CF9C700529553 /* My(我的) */,
+				F18545691D9A502F0008F471 /* Public */,
 				F1C597A81D4CF9C700529553 /* Other */,
 			);
 			path = Classes;
@@ -2512,6 +2555,8 @@
 				F1AA6F401D94FB7D00769610 /* WLCourseDetailViewController.m */,
 				F7157BD91D963CD8001AAED5 /* WLCourceOutlineVIewController.h */,
 				F7157BDA1D963CD8001AAED5 /* WLCourceOutlineVIewController.m */,
+				F18545701D9A567B0008F471 /* WLVODCourseListViewController.h */,
+				F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2548,6 +2593,8 @@
 				F1F114491D953B7700F07E7B /* WLPurchaseBottomView.m */,
 				F77FB0DB1D97EBEC001B287E /* WLCourseListCell.h */,
 				F77FB0DC1D97EBEC001B287E /* WLCourseListCell.m */,
+				F18545731D9A59D80008F471 /* WLFilterView.h */,
+				F18545741D9A59D80008F471 /* WLFilterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3088,7 +3135,7 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = K5Z5JVM2S2;
+						DevelopmentTeam = 7DHRY55F6V;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -3383,6 +3430,7 @@
 				F1D110B91D59A64600103536 /* WLkjViewController.m in Sources */,
 				F17E528C1D93CEEA003AB734 /* WLInstitutionModel.m in Sources */,
 				6E13E0C71D52EB0A00616BEB /* WLMyTableViewCell.m in Sources */,
+				F18545751D9A59D80008F471 /* WLFilterView.m in Sources */,
 				F1FB85FF1D5374AC005AAED3 /* MJPhotoProgressView.m in Sources */,
 				CD6413FD1D50473F002D31AC /* ThePersonalDataTableViewCell.m in Sources */,
 				F1E517C51D56DE5300F3A885 /* DirectSeedingViewController.m in Sources */,
@@ -3459,6 +3507,7 @@
 				F15590371D54258000EFD5F8 /* WLRecordTableViewCell.m in Sources */,
 				F18D15821D925D4400AD88BA /* WLLoginDataHandle.m in Sources */,
 				F1FB85CD1D537365005AAED3 /* KxMenu.m in Sources */,
+				F185456F1D9A51120008F471 /* BaseViewController.m in Sources */,
 				CD22BE791D58712500BB5F47 /* WLTopViewController.m in Sources */,
 				F1FB85FB1D5374AC005AAED3 /* MJPhoto.m in Sources */,
 				F1D110A31D598FC800103536 /* WLke1TableViewCell.m in Sources */,
@@ -3489,6 +3538,7 @@
 				F12162E41D51AA4E0003B5C1 /* WLSettingViewController.m in Sources */,
 				F1A732341D54AB5300EC755E /* WLDirectseedingTableViewCell.m in Sources */,
 				F1605D271D4F630400EF2829 /* WLSouTableViewCell.m in Sources */,
+				F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */,
 				F18D157F1D92327000AD88BA /* WLCourceModel.m in Sources */,
 				F1E517B21D56CF1600F3A885 /* WLQykcxqViewController.m in Sources */,
 				F1C598281D4D9E8900529553 /* WLhomeOneTableViewCell.m in Sources */,
@@ -3711,7 +3761,7 @@
 				INFOPLIST_FILE = MyBoRuiSi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi2;
+				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3728,7 +3778,7 @@
 				INFOPLIST_FILE = MyBoRuiSi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi2;
+				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
