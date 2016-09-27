@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSArray *typeArray;
 
-@property (nonatomic, copy) void(^block)(NSInteger index);
+@property (nonatomic, copy) void(^block)(NSString *typeId);
 
 @end

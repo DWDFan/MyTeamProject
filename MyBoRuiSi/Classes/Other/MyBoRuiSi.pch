@@ -17,8 +17,9 @@
 #define Swidth [UIScreen mainScreen].bounds.size.width
 
 //颜色和透明度设置
-#define HEXCOLOR(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
+#define HEXCOLOR(hex)  [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
 #define RGBA(r,g,b,a)  [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
+#define RGB(r, g, b)   [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 #define color_red   [UIColor colorWithRed:139.0/255 green:23.0/255 blue:55.0/255 alpha:1]
 #define KColorBackgroud RGBA(245, 245, 245, 1)             //背景色
 #define KColorOrigin RGBA(244, 76, 38, 1)
@@ -31,12 +32,12 @@
 #define COLOR_WORD_BLACK HEXCOLOR(0x333333)
 #define COLOR_WORD_GRAY_1 HEXCOLOR(0x666666)
 #define COLOR_WORD_GRAY_2 HEXCOLOR(0x999999)
+#define COLOR_tableView_separator RGB(201.0f, 201.0f, 201.0f)     //tableView 线的颜色
 
 #define WLScreenW   [UIScreen mainScreen].bounds.size.width
-
-
 #define WLScreenH    [UIScreen mainScreen].bounds.size.height
 
+#define IOS7_TOP_Y 64
 #define ZGPadding 10                //间隙
 #define ZGPaddingMax 15
 

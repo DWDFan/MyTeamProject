@@ -66,7 +66,8 @@
 
 - (void)itemAction:(UIButton *)sender
 {
-    self.block ? self.block(sender.tag - 1000) : nil;
+    ZGCourseTypeModel *model = _typeArray[sender.tag - 1000];
+    self.block ? self.block(model.id) : nil;
 }
 
 @end
