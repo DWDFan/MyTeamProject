@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLPhysiologyViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.是否会觉得不时感觉到莫名郁闷,情绪压抑?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hE-Oq-3zv">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQG-8C-VbM">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="TH1-hW-8Ig"/>
+                        <constraint firstAttribute="width" constant="280" id="vTN-MY-ShT"/>
+                    </constraints>
+                    <state key="normal" title="偶尔会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="TH1-hW-8Ig"/>
+                            <exclude reference="vTN-MY-ShT"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="TH1-hW-8Ig"/>
+                            <include reference="vTN-MY-ShT"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="oubutton:" destination="-1" eventType="touchUpInside" id="B8k-9J-mNK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-Di-cB6">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="33A-f6-d4D"/>
+                        <constraint firstAttribute="width" constant="280" id="FTb-Vl-Y0A"/>
+                    </constraints>
+                    <state key="normal" title="偶尔不会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="33A-f6-d4D"/>
+                            <exclude reference="FTb-Vl-Y0A"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="33A-f6-d4D"/>
+                            <include reference="FTb-Vl-Y0A"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="ounotbutton:" destination="-1" eventType="touchUpInside" id="N8R-BF-fEa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1d2-T5-f7W">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725490196072" green="0.11764705882352941" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="A91-Aw-xuA"/>
+                        <constraint firstAttribute="width" constant="280" id="nrJ-FI-oD5"/>
+                    </constraints>
+                    <state key="normal" title="会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="A91-Aw-xuA"/>
+                            <exclude reference="nrJ-FI-oD5"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="A91-Aw-xuA"/>
+                            <include reference="nrJ-FI-oD5"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="Canbutton:" destination="-1" eventType="touchUpInside" id="Hx9-hw-TqY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYE-NJ-7qa">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="UL6-5X-T2f"/>
+                        <constraint firstAttribute="height" constant="45" id="kiY-ex-a4H"/>
+                    </constraints>
+                    <state key="normal" title="不会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="UL6-5X-T2f"/>
+                            <exclude reference="kiY-ex-a4H"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="UL6-5X-T2f"/>
+                            <include reference="kiY-ex-a4H"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="notbutton:" destination="-1" eventType="touchUpInside" id="TgF-ev-jR6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7hE-Oq-3zv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="A5z-EZ-WBW"/>
+                <constraint firstItem="7hE-Oq-3zv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IDt-Oj-oEI"/>
+                <constraint firstItem="pYE-NJ-7qa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ky7-Sw-oD8"/>
+                <constraint firstItem="6E9-Di-cB6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L19-9R-uGc"/>
+                <constraint firstItem="pYE-NJ-7qa" firstAttribute="top" secondItem="1d2-T5-f7W" secondAttribute="bottom" constant="15" id="SF4-t3-EC9"/>
+                <constraint firstItem="1d2-T5-f7W" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WN8-sk-Sk6"/>
+                <constraint firstItem="GQG-8C-VbM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WmK-VK-E2Z"/>
+                <constraint firstAttribute="trailing" secondItem="7hE-Oq-3zv" secondAttribute="trailing" id="XYS-Yv-0pM"/>
+                <constraint firstItem="6E9-Di-cB6" firstAttribute="top" secondItem="GQG-8C-VbM" secondAttribute="bottom" constant="15" id="Z9v-2G-VRC"/>
+                <constraint firstItem="7hE-Oq-3zv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hCy-1g-zLN"/>
+                <constraint firstItem="1d2-T5-f7W" firstAttribute="top" secondItem="7hE-Oq-3zv" secondAttribute="bottom" constant="200" id="hcH-ZX-t4C"/>
+                <constraint firstItem="GQG-8C-VbM" firstAttribute="top" secondItem="pYE-NJ-7qa" secondAttribute="bottom" constant="15" id="oyA-mg-AJm"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="7hE-Oq-3zv"/>
+                    <exclude reference="GQG-8C-VbM"/>
+                    <exclude reference="6E9-Di-cB6"/>
+                    <exclude reference="1d2-T5-f7W"/>
+                    <exclude reference="pYE-NJ-7qa"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="WN8-sk-Sk6"/>
+                    <exclude reference="hcH-ZX-t4C"/>
+                    <exclude reference="L19-9R-uGc"/>
+                    <exclude reference="Z9v-2G-VRC"/>
+                    <exclude reference="WmK-VK-E2Z"/>
+                    <exclude reference="oyA-mg-AJm"/>
+                    <exclude reference="Ky7-Sw-oD8"/>
+                    <exclude reference="SF4-t3-EC9"/>
+                    <exclude reference="A5z-EZ-WBW"/>
+                    <exclude reference="IDt-Oj-oEI"/>
+                    <exclude reference="XYS-Yv-0pM"/>
+                    <exclude reference="hCy-1g-zLN"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="7hE-Oq-3zv"/>
+                    <include reference="GQG-8C-VbM"/>
+                    <include reference="6E9-Di-cB6"/>
+                    <include reference="1d2-T5-f7W"/>
+                    <include reference="pYE-NJ-7qa"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="WN8-sk-Sk6"/>
+                    <include reference="hcH-ZX-t4C"/>
+                    <include reference="L19-9R-uGc"/>
+                    <include reference="Z9v-2G-VRC"/>
+                    <include reference="WmK-VK-E2Z"/>
+                    <include reference="oyA-mg-AJm"/>
+                    <include reference="Ky7-Sw-oD8"/>
+                    <include reference="SF4-t3-EC9"/>
+                    <include reference="A5z-EZ-WBW"/>
+                    <include reference="IDt-Oj-oEI"/>
+                    <include reference="XYS-Yv-0pM"/>
+                    <include reference="hCy-1g-zLN"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

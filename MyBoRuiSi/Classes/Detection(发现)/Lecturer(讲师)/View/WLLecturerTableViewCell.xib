@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WLLecturerTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真的爱你" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-XF-p22">
+                        <rect key="frame" x="95" y="22" width="64" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart-拷贝_69-1" translatesAutoresizingMaskIntoConstraints="NO" id="MJc-z6-rFQ">
+                        <rect key="frame" x="95" y="65" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="9id-33-JxL"/>
+                            <constraint firstAttribute="width" constant="12" id="XwC-Id-uYy"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="pBq-5d-cW4"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="pBs-4y-E8c"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6666人关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onq-Bz-pvS">
+                        <rect key="frame" x="112" y="63" width="72" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="kBq-yd-NiK">
+                        <rect key="frame" x="155" y="26" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="4o3-j7-p6f"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="8XJ-dB-S4A"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="bch-ie-gE0"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="14" id="ehP-Zs-9vE"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="14" id="mKQ-TH-bEO"/>
+                            <constraint firstAttribute="height" constant="14" id="pcd-EQ-QGL"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="B5J-0k-HVN">
+                        <rect key="frame" x="174" y="26" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="1ZQ-jz-5MP"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="F90-0o-h4S"/>
+                            <constraint firstAttribute="width" constant="14" id="NHe-qZ-QD3"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="14" id="Z6C-a4-fZ4"/>
+                            <constraint firstAttribute="height" constant="14" id="tQ2-vJ-XJa"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="14" id="vc5-we-Apg"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-Po-5Qk">
+                        <rect key="frame" x="199" y="27" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="14" id="274-lu-SiW"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="14" id="CQK-9F-3nV"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="aUA-36-vkf"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="iTw-oz-288"/>
+                            <constraint firstAttribute="height" constant="14" id="k41-w4-Otf"/>
+                            <constraint firstAttribute="width" constant="14" id="opE-8F-YvR"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="0CJ-4A-Vzf">
+                        <rect key="frame" x="224" y="26" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="14" id="Aoe-Bz-R3w"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="14" id="FWj-US-rWq"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="YP3-Ei-CIa"/>
+                            <constraint firstAttribute="width" constant="14" id="pas-sD-hov"/>
+                            <constraint firstAttribute="height" constant="14" id="sQ6-BM-MQs"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="y5A-NO-Li2"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="组-6" translatesAutoresizingMaskIntoConstraints="NO" id="YEB-uj-8oN">
+                        <rect key="frame" x="275" y="22" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="2Sf-Z8-bgX"/>
+                            <constraint firstAttribute="width" constant="25" id="qis-s8-uHS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级讲师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-gW-NCH">
+                        <rect key="frame" x="261" y="52" width="52" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-49..." translatesAutoresizingMaskIntoConstraints="NO" id="wUd-5i-hbv">
+                        <rect key="frame" x="8" y="12" width="75" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="XUG-lq-BKZ"/>
+                            <constraint firstAttribute="height" constant="75" id="rrt-wP-ApD"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102-拷贝-3" translatesAutoresizingMaskIntoConstraints="NO" id="zST-ca-Z5c">
+                        <rect key="frame" x="242" y="30" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="3Km-sX-tmS"/>
+                            <constraint firstAttribute="height" constant="14" id="PAL-oV-ntu"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="14" id="Qcz-kY-kvB"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="c5q-Ki-zCM"/>
+                            <constraint firstAttribute="width" constant="14" id="jwk-jZ-xEQ"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="14" id="mlu-kD-zPC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0CJ-4A-Vzf" firstAttribute="width" secondItem="kBq-yd-NiK" secondAttribute="width" id="0zD-Vs-X6n"/>
+                    <constraint firstItem="0CJ-4A-Vzf" firstAttribute="height" secondItem="kBq-yd-NiK" secondAttribute="height" id="54O-UQ-ySb"/>
+                    <constraint firstItem="b4b-XF-p22" firstAttribute="top" secondItem="wUd-5i-hbv" secondAttribute="top" constant="10" id="7mB-Dc-r1F"/>
+                    <constraint firstItem="onq-Bz-pvS" firstAttribute="leading" secondItem="MJc-z6-rFQ" secondAttribute="trailing" constant="5" id="ASI-QZ-Tpl"/>
+                    <constraint firstItem="B5J-0k-HVN" firstAttribute="width" secondItem="kBq-yd-NiK" secondAttribute="width" id="Apq-zx-LUY"/>
+                    <constraint firstItem="Jd1-Po-5Qk" firstAttribute="width" secondItem="kBq-yd-NiK" secondAttribute="width" id="EHz-bp-6Vn"/>
+                    <constraint firstItem="Jd1-Po-5Qk" firstAttribute="height" secondItem="kBq-yd-NiK" secondAttribute="height" id="GCF-rH-IbN"/>
+                    <constraint firstItem="B5J-0k-HVN" firstAttribute="centerY" secondItem="kBq-yd-NiK" secondAttribute="centerY" id="JJ8-pB-Zuh"/>
+                    <constraint firstItem="kBq-yd-NiK" firstAttribute="leading" secondItem="b4b-XF-p22" secondAttribute="trailing" constant="10" id="K3Y-Zu-U8l"/>
+                    <constraint firstItem="zST-ca-Z5c" firstAttribute="width" secondItem="kBq-yd-NiK" secondAttribute="width" id="LVQ-2g-LDc"/>
+                    <constraint firstItem="0CJ-4A-Vzf" firstAttribute="leading" secondItem="Jd1-Po-5Qk" secondAttribute="trailing" constant="3" id="MEt-rt-Kmg"/>
+                    <constraint firstItem="zST-ca-Z5c" firstAttribute="leading" secondItem="0CJ-4A-Vzf" secondAttribute="trailing" constant="3" id="OPd-Vd-qXo"/>
+                    <constraint firstAttribute="trailing" secondItem="YEB-uj-8oN" secondAttribute="trailing" constant="20" id="RtQ-j6-FUo"/>
+                    <constraint firstItem="onq-Bz-pvS" firstAttribute="centerY" secondItem="MJc-z6-rFQ" secondAttribute="centerY" id="WVx-WW-fgz"/>
+                    <constraint firstItem="Jd1-Po-5Qk" firstAttribute="leading" secondItem="B5J-0k-HVN" secondAttribute="trailing" constant="3" id="X8c-l1-Pfg"/>
+                    <constraint firstItem="0CJ-4A-Vzf" firstAttribute="centerY" secondItem="kBq-yd-NiK" secondAttribute="centerY" id="aFl-la-9c2"/>
+                    <constraint firstItem="wUd-5i-hbv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bt9-no-kxT"/>
+                    <constraint firstItem="zST-ca-Z5c" firstAttribute="height" secondItem="kBq-yd-NiK" secondAttribute="height" id="e9h-dR-dho"/>
+                    <constraint firstItem="YEB-uj-8oN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-15" id="fvB-0L-FUP"/>
+                    <constraint firstItem="MJc-z6-rFQ" firstAttribute="leading" secondItem="wUd-5i-hbv" secondAttribute="trailing" constant="10" id="gcz-wa-RdF"/>
+                    <constraint firstItem="Njc-gW-NCH" firstAttribute="top" secondItem="YEB-uj-8oN" secondAttribute="bottom" constant="5" id="jUH-Mp-NzD"/>
+                    <constraint firstItem="B5J-0k-HVN" firstAttribute="height" secondItem="kBq-yd-NiK" secondAttribute="height" id="mLk-Kb-uVw"/>
+                    <constraint firstItem="Jd1-Po-5Qk" firstAttribute="centerY" secondItem="kBq-yd-NiK" secondAttribute="centerY" id="mjE-Ar-bv7"/>
+                    <constraint firstItem="MJc-z6-rFQ" firstAttribute="bottom" secondItem="wUd-5i-hbv" secondAttribute="bottom" constant="-10" id="phx-4f-4fn"/>
+                    <constraint firstItem="B5J-0k-HVN" firstAttribute="leading" secondItem="kBq-yd-NiK" secondAttribute="trailing" constant="3" id="qZA-qD-bUQ"/>
+                    <constraint firstItem="zST-ca-Z5c" firstAttribute="centerY" secondItem="kBq-yd-NiK" secondAttribute="centerY" id="rus-au-zbM"/>
+                    <constraint firstItem="wUd-5i-hbv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="st7-r7-vTW"/>
+                    <constraint firstItem="kBq-yd-NiK" firstAttribute="centerY" secondItem="b4b-XF-p22" secondAttribute="centerY" id="vQ0-Hs-CXl"/>
+                    <constraint firstItem="YEB-uj-8oN" firstAttribute="centerX" secondItem="Njc-gW-NCH" secondAttribute="centerX" id="xEt-C1-IcL"/>
+                    <constraint firstItem="b4b-XF-p22" firstAttribute="leading" secondItem="wUd-5i-hbv" secondAttribute="trailing" constant="10" id="zOJ-zW-R1D"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Heart-拷贝_69-1" width="11" height="9"/>
+        <image name="图层-49..." width="79" height="79"/>
+        <image name="素彩网www.sc115.com-102" width="11" height="11"/>
+        <image name="素彩网www.sc115.com-102-拷贝-3" width="11" height="11"/>
+        <image name="组-6" width="20" height="17"/>
+    </resources>
+</document>

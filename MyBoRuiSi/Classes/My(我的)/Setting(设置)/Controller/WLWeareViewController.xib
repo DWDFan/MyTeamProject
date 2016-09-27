@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLWeareViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当无字可写的时候，就看看风吹落花，听听心底的另一个声音，然后再等一场雨，编制一帘幽梦。如若落花染醉了春的枝丫，陶冶了夏的妆容，迷离了秋的萧瑟，装饰了冬的圣洁，那我就站在彼岸，等你从烟雨江南踏马而来，来装饰我的梦。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zl-Vh-AkP">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="XOG-oI-b7L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XOG-oI-b7L"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="XOG-oI-b7L"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2zl-Vh-AkP" secondAttribute="trailing" constant="10" id="5Xg-09-Vg3"/>
+                <constraint firstItem="2zl-Vh-AkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Rph-Nt-dyQ"/>
+                <constraint firstItem="2zl-Vh-AkP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lKS-c4-vAP"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="2zl-Vh-AkP"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="5Xg-09-Vg3"/>
+                    <exclude reference="Rph-Nt-dyQ"/>
+                    <exclude reference="lKS-c4-vAP"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="2zl-Vh-AkP"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="5Xg-09-Vg3"/>
+                    <include reference="Rph-Nt-dyQ"/>
+                    <include reference="lKS-c4-vAP"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

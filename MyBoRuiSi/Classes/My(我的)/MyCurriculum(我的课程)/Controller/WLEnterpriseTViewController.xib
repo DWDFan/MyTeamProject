@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLEnterpriseTViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mwd-WT-YEQ">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="tzg-iA-so2"/>
+                        <outlet property="delegate" destination="-1" id="7Cg-aR-ve7"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mwd-WT-YEQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bir-Af-bmv"/>
+                <constraint firstAttribute="trailing" secondItem="mwd-WT-YEQ" secondAttribute="trailing" id="d59-CQ-tf7"/>
+                <constraint firstAttribute="bottom" secondItem="mwd-WT-YEQ" secondAttribute="bottom" id="fWs-pu-9YH"/>
+                <constraint firstItem="mwd-WT-YEQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pQZ-W0-4mg"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="mwd-WT-YEQ"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="bir-Af-bmv"/>
+                    <exclude reference="d59-CQ-tf7"/>
+                    <exclude reference="fWs-pu-9YH"/>
+                    <exclude reference="pQZ-W0-4mg"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="mwd-WT-YEQ"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="bir-Af-bmv"/>
+                    <include reference="d59-CQ-tf7"/>
+                    <include reference="fWs-pu-9YH"/>
+                    <include reference="pQZ-W0-4mg"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

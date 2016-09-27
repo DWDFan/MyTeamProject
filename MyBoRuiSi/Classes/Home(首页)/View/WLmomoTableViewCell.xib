@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="WLmomoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFW-JZ-yH2">
+                        <rect key="frame" x="0.0" y="10" width="80" height="79.5"/>
+                        <color key="backgroundColor" red="0.59389375909999997" green="1" blue="0.41348713729999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nm6-Ag-g5b">
+                        <rect key="frame" x="82" y="7" width="80" height="79.5"/>
+                        <color key="backgroundColor" red="0.59389375909999997" green="1" blue="0.41348713729999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-sC-Tan">
+                        <rect key="frame" x="165" y="7" width="80" height="79.5"/>
+                        <color key="backgroundColor" red="0.59389375909999997" green="1" blue="0.41348713729999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiU-Nd-QP1">
+                        <rect key="frame" x="248" y="6" width="80" height="79.5"/>
+                        <color key="backgroundColor" red="0.59389375909999997" green="1" blue="0.41348713729999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nm6-Ag-g5b" firstAttribute="width" secondItem="MFW-JZ-yH2" secondAttribute="width" id="10A-1T-QHl"/>
+                    <constraint firstItem="jZt-sC-Tan" firstAttribute="width" secondItem="MFW-JZ-yH2" secondAttribute="width" id="9K7-g0-9Vo"/>
+                    <constraint firstItem="Nm6-Ag-g5b" firstAttribute="height" secondItem="MFW-JZ-yH2" secondAttribute="height" id="9e8-Qf-RFU"/>
+                    <constraint firstItem="jZt-sC-Tan" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BvG-fa-Rju"/>
+                    <constraint firstItem="OiU-Nd-QP1" firstAttribute="width" secondItem="MFW-JZ-yH2" secondAttribute="width" id="FR4-qh-F3U"/>
+                    <constraint firstItem="Nm6-Ag-g5b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gfh-Vg-JUR"/>
+                    <constraint firstAttribute="trailing" secondItem="OiU-Nd-QP1" secondAttribute="trailing" id="KAM-V5-P5Y"/>
+                    <constraint firstItem="MFW-JZ-yH2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QIe-SM-CPt"/>
+                    <constraint firstItem="Nm6-Ag-g5b" firstAttribute="leading" secondItem="MFW-JZ-yH2" secondAttribute="trailing" id="Sqm-8x-TUS"/>
+                    <constraint firstItem="jZt-sC-Tan" firstAttribute="leading" secondItem="Nm6-Ag-g5b" secondAttribute="trailing" id="coH-cK-bl2"/>
+                    <constraint firstItem="OiU-Nd-QP1" firstAttribute="leading" secondItem="jZt-sC-Tan" secondAttribute="trailing" id="gq3-c6-obn"/>
+                    <constraint firstItem="MFW-JZ-yH2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kGc-Kn-bcd"/>
+                    <constraint firstItem="jZt-sC-Tan" firstAttribute="height" secondItem="MFW-JZ-yH2" secondAttribute="height" id="o5Q-UT-Cxc"/>
+                    <constraint firstItem="OiU-Nd-QP1" firstAttribute="height" secondItem="MFW-JZ-yH2" secondAttribute="height" id="pk4-Vx-RsN"/>
+                    <constraint firstAttribute="bottom" secondItem="MFW-JZ-yH2" secondAttribute="bottom" constant="10" id="wVm-fH-yxV"/>
+                    <constraint firstItem="MFW-JZ-yH2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yPj-wd-ypN"/>
+                    <constraint firstItem="OiU-Nd-QP1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zZY-YS-Fi8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="303" y="185"/>
+        </tableViewCell>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LuO-cA-qYB">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="365" y="353"/>
+        </button>
+    </objects>
+</document>

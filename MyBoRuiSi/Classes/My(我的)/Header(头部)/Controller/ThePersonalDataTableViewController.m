@@ -1,0 +1,148 @@
+//
+//  ThePersonalDataTableViewController.m
+//  MyBoRuiSi
+//
+//  Created by 莫 on 16/8/2.
+//  Copyright © 2016年 itcast.com. All rights reserved.
+//
+
+#import "ThePersonalDataTableViewController.h"
+#import "ThePersonalDataTableViewCell.h"
+#import "WLThePersonalDataTableViewCellTwo.h"
+
+@interface ThePersonalDataTableViewController ()
+
+@end
+
+@implementation ThePersonalDataTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+
+    self.title = @"个人资料";
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 7;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    id cell;
+    
+    
+    
+    if (indexPath.row == 0) {
+        
+        NSString *ID = @"WLThePersonalDataTableViewCellTwo";
+        WLThePersonalDataTableViewCellTwo *cells = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (!cells) {
+            cells = [[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:nil] lastObject];
+        }
+        
+        cells.describeLabel.text = @"头像:";
+        cells.imageName.image = [UIImage imageNamed:@"图层-47-拷贝"];
+        
+        cell = cells;
+        
+    }else{
+        
+        
+        NSString *ID = @"ThePersonalDataTableViewCell";
+        ThePersonalDataTableViewCell *cells = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (!cells) {
+            cells = [[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:nil] lastObject];
+        }
+        
+        if (indexPath.row == 1) {
+            cells.describeLabel.text = @"昵称:";
+            cells.contentLabel.text = @"嘻嘻";
+            
+        }else if (indexPath.row == 2) {
+            
+            cells.describeLabel.text = @"性别:";
+            cells.contentLabel.text = @"女神";
+            
+            
+        }else if (indexPath.row == 3) {
+            
+            cells.describeLabel.text = @"生日:";
+            cells.contentLabel.text = @"2008.10.08";
+            
+            
+        }else if (indexPath.row == 4) {
+            
+            cells.describeLabel.text = @"所在公司:";
+            cells.contentLabel.text = @"哈哈";
+            
+            
+        }else if (indexPath.row == 5) {
+            
+            cells.describeLabel.text = @"职业:";
+            cells.contentLabel.text = @"JJ";
+            
+            
+        }else{
+            
+            cells.describeLabel.text = @"地址:";
+            cells.contentLabel.text = @"北京呢";
+            
+            
+            
+        }
+        
+        cell = cells;
+        
+        
+    }
+    
+    
+   
+    
+    
+    return  cell;
+    
+    
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    int a = 45;
+    if (indexPath.row == 0) {
+        
+        a = 60;
+    }
+    
+    return 60;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return  0.1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
+    
+}
+
+@end

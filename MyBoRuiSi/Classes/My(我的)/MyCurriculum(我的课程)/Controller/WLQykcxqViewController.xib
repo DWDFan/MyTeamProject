@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLQykcxqViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zr-DY-JH7">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阶段一: ESD介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kt-fO-G09">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSb-jP-pWe">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="wsM-p0-pKL"/>
+                            </constraints>
+                            <string key="text">因为改革开放不可能一蹴而就、一劳永逸，在认识和改造世界的过程中，旧的问题解决，新的问题又会产生。
+　　习近平深刻指出：“改革开放中的矛盾只能用改革开放的办法来解决。”“改革是由问题倒逼而产生，又在不断解决问题中而深化。”
+　　因为改革开放是中国共产党不断摸索出来的正确道路。要坚定中国特色社会主义道路自信、理论自信、制度自信、文化自信，必须坚持改革开放这一“重要法宝”。
+　　因为改革开放“是决定当代中国命运的关键一招，也是决定实现‘两个100年’奋斗目标、实现中华民族伟大复兴的关键一招”，用好这“关键一招”，改革开放的“含金量”才够高</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="wsM-p0-pKL"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="wsM-p0-pKL"/>
+                                </mask>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="1w7-Ud-tHA"/>
+                        <constraint firstItem="4kt-fO-G09" firstAttribute="leading" secondItem="9zr-DY-JH7" secondAttribute="leading" constant="15" id="ILP-E8-iCX"/>
+                        <constraint firstItem="4kt-fO-G09" firstAttribute="top" secondItem="9zr-DY-JH7" secondAttribute="top" constant="10" id="KA3-Gj-6FJ"/>
+                        <constraint firstItem="nSb-jP-pWe" firstAttribute="leading" secondItem="9zr-DY-JH7" secondAttribute="leading" constant="15" id="KwR-C3-MBR"/>
+                        <constraint firstItem="nSb-jP-pWe" firstAttribute="top" secondItem="4kt-fO-G09" secondAttribute="bottom" constant="10" id="X04-LU-6q4"/>
+                        <constraint firstAttribute="trailing" secondItem="nSb-jP-pWe" secondAttribute="trailing" constant="15" id="uSE-tZ-ckw"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="4kt-fO-G09"/>
+                            <exclude reference="nSb-jP-pWe"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="1w7-Ud-tHA"/>
+                            <exclude reference="ILP-E8-iCX"/>
+                            <exclude reference="KA3-Gj-6FJ"/>
+                            <exclude reference="KwR-C3-MBR"/>
+                            <exclude reference="X04-LU-6q4"/>
+                            <exclude reference="uSE-tZ-ckw"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="4kt-fO-G09"/>
+                            <include reference="nSb-jP-pWe"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="1w7-Ud-tHA"/>
+                            <include reference="ILP-E8-iCX"/>
+                            <include reference="KA3-Gj-6FJ"/>
+                            <include reference="KwR-C3-MBR"/>
+                            <include reference="X04-LU-6q4"/>
+                            <include reference="uSE-tZ-ckw"/>
+                        </mask>
+                    </variation>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="c6b31f36ed028dbd5f095647887644da" translatesAutoresizingMaskIntoConstraints="NO" id="3qY-QR-cbI">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="DsR-oO-QMv"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DsR-oO-QMv"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="DsR-oO-QMv"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqU-Yu-VhW">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="7VI-v0-uv9"/>
+                        <constraint firstAttribute="height" constant="30" id="vVE-22-j8w"/>
+                    </constraints>
+                    <state key="normal" title="立即学习">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="7VI-v0-uv9"/>
+                            <exclude reference="vVE-22-j8w"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="7VI-v0-uv9"/>
+                            <include reference="vVE-22-j8w"/>
+                        </mask>
+                    </variation>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阶段二: ESD介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-H5-zJg">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-lS-H37">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="36R-Is-oSW"/>
+                    </constraints>
+                    <string key="text">　因为改革开放是中国共产党不断摸索出来的正确道路。要坚定中国特色社会主义道路自信、理论自信、制度自信、文化自信，必须坚持改革开放这一“重要法宝”。
+　　因为改革开放“是决定当代中国命运的关键一招，也是决定实现‘两个100年’奋斗目标、实现中华民族伟大复兴的</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <color key="highlightedColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="36R-Is-oSW"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="36R-Is-oSW"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9zr-DY-JH7" secondAttribute="trailing" id="3ts-7b-7lQ"/>
+                <constraint firstAttribute="trailing" secondItem="Eca-lS-H37" secondAttribute="trailing" constant="15" id="IcD-8o-wtr"/>
+                <constraint firstAttribute="trailing" secondItem="nqU-Yu-VhW" secondAttribute="trailing" constant="10" id="R9J-ti-73I"/>
+                <constraint firstItem="9zr-DY-JH7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XU7-hq-jyA"/>
+                <constraint firstItem="oIP-H5-zJg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="a6Q-vF-P5W"/>
+                <constraint firstItem="9zr-DY-JH7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="cdW-1z-eOV"/>
+                <constraint firstItem="3qY-QR-cbI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fEF-oH-uDa"/>
+                <constraint firstItem="nqU-Yu-VhW" firstAttribute="top" secondItem="9zr-DY-JH7" secondAttribute="bottom" constant="145" id="gaM-zU-F1c"/>
+                <constraint firstItem="Eca-lS-H37" firstAttribute="top" secondItem="oIP-H5-zJg" secondAttribute="bottom" constant="10" id="hbS-kf-l99"/>
+                <constraint firstItem="3qY-QR-cbI" firstAttribute="top" secondItem="9zr-DY-JH7" secondAttribute="bottom" id="kCv-Sf-O47"/>
+                <constraint firstItem="oIP-H5-zJg" firstAttribute="top" secondItem="3qY-QR-cbI" secondAttribute="bottom" constant="25" id="nE3-44-eZI"/>
+                <constraint firstItem="Eca-lS-H37" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="rNc-np-uhF"/>
+                <constraint firstAttribute="trailing" secondItem="3qY-QR-cbI" secondAttribute="trailing" id="z5J-1M-9mQ"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="9zr-DY-JH7"/>
+                    <exclude reference="3qY-QR-cbI"/>
+                    <exclude reference="nqU-Yu-VhW"/>
+                    <exclude reference="oIP-H5-zJg"/>
+                    <exclude reference="Eca-lS-H37"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="R9J-ti-73I"/>
+                    <exclude reference="gaM-zU-F1c"/>
+                    <exclude reference="IcD-8o-wtr"/>
+                    <exclude reference="hbS-kf-l99"/>
+                    <exclude reference="rNc-np-uhF"/>
+                    <exclude reference="a6Q-vF-P5W"/>
+                    <exclude reference="nE3-44-eZI"/>
+                    <exclude reference="fEF-oH-uDa"/>
+                    <exclude reference="kCv-Sf-O47"/>
+                    <exclude reference="z5J-1M-9mQ"/>
+                    <exclude reference="3ts-7b-7lQ"/>
+                    <exclude reference="XU7-hq-jyA"/>
+                    <exclude reference="cdW-1z-eOV"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="9zr-DY-JH7"/>
+                    <include reference="3qY-QR-cbI"/>
+                    <include reference="nqU-Yu-VhW"/>
+                    <include reference="oIP-H5-zJg"/>
+                    <include reference="Eca-lS-H37"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="R9J-ti-73I"/>
+                    <include reference="gaM-zU-F1c"/>
+                    <include reference="IcD-8o-wtr"/>
+                    <include reference="hbS-kf-l99"/>
+                    <include reference="rNc-np-uhF"/>
+                    <include reference="a6Q-vF-P5W"/>
+                    <include reference="nE3-44-eZI"/>
+                    <include reference="fEF-oH-uDa"/>
+                    <include reference="kCv-Sf-O47"/>
+                    <include reference="z5J-1M-9mQ"/>
+                    <include reference="3ts-7b-7lQ"/>
+                    <include reference="XU7-hq-jyA"/>
+                    <include reference="cdW-1z-eOV"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="c6b31f36ed028dbd5f095647887644da" width="1280" height="800"/>
+    </resources>
+</document>

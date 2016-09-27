@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLZwViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,你是否会觉得持续工作一个多小时以后,感觉非常疲乏,精神不振?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-yJ-fO8">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYL-9o-qzg">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="rJ6-Yg-kui"/>
+                        <constraint firstAttribute="width" constant="280" id="veZ-4b-UW9"/>
+                    </constraints>
+                    <state key="normal" title="会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="rJ6-Yg-kui"/>
+                            <exclude reference="veZ-4b-UW9"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="rJ6-Yg-kui"/>
+                            <include reference="veZ-4b-UW9"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="Cantbutton:" destination="-1" eventType="touchUpInside" id="6cx-hM-Mfd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlP-cO-nRw">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="7k7-cx-pVf"/>
+                        <constraint firstAttribute="height" constant="45" id="mqV-Li-BCS"/>
+                    </constraints>
+                    <state key="normal" title="不清楚">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mqV-Li-BCS"/>
+                            <exclude reference="7k7-cx-pVf"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="mqV-Li-BCS"/>
+                            <include reference="7k7-cx-pVf"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="qIchClik:" destination="-1" eventType="touchUpInside" id="QxA-Fh-Naz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLN-U1-dd8">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="anO-vT-5Gl"/>
+                        <constraint firstAttribute="width" constant="280" id="qhI-kv-nA9"/>
+                    </constraints>
+                    <state key="normal" title="不会">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="anO-vT-5Gl"/>
+                            <exclude reference="qhI-kv-nA9"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="anO-vT-5Gl"/>
+                            <include reference="qhI-kv-nA9"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="dontClik:" destination="-1" eventType="touchUpInside" id="RQo-KI-NeD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZLN-U1-dd8" firstAttribute="top" secondItem="BYL-9o-qzg" secondAttribute="bottom" constant="20" id="Axf-gz-MWy"/>
+                <constraint firstItem="xfR-yJ-fO8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="Eff-ol-U5p"/>
+                <constraint firstItem="BYL-9o-qzg" firstAttribute="top" secondItem="xfR-yJ-fO8" secondAttribute="bottom" constant="200" id="SRL-Jk-sAj"/>
+                <constraint firstItem="wlP-cO-nRw" firstAttribute="top" secondItem="ZLN-U1-dd8" secondAttribute="bottom" constant="20" id="aSf-bc-Usu"/>
+                <constraint firstItem="xfR-yJ-fO8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="l4M-K1-7AM"/>
+                <constraint firstItem="ZLN-U1-dd8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mZB-yA-Dym"/>
+                <constraint firstItem="xfR-yJ-fO8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nya-d1-vlC"/>
+                <constraint firstItem="BYL-9o-qzg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="p6q-eu-9iR"/>
+                <constraint firstAttribute="trailing" secondItem="xfR-yJ-fO8" secondAttribute="trailing" constant="40" id="rrS-sj-hxg"/>
+                <constraint firstItem="wlP-cO-nRw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="v1B-sk-oXr"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="xfR-yJ-fO8"/>
+                    <exclude reference="BYL-9o-qzg"/>
+                    <exclude reference="wlP-cO-nRw"/>
+                    <exclude reference="ZLN-U1-dd8"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="Eff-ol-U5p"/>
+                    <exclude reference="l4M-K1-7AM"/>
+                    <exclude reference="nya-d1-vlC"/>
+                    <exclude reference="rrS-sj-hxg"/>
+                    <exclude reference="SRL-Jk-sAj"/>
+                    <exclude reference="p6q-eu-9iR"/>
+                    <exclude reference="Axf-gz-MWy"/>
+                    <exclude reference="mZB-yA-Dym"/>
+                    <exclude reference="aSf-bc-Usu"/>
+                    <exclude reference="v1B-sk-oXr"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="xfR-yJ-fO8"/>
+                    <include reference="BYL-9o-qzg"/>
+                    <include reference="wlP-cO-nRw"/>
+                    <include reference="ZLN-U1-dd8"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="Eff-ol-U5p"/>
+                    <include reference="l4M-K1-7AM"/>
+                    <include reference="nya-d1-vlC"/>
+                    <include reference="rrS-sj-hxg"/>
+                    <include reference="SRL-Jk-sAj"/>
+                    <include reference="p6q-eu-9iR"/>
+                    <include reference="Axf-gz-MWy"/>
+                    <include reference="mZB-yA-Dym"/>
+                    <include reference="aSf-bc-Usu"/>
+                    <include reference="v1B-sk-oXr"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

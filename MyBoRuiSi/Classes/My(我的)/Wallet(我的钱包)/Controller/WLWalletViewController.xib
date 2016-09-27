@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLWalletViewController">
+            <connections>
+                <outlet property="tableView_main" destination="o0Q-8m-vgT" id="F7h-O6-cFT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0Q-8m-vgT">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="OYJ-TW-SQU"/>
+                        <outlet property="delegate" destination="-1" id="eQW-x6-hCJ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="o0Q-8m-vgT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0GQ-8j-tSg"/>
+                <constraint firstAttribute="bottom" secondItem="o0Q-8m-vgT" secondAttribute="bottom" id="DLU-2R-9NZ"/>
+                <constraint firstItem="o0Q-8m-vgT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HX0-8G-Tlc"/>
+                <constraint firstAttribute="trailing" secondItem="o0Q-8m-vgT" secondAttribute="trailing" id="Ruu-Jc-9x4"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="o0Q-8m-vgT"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="0GQ-8j-tSg"/>
+                    <exclude reference="DLU-2R-9NZ"/>
+                    <exclude reference="HX0-8G-Tlc"/>
+                    <exclude reference="Ruu-Jc-9x4"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="o0Q-8m-vgT"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="0GQ-8j-tSg"/>
+                    <include reference="DLU-2R-9NZ"/>
+                    <include reference="HX0-8G-Tlc"/>
+                    <include reference="Ruu-Jc-9x4"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

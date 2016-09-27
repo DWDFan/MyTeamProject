@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLnewsViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HBT-gD-TZH">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="FX5-Jw-edr"/>
+                        <outlet property="delegate" destination="-1" id="xln-rd-21x"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HBT-gD-TZH" secondAttribute="trailing" id="2VV-Dv-Wf2"/>
+                <constraint firstAttribute="bottom" secondItem="HBT-gD-TZH" secondAttribute="bottom" id="KQL-xE-KPT"/>
+                <constraint firstItem="HBT-gD-TZH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NiO-su-pia"/>
+                <constraint firstItem="HBT-gD-TZH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XD1-7e-HcA"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="HBT-gD-TZH"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="2VV-Dv-Wf2"/>
+                    <exclude reference="KQL-xE-KPT"/>
+                    <exclude reference="NiO-su-pia"/>
+                    <exclude reference="XD1-7e-HcA"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="HBT-gD-TZH"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="2VV-Dv-Wf2"/>
+                    <include reference="KQL-xE-KPT"/>
+                    <include reference="NiO-su-pia"/>
+                    <include reference="XD1-7e-HcA"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

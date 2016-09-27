@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLkjs1ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u4M-Ol-I3u">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zse-qN-zLw"/>
+                        <outlet property="delegate" destination="-1" id="IiO-u9-qWB"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-go-56h">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="下载">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="u4M-Ol-I3u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1uL-84-KrV"/>
+                <constraint firstAttribute="bottom" secondItem="u4M-Ol-I3u" secondAttribute="bottom" constant="45" id="BtN-8z-htA"/>
+                <constraint firstItem="u4M-Ol-I3u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L3o-Wu-VVA"/>
+                <constraint firstItem="Laf-go-56h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PRp-zl-4yo"/>
+                <constraint firstAttribute="trailing" secondItem="u4M-Ol-I3u" secondAttribute="trailing" id="erf-GE-EaG"/>
+                <constraint firstAttribute="trailing" secondItem="Laf-go-56h" secondAttribute="trailing" id="pnl-ZU-Qg4"/>
+                <constraint firstItem="Laf-go-56h" firstAttribute="top" secondItem="u4M-Ol-I3u" secondAttribute="bottom" id="uY8-3E-wYs"/>
+                <constraint firstAttribute="bottom" secondItem="Laf-go-56h" secondAttribute="bottom" id="uvh-Lb-M8Q"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="u4M-Ol-I3u"/>
+                    <exclude reference="Laf-go-56h"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="PRp-zl-4yo"/>
+                    <exclude reference="pnl-ZU-Qg4"/>
+                    <exclude reference="uY8-3E-wYs"/>
+                    <exclude reference="uvh-Lb-M8Q"/>
+                    <exclude reference="1uL-84-KrV"/>
+                    <exclude reference="BtN-8z-htA"/>
+                    <exclude reference="L3o-Wu-VVA"/>
+                    <exclude reference="erf-GE-EaG"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="u4M-Ol-I3u"/>
+                    <include reference="Laf-go-56h"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="PRp-zl-4yo"/>
+                    <include reference="pnl-ZU-Qg4"/>
+                    <include reference="uY8-3E-wYs"/>
+                    <include reference="uvh-Lb-M8Q"/>
+                    <include reference="1uL-84-KrV"/>
+                    <include reference="BtN-8z-htA"/>
+                    <include reference="L3o-Wu-VVA"/>
+                    <include reference="erf-GE-EaG"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

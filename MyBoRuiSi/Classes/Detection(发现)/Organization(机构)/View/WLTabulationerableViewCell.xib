@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WLTabulationerableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01480d41289e6899fb89f7921eaeb2e9" translatesAutoresizingMaskIntoConstraints="NO" id="Y5K-fw-xLy">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="dWO-zM-YiF"/>
+                            <constraint firstAttribute="height" constant="80" id="i8p-za-izB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnR-Cg-bie">
+                        <rect key="frame" x="105" y="10" width="34" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="Mym-9S-A8p">
+                        <rect key="frame" x="154" y="16" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="76q-Q1-ZGH"/>
+                            <constraint firstAttribute="height" constant="10" id="oxL-bM-dcc"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="tfq-te-q2Y">
+                        <rect key="frame" x="180" y="15" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="PGz-0w-ydW"/>
+                            <constraint firstAttribute="height" constant="10" id="yT3-II-UPN"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="VJ3-UM-cs2">
+                        <rect key="frame" x="167" y="15" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="GD8-HW-cqZ"/>
+                            <constraint firstAttribute="width" constant="10" id="UtC-IW-KdR"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-bY-79o">
+                        <rect key="frame" x="193" y="15" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="8Gj-dc-cm3"/>
+                            <constraint firstAttribute="height" constant="10" id="hD7-eW-Iht"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="zxw-rL-xwk">
+                        <rect key="frame" x="206" y="15" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="PIG-ZI-8d1"/>
+                            <constraint firstAttribute="height" constant="10" id="u5J-IE-ieM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="据我国古籍记载，上古时代的人类祖先们在尚未发明文字之前，便已懂得利用结绳的方式来记事" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-bK-e3N">
+                        <rect key="frame" x="97" y="41" width="215" height="50.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Mym-9S-A8p" firstAttribute="leading" secondItem="pnR-Cg-bie" secondAttribute="trailing" constant="15" id="1eQ-gP-YPf"/>
+                    <constraint firstItem="eXP-bY-79o" firstAttribute="centerY" secondItem="pnR-Cg-bie" secondAttribute="centerY" id="1qQ-6d-wKf"/>
+                    <constraint firstAttribute="trailing" secondItem="IfY-bK-e3N" secondAttribute="trailing" constant="5" id="3l0-tU-xut"/>
+                    <constraint firstItem="Mym-9S-A8p" firstAttribute="centerY" secondItem="pnR-Cg-bie" secondAttribute="centerY" id="45r-xo-ngR"/>
+                    <constraint firstItem="Y5K-fw-xLy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BtS-JD-wJ9"/>
+                    <constraint firstItem="tfq-te-q2Y" firstAttribute="leading" secondItem="VJ3-UM-cs2" secondAttribute="trailing" constant="3" id="HF8-pX-C0u"/>
+                    <constraint firstItem="tfq-te-q2Y" firstAttribute="centerY" secondItem="pnR-Cg-bie" secondAttribute="centerY" id="Hlc-B4-sn2"/>
+                    <constraint firstItem="IfY-bK-e3N" firstAttribute="leading" secondItem="pnR-Cg-bie" secondAttribute="leading" id="YpV-6B-lkt"/>
+                    <constraint firstItem="IfY-bK-e3N" firstAttribute="top" secondItem="pnR-Cg-bie" secondAttribute="bottom" constant="15" id="bDQ-FQ-N5O"/>
+                    <constraint firstItem="pnR-Cg-bie" firstAttribute="leading" secondItem="Y5K-fw-xLy" secondAttribute="trailing" constant="15" id="btz-HL-GgG"/>
+                    <constraint firstItem="pnR-Cg-bie" firstAttribute="top" secondItem="Y5K-fw-xLy" secondAttribute="top" id="cNs-50-txD"/>
+                    <constraint firstItem="VJ3-UM-cs2" firstAttribute="leading" secondItem="Mym-9S-A8p" secondAttribute="trailing" constant="3" id="cyc-Dn-J5A"/>
+                    <constraint firstItem="Y5K-fw-xLy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lok-Uv-FdH"/>
+                    <constraint firstItem="zxw-rL-xwk" firstAttribute="leading" secondItem="eXP-bY-79o" secondAttribute="trailing" constant="3" id="od1-HQ-zTI"/>
+                    <constraint firstItem="zxw-rL-xwk" firstAttribute="centerY" secondItem="pnR-Cg-bie" secondAttribute="centerY" id="vGg-NU-Ye8"/>
+                    <constraint firstItem="VJ3-UM-cs2" firstAttribute="centerY" secondItem="pnR-Cg-bie" secondAttribute="centerY" id="vuI-43-SMW"/>
+                    <constraint firstItem="eXP-bY-79o" firstAttribute="leading" secondItem="tfq-te-q2Y" secondAttribute="trailing" constant="3" id="y9B-U1-WlX"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="01480d41289e6899fb89f7921eaeb2e9" width="298" height="339"/>
+        <image name="素彩网www.sc115.com-102" width="11" height="11"/>
+    </resources>
+</document>

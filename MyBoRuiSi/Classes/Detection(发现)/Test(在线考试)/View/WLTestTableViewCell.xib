@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WLTestTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="组-0" translatesAutoresizingMaskIntoConstraints="NO" id="sjx-nl-ycW">
+                        <rect key="frame" x="10" y="12" width="110" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="XSc-3M-D9g"/>
+                            <constraint firstAttribute="height" constant="75" id="miW-nD-29Z"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="试卷名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-EA-Lc7">
+                        <rect key="frame" x="130" y="10" width="68" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="考试时间长 : 45分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Yd-ubg">
+                        <rect key="frame" x="130" y="40" width="118.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余考试次数 1 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8G-0T-la4">
+                        <rect key="frame" x="130" y="66" width="96.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CcS-EA-Lc7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="6h3-79-vnZ"/>
+                    <constraint firstItem="7qo-Yd-ubg" firstAttribute="leading" secondItem="CcS-EA-Lc7" secondAttribute="leading" id="VbS-Ng-1hG"/>
+                    <constraint firstItem="sjx-nl-ycW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bJ0-7q-Rtp"/>
+                    <constraint firstItem="sjx-nl-ycW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dvL-gk-CjK"/>
+                    <constraint firstItem="o8G-0T-la4" firstAttribute="top" secondItem="7qo-Yd-ubg" secondAttribute="bottom" constant="10" id="n0G-zQ-CTM"/>
+                    <constraint firstItem="o8G-0T-la4" firstAttribute="leading" secondItem="CcS-EA-Lc7" secondAttribute="leading" id="rIX-K2-oVX"/>
+                    <constraint firstItem="7qo-Yd-ubg" firstAttribute="top" secondItem="CcS-EA-Lc7" secondAttribute="bottom" constant="10" id="rls-Eo-z2W"/>
+                    <constraint firstItem="CcS-EA-Lc7" firstAttribute="leading" secondItem="sjx-nl-ycW" secondAttribute="trailing" constant="10" id="xsK-eA-yVl"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="组-0" width="109" height="80"/>
+    </resources>
+</document>

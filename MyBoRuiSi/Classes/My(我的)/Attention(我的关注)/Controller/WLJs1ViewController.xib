@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLJs1ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FuZ-Bn-A5r">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ezn-mH-5Jt"/>
+                        <outlet property="delegate" destination="-1" id="Y0P-zR-qjI"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FuZ-Bn-A5r" secondAttribute="trailing" id="1QU-vs-UoV"/>
+                <constraint firstItem="FuZ-Bn-A5r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8NY-hV-BYt"/>
+                <constraint firstAttribute="bottom" secondItem="FuZ-Bn-A5r" secondAttribute="bottom" id="FHs-ui-3pB"/>
+                <constraint firstItem="FuZ-Bn-A5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uw4-F8-pwp"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="FuZ-Bn-A5r"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="1QU-vs-UoV"/>
+                    <exclude reference="8NY-hV-BYt"/>
+                    <exclude reference="FHs-ui-3pB"/>
+                    <exclude reference="uw4-F8-pwp"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="FuZ-Bn-A5r"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="1QU-vs-UoV"/>
+                    <include reference="8NY-hV-BYt"/>
+                    <include reference="FHs-ui-3pB"/>
+                    <include reference="uw4-F8-pwp"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

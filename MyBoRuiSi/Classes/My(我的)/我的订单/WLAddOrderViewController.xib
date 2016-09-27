@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLAddOrderViewController">
+            <connections>
+                <outlet property="tableView_main" destination="tiK-4R-dug" id="gdQ-tw-MtZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tiK-4R-dug">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="x6b-0h-C9Z"/>
+                        <outlet property="delegate" destination="-1" id="71G-my-pNE"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezo-Vo-oNV">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.5450980392" green="0.090196078430000007" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="z5L-ae-C1Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="确认提交">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="z5L-ae-C1Y"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="z5L-ae-C1Y"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="L0R-UY-gEY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ezo-Vo-oNV" secondAttribute="bottom" id="5yj-8e-8y8"/>
+                <constraint firstItem="ezo-Vo-oNV" firstAttribute="top" secondItem="tiK-4R-dug" secondAttribute="bottom" id="82K-gz-cAq"/>
+                <constraint firstItem="ezo-Vo-oNV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IUT-k8-Aqr"/>
+                <constraint firstItem="tiK-4R-dug" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K5g-Rb-VKk"/>
+                <constraint firstItem="tiK-4R-dug" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ti0-hc-gHX"/>
+                <constraint firstAttribute="trailing" secondItem="tiK-4R-dug" secondAttribute="trailing" id="WfX-sH-8kl"/>
+                <constraint firstAttribute="trailing" secondItem="ezo-Vo-oNV" secondAttribute="trailing" id="pid-Uv-UmL"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="tiK-4R-dug"/>
+                    <exclude reference="ezo-Vo-oNV"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="5yj-8e-8y8"/>
+                    <exclude reference="82K-gz-cAq"/>
+                    <exclude reference="IUT-k8-Aqr"/>
+                    <exclude reference="pid-Uv-UmL"/>
+                    <exclude reference="K5g-Rb-VKk"/>
+                    <exclude reference="Ti0-hc-gHX"/>
+                    <exclude reference="WfX-sH-8kl"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="tiK-4R-dug"/>
+                    <include reference="ezo-Vo-oNV"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="5yj-8e-8y8"/>
+                    <include reference="82K-gz-cAq"/>
+                    <include reference="IUT-k8-Aqr"/>
+                    <include reference="pid-Uv-UmL"/>
+                    <include reference="K5g-Rb-VKk"/>
+                    <include reference="Ti0-hc-gHX"/>
+                    <include reference="WfX-sH-8kl"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WLThePersonalDataTableViewCellTwo">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5d-h2-Md8">
+                        <rect key="frame" x="10" y="20" width="40" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.32156862745098036" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-138-拷贝-3" translatesAutoresizingMaskIntoConstraints="NO" id="W4O-rz-b2l">
+                        <rect key="frame" x="300" y="25" width="10" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="Hzb-6R-ZJZ"/>
+                            <constraint firstAttribute="height" constant="12" id="mk7-Ir-c1G"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CII-KK-ERd">
+                        <rect key="frame" x="250" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="O6m-Dq-r0w"/>
+                            <constraint firstAttribute="width" constant="40" id="sqI-7Q-mAh"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="W4O-rz-b2l" secondAttribute="trailing" constant="10" id="1RP-Vk-NTp"/>
+                    <constraint firstItem="W4O-rz-b2l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="31l-Rx-5h0"/>
+                    <constraint firstItem="CII-KK-ERd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9CX-LQ-cCb"/>
+                    <constraint firstItem="W4O-rz-b2l" firstAttribute="leading" secondItem="CII-KK-ERd" secondAttribute="trailing" constant="10" id="REn-ua-kZZ"/>
+                    <constraint firstItem="E5d-h2-Md8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="pbI-Q8-V5e"/>
+                    <constraint firstItem="E5d-h2-Md8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="qr1-tW-FVI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="describeLabel" destination="E5d-h2-Md8" id="lpI-jS-1Uk"/>
+                <outlet property="imageName" destination="CII-KK-ERd" id="4v6-GK-mk4"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="素彩网www.sc115.com-138-拷贝-3" width="8" height="14"/>
+    </resources>
+</document>

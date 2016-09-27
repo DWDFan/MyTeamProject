@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WLHomethreeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="261.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小猫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p18-du-MgX">
+                        <rect key="frame" x="35" y="200" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="素彩网www.sc115.com-221" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-jh-j2U">
+                        <rect key="frame" x="217" y="230" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="YlD-b2-oDy"/>
+                            <constraint firstAttribute="height" constant="12" id="sWD-jD-XOB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学员 : 999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-p2-qkS">
+                        <rect key="frame" x="239" y="229" width="58" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="PI1-cm-QAC"/>
+                            <constraint firstAttribute="width" constant="58" id="g9O-4D-apx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="P5l-wu-hW1">
+                        <rect key="frame" x="18" y="0.0" width="281" height="190"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="190" id="PX1-ql-R9T"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-Ln-YtY">
+                        <rect key="frame" x="131" y="226" width="58" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="1bG-Xy-hEX"/>
+                            <constraint firstAttribute="height" constant="21" id="imK-SX-6EX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usw-u8-OyI">
+                        <rect key="frame" x="35" y="231" width="50" height="10"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="6Ko-0s-ZbR"/>
+                            <constraint firstAttribute="height" constant="10" id="bfA-Ag-8WD"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Heart-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="TFk-2m-EQQ">
+                        <rect key="frame" x="113" y="230" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="Any-MK-xwx"/>
+                            <constraint firstAttribute="height" constant="12" id="i5V-17-KEE"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Usw-u8-OyI" firstAttribute="centerY" secondItem="Mb0-Ln-YtY" secondAttribute="centerY" id="Ank-5h-jcT"/>
+                    <constraint firstItem="P5l-wu-hW1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FPr-lN-wx8"/>
+                    <constraint firstItem="P5l-wu-hW1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HnW-fG-WEo"/>
+                    <constraint firstItem="p18-du-MgX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="Jhq-0E-XJr"/>
+                    <constraint firstItem="Mb0-Ln-YtY" firstAttribute="leading" secondItem="TFk-2m-EQQ" secondAttribute="trailing" constant="10" id="Nf0-aO-4YU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2Cl-p2-qkS" secondAttribute="trailing" constant="15" id="Rft-oJ-261"/>
+                    <constraint firstItem="p18-du-MgX" firstAttribute="top" secondItem="P5l-wu-hW1" secondAttribute="bottom" constant="10" id="Slb-aC-b54"/>
+                    <constraint firstItem="Mb0-Ln-YtY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xgi-0G-QoJ"/>
+                    <constraint firstItem="Usw-u8-OyI" firstAttribute="leading" secondItem="p18-du-MgX" secondAttribute="leading" id="eAO-VP-muh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2Cl-p2-qkS" secondAttribute="bottom" constant="9" id="ehP-qh-QFg"/>
+                    <constraint firstItem="Mb0-Ln-YtY" firstAttribute="centerY" secondItem="2Cl-p2-qkS" secondAttribute="centerY" id="mhM-qW-X1N"/>
+                    <constraint firstAttribute="trailing" secondItem="P5l-wu-hW1" secondAttribute="trailing" id="uLr-B8-TM5"/>
+                    <constraint firstItem="2Cl-p2-qkS" firstAttribute="leading" secondItem="WGc-jh-j2U" secondAttribute="trailing" constant="10" id="wpq-vm-XjW"/>
+                    <constraint firstItem="TFk-2m-EQQ" firstAttribute="centerY" secondItem="Mb0-Ln-YtY" secondAttribute="centerY" id="yf3-YT-VT9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="follow" destination="Mb0-Ln-YtY" id="Wse-7S-QfO"/>
+                <outlet property="mmember" destination="2Cl-p2-qkS" id="JGz-fL-VrW"/>
+                <outlet property="mname" destination="p18-du-MgX" id="7TK-wT-3HI"/>
+                <outlet property="pphoto" destination="P5l-wu-hW1" id="8pQ-TM-pGa"/>
+                <outlet property="starView" destination="Usw-u8-OyI" id="Tlp-63-3Qi"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="1" width="375" height="211"/>
+        <image name="Heart-拷贝" width="11" height="9"/>
+        <image name="素彩网www.sc115.com-221" width="11" height="11"/>
+    </resources>
+</document>

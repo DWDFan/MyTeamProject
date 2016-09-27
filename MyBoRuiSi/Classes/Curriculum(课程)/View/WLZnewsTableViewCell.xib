@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="WLZnewsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="96.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="002" translatesAutoresizingMaskIntoConstraints="NO" id="6vo-EI-kyQ">
+                        <rect key="frame" x="10" y="10" width="100" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="A6o-V1-dII"/>
+                            <constraint firstAttribute="width" constant="100" id="Wcy-bU-cA1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ESD专业知识讲解和总结" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74m-SE-yxB">
+                        <rect key="frame" x="120" y="10" width="174.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲师:王丽行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-Re-DEw">
+                        <rect key="frame" x="120" y="38" width="69" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="报名人数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-lo-oM2">
+                        <rect key="frame" x="213" y="38" width="52" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讲课时间:2015-8-2 11:00-13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-MI-mrk">
+                        <rect key="frame" x="120" y="59" width="176.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-i9-iHM">
+                        <rect key="frame" x="120" y="78" width="62" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf5-pU-TDF">
+                        <rect key="frame" x="301" y="77" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1XC-Ra-mxP"/>
+                            <constraint firstAttribute="width" constant="100" id="Be4-w9-Hqy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="直播未开始" image="直播未开始">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeO-EX-Knv">
+                        <rect key="frame" x="261" y="35" width="75" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="B58-t6-zkf"/>
+                            <constraint firstAttribute="height" constant="20" id="Lj0-Xc-zQu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="16/18">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qf5-pU-TDF" secondAttribute="trailing" constant="10" id="5Xe-ay-8d5"/>
+                    <constraint firstItem="fg3-i9-iHM" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="CyA-rk-M23"/>
+                    <constraint firstItem="fg3-i9-iHM" firstAttribute="top" secondItem="u2M-MI-mrk" secondAttribute="bottom" constant="5" id="GWA-W3-yLQ"/>
+                    <constraint firstItem="jeO-EX-Knv" firstAttribute="leading" secondItem="Ucs-lo-oM2" secondAttribute="trailing" constant="-5" id="Np8-9S-kep"/>
+                    <constraint firstItem="6vo-EI-kyQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RNF-eR-SND"/>
+                    <constraint firstItem="VFT-Re-DEw" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="Vqj-mR-bQf"/>
+                    <constraint firstItem="u2M-MI-mrk" firstAttribute="top" secondItem="VFT-Re-DEw" secondAttribute="bottom" constant="5" id="Yg2-eC-5s6"/>
+                    <constraint firstItem="u2M-MI-mrk" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="c9l-bE-6gB"/>
+                    <constraint firstItem="qf5-pU-TDF" firstAttribute="centerY" secondItem="fg3-i9-iHM" secondAttribute="centerY" id="cNu-k1-N0e"/>
+                    <constraint firstItem="74m-SE-yxB" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="l9i-fb-Qxw"/>
+                    <constraint firstItem="VFT-Re-DEw" firstAttribute="top" secondItem="74m-SE-yxB" secondAttribute="bottom" constant="10" id="oPJ-Nu-l1j"/>
+                    <constraint firstItem="Ucs-lo-oM2" firstAttribute="leading" secondItem="VFT-Re-DEw" secondAttribute="trailing" constant="25" id="paC-vJ-WjW"/>
+                    <constraint firstItem="Ucs-lo-oM2" firstAttribute="centerY" secondItem="VFT-Re-DEw" secondAttribute="centerY" id="qJX-JV-PFz"/>
+                    <constraint firstItem="6vo-EI-kyQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xaa-O5-n8n"/>
+                    <constraint firstItem="jeO-EX-Knv" firstAttribute="centerY" secondItem="Ucs-lo-oM2" secondAttribute="centerY" id="y3d-eX-jLB"/>
+                    <constraint firstItem="74m-SE-yxB" firstAttribute="top" secondItem="6vo-EI-kyQ" secondAttribute="top" id="zKg-dF-9Pf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="253.5" y="212.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="002" width="94" height="70"/>
+        <image name="直播未开始" width="17" height="11"/>
+    </resources>
+</document>

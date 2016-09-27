@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLXtnewsViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWs-bq-uCk">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="摘要：2016年8月5日青岛华银商品交易中心官网发布系统升级维护的通知，青岛华银商品交易中心于2016年8月6日（星期六)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Fb-nj4">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="eH5-mb-9iF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="eH5-mb-9iF"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="eH5-mb-9iF"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-7-8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1z3-5c-eE4">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="1z3-5c-eE4" secondAttribute="trailing" constant="20" id="75e-He-UyX"/>
+                        <constraint firstItem="pUL-Fb-nj4" firstAttribute="top" secondItem="ZWs-bq-uCk" secondAttribute="top" constant="10" id="ldn-Oa-cmP"/>
+                        <constraint firstAttribute="bottom" secondItem="1z3-5c-eE4" secondAttribute="bottom" constant="1" id="qrl-oO-BXz"/>
+                        <constraint firstAttribute="trailing" secondItem="pUL-Fb-nj4" secondAttribute="trailing" constant="15" id="uDN-wp-qP1"/>
+                        <constraint firstItem="pUL-Fb-nj4" firstAttribute="leading" secondItem="ZWs-bq-uCk" secondAttribute="leading" constant="15" id="uhA-f8-S2c"/>
+                        <constraint firstAttribute="height" constant="80" id="y5W-jE-tvx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="pUL-Fb-nj4"/>
+                            <exclude reference="1z3-5c-eE4"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="y5W-jE-tvx"/>
+                            <exclude reference="75e-He-UyX"/>
+                            <exclude reference="qrl-oO-BXz"/>
+                            <exclude reference="ldn-Oa-cmP"/>
+                            <exclude reference="uDN-wp-qP1"/>
+                            <exclude reference="uhA-f8-S2c"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="pUL-Fb-nj4"/>
+                            <include reference="1z3-5c-eE4"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="y5W-jE-tvx"/>
+                            <include reference="75e-He-UyX"/>
+                            <include reference="qrl-oO-BXz"/>
+                            <include reference="ldn-Oa-cmP"/>
+                            <include reference="uDN-wp-qP1"/>
+                            <include reference="uhA-f8-S2c"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ZWs-bq-uCk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CeH-zK-CwG"/>
+                <constraint firstItem="ZWs-bq-uCk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="afX-lJ-LFF"/>
+                <constraint firstAttribute="trailing" secondItem="ZWs-bq-uCk" secondAttribute="trailing" id="bOr-73-VFs"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="ZWs-bq-uCk"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="CeH-zK-CwG"/>
+                    <exclude reference="afX-lJ-LFF"/>
+                    <exclude reference="bOr-73-VFs"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="ZWs-bq-uCk"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="CeH-zK-CwG"/>
+                    <include reference="afX-lJ-LFF"/>
+                    <include reference="bOr-73-VFs"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
