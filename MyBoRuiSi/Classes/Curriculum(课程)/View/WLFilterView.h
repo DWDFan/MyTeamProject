@@ -10,7 +10,7 @@
 
 @protocol WLFilterViewDelegate <NSObject>
 
-- (void)filerViewDidselectedIndex:(NSInteger)index;
+- (void)filerViewDidselectedButton:(UIButton *)button Index:(NSInteger)index isChange:(BOOL)isChange;
 
 @end
 
