@@ -40,7 +40,7 @@
                                    success:(void (^)(id responseObject))success
                                    failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Kecheng&do=classDetail" parameters:@{@"id":courseId}
+    [MOHTTP GET:@"API/index.php?action=Kecheng&do=classDetail" parameters:@{@"id":[MOTool getNULLString:courseId]}
      
     success:^(id responseObject) {
         
@@ -63,7 +63,8 @@
                             success:(void (^)(id responseObject))success
                             failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"uid":uid, @"tid":jid};
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"tid":[MOTool getNULLString:jid]};
     
     [MOHTTP GET:@"API/index.php?action=Teacher&do=getDetail" parameters:param success:^(id responseObject) {
         
@@ -86,7 +87,8 @@
                                 success:(void (^)(id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"uid":uid, @"jid":jid};
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"jid":[MOTool getNULLString:jid]};
     
     [MOHTTP GET:@"API/index.php?action=Jigou&do=getDetail" parameters:param success:^(id responseObject) {
         
@@ -135,14 +137,14 @@
                            success:(void (^)(id responseObject))success
                            failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"num":num,
+    NSDictionary *param = @{@"num": num,
                             @"page":page,
-                            @"key":key,
+                            @"key": [MOTool getNULLString:key],
                             @"type":type,
-                            @"ppid":ppid,
-                            @"priceOrder":priceOrder,
+                            @"ppid":[MOTool getNULLString:ppid],
+                            @"priceOrder":[MOTool getNULLString:priceOrder],
                             @"zbstatus":zbstatus,
-                            @"saleNum":saleNum,
+                            @"saleNum":[MOTool getNULLString:saleNum],
                             @"level":level};
 
     [MOHTTP GET:@"API/index.php?action=So&do=soClass" parameters:param success:^(id responseObject) {
@@ -168,7 +170,7 @@
 {
     NSDictionary *param = @{@"num":num,
                             @"page":page,
-                            @"key":key};
+                            @"key":[MOTool getNULLString:key]};
     
     [MOHTTP GET:@"API/index.php?action=So&do=soTeacher" parameters:param success:^(id responseObject) {
         
@@ -192,9 +194,9 @@
                                 success:(void (^)(id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"num":num,
-                            @"page":page,
-                            @"key":key};
+    NSDictionary *param =  @{@"num":num,
+                             @"page":page,
+                             @"key":[MOTool getNULLString:key]};
     
     [MOHTTP GET:@"API/index.php?action=So&do=soJigou" parameters:param success:^(id responseObject) {
         
@@ -221,7 +223,7 @@
     
     NSDictionary *param = @{@"num":num,
                             @"page":page,
-                            @"key":key};
+                            @"key":[MOTool getNULLString:key]};
     
     [MOHTTP GET:@"API/index.php?action=So&do=soPost" parameters:param success:^(id responseObject) {
         
@@ -269,8 +271,8 @@
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"uid":uid,
-                            @"name":name,
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"name":[MOTool getNULLString:name],
                             @"card_id":card_id ? card_id : [NSNull null],
                             @"zs_num":zs_num ? zs_num : [NSNull null]};
 

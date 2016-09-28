@@ -17,6 +17,7 @@
 #import "WLVODCourseListViewController.h"
 
 #import "ZGCourseTypeModel.h"
+#import "WLLiveCourseTypeCell.h"
 #import "WLZxzbViewController.h"
 #import "WLCourseDataHandle.h"
 #import "WLCourseTypeCell.h"
@@ -160,9 +161,9 @@
         cellFour = [[[NSBundle mainBundle] loadNibNamed:IDFour owner:nil options:nil] lastObject];
     }
     
-    LiveTableViewTwoCell  *cellFive = [tableView dequeueReusableCellWithIdentifier:IDFive];
+    WLLiveCourseTypeCell *cellFive = [tableView dequeueReusableCellWithIdentifier:IDFive];
     if (!cellFive) {
-        cellFive = [[[NSBundle mainBundle] loadNibNamed:IDFive owner:nil options:nil] lastObject];
+        cellFive =[[WLLiveCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDFive];
     }
     
     
@@ -252,12 +253,13 @@
                 cell = cellTwo;
                 
             }else{
-                cellFive.LiveTableViewTwoCellbolck = ^(){
-                    
+                
+                cellFive.typeArray = _hotCourseArray;
+                [cellFive setBlock:^(NSString *typeId) {
                     WLZxzbViewController *zxvc = [[WLZxzbViewController alloc]init];
                     [self.navigationController pushViewController:zxvc animated:YES];
-                };
-                
+
+                }];
                 cell = cellFive;
             }
         }else{
@@ -297,7 +299,7 @@
                 
             }else{
                 
-                a = 80;
+                a = 100;
             }
             
         }else{

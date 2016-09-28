@@ -7,6 +7,7 @@
 //
 
 #import "WLVODCourseListViewController.h"
+#import "WLCourseDetailViewController.h"
 #import "WLCourseListCell.h"
 #import "WLFilterView.h"
 #import "WLHomeDataHandle.h"
@@ -134,6 +135,14 @@
     }
     cell.course = _courses[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+    vc.courseId = [_courses[indexPath.row] id];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
