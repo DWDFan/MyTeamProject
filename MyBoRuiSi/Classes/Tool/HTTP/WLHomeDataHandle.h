@@ -69,6 +69,8 @@
                               ppid:(NSString *)ppid
                         priceOrder:(NSString *)priceOrder
                           zbstatus:(NSNumber *)zbstatus
+                           saleNum:(NSString *)saleNum
+                             level:(NSNumber *)level
                            success:(void (^)(id responseObject))success
                            failure:(void (^)(NSError *error))failure;
 

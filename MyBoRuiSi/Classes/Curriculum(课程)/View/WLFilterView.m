@@ -11,6 +11,7 @@
 @implementation WLFilterView
 {
     UIView *_indecateV;
+    UIButton *_currentBtn;
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -24,8 +25,8 @@
 - (void)setSubviews
 {
     NSArray *titles = @[@"销量", @"价格", @"分类"];
-    NSArray *imagesNomal = @[@"sort_sellNum_nomal", @"sort_price_nomal", @"素彩网www.sc115.com-139-拷贝-2"];
-    NSArray *imagesSelect = @[@"sort_sellNum_select", @"sort_price_asc", @"素彩网www.sc115.com-139-拷贝"];
+    NSArray *imagesNomal = @[@"sort_sellNum_nomal", @"sort_price_nomal", @"素彩网www.sc115.com-139-拷贝"];
+    NSArray *imagesSelect = @[@"sort_sellNum_select", @"sort_price_asc", @"素彩网www.sc115.com-139-拷贝-2"];
     
     for (int i = 0; i < 3; i ++) {
         
@@ -49,6 +50,8 @@
         
         [self addSubview:button];
         [self addSubview:line];
+        
+        i == 0 ? _currentBtn = button : nil;
     }
     
     UIView *indecateV = [[UIView alloc] init];
@@ -65,9 +68,20 @@
 
 - (void)buttonAction:(UIButton *)sender
 {
-    sender.selected = YES;
-    
     NSInteger index = sender.tag - 1000;
+
+    BOOL isChange = (sender != _currentBtn);
+
+    if (!isChange && index == 2) {
+        
+        sender.selected = !sender.selected;
+//        _currentBtn.selected = NO;
+//        sender.selected = YES;
+    }else {
+        _currentBtn.selected = NO;
+        
+        sender.selected = YES;
+    }
     
     [UIView animateWithDuration:0.2 animations:^{
         
@@ -75,8 +89,10 @@
     }];
     
     if (self.delegate) {
-        [self.delegate filerViewDidselectedIndex:index];
+        [self.delegate filerViewDidselectedButton:sender Index:index isChange:isChange];
     }
+    
+    _currentBtn = sender;
 }
 
 @end

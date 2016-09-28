@@ -279,7 +279,7 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
         case ZGSearchTypeCourse:
         case ZGSearchTypeStandard: // 标准也调用课程
         {
-            [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:_textFiled_main.text type:@0 ppid:@"" priceOrder:@"asc" zbstatus:@1 success:^(id responseObject) {
+            [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:_textFiled_main.text type:@0 ppid:@"" priceOrder:@"asc" zbstatus:@1 saleNum:@"asc" level:@1 success:^(id responseObject) {
                 
                 _dataSourceArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 [self.tableView reloadData];
