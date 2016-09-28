@@ -130,6 +130,8 @@
                               ppid:(NSString *)ppid
                         priceOrder:(NSString *)priceOrder
                           zbstatus:(NSNumber *)zbstatus
+                           saleNum:(NSString *)saleNum
+                             level:(NSNumber *)level
                            success:(void (^)(id responseObject))success
                            failure:(void (^)(NSError *error))failure
 {
@@ -139,7 +141,10 @@
                             @"type":type,
                             @"ppid":ppid,
                             @"priceOrder":priceOrder,
-                            @"zbstatus":zbstatus};
+                            @"zbstatus":zbstatus,
+                            @"saleNum":saleNum,
+                            @"level":level};
+
     [MOHTTP GET:@"API/index.php?action=So&do=soClass" parameters:param success:^(id responseObject) {
         
         success(responseObject);

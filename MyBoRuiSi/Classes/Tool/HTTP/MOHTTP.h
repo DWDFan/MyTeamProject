@@ -42,7 +42,7 @@
  *  fileURL 上传路径
  *
  */
-- (NSURLSessionUploadTask *)uploadTaskWithUrlString:(NSString *)urlString
++ (NSURLSessionUploadTask *)uploadTaskWithUrlString:(NSString *)urlString
                                          parameters:( id)parameters
                                            mimeType:(NSString *)mimeType
                                          sourceData:(NSData*)sourceData

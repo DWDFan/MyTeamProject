@@ -16,6 +16,25 @@
  *  @param telphone 手机号
  *  @param success
  *  @param failure
+ 
+ 正常
+ {
+    code = 1;
+    msg =     {
+        code = 80319;
+        msg = "\U53d1\U9001\U6210\U529f";
+    };
+    statusCode = "(null)";
+ }
+ 
+ 异常
+ {
+    code = 1;
+    msg = "<null>";
+    statusCode = "(null)";
+ }
+
+ 
  */
 + (void)requestTelCodeWithTelphone:(NSString *)telphone
                            success:(void (^)(id responseObject))success
@@ -39,6 +58,14 @@
  *  @param yqcode   邀请码
  *  @param success
  *  @param failure
+ 
+ {
+    code = 1;
+    id = 16;
+    msg = "\U6ce8\U518c\U6210\U529f";
+    statusCode = "(null)";
+    telphone = 13288661234;
+ }
  */
 + (void)requestRegisterWithTelphone:(NSString *)telphone
                                code:(NSString *)code
@@ -109,15 +136,17 @@
                                   success:(void (^)(id responseObject))success
                                   failure:(void (^)(NSError *error))failure
 {
+//    if (!nickname || !uid) failure(nil);
+    
     NSDictionary *param = @{@"uid":uid,
-                            @"photo":photo,
-                            @"sex":sex,
+                            @"photo":photo ? photo : [NSNull null],
+                            @"sex":sex? sex : [NSNull null],
                             @"nickname":nickname,
-                            @"year":year,
-                            @"month":month,
-                            @"day":day,
-                            @"job":job,
-                            @"address":address};
+                            @"year":year? year : [NSNull null],
+                            @"month":month? month : [NSNull null],
+                            @"day":day? day : [NSNull null],
+                            @"job":job? job : [NSNull null],
+                            @"address":address? address : [NSNull null]};
     
     [MOHTTP GET:@"API/index.php?action=User&do=finishInfo" parameters:param success:^(id responseObject) {
         
@@ -135,20 +164,29 @@
  *  @param filedata 头像数据
  *  @param success
  *  @param failure
+ 
+ {
+    code = 1;
+    link = "http://brs.yerhu.com/API/upload/1474970222.jpg";
+    msg = ok;
+    statusCode = "(null)";
+ }
  */
 + (void)requestUploadPhotoWithUid:(NSString *)uid
                          filedata:(NSData *)filedata
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"uid":uid, @"filedata":filedata};
+    NSDictionary *param = @{@"uid":uid, @"Filedata":filedata};
     
-    [MOHTTP GET:@"API/index.php?action=Upload&do=appUpload" parameters:param success:^(id responseObject) {
+    [MOHTTP Post:@"API/index.php?action=Upload&do=appUpload" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
+    
+
 }
 
 @end

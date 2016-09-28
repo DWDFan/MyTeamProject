@@ -67,7 +67,7 @@
             WLLog(@"%@",dic);
             if ([dic[@"code"]integerValue] == 1) {
                 
-                [MOProgressHUD showErrorWithStatus:@"验证码已经发到你手机,请留意你的手机"];
+                [MOProgressHUD showSuccessWithStatus:@"验证码已经发到你手机,请留意你的手机"];
 //                self.code.text = dic[@"json"];
             }else{
                 [MOProgressHUD showErrorWithStatus:dic[@"msg"]];

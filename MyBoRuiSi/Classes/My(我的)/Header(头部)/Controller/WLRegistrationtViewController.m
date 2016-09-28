@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *message;
 @property (weak, nonatomic) IBOutlet UITextField *yaoqingma;
 
+
 @end
 
 @implementation WLRegistrationtViewController
@@ -79,9 +80,7 @@
             
             if ([dic[@"code"] integerValue]  == 1) {
                 
-                [MOProgressHUD showErrorWithStatus:@"验证码已经发到你手机,请留意你的手机"];
-                
-//                self.message.text = dic[@"json"];
+                [MOProgressHUD showSuccessWithStatus:@"验证码已经发到你手机,请留意你的手机"];
                 
             }else{
                 
