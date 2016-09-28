@@ -39,27 +39,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-       WLMyTableViewCell *header = [[[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil]lastObject];
-    //创建头部登录按钮并监听按钮
-    UIButton *button_main = [[UIButton alloc] initWithFrame:CGRectMake(70, 0, Swidth - 70, 80)];
-    [button_main addTarget:self action:@selector(button_main:) forControlEvents:UIControlEventTouchDown];
-    
-    [header addSubview:button_main];
-
-    self.tableView.tableHeaderView = header;
-    
-    
-    
-    //添加手势
-    UITapGestureRecognizer *tapRecognizerWeibo=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collection:)];
-    
-    tapRecognizerWeibo.numberOfTapsRequired = 1;
-    tapRecognizerWeibo.numberOfTouchesRequired = 1;
-    //拖一个按钮作为手势
-    [header.button_mian addGestureRecognizer:tapRecognizerWeibo];
-    
+    if ([WLUserInfo share].isLogin) {
+        [self userLoginStatusLogin];
+    }else{
+        [self userLoginStatusNotLgoin];
+    }
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
@@ -69,14 +53,13 @@
     [btn setTitle:@"我的" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    
-    
     
     //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    
+    //监听是否登录
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLoginStatus:) name:@"changeLoginStatus" object:nil];
 }
 
 
@@ -101,29 +84,54 @@
     [self.navigationController pushViewController:notice animated:YES];
     
 }
-//手势
-- (void)collection:(UITapGestureRecognizer *)open{
+
+#pragma mark - Private Method
+//未登录状态
+- (void)userLoginStatusNotLgoin{
+    WLMyTableViewCell *header = [[[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil] firstObject];
     
-    
-    //我的收藏
-    WLheadsViewController *head = [[WLheadsViewController alloc]init];
-    [self.navigationController pushViewController:head animated:YES];
+    __weak typeof(self) weakSelf = self;
+    header.tapHeaderBlock = ^(){
+        WLRegisteringViewController *loginVC = [[WLRegisteringViewController alloc] init];
+        [weakSelf.navigationController pushViewController:loginVC animated:YES];
+    };
+    header.colletionActionBlock = ^(){
+        WLRegisteringViewController *loginVC = [[WLRegisteringViewController alloc] init];
+        [weakSelf.navigationController pushViewController:loginVC animated:YES];
+    };
+    self.tableView.tableHeaderView = header;
+ 
 }
 
-//头部登录
-- (void)button_main:(UIButton *)button{
+//登录状态
+- (void)userLoginStatusLogin{
+    WLUserLoginstatusCell *header = [[[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil] lastObject];
     
-    
-    WLRegisteringViewController *thePersonalData = [[WLRegisteringViewController alloc] init];
-    
-    [self.navigationController pushViewController:thePersonalData animated:YES];
-    
-    
+    __weak typeof(self) weakSelf = self;
+    header.tapHeaderBlock = ^(){
+        ThePersonalDataTableViewController *PersonalData = [[ThePersonalDataTableViewController alloc] init];
+        [weakSelf.navigationController pushViewController:PersonalData animated:YES];
+    };
+    header.colletionActionBlock = ^(){
+        //我的收藏
+        WLheadsViewController *head = [[WLheadsViewController alloc]init];
+        [weakSelf.navigationController pushViewController:head animated:YES];
+    };
+    self.tableView.tableHeaderView = header;
 }
 
 
-
-
+#pragma mark - Notification implementation
+/** 刷新用户登录状态 */
+- (void)reloadLoginStatus:(NSNotification *)noti{
+    if ([WLUserInfo share].isLogin) {
+        //加载用户数据
+        [[WLUserInfo share] loadUserInfo];
+        [self userLoginStatusLogin];
+    }else{
+        [self userLoginStatusNotLgoin];
+    }
+}
 
 #pragma mark - Table view data source
 //点击cell

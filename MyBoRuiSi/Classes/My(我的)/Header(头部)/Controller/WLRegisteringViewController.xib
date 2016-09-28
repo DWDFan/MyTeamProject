@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="code" destination="hBa-Js-Veq" id="pFG-Pj-UtO"/>
                 <outlet property="phone" destination="pbv-9U-7Sl" id="3zD-mq-D2c"/>
+                <outlet property="verify_btn" destination="qiX-bU-PwB" id="Jz9-G3-gG2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

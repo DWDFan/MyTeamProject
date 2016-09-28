@@ -10,6 +10,7 @@
 #import "WLAbuoutViewController.h"
 #import "WLRegisteringViewController.h"
 
+#import "WLUserInfo.h"
 @interface WLSettingViewController ()
 
 @end
@@ -48,6 +49,10 @@
 }
 //退出当前账户
 - (IBAction)Tcbutton:(id)sender {
+   
+    //清除用户数据
+    [[WLUserInfo share] cleanUserInfo];
+    
     WLRegisteringViewController *reg = [[WLRegisteringViewController alloc]init];
     [self.navigationController pushViewController:reg animated:YES];
 

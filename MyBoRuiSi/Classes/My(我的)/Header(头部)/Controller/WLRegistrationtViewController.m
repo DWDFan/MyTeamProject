@@ -17,8 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UITextField *message;
 @property (weak, nonatomic) IBOutlet UITextField *yaoqingma;
+@property (weak, nonatomic) IBOutlet UIButton *verify_btn;
 
-
+@property (strong, nonatomic) NSTimer *timer;//定时器
+@property (assign, nonatomic) int secondsCountDown;//计数标识
 @end
 
 @implementation WLRegistrationtViewController
@@ -52,6 +54,33 @@
     
     return theImage;
 }
+#pragma mark - Private Method
+-(void)countDown
+{
+    self.verify_btn.enabled = NO;
+    [self.message becomeFirstResponder];
+    
+    self.secondsCountDown = 60;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+}
+
+//secondsCountDown = 60;//60秒倒计时
+//定时器方法
+-(void)timeFireMethod
+{
+    self.secondsCountDown--;
+    
+    if(self.secondsCountDown <= 0){
+        [self.timer invalidate];
+        self.timer = nil;
+        
+        [self.verify_btn setEnabled:YES];
+        [self.verify_btn setTitle:@"重新获取" forState:UIControlStateNormal];
+        
+    }else{
+        [self.verify_btn setTitle:[NSString stringWithFormat:@"%2dS",self.secondsCountDown] forState:UIControlStateNormal];
+    }
+}
 //用户协议
 - (IBAction)Xybutton:(id)sender {
     
@@ -73,7 +102,7 @@
         [MOProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
         
     }else {
-        
+        [self countDown];
         [WLLoginDataHandle requestTelCodeWithTelphone:self.phone.text success:^(id responseObject) {
             
             NSDictionary *dic = responseObject ;

@@ -92,7 +92,33 @@
  *  @param code     验证码
  *  @param success
  *  @param failure
- */
+
+{
+    bagPwd = 0;
+    code = 1;
+    favNum = 100;
+    hadJg = 1;
+    id = 17;
+    money = "<null>";
+    msg = "\U767b\U9646\U6210\U529f";
+    nickname = "\U6682\U65e0";
+    score = 0;
+    statusCode = "(null)";
+    telphone = 13288664746;
+    vip = 0;
+    vipEndtm = "<null>";
+}
+ 
+ vipEndtm vip过期日期
+ favNum 收藏数
+ score 积分
+ nickname 昵称
+ money 钱包余额
+ vip 是否是vip
+ hadJg 是否参入了机构
+ telphone 手机号
+
+  */
 + (void)requestLoginWithTelphone:(NSString *)telphone
                             code:(NSString *)code
                          success:(void (^)(id responseObject))success
@@ -185,8 +211,24 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
-    
-
 }
 
+
+
+/**
+ *  获取个人信息
+ *
+ * @param uid      用户Id
+ *
+ */
++ (void)requestGetUserInfoWithUid:(NSString *)uid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getUserInfo" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 @end
