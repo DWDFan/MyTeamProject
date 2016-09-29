@@ -55,7 +55,7 @@
 
 - (void)requestData
 {
-    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@0 ppid:@"" priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
         
         _courses = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.tableView reloadData];
@@ -86,6 +86,7 @@
         }else {
             [_saleNumOrder isEqualToString:@"desc"] ? (_saleNumOrder = @"asc") : (_saleNumOrder = @"desc");
         }
+        [self requestData];
         
     }else if (index == 1) {         // 价格
         
@@ -96,26 +97,33 @@
             [_priceOrder isEqualToString:@"desc"] ? (_priceOrder = @"asc") : (_priceOrder = @"desc");
             [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"sort_price_%@",_priceOrder]] forState:UIControlStateSelected];
         }
+        [self requestData];
         
     }else {
         
         NSMutableArray *menus = [NSMutableArray arrayWithCapacity:0];
-        for (int i = 0; i < _filterArray.count; i ++) {
+        for (NSInteger i = 0; i < _filterArray.count; i ++) {
             
-            [menus addObject:[KxMenuItem menuItem:_filterArray[i][@"type"] image:nil target:self action:@selector(kxMenuAction:)]];
+            KxMenuItem *item = [KxMenuItem menuItem:_filterArray[i][@"type"] image:nil target:self action:@selector(kxMenuAction:)];
+            item.tag = i;
+            item.foreColor = COLOR_WORD_BLACK;
+            [menus addObject:item];
         }
         NSArray *menuItems = menus;
         [KxMenu setTitleFont:[UIFont systemFontOfSize:14]];
         [KxMenu showMenuInView:self.view fromRect:CGRectMake(WLScreenW-60, 45, 0, 0) menuItems:menuItems dismissBlock:^{
-            
+            [_filterView setFilterButtonNormal];
         }];
     }
-    [self requestData];
 }
 
 - (void)kxMenuAction:(id)sender
 {
-    
+    [_filterView setFilterButtonNormal];
+    KxMenuItem *item = (KxMenuItem *)sender;
+    NSInteger index = item.tag;
+    _sortId = _filterArray[index][@"id"];
+    [self requestData];
 }
 
 #pragma mark - tableViewDelegate

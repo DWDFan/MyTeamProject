@@ -18,4 +18,6 @@
 
 @property (nonatomic, weak) id<WLFilterViewDelegate> delegate;
 
+- (void)setFilterButtonNormal;
+
 @end

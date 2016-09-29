@@ -10,4 +10,6 @@
 
 @interface WLVODCourseListViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *sortId;
+
 @end
