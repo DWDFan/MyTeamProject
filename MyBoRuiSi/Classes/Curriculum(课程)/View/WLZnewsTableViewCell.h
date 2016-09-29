@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLCourceModel.h"
 
 @interface WLZnewsTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) WLCourceModel *course;
 
 @end

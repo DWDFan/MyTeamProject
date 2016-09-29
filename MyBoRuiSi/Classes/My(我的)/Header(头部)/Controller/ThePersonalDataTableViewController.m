@@ -10,6 +10,7 @@
 #import "ThePersonalDataTableViewCell.h"
 #import "WLThePersonalDataTableViewCellTwo.h"
 
+#import "WLLoginDataHandle.h"
 @interface ThePersonalDataTableViewController ()
 
 @end
@@ -19,14 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
     self.title = @"个人资料";
+    
+    //获取用户信息
+    [self requestGetUserInfo];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
+
 
 #pragma mark - Table view data source
 
@@ -138,11 +138,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     
-    
-    
-    
-    
+}
+
+
+#pragma mark - Request
+- (void)requestGetUserInfo
+{
+    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

@@ -248,10 +248,14 @@
                     [menberBtn setTitleColor:color_red forState:UIControlStateNormal];
                     menberBtn.tag = 1000;
                     //            [menberBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
+                    menberBtn.hidden = YES;
                     [cell addSubview:menberBtn];
                     _menberBtn = menberBtn;
                 }
                 _menberBtn.x = _disPriLbl ? _disPriLbl.x + _disPriLbl.width + 15: cell.textLabel.x + cell.textLabel.width + 15;
+                if (_course.vipFree) {
+                    _menberBtn.hidden = NO;
+                }
                 
             }else if (indexPath.row == 2) {
                 cell.textLabel.text = [NSString stringWithFormat:@"有效期 : %@个月",[MOTool getNULLString:_course.period]];

@@ -10,14 +10,15 @@
 #import "WLCurriculumTableViewCell.h"
 #import "WLCurriculumTableViewCellTwo.h"
 #import "WLCurriculumTableViewThreeCell.h"
-#import "LiveTableViewTwoCell.h"
 #import "LiveTableViewCell.h"
 
-#import "DirectSeedingViewController.h"
+//#import "DirectSeedingViewController.h"
 #import "WLVODCourseListViewController.h"
+#import "WLLiveCourseListViewController.h"
 
 #import "ZGCourseTypeModel.h"
-#import "WLZxzbViewController.h"
+#import "WLLiveCourseTypeCell.h"
+//#import "WLZxzbViewController.h"
 #import "WLCourseDataHandle.h"
 #import "WLCourseTypeCell.h"
 #import "MOHTTP.h"
@@ -160,9 +161,9 @@
         cellFour = [[[NSBundle mainBundle] loadNibNamed:IDFour owner:nil options:nil] lastObject];
     }
     
-    WLCourseTypeCell  *cellFive = [tableView dequeueReusableCellWithIdentifier:IDFive];
+    WLLiveCourseTypeCell *cellFive = [tableView dequeueReusableCellWithIdentifier:IDFive];
     if (!cellFive) {
-        cellFive = [[WLCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDFive];
+        cellFive =[[WLLiveCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDFive];
     }
     
     
@@ -184,8 +185,8 @@
                 //在线直播
                 cellFour.WLiveTableViewCellBlcok = ^(){
                     
-                    WLZxzbViewController *zxvc = [[WLZxzbViewController alloc]init];
-                    [self.navigationController pushViewController:zxvc animated:YES];
+                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 };
                 
             }else{
@@ -197,8 +198,8 @@
                 //在线直播
                 cellFour.WLiveTableViewCellBlcok = ^(){
                     
-                    WLZxzbViewController *zxvc = [[WLZxzbViewController alloc]init];
-                    [self.navigationController pushViewController:zxvc animated:YES];
+                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 };
             }
         }else{              // ============ 点播
@@ -233,6 +234,13 @@
             }else{
                 
                 cellFive.typeArray = _hotCourseArray;
+
+                [cellFive setBlock:^(NSString *typeId) {
+                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                    vc.sortId = typeId;
+                    [self.navigationController pushViewController:vc animated:YES];
+
+                }];
                 cell = cellFive;
             }
         }else{                  // ============ 点播
@@ -270,7 +278,7 @@
                 
             }else{
                 
-                a = 80;
+                a = 100;
             }
             
         }else{

@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="message" destination="SGy-wD-fAE" id="C1u-N1-pQr"/>
                 <outlet property="phone" destination="ZDW-2G-lYg" id="PnX-ni-ZdK"/>
+                <outlet property="verify_btn" destination="Oto-E0-jRd" id="vhD-9F-P9v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yaoqingma" destination="7Z1-rQ-gJC" id="BX4-6J-FOo"/>
             </connections>

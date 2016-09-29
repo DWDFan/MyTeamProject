@@ -88,4 +88,16 @@
                          filedata:(NSData *)filedata
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure;
+
+
+
+/** 
+ *  获取个人信息
+ *
+ * @param uid      用户Id
+ *
+ */
++ (void)requestGetUserInfoWithUid:(NSString *)uid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 @end

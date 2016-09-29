@@ -16,6 +16,7 @@
     UILabel *_priceLbl;
     UILabel *_authLbl;
     UILabel *_joinNumLbl;
+    UIButton *_vipFreeBtn;
 }
 
 @end
@@ -46,10 +47,10 @@
     [self addSubview:_nameLbl];
     
     UILabel *priceLbl = [[UILabel alloc] init];
-    priceLbl.frame = CGRectMake(_nameLbl.left, _nameLbl.bottom + 5, _nameLbl.width, 12);
+    priceLbl.frame = CGRectMake(_nameLbl.left, _nameLbl.bottom + 5, 150, 14);
     priceLbl.numberOfLines = 1;
     priceLbl.textColor = color_red;
-    priceLbl.font = [UIFont systemFontOfSize:12];
+    priceLbl.font = [UIFont boldSystemFontOfSize:14];
     [self addSubview:priceLbl];
     _priceLbl = priceLbl;
     
@@ -68,6 +69,18 @@
     joinNumLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:joinNumLbl];
     _joinNumLbl = joinNumLbl;
+    
+    UIButton *vipFreeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    vipFreeBtn.frame = CGRectMake(_priceLbl.right + 15, priceLbl.y - 4, 60, 22);
+    vipFreeBtn.backgroundColor = KColorPink;
+    vipFreeBtn.layer.cornerRadius = 4;
+    vipFreeBtn.layer.borderColor = color_red.CGColor;
+    vipFreeBtn.layer.borderWidth = 0.5;
+    vipFreeBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [vipFreeBtn setTitle:@"会员免费" forState:UIControlStateNormal];
+    [vipFreeBtn setTitleColor:color_red forState:UIControlStateNormal];
+    [self addSubview:vipFreeBtn];
+    _vipFreeBtn = vipFreeBtn;
 }
 
 - (void)setCourse:(WLCourceModel *)course
@@ -79,6 +92,15 @@
     _nameLbl.text = _course.name;
     
     _priceLbl.text = [NSString stringWithFormat:@"￥%@",course.price];
+    CGFloat width = [MOTool MOtextSizeW:_priceLbl.text WithHigth:14 WithFount:_priceLbl.font];
+    _priceLbl.width = width <_nameLbl.width - 60 ? width : _nameLbl.width - 70;
+    
+    _vipFreeBtn.x = _priceLbl.right + 15;
+    if (course.vipFree) {
+        _vipFreeBtn.hidden = NO;
+    }else {
+        _vipFreeBtn.hidden = YES;
+    }
     
     _authLbl.text = [NSString stringWithFormat:@"主讲:%@",course.author];
     

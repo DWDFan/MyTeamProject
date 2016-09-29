@@ -11,9 +11,15 @@
 @interface WLMyTableViewCell : UITableViewCell
 
 
-@property (weak, nonatomic) IBOutlet UIButton *button_mian;
 
 
-@property (nonatomic,copy)  void(^WLMyTableViewCellBlock)();
+@property (nonatomic,copy)  void(^tapHeaderBlock)();
+@property (nonatomic,copy)  void(^colletionActionBlock)();
 
+@end
+
+
+@interface WLUserLoginstatusCell : UITableViewCell
+@property (nonatomic,copy)  void(^tapHeaderBlock)();
+@property (nonatomic,copy)  void(^colletionActionBlock)();
 @end

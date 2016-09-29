@@ -17,6 +17,10 @@
 
 //验证码
 @property (weak, nonatomic) IBOutlet UITextField *code;
+@property (weak, nonatomic) IBOutlet UIButton *verify_btn;
+
+@property (strong, nonatomic) NSTimer *timer;//定时器
+@property (assign, nonatomic) int secondsCountDown;//计数标识
 
 @end
 
@@ -34,6 +38,7 @@
     self.navigationItem.titleView = btn;
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+   
 }
 
 //颜色转图片
@@ -52,14 +57,11 @@
 
 //获取验证码
 - (IBAction)Hqubutton:(id)sender {
-    
-    
     if (self.phone.text.length == 0  || self.phone.text.length > 11 ) {
-        
          [MOProgressHUD showErrorWithStatus:@"请输入正确手机号码"];
-        
     }else{
-        
+        //倒计时
+        [self countDown];
         [WLLoginDataHandle requestTelCodeWithTelphone:self.phone.text success:^(id responseObject) {
             
             NSDictionary *dic = responseObject;
@@ -97,16 +99,14 @@
             //返回值
             if ([dic[@"code"]integerValue] == 1) {
                 
+                
                 [MOProgressHUD dismiss];
                 
-                [WLUserInfo share].userId = dic[@"id"];
-
-                [[NSUserDefaults standardUserDefaults] setObject:dic[@"id"] forKey:@"userId"];
-                
-                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isLogin"];
-                
+                [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"userInfo"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
+                //通知刷新登录状态
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginStatus" object:nil];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }else {
@@ -127,4 +127,31 @@
     [self.navigationController pushViewController:reg animated:YES];
 }
 
+#pragma mark - Private Method
+-(void)countDown
+{
+    self.verify_btn.enabled = NO;
+    [self.code becomeFirstResponder];
+    
+    self.secondsCountDown = 60;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+}
+
+//secondsCountDown = 60;//60秒倒计时
+//定时器方法
+-(void)timeFireMethod
+{
+    self.secondsCountDown--;
+    
+    if(self.secondsCountDown <= 0){
+        [self.timer invalidate];
+        self.timer = nil;
+        
+        [self.verify_btn setEnabled:YES];
+        [self.verify_btn setTitle:@"重新获取" forState:UIControlStateNormal];
+        
+    }else{
+        [self.verify_btn setTitle:[NSString stringWithFormat:@"%2dS",self.secondsCountDown] forState:UIControlStateNormal];
+    }
+}
 @end

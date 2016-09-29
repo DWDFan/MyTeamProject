@@ -7,8 +7,8 @@
 //
 
 #import "WLVODCourseListViewController.h"
+#import "WLCourseDetailViewController.h"
 #import "WLCourseListCell.h"
-#import "WLFilterView.h"
 #import "WLHomeDataHandle.h"
 #import "WLCourseDataHandle.h"
 #import "WLCourceModel.h"
@@ -16,11 +16,7 @@
 
 @interface WLVODCourseListViewController ()<WLFilterViewDelegate>
 
-@property (nonatomic, strong) WLFilterView *filterView;
-@property (nonatomic, strong) NSArray *courses;
-@property (nonatomic, strong) NSArray *filterArray;
-@property (nonatomic, strong) NSString *saleNumOrder;         // 销量
-@property (nonatomic, strong) NSString *priceOrder;
+
 
 @end
 
@@ -142,6 +138,14 @@
     }
     cell.course = _courses[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+    vc.courseId = [_courses[indexPath.row] id];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

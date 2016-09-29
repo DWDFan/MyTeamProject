@@ -176,12 +176,21 @@
 
 /** 信息完成 */
 - (IBAction)requestUserInfoCommit{
+    if (!self.nickname.text || !self.job.text || !self.address.text) {
+        [MOProgressHUD showErrorWithStatus:@"请完善资料"];
+        [MOProgressHUD dismiss];
+        return;
+    }
+    
     [MOProgressHUD show];
     [WLLoginDataHandle requestPerfectPersonalInfoWithUid:self.id photo:self.photoUrl sex:self.sex.text nickname:self.nickname.text year:self.year month:self.month day:self.day job:self.job.text address:self.address.text success:^(id responseObject) {
         NSDictionary *dic = responseObject;
         if ([dic[@"code"]integerValue ] == 1) {
           [MOProgressHUD dismiss];
             
+            //通知刷新登录状态
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginStatus" object:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES]; 
         }else{
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
             [MOProgressHUD dismissWithDelay:1];

@@ -22,9 +22,26 @@
     return userInfo;
 }
 
+
 - (BOOL)isLogin
 {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] integerValue] == 1 ? YES : NO;
+    return self.userId ? YES : NO;
 }
 
+- (void)loadUserInfo{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    
+    _userId = dict[@"id"];
+    _nickname = dict[@"nickname"];
+    _vipEndtm = dict[@"vipEndtm"];
+    _vip = dict[@"vip"];
+    _telphone = dict[@"telphone"];
+    _favNum = dict[@"favNum"];
+    _score = dict[@"scre"];
+}
+
+- (void)cleanUserInfo{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
+    _userId = nil;
+}
 @end

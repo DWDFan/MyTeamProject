@@ -23,9 +23,9 @@
     
     [WLRoot chooseRootViewController:self.window];
     
-    if ([WLUserInfo share].isLogin) {
-        [WLUserInfo share].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    }
+    //加载用户信息
+    [[WLUserInfo share] loadUserInfo];
+    
     
     //窗口可视化
     [self.window makeKeyAndVisible];
