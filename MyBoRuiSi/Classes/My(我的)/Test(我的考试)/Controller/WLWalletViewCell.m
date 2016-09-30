@@ -7,7 +7,11 @@
 //
 
 #import "WLWalletViewCell.h"
+@interface WLWalletViewCell()
 
+@property (weak, nonatomic) IBOutlet UILabel *balance_label;
+
+@end
 @implementation WLWalletViewCell
 
 - (void)awakeFromNib {

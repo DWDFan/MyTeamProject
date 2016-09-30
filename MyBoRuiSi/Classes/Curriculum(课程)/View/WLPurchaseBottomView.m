@@ -67,7 +67,7 @@
 
 - (void)addCartBtnAction:(UIButton *)sender
 {
-    
+    !self.joinShopCarBlock ?: self.joinShopCarBlock();
 }
 
 - (void)tasteBtnAction:(UIButton *)sender

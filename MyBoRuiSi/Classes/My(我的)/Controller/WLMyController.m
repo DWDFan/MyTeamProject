@@ -18,7 +18,6 @@
 #import "WLAttentionViewController.h"//关注
 #import "WLCardViewController.h"//帖子
 #import "WLMyCurriculumViewController.h"//课程
-#import "WLOrderViewController.h"//订单
 #import "WLRecomViewController.h"//推荐好友
 #import "WLSettingViewController.h"//设置
 #import "WLTestViewController.h"//考试
@@ -105,7 +104,7 @@
 
 //登录状态
 - (void)userLoginStatusLogin{
-    WLUserLoginstatusCell *header = [[[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil] lastObject];
+    WLUserLoginstatusCell *header = [[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil][1];
     
     __weak typeof(self) weakSelf = self;
     header.tapHeaderBlock = ^(){
@@ -124,9 +123,9 @@
 #pragma mark - Notification implementation
 /** 刷新用户登录状态 */
 - (void)reloadLoginStatus:(NSNotification *)noti{
+    //加载用户数据
+    [[WLUserInfo share] loadUserInfo];
     if ([WLUserInfo share].isLogin) {
-        //加载用户数据
-        [[WLUserInfo share] loadUserInfo];
         [self userLoginStatusLogin];
     }else{
         [self userLoginStatusNotLgoin];

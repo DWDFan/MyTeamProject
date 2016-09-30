@@ -8,8 +8,9 @@
 
 #import "WLIncomeViewController.h"
 
+#import "WLMyDataHandle.h"
 @interface WLIncomeViewController ()
-
+@property (nonatomic, assign) NSUInteger page;
 @end
 
 @implementation WLIncomeViewController
@@ -27,6 +28,11 @@
     
     //    [MOTool createImageWithColor:]
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+    
+    _page = 1;
+    
+    //获取支出数据
+    [self requestGetMyInComeData];
 }
 
 //颜色转图片
@@ -51,7 +57,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     
     //隐藏点击cell的效果
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -93,6 +99,16 @@
 {
     
     
+}
+
+
+#pragma mark - Request
+- (void)requestGetMyInComeData{
+    [WLMyDataHandle requestGetMyInComeWithUid:[WLUserInfo share].userId page:@(self.page) success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

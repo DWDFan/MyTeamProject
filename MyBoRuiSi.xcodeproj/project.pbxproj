@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		55EB16981D9A525500C414EF /* UIActionSheet+camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EB16971D9A525500C414EF /* UIActionSheet+camera.m */; };
+		55F36ACC1D9CB1D4006634CB /* WLMyDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ACB1D9CB1D4006634CB /* WLMyDataHandle.m */; };
+		55F36ACE1D9CEBB3006634CB /* WLMyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ACD1D9CEBB3006634CB /* WLMyController.m */; };
+		55F36AD11D9D0433006634CB /* WLOrderDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */; };
+		55F36AD51D9D0C5A006634CB /* WLOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36AD41D9D0C5A006634CB /* WLOrderModel.m */; };
+		55F36AE01D9D181D006634CB /* WLOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ADB1D9D181D006634CB /* WLOrderCell.m */; };
+		55F36AE11D9D181D006634CB /* WLOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F36ADC1D9D181D006634CB /* WLOrderCell.xib */; };
+		55F36AE21D9D181D006634CB /* WLOrderDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ADE1D9D181D006634CB /* WLOrderDetailsCell.m */; };
+		55F36AE31D9D181D006634CB /* WLOrderDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F36ADF1D9D181D006634CB /* WLOrderDetailsCell.xib */; };
 		6C5919351D4FA3B600256363 /* MOTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5919341D4FA3B600256363 /* MOTool.m */; };
 		6C5919921D4FA44900256363 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5919391D4FA44900256363 /* AFHTTPRequestOperation.m */; };
 		6C5919931D4FA44900256363 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59193B1D4FA44900256363 /* AFHTTPRequestOperationManager.m */; };
@@ -55,8 +63,6 @@
 		6E13E0C21D52EAF900616BEB /* WLTabeleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E13E0AE1D52EAF900616BEB /* WLTabeleViewController.m */; };
 		6E13E0C31D52EAF900616BEB /* WLTabeleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E13E0AF1D52EAF900616BEB /* WLTabeleViewController.xib */; };
 		6E13E0C71D52EB0A00616BEB /* WLMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E13E0C51D52EB0A00616BEB /* WLMyTableViewCell.m */; };
-		6E13E0CC1D52EB3500616BEB /* WLOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E13E0CA1D52EB3500616BEB /* WLOrderCell.m */; };
-		6E13E0CD1D52EB3500616BEB /* WLOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E13E0CB1D52EB3500616BEB /* WLOrderCell.xib */; };
 		6E13E0D11D53126A00616BEB /* MOTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E13E0CF1D53126A00616BEB /* MOTempViewController.m */; };
 		6E13E0D21D53126A00616BEB /* MOTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E13E0D01D53126A00616BEB /* MOTempViewController.xib */; };
 		6E13E0D61D53347900616BEB /* WLOrderPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E13E0D41D53347900616BEB /* WLOrderPayViewController.m */; };
@@ -65,8 +71,6 @@
 		6E13E0DC1D533ED800616BEB /* WLOrderPayOKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E13E0DA1D533ED800616BEB /* WLOrderPayOKViewController.xib */; };
 		6E8395631D55F2AE00E11087 /* WLOrderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8395611D55F2AE00E11087 /* WLOrderDetailsViewController.m */; };
 		6E8395641D55F2AE00E11087 /* WLOrderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8395621D55F2AE00E11087 /* WLOrderDetailsViewController.xib */; };
-		6E8395681D56183F00E11087 /* WLOrderDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8395661D56183F00E11087 /* WLOrderDetailsCell.m */; };
-		6E8395691D56183F00E11087 /* WLOrderDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8395671D56183F00E11087 /* WLOrderDetailsCell.xib */; };
 		6E83956D1D56271D00E11087 /* WLAddOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */; };
 		6E83956E1D56271D00E11087 /* WLAddOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */; };
 		CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2190981D53791700F13FEE /* WLTestViewController.m */; };
@@ -128,8 +132,6 @@
 		F12162CC1D51A9C00003B5C1 /* WLAttentionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12162CA1D51A9C00003B5C1 /* WLAttentionViewController.xib */; };
 		F12162D01D51A9DF0003B5C1 /* WLCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12162CE1D51A9DF0003B5C1 /* WLCardViewController.m */; };
 		F12162D11D51A9DF0003B5C1 /* WLCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12162CF1D51A9DF0003B5C1 /* WLCardViewController.xib */; };
-		F12162DA1D51AA180003B5C1 /* WLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12162D81D51AA180003B5C1 /* WLOrderViewController.m */; };
-		F12162DB1D51AA180003B5C1 /* WLOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12162D91D51AA180003B5C1 /* WLOrderViewController.xib */; };
 		F12162E41D51AA4E0003B5C1 /* WLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12162E21D51AA4E0003B5C1 /* WLSettingViewController.m */; };
 		F12162E51D51AA4E0003B5C1 /* WLSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12162E31D51AA4E0003B5C1 /* WLSettingViewController.xib */; };
 		F12162EE1D51AA770003B5C1 /* WLWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12162EC1D51AA770003B5C1 /* WLWalletViewController.m */; };
@@ -288,7 +290,6 @@
 		F1C597CA1D4CFE1100529553 /* WLDetection.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C597C81D4CFE1100529553 /* WLDetection.xib */; };
 		F1C597CE1D4CFE4900529553 /* WLHome.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C597CC1D4CFE4900529553 /* WLHome.m */; };
 		F1C597CF1D4CFE4900529553 /* WLHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C597CD1D4CFE4900529553 /* WLHome.xib */; };
-		F1C597D31D4CFE6600529553 /* WLMyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C597D11D4CFE6600529553 /* WLMyController.m */; };
 		F1C597D81D4D042A00529553 /* WLHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C597D61D4D042A00529553 /* WLHomeTableViewCell.m */; };
 		F1C598281D4D9E8900529553 /* WLhomeOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C598261D4D9E8900529553 /* WLhomeOneTableViewCell.m */; };
 		F1C598291D4D9E8900529553 /* WLhomeOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C598271D4D9E8900529553 /* WLhomeOneTableViewCell.xib */; };
@@ -460,6 +461,19 @@
 /* Begin PBXFileReference section */
 		55EB16961D9A525500C414EF /* UIActionSheet+camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+camera.h"; sourceTree = "<group>"; };
 		55EB16971D9A525500C414EF /* UIActionSheet+camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+camera.m"; sourceTree = "<group>"; };
+		55F36ACA1D9CB1D4006634CB /* WLMyDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyDataHandle.h; sourceTree = "<group>"; };
+		55F36ACB1D9CB1D4006634CB /* WLMyDataHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyDataHandle.m; sourceTree = "<group>"; };
+		55F36ACD1D9CEBB3006634CB /* WLMyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyController.m; sourceTree = "<group>"; };
+		55F36ACF1D9D0433006634CB /* WLOrderDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDataHandle.h; sourceTree = "<group>"; };
+		55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDataHandle.m; sourceTree = "<group>"; };
+		55F36AD31D9D0C5A006634CB /* WLOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderModel.h; sourceTree = "<group>"; };
+		55F36AD41D9D0C5A006634CB /* WLOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderModel.m; sourceTree = "<group>"; };
+		55F36ADA1D9D181D006634CB /* WLOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderCell.h; sourceTree = "<group>"; };
+		55F36ADB1D9D181D006634CB /* WLOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderCell.m; sourceTree = "<group>"; };
+		55F36ADC1D9D181D006634CB /* WLOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderCell.xib; sourceTree = "<group>"; };
+		55F36ADD1D9D181D006634CB /* WLOrderDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDetailsCell.h; sourceTree = "<group>"; };
+		55F36ADE1D9D181D006634CB /* WLOrderDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDetailsCell.m; sourceTree = "<group>"; };
+		55F36ADF1D9D181D006634CB /* WLOrderDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderDetailsCell.xib; sourceTree = "<group>"; };
 		6C5919331D4FA3B600256363 /* MOTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTool.h; sourceTree = "<group>"; };
 		6C5919341D4FA3B600256363 /* MOTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTool.m; sourceTree = "<group>"; };
 		6C5919381D4FA44900256363 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -549,9 +563,6 @@
 		6E13E0AF1D52EAF900616BEB /* WLTabeleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTabeleViewController.xib; sourceTree = "<group>"; };
 		6E13E0C41D52EB0A00616BEB /* WLMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyTableViewCell.h; sourceTree = "<group>"; };
 		6E13E0C51D52EB0A00616BEB /* WLMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyTableViewCell.m; sourceTree = "<group>"; };
-		6E13E0C91D52EB3500616BEB /* WLOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLOrderCell.h; path = ../../View/WLOrderCell.h; sourceTree = "<group>"; };
-		6E13E0CA1D52EB3500616BEB /* WLOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLOrderCell.m; path = ../../View/WLOrderCell.m; sourceTree = "<group>"; };
-		6E13E0CB1D52EB3500616BEB /* WLOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLOrderCell.xib; path = ../../View/WLOrderCell.xib; sourceTree = "<group>"; };
 		6E13E0CE1D53126A00616BEB /* MOTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTempViewController.h; sourceTree = "<group>"; };
 		6E13E0CF1D53126A00616BEB /* MOTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTempViewController.m; sourceTree = "<group>"; };
 		6E13E0D01D53126A00616BEB /* MOTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MOTempViewController.xib; sourceTree = "<group>"; };
@@ -564,9 +575,6 @@
 		6E8395601D55F2AE00E11087 /* WLOrderDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDetailsViewController.h; sourceTree = "<group>"; };
 		6E8395611D55F2AE00E11087 /* WLOrderDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDetailsViewController.m; sourceTree = "<group>"; };
 		6E8395621D55F2AE00E11087 /* WLOrderDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderDetailsViewController.xib; sourceTree = "<group>"; };
-		6E8395651D56183F00E11087 /* WLOrderDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDetailsCell.h; sourceTree = "<group>"; };
-		6E8395661D56183F00E11087 /* WLOrderDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDetailsCell.m; sourceTree = "<group>"; };
-		6E8395671D56183F00E11087 /* WLOrderDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderDetailsCell.xib; sourceTree = "<group>"; };
 		6E83956A1D56271D00E11087 /* WLAddOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAddOrderViewController.h; sourceTree = "<group>"; };
 		6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAddOrderViewController.m; sourceTree = "<group>"; };
 		6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLAddOrderViewController.xib; sourceTree = "<group>"; };
@@ -661,9 +669,6 @@
 		F12162CD1D51A9DF0003B5C1 /* WLCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCardViewController.h; sourceTree = "<group>"; };
 		F12162CE1D51A9DF0003B5C1 /* WLCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCardViewController.m; sourceTree = "<group>"; };
 		F12162CF1D51A9DF0003B5C1 /* WLCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLCardViewController.xib; sourceTree = "<group>"; };
-		F12162D71D51AA180003B5C1 /* WLOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderViewController.h; sourceTree = "<group>"; };
-		F12162D81D51AA180003B5C1 /* WLOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderViewController.m; sourceTree = "<group>"; };
-		F12162D91D51AA180003B5C1 /* WLOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderViewController.xib; sourceTree = "<group>"; };
 		F12162E11D51AA4E0003B5C1 /* WLSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSettingViewController.h; sourceTree = "<group>"; };
 		F12162E21D51AA4E0003B5C1 /* WLSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSettingViewController.m; sourceTree = "<group>"; };
 		F12162E31D51AA4E0003B5C1 /* WLSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLSettingViewController.xib; sourceTree = "<group>"; };
@@ -918,7 +923,6 @@
 		F1C597CC1D4CFE4900529553 /* WLHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLHome.m; sourceTree = "<group>"; };
 		F1C597CD1D4CFE4900529553 /* WLHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLHome.xib; sourceTree = "<group>"; };
 		F1C597D01D4CFE6600529553 /* WLMyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyController.h; sourceTree = "<group>"; };
-		F1C597D11D4CFE6600529553 /* WLMyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyController.m; sourceTree = "<group>"; };
 		F1C597D51D4D042A00529553 /* WLHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLHomeTableViewCell.h; sourceTree = "<group>"; };
 		F1C597D61D4D042A00529553 /* WLHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLHomeTableViewCell.m; sourceTree = "<group>"; };
 		F1C598241D4D96A400529553 /* MyBoRuiSi.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBoRuiSi.pch; sourceTree = "<group>"; };
@@ -1207,6 +1211,28 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
+		55F36AD21D9D0C30006634CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55F36AD31D9D0C5A006634CB /* WLOrderModel.h */,
+				55F36AD41D9D0C5A006634CB /* WLOrderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55F36AD91D9D181D006634CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55F36ADA1D9D181D006634CB /* WLOrderCell.h */,
+				55F36ADB1D9D181D006634CB /* WLOrderCell.m */,
+				55F36ADC1D9D181D006634CB /* WLOrderCell.xib */,
+				55F36ADD1D9D181D006634CB /* WLOrderDetailsCell.h */,
+				55F36ADE1D9D181D006634CB /* WLOrderDetailsCell.m */,
+				55F36ADF1D9D181D006634CB /* WLOrderDetailsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6C5919321D4FA3AC00256363 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1347,6 +1373,8 @@
 		6E13E0911D52EAF900616BEB /* 我的订单 */ = {
 			isa = PBXGroup;
 			children = (
+				55F36AD91D9D181D006634CB /* View */,
+				55F36AD21D9D0C30006634CB /* Model */,
 				6E13E09B1D52EAF900616BEB /* WLShoppingsTableViewController.h */,
 				6E13E09C1D52EAF900616BEB /* WLShoppingsTableViewController.m */,
 				6E13E09D1D52EAF900616BEB /* WLShoppingsTableViewController.xib */,
@@ -1517,17 +1545,6 @@
 				F1D110A71D598FD800103536 /* WLkc2TableViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		CD8721771D507EDB004C8542 /* 我的订单 */ = {
-			isa = PBXGroup;
-			children = (
-				6E8395651D56183F00E11087 /* WLOrderDetailsCell.h */,
-				6E8395661D56183F00E11087 /* WLOrderDetailsCell.m */,
-				6E8395671D56183F00E11087 /* WLOrderDetailsCell.xib */,
-			);
-			name = "我的订单";
-			path = ../../View;
 			sourceTree = "<group>";
 		};
 		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
@@ -1830,44 +1847,6 @@
 				F1E517FE1D578B9A00F3A885 /* WLcardxqTableViewCell.h */,
 				F1E517FF1D578B9A00F3A885 /* WLcardxqTableViewCell.m */,
 				F1E518001D578B9A00F3A885 /* WLcardxqTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F12162B41D51A8860003B5C1 /* Order form(我的订单) */ = {
-			isa = PBXGroup;
-			children = (
-				F12162B51D51A8860003B5C1 /* Controller */,
-				F12162B61D51A8860003B5C1 /* Model */,
-				F12162B71D51A8860003B5C1 /* View */,
-			);
-			path = "Order form(我的订单)";
-			sourceTree = "<group>";
-		};
-		F12162B51D51A8860003B5C1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F12162D71D51AA180003B5C1 /* WLOrderViewController.h */,
-				F12162D81D51AA180003B5C1 /* WLOrderViewController.m */,
-				F12162D91D51AA180003B5C1 /* WLOrderViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F12162B61D51A8860003B5C1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F12162B71D51A8860003B5C1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CD8721771D507EDB004C8542 /* 我的订单 */,
-				6E13E0C91D52EB3500616BEB /* WLOrderCell.h */,
-				6E13E0CA1D52EB3500616BEB /* WLOrderCell.m */,
-				6E13E0CB1D52EB3500616BEB /* WLOrderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2182,6 +2161,10 @@
 				F18D15811D925D4400AD88BA /* WLLoginDataHandle.m */,
 				F7625BB91D918F4200BF2AD9 /* WLHomeDataHandle.h */,
 				F7625BBA1D918F4200BF2AD9 /* WLHomeDataHandle.m */,
+				55F36ACA1D9CB1D4006634CB /* WLMyDataHandle.h */,
+				55F36ACB1D9CB1D4006634CB /* WLMyDataHandle.m */,
+				55F36ACF1D9D0433006634CB /* WLOrderDataHandle.h */,
+				55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -2751,7 +2734,6 @@
 				CD6413EC1D5045BA002D31AC /* Header(头部) */,
 				F12162A81D51A8860003B5C1 /* Attention(我的关注) */,
 				F12162AC1D51A8860003B5C1 /* Card(我的帖子) */,
-				F12162B41D51A8860003B5C1 /* Order form(我的订单) */,
 				F12162B81D51A8860003B5C1 /* Recommends (推荐好友) */,
 				F12162BC1D51A8860003B5C1 /* Setting(设置) */,
 				F12162C41D51A8860003B5C1 /* Wallet(我的钱包) */,
@@ -2766,7 +2748,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C597D01D4CFE6600529553 /* WLMyController.h */,
-				F1C597D11D4CFE6600529553 /* WLMyController.m */,
+				55F36ACD1D9CEBB3006634CB /* WLMyController.m */,
 				F17D7DBC1D581183007CDC06 /* WLMyController.xib */,
 				F14EEA151D55C0AD00BBD158 /* WLNoticesViewController.h */,
 				F14EEA161D55C0AD00BBD158 /* WLNoticesViewController.m */,
@@ -3207,7 +3189,6 @@
 				F14EEA141D55BB8700BBD158 /* WLWeareViewController.xib in Resources */,
 				CD6414031D5048CC002D31AC /* WLThePersonalDataTableViewCellTwo.xib in Resources */,
 				F181B2F71D9921C900DE511D /* ZGTextCell.xib in Resources */,
-				6E8395691D56183F00E11087 /* WLOrderDetailsCell.xib in Resources */,
 				F1A732371D54AB5300EC755E /* WLSelectionTableViewCell.xib in Resources */,
 				F1E517D01D57002800F3A885 /* DirectSeedingTableViewCells.xib in Resources */,
 				F1D110BC1D59CB7100103536 /* WLkjViewController.storyboard in Resources */,
@@ -3237,8 +3218,8 @@
 				F1A945841D4CF4270097FFEF /* Assets.xcassets in Resources */,
 				F14EEA2F1D5614D400BBD158 /* WLXtnewsViewController.xib in Resources */,
 				CD6413FE1D50473F002D31AC /* ThePersonalDataTableViewCell.xib in Resources */,
-				F12162DB1D51AA180003B5C1 /* WLOrderViewController.xib in Resources */,
 				F1E517FD1D578A7E00F3A885 /* WLCardxqViewController.xib in Resources */,
+				55F36AE31D9D181D006634CB /* WLOrderDetailsCell.xib in Resources */,
 				F1E518021D578B9A00F3A885 /* WLcardxqTableViewCell.xib in Resources */,
 				F1E517B31D56CF1600F3A885 /* WLQykcxqViewController.xib in Resources */,
 				F1FB85601D532EA9005AAED3 /* WLTabulationerableViewCell.xib in Resources */,
@@ -3252,6 +3233,7 @@
 				F1C597CF1D4CFE4900529553 /* WLHome.xib in Resources */,
 				F14EEA051D55989B00BBD158 /* WLQuestionViewController.xib in Resources */,
 				F1FB85471D52FA3C005AAED3 /* WLEvaluationViewController.xib in Resources */,
+				55F36AE11D9D181D006634CB /* WLOrderCell.xib in Resources */,
 				F17D7DC91D58295A007CDC06 /* WLTzViewController.xib in Resources */,
 				F1A264391D4F8D1600ACE76B /* WLTestTableViewController.xib in Resources */,
 				F1F7164F1D4F8F0F0097F859 /* WLForumTableViewController.xib in Resources */,
@@ -3340,7 +3322,6 @@
 				F15590381D54258000EFD5F8 /* WLRecordTableViewCell.xib in Resources */,
 				F19244ED1D5F633800F0FF5B /* show.png in Resources */,
 				6E13E0B91D52EAF900616BEB /* WLShoppingsTableViewController1.xib in Resources */,
-				6E13E0CD1D52EB3500616BEB /* WLOrderCell.xib in Resources */,
 				F1A732101D54A1F300EC755E /* WLnameTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3426,6 +3407,7 @@
 				F1FB85E11D537365005AAED3 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F1C597C41D4CFDED00529553 /* WLCurriculum.m in Sources */,
 				F1E517E81D572E5500F3A885 /* AppraisalViewController.m in Sources */,
+				55F36AD51D9D0C5A006634CB /* WLOrderModel.m in Sources */,
 				F12163161D5256570003B5C1 /* WLRecomViewController.m in Sources */,
 				6C5919B91D4FA44900256363 /* MLEmojiLabel.m in Sources */,
 				F19244CF1D5F0E0600F0FF5B /* SVRadialGradientLayer.m in Sources */,
@@ -3448,6 +3430,7 @@
 				F1FB85FF1D5374AC005AAED3 /* MJPhotoProgressView.m in Sources */,
 				CD6413FD1D50473F002D31AC /* ThePersonalDataTableViewCell.m in Sources */,
 				F1E517C51D56DE5300F3A885 /* DirectSeedingViewController.m in Sources */,
+				55F36ACE1D9CEBB3006634CB /* WLMyController.m in Sources */,
 				F1FB85501D530B5C005AAED3 /* WLorganizationgViewController.m in Sources */,
 				F19244FE1D5F6F6400F0FF5B /* WLRoot.m in Sources */,
 				F1FB85DC1D537365005AAED3 /* SDWebImageManager.m in Sources */,
@@ -3481,7 +3464,6 @@
 				F1FB85461D52FA3C005AAED3 /* WLEvaluationViewController.m in Sources */,
 				6C5919A21D4FA44900256363 /* MJPropertyKey.m in Sources */,
 				F1FB86001D5374AC005AAED3 /* MJPhotoToolbar.m in Sources */,
-				F12162DA1D51AA180003B5C1 /* WLOrderViewController.m in Sources */,
 				F1FB85C61D537365005AAED3 /* DLLRUCache.m in Sources */,
 				F12162CB1D51A9C00003B5C1 /* WLAttentionViewController.m in Sources */,
 				F1572F9F1D51824E001CC7A4 /* WLDetailsHeardTableViewCell.m in Sources */,
@@ -3496,7 +3478,6 @@
 				F14EEA131D55BB8700BBD158 /* WLWeareViewController.m in Sources */,
 				F12163111D524EA80003B5C1 /* WLorganVC.m in Sources */,
 				F1FB85551D530E1F005AAED3 /* WLorgtwoTableViewCell.m in Sources */,
-				F1C597D31D4CFE6600529553 /* WLMyController.m in Sources */,
 				F1E518011D578B9A00F3A885 /* WLcardxqTableViewCell.m in Sources */,
 				F1C597C01D4CFD2A00529553 /* UIImage+Image.m in Sources */,
 				CDEB07961D5625EF009A0011 /* WLForgetViewController.m in Sources */,
@@ -3515,6 +3496,7 @@
 				F19244BB1D5F0D5900F0FF5B /* MOProgressHUD.m in Sources */,
 				F1FB85C81D537365005AAED3 /* DLSlideView.m in Sources */,
 				F1AA6F441D95162900769610 /* WLCommetCell.m in Sources */,
+				55F36AD11D9D0433006634CB /* WLOrderDataHandle.m in Sources */,
 				F1FB85EA1D537365005AAED3 /* UIView+Frame.m in Sources */,
 				F14EEA3D1D562ECF00BBD158 /* WLEntTableViewCell.m in Sources */,
 				6C5919981D4FA44900256363 /* AFURLRequestSerialization.m in Sources */,
@@ -3527,11 +3509,11 @@
 				F1D110A31D598FC800103536 /* WLke1TableViewCell.m in Sources */,
 				F1E517CF1D57002800F3A885 /* DirectSeedingTableViewCells.m in Sources */,
 				F1AA6F471D95178200769610 /* WLDisplayStarView.m in Sources */,
+				55F36AE21D9D181D006634CB /* WLOrderDetailsCell.m in Sources */,
 				F181B2EE1D98C35200DE511D /* ZGArticleCell.m in Sources */,
 				F1FB85CC1D537365005AAED3 /* DLUtility.m in Sources */,
 				F1E517E31D5718F900F3A885 /* DirectTableViewCellThree.m in Sources */,
 				CDEB079B1D563D57009A0011 /* WLSuccessfulViewController.m in Sources */,
-				6E8395681D56183F00E11087 /* WLOrderDetailsCell.m in Sources */,
 				6C5919951D4FA44900256363 /* AFNetworkReachabilityManager.m in Sources */,
 				F7B24D171D996992006E96E6 /* WLCourseTypeCell.m in Sources */,
 				F1C5982D1D4DAAD400529553 /* WLDetectionTableViewCell.m in Sources */,
@@ -3540,6 +3522,7 @@
 				F1FB854B1D530A4E005AAED3 /* WLTeacherViewController.m in Sources */,
 				F1FB85DE1D537365005AAED3 /* UIButton+WebCache.m in Sources */,
 				F1572F9B1D51824E001CC7A4 /* WLDetailsViewController.m in Sources */,
+				55F36AE01D9D181D006634CB /* WLOrderCell.m in Sources */,
 				F1D110AD1D599A2000103536 /* WLxq2ViewController.m in Sources */,
 				F1C598371D4DDEED00529553 /* WLHometwoTableViewCell.m in Sources */,
 				F17D7DC31D582718007CDC06 /* WLheadsViewController.m in Sources */,
@@ -3558,6 +3541,7 @@
 				F1C598281D4D9E8900529553 /* WLhomeOneTableViewCell.m in Sources */,
 				F1FB85CB1D537365005AAED3 /* DLTabedSlideView.m in Sources */,
 				F1572FA11D51824E001CC7A4 /* WLDetailsTableViewCell.m in Sources */,
+				55F36ACC1D9CB1D4006634CB /* WLMyDataHandle.m in Sources */,
 				CD6414021D5048CC002D31AC /* WLThePersonalDataTableViewCellTwo.m in Sources */,
 				F1E517D91D57177100F3A885 /* DirectTableViewCell.m in Sources */,
 				F1518F711D52CC6B00879B9B /* WLRegisteringViewController.m in Sources */,
@@ -3565,7 +3549,6 @@
 				F1FB85D91D537365005AAED3 /* SDWebImageDecoder.m in Sources */,
 				F19244CE1D5F0E0600F0FF5B /* SVProgressHUD.m in Sources */,
 				6C5919A71D4FA44900256363 /* NSObject+MJProperty.m in Sources */,
-				6E13E0CC1D52EB3500616BEB /* WLOrderCell.m in Sources */,
 				F1FB85E61D537365005AAED3 /* NSDate+MJ.m in Sources */,
 				6C5919921D4FA44900256363 /* AFHTTPRequestOperation.m in Sources */,
 				CD2190A91D53791700F13FEE /* WLExamsTableViewCell.m in Sources */,
