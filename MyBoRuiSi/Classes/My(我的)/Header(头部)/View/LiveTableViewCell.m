@@ -20,12 +20,5 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)btnClik:(UIButton *)sender {
-    
-    if (_WLiveTableViewCellBlcok) {
-        
-        _WLiveTableViewCellBlcok();
-    }
-}
 
 @end

@@ -95,4 +95,10 @@
     _currentBtn = sender;
 }
 
+- (void)setFilterButtonNormal
+{
+    UIButton *filterBtn = [self viewWithTag:1000 + 2];
+    filterBtn.selected = NO;
+}
+
 @end

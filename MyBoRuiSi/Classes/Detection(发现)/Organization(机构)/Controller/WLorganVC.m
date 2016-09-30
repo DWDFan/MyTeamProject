@@ -18,7 +18,6 @@
 
 #import "WLdetailstwoViewController.h"//课程详情
 #import "WLJrViewController.h"
-#import "DirectViewController.h"
 #import "WLHomeDataHandle.h"
 #import "WLInstitutionModel.h"
 

@@ -10,8 +10,15 @@
 
 @implementation WLZnewsTableViewCell
 
+- (void)setCourse:(WLCourceModel *)course
+{
+    _course = course;
+    
+    
+}
+
 - (void)awakeFromNib {
-    // Initialization code
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

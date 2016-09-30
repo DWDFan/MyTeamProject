@@ -11,7 +11,6 @@
 #import "WLDetailsTableViewCell.h"
 #import "WLDetailsHeardTableViewCell.h"
 
-#import "DirectViewController.h"
 #import "WLCourseDetailViewController.h"
 #import "WLHomeDataHandle.h"
 #import "WLUserInfo.h"
