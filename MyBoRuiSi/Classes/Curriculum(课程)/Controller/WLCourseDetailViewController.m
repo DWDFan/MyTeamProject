@@ -315,9 +315,6 @@
     if (indexPath.section == 2) {
         
         if (indexPath.row == 0) {   // 课程大纲
-//
-//            WLDgViewController *VC = [[WLDgViewController alloc]init];
-//            [self.navigationController pushViewController:VC animated:YES];
             WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
             VC.courseId = _courseId;
             [self.navigationController pushViewController:VC animated:YES];

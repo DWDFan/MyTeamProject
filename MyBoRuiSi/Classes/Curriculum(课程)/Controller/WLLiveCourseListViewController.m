@@ -8,6 +8,7 @@
 
 #import "WLLiveCourseListViewController.h"
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 #import "WLFilterView.h"
 #import "WLHomeDataHandle.h"
 #import "WLCourseDataHandle.h"
@@ -60,7 +61,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

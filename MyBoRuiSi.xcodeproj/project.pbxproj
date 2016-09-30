@@ -320,12 +320,8 @@
 		F1E517B81D56D19300F3A885 /* WLJs1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517B61D56D19300F3A885 /* WLJs1ViewController.xib */; };
 		F1E517BC1D56D1A400F3A885 /* WLJg1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517BA1D56D1A400F3A885 /* WLJg1ViewController.m */; };
 		F1E517BD1D56D1A400F3A885 /* WLJg1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517BB1D56D1A400F3A885 /* WLJg1ViewController.xib */; };
-		F1E517C51D56DE5300F3A885 /* DirectSeedingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517C31D56DE5300F3A885 /* DirectSeedingViewController.m */; };
-		F1E517C61D56DE5300F3A885 /* DirectSeedingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517C41D56DE5300F3A885 /* DirectSeedingViewController.xib */; };
 		F1E517CF1D57002800F3A885 /* DirectSeedingTableViewCells.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517CD1D57002800F3A885 /* DirectSeedingTableViewCells.m */; };
 		F1E517D01D57002800F3A885 /* DirectSeedingTableViewCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517CE1D57002800F3A885 /* DirectSeedingTableViewCells.xib */; };
-		F1E517D41D57165C00F3A885 /* DirectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517D21D57165C00F3A885 /* DirectViewController.m */; };
-		F1E517D51D57165C00F3A885 /* DirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517D31D57165C00F3A885 /* DirectViewController.xib */; };
 		F1E517D91D57177100F3A885 /* DirectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517D71D57177100F3A885 /* DirectTableViewCell.m */; };
 		F1E517DA1D57177100F3A885 /* DirectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517D81D57177100F3A885 /* DirectTableViewCell.xib */; };
 		F1E517DE1D57188E00F3A885 /* DirectTableViewCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517DC1D57188E00F3A885 /* DirectTableViewCellTwo.m */; };
@@ -427,6 +423,7 @@
 		F7998FF91D9C1F3E001F01B0 /* WLLiveCourseTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7998FF81D9C1F3E001F01B0 /* WLLiveCourseTypeCell.m */; };
 		F7B24D171D996992006E96E6 /* WLCourseTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B24D161D996992006E96E6 /* WLCourseTypeCell.m */; };
 		F7B24D1A1D997701006E96E6 /* ZGCourseTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B24D191D997701006E96E6 /* ZGCourseTypeModel.m */; };
+		F7C0ECBB1D9D6DAB00338A15 /* WLAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C0ECBA1D9D6DAB00338A15 /* WLAuthorCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -957,15 +954,9 @@
 		F1E517B91D56D1A400F3A885 /* WLJg1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLJg1ViewController.h; sourceTree = "<group>"; };
 		F1E517BA1D56D1A400F3A885 /* WLJg1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLJg1ViewController.m; sourceTree = "<group>"; };
 		F1E517BB1D56D1A400F3A885 /* WLJg1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLJg1ViewController.xib; sourceTree = "<group>"; };
-		F1E517C21D56DE5300F3A885 /* DirectSeedingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectSeedingViewController.h; sourceTree = "<group>"; };
-		F1E517C31D56DE5300F3A885 /* DirectSeedingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectSeedingViewController.m; sourceTree = "<group>"; };
-		F1E517C41D56DE5300F3A885 /* DirectSeedingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectSeedingViewController.xib; sourceTree = "<group>"; };
 		F1E517CC1D57002800F3A885 /* DirectSeedingTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectSeedingTableViewCells.h; sourceTree = "<group>"; };
 		F1E517CD1D57002800F3A885 /* DirectSeedingTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectSeedingTableViewCells.m; sourceTree = "<group>"; };
 		F1E517CE1D57002800F3A885 /* DirectSeedingTableViewCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectSeedingTableViewCells.xib; sourceTree = "<group>"; };
-		F1E517D11D57165C00F3A885 /* DirectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectViewController.h; sourceTree = "<group>"; };
-		F1E517D21D57165C00F3A885 /* DirectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectViewController.m; sourceTree = "<group>"; };
-		F1E517D31D57165C00F3A885 /* DirectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectViewController.xib; sourceTree = "<group>"; };
 		F1E517D61D57177100F3A885 /* DirectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectTableViewCell.h; sourceTree = "<group>"; };
 		F1E517D71D57177100F3A885 /* DirectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectTableViewCell.m; sourceTree = "<group>"; };
 		F1E517D81D57177100F3A885 /* DirectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectTableViewCell.xib; sourceTree = "<group>"; };
@@ -1145,6 +1136,8 @@
 		F7B24D161D996992006E96E6 /* WLCourseTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLCourseTypeCell.m; path = ../Controller/WLCourseTypeCell.m; sourceTree = "<group>"; };
 		F7B24D181D997701006E96E6 /* ZGCourseTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCourseTypeModel.h; sourceTree = "<group>"; };
 		F7B24D191D997701006E96E6 /* ZGCourseTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCourseTypeModel.m; sourceTree = "<group>"; };
+		F7C0ECB91D9D6DAB00338A15 /* WLAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAuthorCell.h; sourceTree = "<group>"; };
+		F7C0ECBA1D9D6DAB00338A15 /* WLAuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAuthorCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2567,6 +2560,8 @@
 				F77FB0DC1D97EBEC001B287E /* WLCourseListCell.m */,
 				F18545731D9A59D80008F471 /* WLFilterView.h */,
 				F18545741D9A59D80008F471 /* WLFilterView.m */,
+				F7C0ECB91D9D6DAB00338A15 /* WLAuthorCell.h */,
+				F7C0ECBA1D9D6DAB00338A15 /* WLAuthorCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2797,12 +2792,6 @@
 		F1E517BF1D56DE3600F3A885 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F1E517C21D56DE5300F3A885 /* DirectSeedingViewController.h */,
-				F1E517C31D56DE5300F3A885 /* DirectSeedingViewController.m */,
-				F1E517C41D56DE5300F3A885 /* DirectSeedingViewController.xib */,
-				F1E517D11D57165C00F3A885 /* DirectViewController.h */,
-				F1E517D21D57165C00F3A885 /* DirectViewController.m */,
-				F1E517D31D57165C00F3A885 /* DirectViewController.xib */,
 				F1E517E51D572E5500F3A885 /* AppraisalViewController.h */,
 				F1E517E61D572E5500F3A885 /* AppraisalViewController.m */,
 				F1E517E71D572E5500F3A885 /* AppraisalViewController.xib */,
@@ -3213,7 +3202,6 @@
 				F1A264391D4F8D1600ACE76B /* WLTestTableViewController.xib in Resources */,
 				F1F7164F1D4F8F0F0097F859 /* WLForumTableViewController.xib in Resources */,
 				6E13E0C31D52EAF900616BEB /* WLTabeleViewController.xib in Resources */,
-				F1E517D51D57165C00F3A885 /* DirectViewController.xib in Resources */,
 				F1D110A41D598FC800103536 /* WLke1TableViewCell.xib in Resources */,
 				F17D7DBD1D581183007CDC06 /* WLMyController.xib in Resources */,
 				F14EEA231D55C1DB00BBD158 /* WLnewsViewController.xib in Resources */,
@@ -3266,7 +3254,6 @@
 				F1D110B01D599B3D00103536 /* WLxq2ViewController.storyboard in Resources */,
 				6E13E0BF1D52EAF900616BEB /* WLShoppingsTableViewController4.xib in Resources */,
 				6C5919B11D4FA44900256363 /* MJRefresh.bundle in Resources */,
-				F1E517C61D56DE5300F3A885 /* DirectSeedingViewController.xib in Resources */,
 				CDEB078D1D55AD04009A0011 /* WLIncomeViewController.xib in Resources */,
 				F1A7321A1D54A72C00EC755E /* WLfillingViewController.xib in Resources */,
 				F1572FA21D51824E001CC7A4 /* WLDetailsTableViewCell.xib in Resources */,
@@ -3354,7 +3341,6 @@
 				F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */,
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
-				F1E517D41D57165C00F3A885 /* DirectViewController.m in Sources */,
 				6E13E0D11D53126A00616BEB /* MOTempViewController.m in Sources */,
 				F1A7322E1D54AB5300EC755E /* WLDirectseedingViewController.m in Sources */,
 				F1605D001D4F445100EF2829 /* WLSearchTableViewCell.m in Sources */,
@@ -3397,7 +3383,6 @@
 				F18545751D9A59D80008F471 /* WLFilterView.m in Sources */,
 				F1FB85FF1D5374AC005AAED3 /* MJPhotoProgressView.m in Sources */,
 				CD6413FD1D50473F002D31AC /* ThePersonalDataTableViewCell.m in Sources */,
-				F1E517C51D56DE5300F3A885 /* DirectSeedingViewController.m in Sources */,
 				F1FB85501D530B5C005AAED3 /* WLorganizationgViewController.m in Sources */,
 				F19244FE1D5F6F6400F0FF5B /* WLRoot.m in Sources */,
 				F1FB85DC1D537365005AAED3 /* SDWebImageManager.m in Sources */,
@@ -3436,6 +3421,7 @@
 				F12162CB1D51A9C00003B5C1 /* WLAttentionViewController.m in Sources */,
 				F1572F9F1D51824E001CC7A4 /* WLDetailsHeardTableViewCell.m in Sources */,
 				CD2190CC1D54472200F13FEE /* WLAnswerTableViewController.m in Sources */,
+				F7C0ECBB1D9D6DAB00338A15 /* WLAuthorCell.m in Sources */,
 				F1FB855F1D532EA9005AAED3 /* WLTabulationerableViewCell.m in Sources */,
 				F188F4E31D503C0700A46FF1 /* UIView+Frame.m in Sources */,
 				CDEB07A01D564485009A0011 /* WLPayViewController.m in Sources */,

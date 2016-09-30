@@ -10,9 +10,6 @@
 #import "WLkc2TableViewCell.h"
 #import "WLke1TableViewCell.h"
 
-#import "DirectViewController.h"
-
-
 
 @interface WLKcViewController ()
 
@@ -124,8 +121,8 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //课程详情
-    DirectViewController *dire = [[DirectViewController alloc]init];
-    [self.navigationController pushViewController:dire animated:YES];
+//    DirectViewController *dire = [[DirectViewController alloc]init];
+//    [self.navigationController pushViewController:dire animated:YES];
     
 }
 
