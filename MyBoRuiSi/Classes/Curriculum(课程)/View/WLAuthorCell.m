@@ -28,7 +28,7 @@
     _avatarImgV = avatarImgV;
     
     UILabel *nameLbl = [[UILabel alloc] init];
-    nameLbl.frame = CGRectMake(avatarImgV.right + 15, avatarImgV.centerY - 7, 80, 15);
+    nameLbl.frame = CGRectMake(avatarImgV.right + 15, avatarImgV.centerY - 7, 60, 15);
     nameLbl.numberOfLines = 1;
     nameLbl.textColor = COLOR_BLACK;
     nameLbl.font = [UIFont systemFontOfSize:15];
@@ -37,6 +37,8 @@
 
     WLDisplayStarView *starView = [[WLDisplayStarView alloc] init];
     starView.frame = CGRectMake(nameLbl.right + 15, nameLbl.y, 100, 15);
+    [self addSubview:starView];
+    _starView = starView;
     
     UILabel *starLbl = [[UILabel alloc] init];
     starLbl.frame = CGRectMake(starView.right + 10, starView.y, 40, 15);

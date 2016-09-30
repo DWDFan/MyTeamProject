@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,34 +12,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <frame key="frameInset" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZeY-ch-mwz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeY-ch-mwz">
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2" translatesAutoresizingMaskIntoConstraints="NO" id="tz2-b8-NO6">
-                                <rect key="frame" x="193" y="17" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="Ix4-jQ-jUF"/>
                                     <constraint firstAttribute="height" constant="10" id="moe-i1-Mjh"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9I-Pw-cll">
-                                <rect key="frame" x="130" y="7" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="bUB-8v-c4a"/>
+                                    <constraint firstAttribute="width" constant="70" id="bUB-8v-c4a"/>
                                     <constraint firstAttribute="height" constant="30" id="mvK-4r-Itr"/>
                                 </constraints>
                                 <state key="normal" title="查看全部">
-                                    <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="looks:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nEf-mX-gui"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S9I-Pw-cll" firstAttribute="centerX" secondItem="ZeY-ch-mwz" secondAttribute="centerX" id="8Ic-hH-TVE"/>
                             <constraint firstItem="tz2-b8-NO6" firstAttribute="leading" secondItem="S9I-Pw-cll" secondAttribute="trailing" constant="3" id="gJl-Hl-SeJ"/>
@@ -57,6 +55,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2" width="11" height="6"/>
+        <image name="素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2素彩网www.sc115.com-139-拷贝-2" width="10" height="5"/>
     </resources>
 </document>

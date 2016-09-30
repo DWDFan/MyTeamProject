@@ -275,7 +275,7 @@
                 _titleLbl = titleLbl;
             }
             if (!_introLbl) {
-                UILabel *introLbl = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLbl.frame) + 15, 150, 12)];
+                UILabel *introLbl = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLbl.frame) + 15, WLScreenW - 30, 12)];
                 introLbl.font = [UIFont systemFontOfSize:12];
                 introLbl.textColor = COLOR_WORD_GRAY_1;
                 introLbl.numberOfLines = 0;

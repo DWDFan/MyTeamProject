@@ -18,6 +18,8 @@
 {
     UILabel *_titleLbl;
     UILabel *_introLbl;
+    UILabel *_disPriLbl;
+
 }
 @property (nonatomic, strong) UIImageView *headerImgV;
 @property (nonatomic, strong) WLCourceModel *course;
@@ -26,10 +28,13 @@
 
 @implementation WLLiveCourseDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [self setSubviews];
+    
+    [self requestData];
 }
 
 - (void)setSubviews
@@ -39,10 +44,12 @@
     [self.view addSubview:self.tableView];
     
     _headerImgV = [[UIImageView alloc] init];
-    _headerImgV.frame = CGRectMake(0, 0, WLScreenW, 150);
+    _headerImgV.frame = CGRectMake(0, 0, WLScreenW, 200);
     _headerImgV.layer.masksToBounds = YES;
     _headerImgV.contentMode = UIViewContentModeScaleAspectFill;
     self.tableView.tableHeaderView = _headerImgV;
+    self.tableView.frame = CGRectMake(0, 0, WLScreenW, WLScreenH - 64 - 50);
+    self.tableView.showsVerticalScrollIndicator = NO;
     
     WLLookTableViewCell *footer = [[[NSBundle mainBundle]loadNibNamed:@"WLLookTableViewCell" owner:nil options:nil]lastObject];
     footer.courseId = _courseId;
@@ -88,8 +95,20 @@
     }else if (section == 1) {
         return 1;
     }else {
-        return _course.comment.count;
+        return _course.comment.count + 1;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        return [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:14]] + 15 * 3 + 14;
+    }else if (indexPath.section == 2 && indexPath.row != 0) {
+        return [MOTool MOtextSizeH:[_course.comment[indexPath.row - 1] msg] WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:12]] + 15 * 3 + 12;
+    }else if (indexPath.section == 0 && indexPath.row == 6) {
+        return 100;
+    }
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,7 +126,9 @@
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
             }
             cell.avatarImgV.image = [UIImage imageNamed:@"icon"];
+            cell.nameLbl.text = @"王学文";
             cell.starView.showStar = 4.5 * 20;
+            cell.starLbl.text = @"4.5分";
             return cell;
         }
         
@@ -122,7 +143,7 @@
         
         if (indexPath.row == 0) {
             
-            cell.textLabel.text = @"iOS基础大讲堂";
+            cell.textLabel.text = _course.name;
             
         }else if (indexPath.row == 1) {
             
@@ -131,18 +152,19 @@
             cell.textLabel.textColor = KColorOrigin;
             [cell.textLabel sizeToFit];
             
-            if (_course.disPrice.length > 0) {
+            if (_course.disPrice && !_disPriLbl) {
                 
-                UILabel *disPricsLbl = [[UILabel alloc] init];
-                disPricsLbl.frame = CGRectMake(cell.textLabel.x + ZGPaddingMax, cell.textLabel.y, 100, cell.textLabel.height);
-                disPricsLbl.textColor = COLOR_WORD_GRAY_2;
-                disPricsLbl.font = [UIFont systemFontOfSize:12];
-                NSString *disPriStr = [NSString stringWithFormat:@"￥%@",@100];
+                NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.disPrice]];
                 NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
-                NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:disPriStr attributes:attribtDic];
-                disPricsLbl.attributedText = attStr;
-                disPricsLbl.tag = 666;
-                [cell addSubview:disPricsLbl];
+                NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc]initWithString:priceStr attributes:attribtDic];
+                
+                UILabel *disPriLbl = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.textLabel.frame) + 20, 15, 150, 14)];
+                disPriLbl.font = [UIFont systemFontOfSize:12];
+                disPriLbl.textColor = [UIColor grayColor];
+                disPriLbl.attributedText = attStr;
+                [disPriLbl sizeToFit];
+                [cell addSubview:disPriLbl];
+                _disPriLbl = disPriLbl;
             }
             
         }else if (indexPath.row == 2) {
@@ -180,7 +202,7 @@
             _titleLbl = titleLbl;
         }
         if (!_introLbl) {
-            UILabel *introLbl = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLbl.frame) + 15, 150, 12)];
+            UILabel *introLbl = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLbl.frame) + 15, WLScreenW - 30, 12)];
             introLbl.font = [UIFont systemFontOfSize:12];
             introLbl.textColor = COLOR_WORD_GRAY_1;
             introLbl.numberOfLines = 0;
@@ -189,18 +211,42 @@
         }
         CGFloat height = [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:_introLbl.font];
         _introLbl.height = height;
-//        _introLbl.text = _course.desc;
-        _introLbl.text = @"卡单方面靠大家疯狂的健身房";
+        _introLbl.text = _course.desc;
         return cell;
 
     }else {
         
-        WLCommetCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellId];
-        if (!cell) {
-            cell = [[WLCommetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentCellId];
+        if (indexPath.row == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellId];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.textLabel.font = [UIFont systemFontOfSize:15];
+                cell.textLabel.textColor = COLOR_WORD_BLACK;
+            }
+            cell.textLabel.text = [NSString stringWithFormat:@"评价(%@)",[MOTool getNULLString:_course.cmtNum]];
+            return cell;
+        }else {
+            WLCommetCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellId];
+            if (!cell) {
+                cell = [[WLCommetCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:commentCellId];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.comment = self.course.comment[indexPath.row - 1];
+            return cell;
         }
-        return cell;
     }
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return section == 2 ? 0.000001 : 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.000001;
+}
+
 
 @end

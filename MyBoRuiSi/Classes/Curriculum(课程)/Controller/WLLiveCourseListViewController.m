@@ -32,7 +32,7 @@
 {
     [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@2 ppid:self.sortId priceOrder:self.priceOrder zbstatus:@1 saleNum:self.saleNumOrder level:@0 success:^(id responseObject) {
         
-        self.courses = responseObject[@"data"];
+        self.courses = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -62,7 +62,7 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
-    
+    vc.courseId = [self.courses[indexPath.row] id];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
