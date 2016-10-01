@@ -49,6 +49,10 @@
 @property (nonatomic, assign) BOOL vipFree;
 @property (nonatomic, assign) BOOL canBuy;
 
+@property (nonatomic, strong) NSString *endtm;
+@property (nonatomic, strong) NSString *starttm;
+@property (nonatomic, strong) NSString *publicTime;
+
 @end
 
 
