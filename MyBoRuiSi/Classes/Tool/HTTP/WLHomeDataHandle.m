@@ -283,4 +283,110 @@
     }];
 }
 
+/**
+ *  获取试卷类型
+ *
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperTypeSuccess:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure
+{
+    [MOHTTP GET:@"API/index.php?action=Test&do=getSorts" parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  获取试卷列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperListWithType:(NSNumber *)type
+                            page:(NSNumber *)page
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"type":type ? type : [NSNull null],
+                            @"page":page ? page : [NSNull null]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=lists" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  获取试卷内容
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"paperId":[MOTool getNULLString:paperId]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=getContentTypes" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  根据题型获取题目列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                            type:(NSNumber *)type
+                             qid:(NSString *)qid
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"paperId":[MOTool getNULLString:paperId],
+                            @"type":type,
+                            @"qid":[MOTool getNULLString:qid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=getQuestion" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  提交答案
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestSubmitAnswerWithId:(NSString *)paperId
+                              aid:(NSString *)aid
+                           answer:(NSString *)answer
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"paperId":[MOTool getNULLString:paperId],
+                            @"aid":[MOTool getNULLString:aid],
+                            @"answer":[MOTool getNULLString:answer]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=submitAnswer" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

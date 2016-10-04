@@ -126,7 +126,7 @@
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
             }
             cell.avatarImgV.image = [UIImage imageNamed:@"icon"];
-            cell.nameLbl.text = @"王学文";
+            cell.nameLbl.text = _course.author;
             cell.starView.showStar = 4.5 * 20;
             cell.starLbl.text = @"4.5分";
             return cell;
@@ -136,7 +136,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.font = [UIFont systemFontOfSize:15];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = COLOR_WORD_BLACK;
         }
         [[cell viewWithTag:666] removeFromSuperview];
@@ -147,7 +147,7 @@
             
         }else if (indexPath.row == 1) {
             
-            cell.textLabel.text = @"￥640";
+            cell.textLabel.text = _course.price;
             cell.textLabel.font = [UIFont systemFontOfSize:16];
             cell.textLabel.textColor = KColorOrigin;
             [cell.textLabel sizeToFit];
@@ -169,11 +169,11 @@
             
         }else if (indexPath.row == 2) {
         
-            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",@"云帆培训机构"];
+            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",_course.author];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 3) {
         
-            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",@"2015-8-8 20:00-21:00"];
+            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",_course.starttm];
         }else if (indexPath.row == 4) {
             
             cell.textLabel.text = [NSString stringWithFormat:@"名额 : %@",@"20人（已报名18人）"];
@@ -189,7 +189,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.font = [UIFont systemFontOfSize:15];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = COLOR_WORD_BLACK;
         }
         
@@ -221,7 +221,7 @@
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.textLabel.font = [UIFont systemFontOfSize:15];
+                cell.textLabel.font = [UIFont systemFontOfSize:14];
                 cell.textLabel.textColor = COLOR_WORD_BLACK;
             }
             cell.textLabel.text = [NSString stringWithFormat:@"评价(%@)",[MOTool getNULLString:_course.cmtNum]];

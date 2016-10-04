@@ -130,6 +130,62 @@
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure;
 
+/**
+ *  获取试卷类型
+ *
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperTypeSuccess:(void (^)(id responseObject))success
+                                   failure:(void (^)(NSError *error))failure;
 
+/**
+ *  获取试卷列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperListWithType:(NSNumber *)type
+                            page:(NSNumber *)page
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取试卷内容
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  根据题型获取题目列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                            type:(NSNumber *)type
+                             qid:(NSString *)qid
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  提交答案
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestSubmitAnswerWithId:(NSString *)paperId
+                              aid:(NSString *)aid
+                           answer:(NSString *)answer
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
 
 @end

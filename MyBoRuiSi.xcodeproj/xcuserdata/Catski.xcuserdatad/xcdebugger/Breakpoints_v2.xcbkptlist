@@ -64,7 +64,7 @@
             startingLineNumber = "253"
             endingLineNumber = "253"
             landmarkName = "+requestSearchStandardWithNum:success:failure:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,7 +80,7 @@
             startingLineNumber = "251"
             endingLineNumber = "251"
             landmarkName = "+requestSearchStandardWithNum:success:failure:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
