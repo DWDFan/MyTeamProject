@@ -7,14 +7,16 @@
 //
 
 #import "WLEvaluationViewController.h"
-#import "WLDetectionTableViewCell.h"
-
+#import "WLPaperTypeCell.h"
 #import "WLRecordViewController.h"
 #import "WLCepViewController.h"
+#import "WLHomeDataHandle.h"
 
 @interface WLEvaluationViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview_main;
+@property (nonatomic, strong) NSArray *typeArray;
+
 @end
 
 @implementation WLEvaluationViewController
@@ -29,40 +31,30 @@
     [btn setTitle:@"在线测评" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
-    
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     UIView *view = [UIView new];
     
     self.tableview_main.tableFooterView = view;
-    
-    
-    
     
     //导航栏右边按钮
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"测评记录" style:UIBarButtonItemStyleDone target:self action:@selector(Test)];
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
-
     
-    
+    [self requestData];
 }
-//颜色转图片
-- (UIImage*) createImageWithColor: (UIColor*) color
+
+- (void)requestData
 {
-    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    return theImage;
+    [WLHomeDataHandle requestPaperTypeSuccess:^(id responseObject) {
+        
+        _typeArray = responseObject[@"data"];
+        [self.tableview_main reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //测评记录
@@ -87,7 +79,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 3;
+    return _typeArray.count;
 }
 
 
@@ -107,23 +99,13 @@
     
     static NSString *deteID = @"WLDetectionTableViewCell";
     
-    WLDetectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    WLPaperTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+    if (!cell) {
+        cell = [[WLPaperTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    
-    if (indexPath.row == 0) {
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text = @"xxxx测评";
-    }else if (indexPath.row ==1){
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text =@"xxxx测评";
-    }else{
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text = @"xxxx测评";
-    }
-    
+    cell.nameLbl.text = _typeArray[indexPath.row][@"name"];
+    [cell.photoImgV sd_setImageWithURL:[NSURL URLWithString:_typeArray[indexPath.row][@"icon"]] placeholderImage:[UIImage imageNamed:@"组-4"]];
     return cell;
 }
 
@@ -131,14 +113,12 @@
 #pragma mark 点击tableViewcell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //xx测评
+    [self.tableview_main deselectRowAtIndexPath:indexPath animated:YES];
     WLCepViewController *cep  =[[WLCepViewController alloc]init];
+    cep.paperType = _typeArray[indexPath.row][@"id"];
+    cep.paperTypeName = _typeArray[indexPath.row][@"name"];
     [self.navigationController pushViewController:cep animated:YES];
     
 }
-
-
-
-
-
 
 @end

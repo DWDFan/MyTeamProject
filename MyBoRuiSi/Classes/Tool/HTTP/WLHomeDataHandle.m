@@ -30,6 +30,50 @@
 }
 
 /**
+ 获取推荐讲师
+ 
+ @param num     数量
+ @param success
+ @param failure
+ */
++ (void)requestHomeRecommendLectureWithNum:(NSNumber *)num
+                                   Success:(void (^)(id responseObject))success
+                                   failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"num":num};
+                            
+    [MOHTTP GET:@"API/index.php?action=Ad&do=GoodJs" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+
+/**
+ 获取推荐机构
+ 
+ @param num     数量
+ @param success
+ @param failure
+ */
++ (void)requestHomeRecommendInstitutionWithNum:(NSNumber *)num
+                                       Success:(void (^)(id responseObject))success
+                                       failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"num":num};
+    
+    [MOHTTP GET:@"API/index.php?action=Ad&do=GoodJg" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+/**
  *  课程详情
  *
  *  @param courseId     课程ID
@@ -306,7 +350,7 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestPaperListWithType:(NSNumber *)type
++ (void)requestPaperListWithType:(NSString *)type
                             page:(NSNumber *)page
                          success:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure

@@ -7,12 +7,14 @@
 //
 
 #import "WLCepViewController.h"
-#import "WLDetectionTableViewCell.h"
-
+#import "WLPaperTypeCell.h"
+#import "WLHomeDataHandle.h"
 #import "WLPhysiologyViewController.h"
 
 @interface WLCepViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableviewtow;
+@property (nonatomic, strong) NSArray *paperArray;
+@property (nonatomic, strong) UIButton *titleView;
 
 @end
 
@@ -25,12 +27,12 @@
     [btn setBackgroundColor:[UIColor clearColor]];
     [btn setImage:[UIImage imageNamed:@"图层-47"] forState:UIControlStateNormal];
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
-    [btn setTitle:@"阳光测评" forState:UIControlStateNormal];
+    [btn setTitle:_paperTypeName forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
+    _titleView = btn;
     
     
-    
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     
     UIView *view  = [UIView new];
@@ -38,22 +40,20 @@
     self.tableviewtow.tableFooterView = view;
     
     
-    
+    [self requestData];
 }
-//颜色转图片
-- (UIImage*) createImageWithColor: (UIColor*) color
+
+- (void)requestData
 {
-    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    return theImage;
+    [WLHomeDataHandle requestPaperListWithType:_paperType page:@1 success:^(id responseObject) {
+        
+        self.paperArray = responseObject[@"data"];
+        [self.tableviewtow reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //#warning Incomplete implementation, return the number of sections
@@ -63,7 +63,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 3;
+    return _paperArray.count;
 }
 
 
@@ -83,24 +83,14 @@
     
     static NSString *deteID = @"WLDetectionTableViewCell";
     
-    WLDetectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    WLPaperTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[WLPaperTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
     
-    if (indexPath.row == 0) {
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text = @"试卷A";
-    }else if (indexPath.row ==1){
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text =@"试卷B";
-    }else{
-        cell.imageView.image = [UIImage imageNamed:@"组-4"];
-        cell.lableView.text = @"试卷C";
-    }
-    
-    
+    cell.photoImgV.image = [UIImage imageNamed:@"组-4"];
+    cell.nameLbl.text = _paperArray[indexPath.row][@"name"];
     return cell;
 }
 #pragma mark 点击tableViewcell

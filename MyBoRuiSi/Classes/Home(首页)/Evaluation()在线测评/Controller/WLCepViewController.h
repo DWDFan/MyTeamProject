@@ -10,4 +10,7 @@
 
 @interface WLCepViewController : UIViewController
 
+@property (nonatomic, strong) NSString *paperType;
+@property (nonatomic, strong) NSString *paperTypeName;
+
 @end

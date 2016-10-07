@@ -415,6 +415,7 @@
 		F1FB86041D5375B1005AAED3 /* WLHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB86031D5375B1005AAED3 /* WLHomeTableViewCell.xib */; };
 		F1FB86081D538B54005AAED3 /* WLTjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB86061D538B54005AAED3 /* WLTjViewController.m */; };
 		F1FB86091D538B54005AAED3 /* WLTjViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB86071D538B54005AAED3 /* WLTjViewController.xib */; };
+		F704671A1DA407E100F3B9E9 /* WLPaperTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */; };
 		F7157BDB1D963CD8001AAED5 /* WLCourceOutlineVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7157BDA1D963CD8001AAED5 /* WLCourceOutlineVIewController.m */; };
 		F7157BDE1D963E66001AAED5 /* WLCourseDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F7157BDD1D963E66001AAED5 /* WLCourseDataHandle.m */; };
 		F7625BBB1D918F4200BF2AD9 /* WLHomeDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F7625BBA1D918F4200BF2AD9 /* WLHomeDataHandle.m */; };
@@ -1120,6 +1121,8 @@
 		F1FB86051D538B54005AAED3 /* WLTjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTjViewController.h; sourceTree = "<group>"; };
 		F1FB86061D538B54005AAED3 /* WLTjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTjViewController.m; sourceTree = "<group>"; };
 		F1FB86071D538B54005AAED3 /* WLTjViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTjViewController.xib; sourceTree = "<group>"; };
+		F70467181DA407E100F3B9E9 /* WLPaperTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPaperTypeCell.h; sourceTree = "<group>"; };
+		F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPaperTypeCell.m; sourceTree = "<group>"; };
 		F7157BD91D963CD8001AAED5 /* WLCourceOutlineVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCourceOutlineVIewController.h; sourceTree = "<group>"; };
 		F7157BDA1D963CD8001AAED5 /* WLCourceOutlineVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCourceOutlineVIewController.m; sourceTree = "<group>"; };
 		F7157BDC1D963E66001AAED5 /* WLCourseDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCourseDataHandle.h; sourceTree = "<group>"; };
@@ -1548,6 +1551,8 @@
 				F15590341D54258000EFD5F8 /* WLRecordTableViewCell.h */,
 				F15590351D54258000EFD5F8 /* WLRecordTableViewCell.m */,
 				F15590361D54258000EFD5F8 /* WLRecordTableViewCell.xib */,
+				F70467181DA407E100F3B9E9 /* WLPaperTypeCell.h */,
+				F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3542,6 +3547,7 @@
 				6C5919351D4FA3B600256363 /* MOTool.m in Sources */,
 				F14EEA091D559A6500BBD158 /* WLChoiceViewController.m in Sources */,
 				6E13E0C21D52EAF900616BEB /* WLTabeleViewController.m in Sources */,
+				F704671A1DA407E100F3B9E9 /* WLPaperTypeCell.m in Sources */,
 				F1C597B71D4CFC3F00529553 /* WLNavigationController.m in Sources */,
 				6E13E0B61D52EAF900616BEB /* WLShoppingsTableViewController.m in Sources */,
 				6C5919B41D4FA44900256363 /* MJRefreshFooterView.m in Sources */,
