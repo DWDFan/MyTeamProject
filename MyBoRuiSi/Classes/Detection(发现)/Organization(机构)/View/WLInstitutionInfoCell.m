@@ -31,7 +31,7 @@
     
     _nameLbl.text = institution.name;
     
-    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:institution.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:institution.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _courseNumLbl.text = [NSString stringWithFormat:@"课程数：%@",[MOTool getNULLString:institution.kc_num]];
     
@@ -47,19 +47,13 @@
     
     _descLbl.text = [NSString stringWithFormat:@"%@",[MOTool getNULLString:institution.desc]];
     
-    _followBtn.enabled = institution.isfollow;
+    _followBtn.selected = institution.isfollow;
 }
 
-- (void)awakeFromNib {
-    
-    [super awakeFromNib];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)followBtnAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    self.block ? self.block(button) : nil;
 }
 
 @end

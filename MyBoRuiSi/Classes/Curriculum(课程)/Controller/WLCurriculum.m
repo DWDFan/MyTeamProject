@@ -134,7 +134,7 @@
         if (section == 0) {
             num = 3;
         }else {
-            num = _liveCourseArray.count + 1;
+            num = 2;
         }
         
     }

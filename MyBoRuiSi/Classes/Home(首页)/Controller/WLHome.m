@@ -309,8 +309,6 @@
         vc.institutionId = [_arr_Recommendation[indexPath.row] id];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
-    
 }
 
 //cell

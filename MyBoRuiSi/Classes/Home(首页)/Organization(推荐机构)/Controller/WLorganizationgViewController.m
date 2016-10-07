@@ -8,10 +8,14 @@
 
 #import "WLorganizationgViewController.h"
 #import "WLorganVC.h"
-
-#import "WLorgtwoTableViewCell.h"
+#import "WLHomeDataHandle.h"
+#import "WLHomethreeTableViewCell.h"
+#import "RecommendationModelll.h"
 
 @interface WLorganizationgViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *institutionsArray;
 
 @end
 
@@ -27,29 +31,22 @@
     [btn setTitle:@"推荐机构" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    
-    
-    
-    
-    
+    [self requestData];
 }
-//颜色转图片
-- (UIImage*) createImageWithColor: (UIColor*) color
+
+- (void)requestData
 {
-    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    return theImage;
+    [WLHomeDataHandle requestHomeRecommendInstitutionWithNum:@10 Success:^(id responseObject) {
+        
+        self.institutionsArray = [RecommendationModelll mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //#warning Incomplete implementation, return the number of sections
     return 1;
@@ -58,7 +55,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 5;
+    return self.institutionsArray.count;
 }
 
 
@@ -76,15 +73,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    static NSString *deteID = @"WLorgtwoTableViewCell";
+    static NSString *deteID = @"WLHomethreeTableViewCell";
     
-    WLorgtwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    WLHomethreeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
     
-    
+    cell.Modelll = [self.institutionsArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -93,6 +90,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     WLorganVC *vc = [[WLorganVC alloc]init];
+    RecommendationModelll *model = [self.institutionsArray objectAtIndex:indexPath.row];
+    vc.institutionId = model.id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

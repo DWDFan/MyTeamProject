@@ -10,7 +10,7 @@
 
 @interface WLUserInfo : NSObject
 
-@property (nonatomic, strong, readonly) NSString *userId;
+@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, copy) NSString *money;
 @property (nonatomic, copy) NSString *nickname;

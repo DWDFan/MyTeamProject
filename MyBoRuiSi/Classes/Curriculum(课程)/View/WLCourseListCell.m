@@ -87,11 +87,11 @@
 {
     _course = course;
     
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = _course.name;
     
-    _priceLbl.text = [NSString stringWithFormat:@"￥%@",course.price];
+    _priceLbl.text = [NSString stringWithFormat:@"￥%@",course.disPrice];
     CGFloat width = [MOTool MOtextSizeW:_priceLbl.text WithHigth:14 WithFount:_priceLbl.font];
     _priceLbl.width = width <_nameLbl.width - 60 ? width : _nameLbl.width - 70;
     

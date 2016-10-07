@@ -36,7 +36,7 @@
     _nameLbl = nameLbl;
 
     WLDisplayStarView *starView = [[WLDisplayStarView alloc] init];
-    starView.frame = CGRectMake(nameLbl.right + 15, nameLbl.y, 100, 15);
+    starView.frame = CGRectMake(nameLbl.right + 15, nameLbl.y, 55, 15);
     [self addSubview:starView];
     _starView = starView;
     

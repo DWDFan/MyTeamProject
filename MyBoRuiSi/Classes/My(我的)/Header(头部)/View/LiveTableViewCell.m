@@ -14,7 +14,7 @@
 {
     _course = course;
     
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = _course.name;
     

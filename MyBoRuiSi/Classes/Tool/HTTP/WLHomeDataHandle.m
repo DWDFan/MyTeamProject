@@ -71,8 +71,63 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
-
 }
+
+/**
+ 关注讲师
+ 
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowLectureWithUid:(NSString *)uid
+                                    tid:(NSString *)tid
+                                   type:(NSNumber *)type
+                                Success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"tid":tid,
+                            @"type":type};
+    
+    [MOHTTP GET:@"API/index.php?action=Teacher&do=focusTeacher" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ 关注机构
+ 
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowInstitutionWithUid:(NSString *)uid
+                                        jid:(NSString *)jid
+                                       type:(NSNumber *)type
+                                    Success:(void (^)(id responseObject))success
+                                    failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"jid":jid,
+                            @"type":type};
+    
+    [MOHTTP GET:@"API/index.php?action=Jigou&do=focusJg" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
 /**
  *  课程详情
  *

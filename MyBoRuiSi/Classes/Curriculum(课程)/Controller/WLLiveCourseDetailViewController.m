@@ -8,11 +8,14 @@
 
 #import "WLLiveCourseDetailViewController.h"
 #import "WLLookTableViewCell.h"
+#import "WLSharetowViewController.h"
 #import "WLAuthorCell.h"
 #import "WLCommetCell.h"
 #import "WLPurchaseBottomView.h"
 #import "WLHomeDataHandle.h"
+#import "WLCourseDataHandle.h"
 #import "WLCommetCell.h"
+#import "KxMenu.h"
 
 @interface WLLiveCourseDetailViewController ()
 {
@@ -70,7 +73,7 @@
     [WLHomeDataHandle requestHomeClassDetailWithCourseId:_courseId success:^(id responseObject) {
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
-        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -80,7 +83,46 @@
 
 - (void)rightBtnAction:(id)sender
 {
+    NSArray *menuItems =
+    @[[KxMenuItem menuItem:@"分享"
+                     image:[UIImage imageNamed:@"图层-48346"]
+                    target:self
+                    action:@selector(shareBtnAction:)],
+      
+      [KxMenuItem menuItem:@"收藏"
+                     image:[UIImage imageNamed:@"组-5@2x_80"]
+                    target:self
+                    action:@selector(collectBtnAction:)]];
     
+    KxMenuItem *first = menuItems[0];
+    first.foreColor = [UIColor colorWithRed:136/255.0f green:136/255.0f blue:136/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    [KxMenu showMenuInView:self.view
+                  fromRect:CGRectMake(WLScreenW - 50, -40, 40, 40)
+                 menuItems:menuItems];
+
+}
+
+- (void)shareBtnAction:(id)sender
+{
+    WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
+    
+    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    
+    [self presentViewController:share animated:YES completion:^{
+    }];
+
+}
+
+- (void)collectBtnAction:(id)sender
+{
+    [WLCourseDataHandle requestCollectCourseWithCourseId:_courseId uid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+        [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,7 +167,7 @@
             if (!cell) {
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
             }
-            cell.avatarImgV.image = [UIImage imageNamed:@"icon"];
+            cell.avatarImgV.image = PHOTO_AVATAR;
             cell.nameLbl.text = _course.author;
             cell.starView.showStar = 4.5 * 20;
             cell.starLbl.text = @"4.5分";
@@ -147,14 +189,14 @@
             
         }else if (indexPath.row == 1) {
             
-            cell.textLabel.text = _course.price;
+            cell.textLabel.text = _course.disPrice;
             cell.textLabel.font = [UIFont systemFontOfSize:16];
             cell.textLabel.textColor = KColorOrigin;
             [cell.textLabel sizeToFit];
             
-            if (_course.disPrice && !_disPriLbl) {
+            if (_course.disPrice && _course.price && !_disPriLbl) {
                 
-                NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.disPrice]];
+                NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.price]];
                 NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
                 NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc]initWithString:priceStr attributes:attribtDic];
                 

@@ -43,6 +43,39 @@
 + (void)requestHomeRecommendInstitutionWithNum:(NSNumber *)num
                                    Success:(void (^)(id responseObject))success
                                    failure:(void (^)(NSError *error))failure;
+
+
+/**
+ 关注讲师
+
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowLectureWithUid:(NSString *)uid
+                                    tid:(NSString *)tid
+                                   type:(NSNumber *)type
+                                Success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
+
+/**
+ 关注机构
+ 
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowInstitutionWithUid:(NSString *)uid
+                                    jid:(NSString *)jid
+                                   type:(NSNumber *)type
+                                Success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
+
+
 /**
  获取课程详情
 

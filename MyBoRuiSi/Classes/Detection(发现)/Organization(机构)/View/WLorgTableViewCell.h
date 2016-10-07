@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLInstitutionModel.h"
 
 @interface WLorgTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) WLInstitutionModel *institution;
+
 
 @end

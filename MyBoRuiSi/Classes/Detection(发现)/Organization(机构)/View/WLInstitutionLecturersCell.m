@@ -57,7 +57,7 @@
 {
     _lecturer = lecturer;
     
-    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_lecturer.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_lecturer.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = lecturer.name;
     

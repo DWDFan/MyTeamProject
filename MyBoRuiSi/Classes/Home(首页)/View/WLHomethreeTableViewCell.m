@@ -21,7 +21,7 @@
     self.mname.text = Modelll.name;
     self.follow.text = [NSString stringWithFormat:@"关注:%@",Modelll.follow];;
     self.mmember.text = [NSString stringWithFormat:@"学员:%@",Modelll.member];;
-    [self.pphoto sd_setImageWithURL:[NSURL URLWithString:Modelll.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [self.pphoto sd_setImageWithURL:[NSURL URLWithString:Modelll.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     for (int i = 0; i < 5; i ++) {
         UIImageView *star = (UIImageView *)_starArray[i];

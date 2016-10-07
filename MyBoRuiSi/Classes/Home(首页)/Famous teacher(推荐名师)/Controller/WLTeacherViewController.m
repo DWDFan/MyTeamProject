@@ -86,6 +86,8 @@
     //讲师详情
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLDetailsViewController *det = [[WLDetailsViewController alloc]init];
+    RecommendModell *model = [self.lecturesArray objectAtIndex:indexPath.row];
+    det.teacherId = model.id;
     [self.navigationController pushViewController:det animated:YES];
     
 }

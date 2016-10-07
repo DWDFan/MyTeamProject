@@ -14,13 +14,17 @@
 
 - (void)setModel:(CurriculumModel *)model
 {
-    self.Price.text = model.price;
-    self.Tmlong.text = model.tmlong;
-    self.disPrice.text = model.disPrice;
+    self.Price.text = [NSString stringWithFormat:@"￥%@",model.disPrice];
+    self.Tmlong.text = [NSString stringWithFormat:@"%@小时",model.tmlong];
+    
+    NSMutableAttributedString *disPriceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@",model.price]];
+    [disPriceStr addAttributes: @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, disPriceStr.length)];
+    self.disPrice.attributedText = disPriceStr;
+    
     self.Mname.text = model.name;
     self.Author.text = model.author;
     
-    [self.Photoimage sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [self.Photoimage sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
 }
 
 //@property (nonatomic,copy) NSString *author;

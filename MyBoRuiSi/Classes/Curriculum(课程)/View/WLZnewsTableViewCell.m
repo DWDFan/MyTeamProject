@@ -14,7 +14,7 @@
 {
     _course = course;
     
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = _course.name;
     
@@ -25,7 +25,7 @@
     
     _timeLbl.text = _course.period;
     
-    _priceLbl.text = [NSString stringWithFormat:@"￥%@",_course.price];
+    _priceLbl.text = [NSString stringWithFormat:@"￥%@",_course.disPrice];
     
     if ([_course.zbStatus isEqual:@2]) {
         _liveStatusImgV.hidden = YES;

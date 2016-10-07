@@ -274,18 +274,21 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    [MOProgressHUD showWithStatus:@"正在搜索..."];
+    _dataSourceArray = @[];
     switch (_searchType) {
             
         case ZGSearchTypeCourse:
         case ZGSearchTypeStandard: // 标准也调用课程
         {
-            [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:_textFiled_main.text type:@0 ppid:@"" priceOrder:@"asc" zbstatus:@1 saleNum:@"asc" level:@1 success:^(id responseObject) {
+            [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:_textFiled_main.text type:@0 ppid:@"" priceOrder:@"" zbstatus:@1 saleNum:@"asc" level:@0 success:^(id responseObject) {
                 
                 _dataSourceArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 [self.tableView reloadData];
+                [MOProgressHUD dismiss];
 
             } failure:^(NSError *error) {
-                
+                [MOProgressHUD dismiss];
             }];
         }
             break;
@@ -295,9 +298,10 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
                 
                 _dataSourceArray = [WLLecturerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 [self.tableView reloadData];
-                
+                [MOProgressHUD dismiss];
+
             } failure:^(NSError *error) {
-                
+                [MOProgressHUD dismiss];
             }];
         }
             break;
@@ -307,9 +311,10 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
                 
                 _dataSourceArray = [WLInstitutionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 [self.tableView reloadData];
+                [MOProgressHUD dismiss];
 
             } failure:^(NSError *error) {
-                
+                [MOProgressHUD dismiss];
             }];
         }
             break;
@@ -328,9 +333,10 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
                 }
                 _dataSourceArray = mArray;
                 [self.tableView reloadData];
+                [MOProgressHUD dismiss];
 
             } failure:^(NSError *error) {
-                
+                [MOProgressHUD dismiss];
             }];
         }
             break;

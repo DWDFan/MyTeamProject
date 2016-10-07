@@ -25,17 +25,17 @@
 {
     _course = course;
     
-    [_courseImgV sd_setImageWithURL:[NSURL URLWithString:course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_courseImgV sd_setImageWithURL:[NSURL URLWithString:course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _starLbl.text = [NSString stringWithFormat:@"%@分",[MOTool getNULLString:course.star]];
     
     _nameLbl.text = [MOTool getNULLString:course.name];
     
-    _priceLbl.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.price]];
+    _priceLbl.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice]];
     
     _followNum.text = [NSString stringWithFormat:@"%@人关注",[MOTool getNULLString:course.follow]];
     
-    if (course.disPrice) {
+    if (course.price) {
         NSString *disPrice = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice]];
         NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:disPrice attributes:@{NSStrikethroughStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
         _disPriceLbl.attributedText = attStr;
