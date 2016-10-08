@@ -10,4 +10,6 @@
 
 @interface WLNameViewController : UIViewController
 
+@property (nonatomic, strong) NSString  *paperId;
+
 @end

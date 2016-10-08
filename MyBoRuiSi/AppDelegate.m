@@ -28,7 +28,6 @@
     //加载用户信息
     [[WLUserInfo share] loadUserInfo];
     
-    [WLUserInfo share].userId = @"15";
     //窗口可视化
     [self.window makeKeyAndVisible];
     

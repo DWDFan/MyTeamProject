@@ -10,4 +10,9 @@
 
 @interface WLTestTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *photoImgV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *testNumLbl;
+
 @end

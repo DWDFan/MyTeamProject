@@ -206,7 +206,7 @@
  *  @param failure
  */
 + (void)requestPaperTypeSuccess:(void (^)(id responseObject))success
-                                   failure:(void (^)(NSError *error))failure;
+                        failure:(void (^)(NSError *error))failure;
 
 /**
  *  获取试卷列表

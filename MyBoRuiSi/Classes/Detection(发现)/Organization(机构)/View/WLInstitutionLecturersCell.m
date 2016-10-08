@@ -63,7 +63,7 @@
     
     _descLbl.text = lecturer.desc;
     
-    _starView.showStar = [lecturer.star integerValue] * 20;
+    _starView.showStar = [lecturer.star floatValue] * 20;
 }
 
 @end

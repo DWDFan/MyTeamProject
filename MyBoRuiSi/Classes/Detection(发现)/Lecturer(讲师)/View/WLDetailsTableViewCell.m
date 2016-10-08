@@ -31,12 +31,13 @@
     
     _nameLbl.text = [MOTool getNULLString:course.name];
     
-    _priceLbl.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice]];
+    _priceLbl.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice ? course.disPrice : course.price]];
     
     _followNum.text = [NSString stringWithFormat:@"%@人关注",[MOTool getNULLString:course.follow]];
     
-    if (course.price) {
-        NSString *disPrice = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice]];
+    // 有两个价格,显示原价
+    if (course.disPrice && course.price) {
+        NSString *disPrice = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.price]];
         NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:disPrice attributes:@{NSStrikethroughStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
         _disPriceLbl.attributedText = attStr;
     }

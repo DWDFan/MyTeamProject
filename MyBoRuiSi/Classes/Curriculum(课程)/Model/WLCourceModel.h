@@ -18,6 +18,19 @@
 //star 几颗星
 //msg 评论消息
 
+//name 直播名字
+//photo 直播图片
+//id 直播id
+//author 直播作者
+//starttm 开始时间
+//endtm 结束时间
+//bm 报名人数
+//limit 名额限制
+//cmtNum 评论数
+//comment 评论列表
+//other 其他课程
+
+
 #import <Foundation/Foundation.h>
 
 @interface WLCommentModel : NSObject
@@ -51,7 +64,11 @@
 
 @property (nonatomic, strong) NSString *endtm;
 @property (nonatomic, strong) NSString *starttm;
+@property (nonatomic, strong) NSString *zhibotm;
 @property (nonatomic, strong) NSString *publicTime;
+@property (nonatomic, strong) NSNumber *bm;
+@property (nonatomic, strong) NSNumber *limit;
+@property (nonatomic, strong) NSArray *other;
 
 @end
 

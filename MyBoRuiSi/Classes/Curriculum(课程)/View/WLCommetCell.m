@@ -68,7 +68,7 @@
     
     _commentLbl.text = comment.msg;
     
-    _starView.showStar = [comment.star integerValue] * 20;
+    _starView.showStar = [comment.star floatValue] * 20;
     
     CGFloat width = [MOTool MOtextSizeW:_nameLbl.text WithHigth:12 WithFount:_nameLbl.font];
     
