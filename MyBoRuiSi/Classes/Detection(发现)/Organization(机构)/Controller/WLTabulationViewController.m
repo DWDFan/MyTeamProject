@@ -31,7 +31,7 @@
     [btn setTitle:@"讲师列表" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
+    self.tableView.tableFooterView = [UIView new];
     
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     

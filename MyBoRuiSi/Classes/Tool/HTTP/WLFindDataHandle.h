@@ -32,7 +32,7 @@
  @param failure
  */
 + (void)requestFindInstitutionListWithSort:(NSString *)sort
-                                    gsType:(NSNumber *)gsType
+                                    gsType:(NSString *)gsType
                                    success:(void (^)(id responseObject))success
                                    failure:(void (^)(NSError *error))failure;
 

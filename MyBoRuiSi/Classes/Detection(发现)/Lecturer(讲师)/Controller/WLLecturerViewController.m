@@ -7,7 +7,6 @@
 //
 
 #import "WLLecturerViewController.h"
-
 #import "WLDetailsViewController.h"
 #import "WLFindLecturerListCell.h"
 #import "WLSortSelectView.h"
@@ -19,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) WLSortSelectView *sortView;
+@property (weak, nonatomic) UIButton *levelBtn;
 @property (nonatomic, strong) NSArray *lecturesArray;
 @property (nonatomic, strong) NSString *sort;
 @property (nonatomic, strong) NSNumber *level;
@@ -38,6 +38,8 @@
     self.navigationItem.titleView = btn;
     
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+    
+    self.tableView.tableFooterView = [UIView new];
     
     WLSortSelectView *sortView = [[WLSortSelectView alloc] initWithFrame:CGRectMake(0, 0, WLScreenW, 40)];
     sortView.titlesArray = @[@"好评度",@"讲师等级",@"关注度"];
@@ -61,15 +63,9 @@
 }
 
 
-//点击cell
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //教师详情
-    WLDetailsViewController *details = [[WLDetailsViewController alloc]init];
-    [self.navigationController pushViewController:details animated:YES];
-}
-
 - (void)selectViewDidselectedItem:(UIButton *)button
 {
+    button.selected = YES;
     NSInteger index = button.tag - 1000;
     
     switch (index) {
@@ -81,13 +77,13 @@
             break;
         case 1:
         {
-            button.selected = YES;
+            _levelBtn = button;
             NSArray *filters = @[@"特级讲师",@"高级讲师",@"中级讲师",@"初级讲师"];
             NSMutableArray *menus = [NSMutableArray arrayWithCapacity:0];
             for (NSInteger i = 0; i < filters.count; i ++) {
                 
                 KxMenuItem *item = [KxMenuItem menuItem:filters[i] image:nil target:self action:@selector(kxMenuAction:)];
-                item.tag = i;
+                item.tag = 4 - i;
                 item.foreColor = COLOR_WORD_BLACK;
                 [menus addObject:item];
             }
@@ -111,9 +107,10 @@
 
 - (void)kxMenuAction:(id)sender
 {
+    _levelBtn.selected = NO;
     KxMenuItem *item = (KxMenuItem *)sender;
     NSInteger index = item.tag;
-    _level = [NSNumber numberWithInteger:index + 1];
+    _level = [NSNumber numberWithInteger:index];
     [self requestData];
 }
 
@@ -133,7 +130,7 @@
     if (cell == nil) {
         cell = [[WLFindLecturerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    
+    cell.lecturer = _lecturesArray[indexPath.row];
     return cell;
 }
 
@@ -141,5 +138,12 @@
     return 100;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //教师详情
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLDetailsViewController *detailVC = [[WLDetailsViewController alloc]init];
+    detailVC.teacherId = [_lecturesArray[indexPath.row] id];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 @end

@@ -10,13 +10,13 @@
 
 @interface RecommendModell : NSObject
 
-@property (nonatomic, copy)NSString *star;  //几颗星
-@property (nonatomic, copy)NSString *city;  //城市
-@property (nonatomic, copy)NSString *follow;//关注数
-@property (nonatomic, copy)NSString *id;    //返回ID
-@property (nonatomic, copy)NSString *member;//会员数
-@property (nonatomic, copy)NSString *level; //级别
-@property (nonatomic, copy)NSString *photo; //图片
-@property (nonatomic, copy)NSString *name;  //名字
+@property (nonatomic, strong)NSString *star;  //几颗星
+@property (nonatomic, strong)NSString *city;  //城市
+@property (nonatomic, strong)NSString *follow;//关注数
+@property (nonatomic, strong)NSString *id;    //返回ID
+@property (nonatomic, strong)NSString *member;//会员数
+@property (nonatomic, strong)NSNumber *level; //级别
+@property (nonatomic, strong)NSString *photo; //图片
+@property (nonatomic, strong)NSString *name;  //名字
 
 @end
