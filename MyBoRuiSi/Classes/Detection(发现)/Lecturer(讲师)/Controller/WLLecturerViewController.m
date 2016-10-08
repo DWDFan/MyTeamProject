@@ -8,11 +8,20 @@
 
 #import "WLLecturerViewController.h"
 
-#import "WLLecturerTableViewCell.h"
-
 #import "WLDetailsViewController.h"
+#import "WLFindLecturerListCell.h"
+#import "WLSortSelectView.h"
+#import "WLFindDataHandle.h"
+#import "RecommendModell.h"
+#import "KxMenu.h"
 
-@interface WLLecturerViewController ()
+@interface WLLecturerViewController ()<WLSortSelectViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) WLSortSelectView *sortView;
+@property (nonatomic, strong) NSArray *lecturesArray;
+@property (nonatomic, strong) NSString *sort;
+@property (nonatomic, strong) NSNumber *level;
 
 @end
 
@@ -28,115 +37,30 @@
     [btn setTitle:@"讲师" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    WLSortSelectView *sortView = [[WLSortSelectView alloc] initWithFrame:CGRectMake(0, 0, WLScreenW, 40)];
+    sortView.titlesArray = @[@"好评度",@"讲师等级",@"关注度"];
+    sortView.delegate = self;
+    [self.view addSubview:sortView];
+    _sortView = sortView;
     
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    [self setUptitlevie];
+    _sort = @"";
+    [self requestData];
 }
-//颜色转图片
-- (UIImage*) createImageWithColor: (UIColor*) color
+
+- (void)requestData
 {
-    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    return theImage;
+    [WLFindDataHandle requestFindLectureListWithSort:_sort level:_level success:^(id responseObject) {
+        
+        _lecturesArray = [RecommendModell mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
--(void)setUptitlevie{
-    
-    
-    CGFloat btnY = 0;
-    CGFloat btnW = WLScreenW / 3;
-    CGFloat btnH = 40;
-    
-    
-    
-    for (int i = 0; i < 3; i++) {
-        
-        //添加view
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(i * btnW, btnY, btnW, btnH)];
-        //添加button
-        UIButton *btn = [[UIButton alloc] initWithFrame:view.bounds];
-        
-//        
-//        if (i != 0) {
-//            //间隔线view
-//            UIView *view_main = [[UIView alloc] initWithFrame:CGRectMake(i * btnW, 0, 1, btnH)];
-//            view_main.backgroundColor = [UIColor colorWithRed:136 / 250.0 green:136 / 250.0 blue:136 / 250.0 alpha:1];
-//            [self.view addSubview:view_main];
-//        }
-        
-        if (i == 0) {
-            
-        }else{
-            //间隔线view
-                        UIView *view_main = [[UIView alloc] initWithFrame:CGRectMake(i * btnW, 0, 1, btnH)];
-                        view_main.backgroundColor = [UIColor colorWithRed:136 / 250.0 green:136 / 250.0 blue:136 / 250.0 alpha:0.5];
-                        [self.view addSubview:view_main];
-        }
-        
-        
-        
-        NSString *str;
-        if (i == 0) {
-            str = @"好评度";
-        }else if (i == 1) {
-            str = @"讲师等级";
-        }else{
-            str = @"关注度";
-        }
-        btn.tag = i;
-        [btn setTitle:str forState:UIControlStateNormal];
-        [btn setTitleColor:RGBA(82, 82, 82, 1) forState:UIControlStateNormal];
-        
-        
-        
-        [btn addTarget:self action:@selector(button_main:) forControlEvents:UIControlEventTouchDown];
-        
-        [view addSubview:btn];
-        
-        [self.view addSubview:view];
-        
-        
-        
-    }
-    
-    //底部view
-    UIView *view_num = [[UIView alloc] initWithFrame:CGRectMake(0, 40, WLScreenW, 1)];
-    view_num.backgroundColor = [UIColor colorWithRed:237 / 250.0 green:237 / 250.0 blue:237 / 250.0 alpha:1];
-    
-    [self.view addSubview:view_num];
-    
-    
-    
-}
-
-- (void)button_main:(UIButton *)button{
-    
-    
-    if (button.tag == 0) {
-        NSLog(@"1");
-        
-    }else if (button.tag == 1) {
-        NSLog(@"2");
-        
-    }else{
-        NSLog(@"3");
-        
-    }
-    
-}
 //点击cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //教师详情
@@ -144,26 +68,70 @@
     [self.navigationController pushViewController:details animated:YES];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (void)selectViewDidselectedItem:(UIButton *)button
+{
+    NSInteger index = button.tag - 1000;
     
-    return 1;
+    switch (index) {
+        case 0:
+        {
+            _sort = @"star";
+            [self requestData];
+        }
+            break;
+        case 1:
+        {
+            button.selected = YES;
+            NSArray *filters = @[@"特级讲师",@"高级讲师",@"中级讲师",@"初级讲师"];
+            NSMutableArray *menus = [NSMutableArray arrayWithCapacity:0];
+            for (NSInteger i = 0; i < filters.count; i ++) {
+                
+                KxMenuItem *item = [KxMenuItem menuItem:filters[i] image:nil target:self action:@selector(kxMenuAction:)];
+                item.tag = i;
+                item.foreColor = COLOR_WORD_BLACK;
+                [menus addObject:item];
+            }
+            NSArray *menuItems = menus;
+            [KxMenu setTitleFont:[UIFont systemFontOfSize:14]];
+            [KxMenu showMenuInView:self.view fromRect:CGRectMake(WLScreenW/2, 45, 0, 0) menuItems:menuItems dismissBlock:^{
+                button.selected = NO;
+            }];
+        }
+            break;
+        case 2:
+        {
+            _sort = @"follow";
+            [self requestData];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
+- (void)kxMenuAction:(id)sender
+{
+    KxMenuItem *item = (KxMenuItem *)sender;
+    NSInteger index = item.tag;
+    _level = [NSNumber numberWithInteger:index + 1];
+    [self requestData];
+}
+
+#pragma mark - Table view data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _lecturesArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    static NSString *deteID = @"WLLecturerTableViewCell";
+    static NSString *deteID = @"WLFindLecturerListCell";
     
-    WLLecturerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    WLFindLecturerListCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[WLFindLecturerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
     
     return cell;

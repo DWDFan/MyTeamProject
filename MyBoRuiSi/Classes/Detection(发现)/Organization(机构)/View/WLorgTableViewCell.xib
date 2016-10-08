@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,13 +12,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+                <frame key="frameInset" width="320" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhZ-0f-qJz">
-                        <rect key="frame" x="256" y="0.0" width="64" height="100"/>
+                    <view tag="1004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhZ-0f-qJz">
+                        <frame key="frameInset" minX="256" width="64" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="pCY-cz-3TN">
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="pCY-cz-3TN">
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="eps-AP-mXU"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="lSV-3I-gGs"/>
@@ -47,7 +48,7 @@
                     <view tag="1000" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-nH-cPS">
                         <frame key="frameInset" width="64" height="100"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-f1-1LH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-f1-1LH">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Ayn-to-RGM"/>
                                     <constraint firstAttribute="height" constant="40" id="LdN-AU-pRj"/>
@@ -70,10 +71,10 @@
                             <constraint firstItem="BGx-f1-1LH" firstAttribute="top" secondItem="VY4-nH-cPS" secondAttribute="top" constant="15" id="SQm-BI-fxU"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-ny-JpO">
-                        <rect key="frame" x="61" y="0.0" width="70" height="100"/>
+                    <view tag="1001" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-ny-JpO">
+                        <frame key="frameInset" minX="61" width="70" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-y5-90R">
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-y5-90R">
                                 <frame key="frameInset" minX="15" minY="15" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U3Z-YN-n31"/>
@@ -102,7 +103,7 @@
                     <view tag="1002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2y-T0-Jce">
                         <frame key="frameInset" minX="128" width="64" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="XDl-f9-Did">
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="XDl-f9-Did">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="HgY-MB-IIg"/>
                                     <constraint firstAttribute="height" constant="40" id="nJq-i8-IcW"/>
@@ -130,7 +131,7 @@
                     <view tag="1003" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6b-zG-NaN">
                         <frame key="frameInset" minX="192" width="64" height="99.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="thr-dJ-Xdf">
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="thr-dJ-Xdf">
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Gzs-Qn-Qhz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="LNo-Za-UHG"/>

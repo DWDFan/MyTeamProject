@@ -71,7 +71,7 @@
         if ([responseObject[@"data"] count] > 0) {
             WLFinallysViewController *vc = [[WLFinallysViewController alloc] init];
             
-            vc.dataDict = @{@"type":@"EDS高级工程师", @"name":@"李四", @"birthday":@"1990-10-1", @"xueli":@"烟酒生", @"px_time":@"2000-1-1"};
+            vc.dataDict = responseObject[@"data"][0];
             
             [self.navigationController pushViewController:vc animated:YES];
         }else {

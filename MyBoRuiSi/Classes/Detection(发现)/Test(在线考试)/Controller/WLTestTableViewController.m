@@ -13,6 +13,7 @@
 #import "UIView+Frame.h"
 
 #import "WLNameViewController.h"
+#import "WLHomeDataHandle.h"
 
 @interface WLTestTableViewController ()
 
@@ -22,6 +23,10 @@
 @property (nonatomic,strong)UIView *view_main;
 
 @property (nonatomic,strong)UIView *backgroundView;
+
+@property (nonatomic, strong) NSArray *paperArray;
+
+@property (nonatomic, strong) NSString *paperId;
 
 @end
 
@@ -48,7 +53,18 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
 
+    [self requestData];
+}
 
+- (void)requestData
+{
+    [WLHomeDataHandle requestPaperListWithType:@"" page:@1 success:^(id responseObject) {
+        
+        self.paperArray = responseObject[@"data"];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)addView{
@@ -198,7 +214,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.paperArray.count;
 }
 
 
@@ -212,7 +228,8 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.nameLbl.text = [MOTool getNULLString:_paperArray[indexPath.row][@"name"]];
+    cell.timeLbl.text = [MOTool getNULLString:_paperArray[indexPath.row][@"desc"]];
     return cell;
 }
 
@@ -227,7 +244,7 @@
     
     _view_main.hidden = NO;
     _backgroundView.hidden = NO;
-    
+    _paperId = _paperArray[indexPath.row][@"id"];
     [UIView animateWithDuration:0.32 animations:^{
         
       CGRect  frame =  CGRectMake((WLScreenW - 300) / 2, ([UIScreen mainScreen].bounds.size.height - 170) / 2 - 64, 300, 170);

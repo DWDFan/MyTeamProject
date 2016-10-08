@@ -141,6 +141,9 @@
 		F12163171D5256570003B5C1 /* WLRecomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12163151D5256570003B5C1 /* WLRecomViewController.xib */; };
 		F12163191D525DD20003B5C1 /* WLCurriculum.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12163181D525DD20003B5C1 /* WLCurriculum.xib */; };
 		F121631B1D525E170003B5C1 /* WLCurriculumTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121631A1D525E170003B5C1 /* WLCurriculumTableViewCellTwo.xib */; };
+		F14919381DA8DEE30098CC29 /* WLFindDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F14919371DA8DEE30098CC29 /* WLFindDataHandle.m */; };
+		F149193B1DA8EBD00098CC29 /* WLSortSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = F149193A1DA8EBD00098CC29 /* WLSortSelectView.m */; };
+		F149193E1DA8F91B0098CC29 /* WLFindLecturerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F149193D1DA8F91B0098CC29 /* WLFindLecturerListCell.m */; };
 		F14EE9F31D557CAB00BBD158 /* WLFinallysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14EE9F11D557CAB00BBD158 /* WLFinallysViewController.m */; };
 		F14EE9FF1D55985E00BBD158 /* WLJudgmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14EE9FD1D55985E00BBD158 /* WLJudgmentsViewController.m */; };
 		F14EEA001D55985E00BBD158 /* WLJudgmentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14EE9FE1D55985E00BBD158 /* WLJudgmentsViewController.xib */; };
@@ -199,8 +202,6 @@
 		F1572FA01D51824E001CC7A4 /* WLDetailsHeardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1572F941D51824E001CC7A4 /* WLDetailsHeardTableViewCell.xib */; };
 		F1572FA11D51824E001CC7A4 /* WLDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1572F961D51824E001CC7A4 /* WLDetailsTableViewCell.m */; };
 		F1572FA21D51824E001CC7A4 /* WLDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1572F971D51824E001CC7A4 /* WLDetailsTableViewCell.xib */; };
-		F1572FA31D51824E001CC7A4 /* WLLecturerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1572F991D51824E001CC7A4 /* WLLecturerTableViewCell.m */; };
-		F1572FA41D51824E001CC7A4 /* WLLecturerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1572F9A1D51824E001CC7A4 /* WLLecturerTableViewCell.xib */; };
 		F1605D001D4F445100EF2829 /* WLSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605CFE1D4F445100EF2829 /* WLSearchTableViewCell.m */; };
 		F1605D011D4F445100EF2829 /* WLSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1605CFF1D4F445100EF2829 /* WLSearchTableViewCell.xib */; };
 		F1605D221D4F622200EF2829 /* WLSouTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605D201D4F622200EF2829 /* WLSouTableViewController.m */; };
@@ -669,6 +670,12 @@
 		F12163151D5256570003B5C1 /* WLRecomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLRecomViewController.xib; sourceTree = "<group>"; };
 		F12163181D525DD20003B5C1 /* WLCurriculum.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLCurriculum.xib; sourceTree = "<group>"; };
 		F121631A1D525E170003B5C1 /* WLCurriculumTableViewCellTwo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLCurriculumTableViewCellTwo.xib; sourceTree = "<group>"; };
+		F14919361DA8DEE30098CC29 /* WLFindDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFindDataHandle.h; sourceTree = "<group>"; };
+		F14919371DA8DEE30098CC29 /* WLFindDataHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFindDataHandle.m; sourceTree = "<group>"; };
+		F14919391DA8EBD00098CC29 /* WLSortSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSortSelectView.h; sourceTree = "<group>"; };
+		F149193A1DA8EBD00098CC29 /* WLSortSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSortSelectView.m; sourceTree = "<group>"; };
+		F149193C1DA8F91B0098CC29 /* WLFindLecturerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFindLecturerListCell.h; sourceTree = "<group>"; };
+		F149193D1DA8F91B0098CC29 /* WLFindLecturerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFindLecturerListCell.m; sourceTree = "<group>"; };
 		F14EE9F01D557CAB00BBD158 /* WLFinallysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFinallysViewController.h; sourceTree = "<group>"; };
 		F14EE9F11D557CAB00BBD158 /* WLFinallysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFinallysViewController.m; sourceTree = "<group>"; };
 		F14EE9FC1D55985E00BBD158 /* WLJudgmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLJudgmentsViewController.h; sourceTree = "<group>"; };
@@ -756,9 +763,6 @@
 		F1572F951D51824E001CC7A4 /* WLDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDetailsTableViewCell.h; sourceTree = "<group>"; };
 		F1572F961D51824E001CC7A4 /* WLDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLDetailsTableViewCell.m; sourceTree = "<group>"; };
 		F1572F971D51824E001CC7A4 /* WLDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLDetailsTableViewCell.xib; sourceTree = "<group>"; };
-		F1572F981D51824E001CC7A4 /* WLLecturerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLecturerTableViewCell.h; sourceTree = "<group>"; };
-		F1572F991D51824E001CC7A4 /* WLLecturerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLecturerTableViewCell.m; sourceTree = "<group>"; };
-		F1572F9A1D51824E001CC7A4 /* WLLecturerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLLecturerTableViewCell.xib; sourceTree = "<group>"; };
 		F1605CFD1D4F445100EF2829 /* WLSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSearchTableViewCell.h; sourceTree = "<group>"; };
 		F1605CFE1D4F445100EF2829 /* WLSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSearchTableViewCell.m; sourceTree = "<group>"; };
 		F1605CFF1D4F445100EF2829 /* WLSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -1990,9 +1994,10 @@
 				F1572F951D51824E001CC7A4 /* WLDetailsTableViewCell.h */,
 				F1572F961D51824E001CC7A4 /* WLDetailsTableViewCell.m */,
 				F1572F971D51824E001CC7A4 /* WLDetailsTableViewCell.xib */,
-				F1572F981D51824E001CC7A4 /* WLLecturerTableViewCell.h */,
-				F1572F991D51824E001CC7A4 /* WLLecturerTableViewCell.m */,
-				F1572F9A1D51824E001CC7A4 /* WLLecturerTableViewCell.xib */,
+				F14919391DA8EBD00098CC29 /* WLSortSelectView.h */,
+				F149193A1DA8EBD00098CC29 /* WLSortSelectView.m */,
+				F149193C1DA8F91B0098CC29 /* WLFindLecturerListCell.h */,
+				F149193D1DA8F91B0098CC29 /* WLFindLecturerListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2137,6 +2142,8 @@
 				55F36ACB1D9CB1D4006634CB /* WLMyDataHandle.m */,
 				55F36ACF1D9D0433006634CB /* WLOrderDataHandle.h */,
 				55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */,
+				F14919361DA8DEE30098CC29 /* WLFindDataHandle.h */,
+				F14919371DA8DEE30098CC29 /* WLFindDataHandle.m */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -3124,7 +3131,6 @@
 				F1E517E91D572E5500F3A885 /* AppraisalViewController.xib in Resources */,
 				CDEB079C1D563D57009A0011 /* WLSuccessfulViewController.xib in Resources */,
 				F1FB86091D538B54005AAED3 /* WLTjViewController.xib in Resources */,
-				F1572FA41D51824E001CC7A4 /* WLLecturerTableViewCell.xib in Resources */,
 				F15590471D54346400EFD5F8 /* WLZwViewController.xib in Resources */,
 				F1572F9C1D51824E001CC7A4 /* WLDetailsViewController.xib in Resources */,
 				F17E52911D93D9A6003AB734 /* WLInstitutionInfoCell.xib in Resources */,
@@ -3332,6 +3338,7 @@
 				F1605D001D4F445100EF2829 /* WLSearchTableViewCell.m in Sources */,
 				F1FB85E01D537365005AAED3 /* UIImage+MultiFormat.m in Sources */,
 				F1A7320A1D54A05D00EC755E /* WLNameViewController.m in Sources */,
+				F149193E1DA8F91B0098CC29 /* WLFindLecturerListCell.m in Sources */,
 				F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */,
 				F14EEA181D55C0AD00BBD158 /* WLNoticesViewController.m in Sources */,
 				F1FB85CA1D537365005AAED3 /* DLScrollTabbarView.m in Sources */,
@@ -3422,6 +3429,7 @@
 				CDEB07961D5625EF009A0011 /* WLForgetViewController.m in Sources */,
 				6C5919A61D4FA44900256363 /* NSObject+MJKeyValue.m in Sources */,
 				F1A732301D54AB5300EC755E /* WLMyCurriculumViewController.m in Sources */,
+				F149193B1DA8EBD00098CC29 /* WLSortSelectView.m in Sources */,
 				F12162D01D51A9DF0003B5C1 /* WLCardViewController.m in Sources */,
 				F1A945791D4CF4270097FFEF /* main.m in Sources */,
 				CDEB07911D562085009A0011 /* WLModifyViewController.m in Sources */,
@@ -3467,7 +3475,6 @@
 				F17D7DC31D582718007CDC06 /* WLheadsViewController.m in Sources */,
 				F1FB86011D5374AC005AAED3 /* MJPhotoView.m in Sources */,
 				F18D15861D92774F00AD88BA /* WLUserInfo.m in Sources */,
-				F1572FA31D51824E001CC7A4 /* WLLecturerTableViewCell.m in Sources */,
 				F1518F7B1D52DE9300879B9B /* WLConsummationViewController.m in Sources */,
 				F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */,
 				F188F4E41D503C0700A46FF1 /* UIView+XMGExtension.m in Sources */,
@@ -3494,6 +3501,7 @@
 				CD2190A91D53791700F13FEE /* WLExamsTableViewCell.m in Sources */,
 				6C5919941D4FA44900256363 /* AFHTTPSessionManager.m in Sources */,
 				F17D7DC81D58295A007CDC06 /* WLTzViewController.m in Sources */,
+				F14919381DA8DEE30098CC29 /* WLFindDataHandle.m in Sources */,
 				F1C597CE1D4CFE4900529553 /* WLHome.m in Sources */,
 				F1FB85D81D537365005AAED3 /* SDWebImageCompat.m in Sources */,
 				CD22BF331D66FDF700BB5F47 /* RecommendModell.m in Sources */,

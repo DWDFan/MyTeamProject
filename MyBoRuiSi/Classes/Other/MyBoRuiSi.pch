@@ -41,7 +41,7 @@
 #define ZGPadding 10                //间隙
 #define ZGPaddingMax 15
 
-#define PHOTO_AVATAR [UIImage imageNamed:@"photo_defult"];
+#define PHOTO_AVATAR [UIImage imageNamed:@"photo_defult"]
 #define PHOTO_PLACE [UIImage imageNamed:@"photo_defult"]
 
 #ifdef DEBUG

@@ -14,9 +14,11 @@
 #import "WLJudgmentsViewController.h"
 #import "WLQuestionViewController.h"
 
+#import "WLHomeDataHandle.h"
+
 @interface WLNameViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableviewt;
-
+@property (nonatomic, strong) NSArray *questionArray;
 @end
 
 @implementation WLNameViewController
@@ -32,38 +34,33 @@
     [btn setTitle:@"试卷名称" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
-    
-    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     UIView *view = [UIView new];
     self.tableviewt.tableFooterView = view;
     
-   }
-//颜色转图片
-- (UIImage*) createImageWithColor: (UIColor*) color
-{
-    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    return theImage;
+    [self requestData];
 }
 
+- (void)requestData
+{
+    [WLHomeDataHandle requestPaperDetailWithId:self.paperId success:^(id responseObject) {
+        
+        self.questionArray = responseObject[@"data"];
+        [self.tableviewt reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    
-    return 4;
+    return _questionArray.count;
 }
 
 
@@ -72,14 +69,8 @@
     return 45;
 }
 
-////返回组头的高度
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    
-//    return 10 ;
-//}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     
     static NSString *deteID = @"WLnameTableViewCell";
     
@@ -89,24 +80,12 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
     
-    if (indexPath.row == 0) {
-       
-        cell.labelone.text = @"填空题";
-    }else if (indexPath.row ==1){
-      
-        cell.labelone.text =@"选择题";
-    }else if (indexPath.row == 2){
-          cell.labelone.text =@"判断题";
-    }else{
-          cell.labelone.text =@"问答题";
-    }
-    
+    cell.labelone.text = _questionArray[indexPath.row][@"name"];
     return cell;
 }
 
-
-
 #pragma mark 点击tableViewcell
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //填空题
       if (indexPath.row == 0) {
