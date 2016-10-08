@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WLPurchaseBottomView : UIView
-
+@property (nonatomic, copy) void(^joinShopCarBlock)() ;
 @end

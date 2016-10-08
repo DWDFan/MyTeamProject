@@ -11,12 +11,21 @@
 #import "WLOrderDetailsViewController.h"
 #import "WLAddOrderViewController.h"
 
+#import "WLOrderDataHandle.h"
+#import "WLOrderModel.h"
+
+#import "MJExtension.h"
 @interface WLShoppingsTableViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 
 @property (nonatomic,assign) BOOL isOpen;
 @property (weak, nonatomic) IBOutlet UIButton *button_OptionAll;
 
+
+@property (nonatomic, strong) WLOrderModel *orderModel;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation WLShoppingsTableViewController1
@@ -25,9 +34,19 @@
     
     [super viewDidLoad];
     
-    
+    _page = 1;
+    [self requestGetCarWithPage:@(self.page)];
     
 }
+
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [[NSMutableArray array] init];
+    }
+    return _dataSource;
+}
+
 - (IBAction)clickOK:(id)sender {
     WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
@@ -48,7 +67,7 @@
 //MARK:tableView代理方法----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,7 +78,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
-    
+    cell.orderModer = self.dataSource[indexPath.row];
     cell.isOpen = YES;
     
     return cell;
@@ -91,7 +110,27 @@
     }
 }
 
-
+#pragma mark - Request
+- (void)requestGetCarWithPage:(NSNumber *)page{
+    [WLOrderDataHandle requestGetCartWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            NSArray *arrayData = dict[@"data"];
+            [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSDictionary *dictData = arrayData[idx];
+                _orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
+                [self.dataSource addObject:self.orderModel];
+            }];
+            [self.tableView_main reloadData];
+            
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            [MOProgressHUD dismissWithDelay:1];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 
 @end

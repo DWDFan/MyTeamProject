@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WLUserInfo : NSObject
+@interface WLUserInfo : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, assign) BOOL isLogin;
@@ -19,13 +19,19 @@
 @property (nonatomic, strong) NSNumber *favNum;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, assign, getter=isVip) BOOL vip;
+
+@property (nonatomic, strong) NSString *userInfoArchivPath;
 + (WLUserInfo *)share;
 
-/** 加载用户数据 */
+/** 归档 保存用户数据*/
+- (void)archivWithDict:(NSDictionary *)dict;
+/** 解档 加载用户数据 */
 - (void)loadUserInfo;
 
 /** 清除用户数据 */
 - (void)cleanUserInfo;
+
+
 @end
 /*
 {

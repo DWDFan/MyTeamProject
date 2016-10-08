@@ -19,6 +19,8 @@
 #import "WLCourceModel.h"
 #import "KxMenu.h"
 
+#import "WLOrderDataHandle.h"
+
 @interface WLCourseDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -28,6 +30,7 @@
 @property (nonatomic, weak) UILabel *introLbl;
 @property (nonatomic, weak) UILabel *disPriLbl;
 @property (nonatomic, weak) UIButton *menberBtn;
+
 
 @end
 
@@ -63,6 +66,11 @@
     _tableView.tableFooterView = footer;
     
     WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50)];
+    __weak typeof(self) weakSelf = self;
+    bottomView.joinShopCarBlock = ^(){
+        //request 加入购物车
+        [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
+    };
     [self.view addSubview:bottomView];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
@@ -336,7 +344,24 @@
     }
 }
 
-    
+
+#pragma mark - Request
+- (void)requestJoinShopCarWithGoodId:(NSString *)goodId{
+    [MOProgressHUD show];
+    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId goodid:goodId success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:@"加入成功"];
+            [MOProgressHUD dismissWithDelay:1];
+        }else{
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            [MOProgressHUD dismissWithDelay:1];
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        [MOProgressHUD dismissWithDelay:1];
+    }];
+}
 
 
 @end

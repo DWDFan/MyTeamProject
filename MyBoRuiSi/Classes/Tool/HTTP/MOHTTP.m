@@ -30,10 +30,10 @@
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 1) {
             if (success) {
-                NSString *str_status = [NSString stringWithFormat:@"%@",[responseObject valueForKey:@"statusCode"]];
-                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
-                [dic setObject:str_status forKey:@"statusCode"];
-                success(dic);
+//                NSString *str_status = [NSString stringWithFormat:@"%@",[responseObject valueForKey:@"statusCode"]];
+//                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
+//                [dic setObject:str_status forKey:@"statusCode"];
+                success(responseObject);
             }
         }else {
             if (failure) {

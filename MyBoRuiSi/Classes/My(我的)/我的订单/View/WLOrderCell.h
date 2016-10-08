@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "WLOrderModel.h"
 typedef void(^ClickRecharge)();//充值
 
 @interface WLOrderCell : UITableViewCell
@@ -16,5 +17,7 @@ typedef void(^ClickRecharge)();//充值
 @property (nonatomic,assign) BOOL isOpen;
 
 @property (nonatomic,copy) ClickRecharge action_pay;
+
+@property (nonatomic, strong) WLOrderModel *orderModer;
 
 @end

@@ -92,26 +92,24 @@
         [MOProgressHUD  showWithStatus:@"正在登录..."];
         
         [WLLoginDataHandle requestLoginWithTelphone:self.phone.text code:self.code.text success:^(id responseObject) {
-            
-            NSDictionary *dic = responseObject;
+            NSDictionary *dict = responseObject;
             NSLog(@"%@",responseObject);
-            
-            //返回值
-            if ([dic[@"code"]integerValue] == 1) {
+           
+            if ([dict[@"code"]integerValue] == 1) {
                 
                 
                 [MOProgressHUD dismiss];
-                
-                [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"userInfo"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+              
+                //归档
+                [[WLUserInfo share] archivWithDict:dict];
                 
                 //通知刷新登录状态
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginStatus" object:nil];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }else {
-                
-                [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
+                [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+                 [MOProgressHUD dismissWithDelay:1];
             }
 
         } failure:^(NSError *error) {
