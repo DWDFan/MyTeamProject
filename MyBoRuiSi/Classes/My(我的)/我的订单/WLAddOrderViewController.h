@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WLAddOrderViewController : UIViewController
-
+@property (nonatomic, copy) NSString *money;
 @end

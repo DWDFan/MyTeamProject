@@ -38,6 +38,8 @@
 - (IBAction)clickButton:(id)sender {
     
     WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+    vc.amountStr = self.money;
+    vc.type = chongzhiType;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -66,7 +68,6 @@
     cell.textLabel.textColor = RGBA(51, 51, 51, 1);
     
     UILabel *label_details = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WLScreenW - 140, 48)];
-    label_details.text = @"￥200.00";
     label_details.textAlignment = NSTextAlignmentRight;
     label_details.textColor = [UIColor orangeColor];
     label_details.font = [UIFont systemFontOfSize:16];
@@ -75,6 +76,8 @@
             label_details.textColor = RGBA(102, 102, 102, 1);
             label_details.font = [UIFont systemFontOfSize:13];
         }
+        label_details.text = [NSString stringWithFormat:@"￥%@",self.money];
+
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
@@ -88,6 +91,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        return 60;
+    }
     return 44;
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

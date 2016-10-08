@@ -9,8 +9,11 @@
 #import "WLTopViewController.h"
 #import "WLAddOrderViewController.h"
 
-@interface WLTopViewController ()
+#define kMaxAmount        9999999
+@interface WLTopViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *moneyTextField;
 
+@property (nonatomic, strong) NSString *changeMoney;
 @end
 
 @implementation WLTopViewController
@@ -24,6 +27,7 @@
     [btn setTitle:@"充值" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
+   
     
     //    [MOTool createImageWithColor:]
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
@@ -44,8 +48,24 @@
     return theImage;
 }
 - (IBAction)nextstepbtn:(id)sender {
-    WLAddOrderViewController *top = [[WLAddOrderViewController alloc]init];
-    [self.navigationController pushViewController:top animated:YES];
+    if ([self isValidateMoney:self.moneyTextField.text]) {
+        WLAddOrderViewController *top = [[WLAddOrderViewController alloc]init];
+        //转换金额  1  转换成 1.00
+        top.money = [NSString stringWithFormat:@"%@.00",self.moneyTextField.text];
+        [self.navigationController pushViewController:top animated:YES];
+
+    }else{
+        [MOProgressHUD showErrorWithStatus:@"输入金额错误"];
+    }
 }
+
+//判断金额是否正确
+- (BOOL)isValidateMoney:(NSString *)money
+{
+    NSString *regex = @"^[1-9]\\d*$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [predicate evaluateWithObject:money];
+}
+
 
 @end

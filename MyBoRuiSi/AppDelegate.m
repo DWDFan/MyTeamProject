@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "WLTabBarController.h"
 #import "WLRoot.h"
+
+#import "Pingpp.h"
 @interface AppDelegate ()
 
 @end
@@ -30,7 +32,18 @@
     //窗口可视化
     [self.window makeKeyAndVisible];
     
+    [Pingpp setDebugMode:YES];
     return YES;
+}
+
+// iOS 8 及以下请用这个
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [Pingpp handleOpenURL:url withCompletion:nil];
+}
+
+// iOS 9 以上请用这个
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
+    return [Pingpp handleOpenURL:url withCompletion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

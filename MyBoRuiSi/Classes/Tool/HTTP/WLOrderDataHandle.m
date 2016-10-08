@@ -48,7 +48,7 @@
                       success:(void (^)(id responseObject))success
                       failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid, @"channel":channel, @"amount":amount};
-    [MOHTTP GET:@"brs.yerhu.com/API/pingjj/example/pay.php" parameters:param success:^(id responseObject) {
+    [MOHTTP Post:@"API/pingjj/example/pay.php" parameters:param success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);

@@ -9,10 +9,19 @@
 #import "WLOrderPayViewController.h"
 #import "WLOrderPayOKViewController.h"
 
+#import "WLOrderDataHandle.h"
+
+#import "Pingpp.h"
+
+#define kUrlScheme      @"demoapp001"
 @interface WLOrderPayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
+@property (nonatomic, strong) UIAlertView *alertView;
+@property (nonatomic, strong) UIButton *selectFalg;
+
 @property (nonatomic,strong) NSMutableArray *arr_str;
+@property (nonatomic, strong) NSString *channel;
 
 @end
 
@@ -31,12 +40,58 @@
 }
 - (void)clickBalancePay:(UIButton *)button
 {
-    button.selected = !button.selected;
+    self.selectFalg.selected = NO;
+    button.selected = YES;
+    self.selectFalg = button;
+    
+    switch (button.tag) {
+        case 0:
+            self.channel = @"alipay";
+            break;
+        case 1:
+            self.channel = @"wx";
+            break;
+        case 2:
+            self.channel = @"upacp";
+            break;
+            
+        default:
+            break;
+    }
 }
 - (IBAction)clickOKPay:(UIButton *)sender {
-    
-    WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if(!self.channel){
+        [MOProgressHUD showErrorWithStatus:@"请选择支付方式"];
+        return;
+    }
+    __weak typeof(self) weakSelf = self;
+    [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
+    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.amountStr success:^(id responseObject) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MOProgressHUD dismiss];
+            [Pingpp createPayment:responseObject
+                   viewController:weakSelf
+                     appURLScheme:kUrlScheme
+                   withCompletion:^(NSString *result, PingppError *error) {
+                       if ([result isEqualToString:@"success"]) {
+                           // 支付成功
+                           WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+                           [self.navigationController pushViewController:vc animated:YES];
+                           
+                       } else if ([result isEqualToString:@"cancel"]){
+                           //支付取消
+                           [MOProgressHUD showErrorWithStatus:@"支付取消"];
+                       }else if ([result isEqualToString:@"fail"]){
+                           // 支付失败
+                           [MOProgressHUD showErrorWithStatus:@"支付失败"];
+                           
+                       }
+                   }];
+        });
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
 }
 
@@ -62,7 +117,10 @@
             UIButton *button_option = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 44)];
             [button_option addTarget:self action:@selector(clickBalancePay:) forControlEvents:UIControlEventTouchUpInside];
             [button_option setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
-            [button_option setImage:[UIImage imageNamed:@"支付订单组-3"] forState:UIControlStateSelected];
+            [button_option setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
+            if(self.type == chongzhiType){
+                button_option.userInteractionEnabled = NO;
+            }
             cell.accessoryView = button_option;
         }
     }
@@ -77,9 +135,10 @@
             cell.imageView.image = [UIImage imageNamed:@"银联"];
         }
         UIButton *button_option = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 44)];
+        button_option.tag = indexPath.row;
         [button_option addTarget:self action:@selector(clickBalancePay:) forControlEvents:UIControlEventTouchUpInside];
         [button_option setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
-        [button_option setImage:[UIImage imageNamed:@"支付订单组-3"] forState:UIControlStateSelected];
+        [button_option setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
         cell.accessoryView = button_option;
     }
     return cell;
@@ -113,8 +172,25 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
+}
+
+- (void)showAlertWait
+{
+    self.alertView = [[UIAlertView alloc] initWithTitle:@"正在获取支付凭据,请稍后..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [self.alertView show];
+    UIActivityIndicatorView* aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    aiv.center = CGPointMake(self.alertView.frame.size.width / 2.0f - 15, self.alertView.frame.size.height / 2.0f + 10 );
+    [aiv startAnimating];
+    [self.alertView addSubview:aiv];
+}
+
+- (void)hideAlert
+{
+    if (self.alertView != nil)
+    {
+        [self.alertView dismissWithClickedButtonIndex:0 animated:YES];
+        self.alertView = nil;
+    }
 }
 - (void)initSelf{
     
