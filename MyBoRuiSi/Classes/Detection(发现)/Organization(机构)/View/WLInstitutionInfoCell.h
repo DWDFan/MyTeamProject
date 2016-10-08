@@ -12,5 +12,6 @@
 @interface WLInstitutionInfoCell : UITableViewCell
 
 @property (nonatomic, strong) WLInstitutionModel *institution;
+@property (nonatomic, copy) void(^block)(UIButton *sender);
 
 @end

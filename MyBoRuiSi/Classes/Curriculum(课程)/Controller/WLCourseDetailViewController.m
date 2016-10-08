@@ -15,6 +15,7 @@
 #import "WLCommetCell.h"
 #import "WLPurchaseBottomView.h"
 #import "WLHomeDataHandle.h"
+#import "WLCourseDataHandle.h"
 #import "WLCourceModel.h"
 #import "KxMenu.h"
 
@@ -91,7 +92,7 @@
     [WLHomeDataHandle requestHomeClassDetailWithCourseId:_courseId success:^(id responseObject) {
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
-        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -150,7 +151,13 @@
 }
 
 - (void)btn_addf:(id)sender{
-    
+    [WLCourseDataHandle requestCollectCourseWithCourseId:_courseId uid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+        [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
+
 }
 
 #pragma mark - tableView
@@ -221,7 +228,7 @@
                 cell.textLabel.text = _course.name;
             }else if (indexPath.row == 1) {
                 
-                NSString *priceStr = [NSString stringWithFormat:@"优惠价 : ￥%@",[MOTool getNULLString:_course.price]];
+                NSString *priceStr = [NSString stringWithFormat:@"优惠价 : ￥%@",[MOTool getNULLString:_course.disPrice]];
                 NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:priceStr];
                 [attStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, 6)];
                 [attStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(6, attStr.length - 6)];
@@ -229,9 +236,9 @@
                 cell.textLabel.textColor = KColorOrigin;
                 [cell.textLabel sizeToFit];
                 
-                if (_course.disPrice && !_disPriLbl) {
+                if (_course.price && _course.disPrice && !_disPriLbl) {
                     
-                    NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.disPrice]];
+                    NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.price]];
                     NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
                     NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc]initWithString:priceStr attributes:attribtDic];
                     

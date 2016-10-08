@@ -12,5 +12,6 @@
 @interface WLDetailsHeardTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) WLLecturerModel *lecturer;
+@property (nonatomic, copy) void(^block)(UIButton *sender);
 
 @end

@@ -10,6 +10,28 @@
 
 @implementation WLorgTableViewCell
 
+- (void)setInstitution:(WLInstitutionModel *)institution
+{
+    _institution = institution;
+    
+    for (int i = 0; i < 5; i ++) {
+        
+        UIView *lectureView = [self viewWithTag:1000 + i];
+        
+        if (i < _institution.goodTeacher.count) {
+            
+            WLGoodTeacherModel *lecture = [_institution.goodTeacher objectAtIndex:i];
+            UIImageView *avatarImgV = (UIImageView *)[lectureView viewWithTag:666];
+            UILabel *nameLbl = (UILabel *)[lectureView viewWithTag:777];
+            [avatarImgV sd_setImageWithURL:[NSURL URLWithString:lecture.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+            nameLbl.text = lecture.name;
+            lectureView.hidden = NO;
+        }else {
+            lectureView.hidden = YES;
+        }
+    }
+}
+
 - (void)awakeFromNib {
     
     [super awakeFromNib];

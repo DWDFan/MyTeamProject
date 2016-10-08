@@ -7,19 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLCourceModel.h"
 
 @interface LiveTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageName;
-@property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *dataLabel;
-
-
-
-/**
- *  跳转Block
- */
-@property (nonatomic,strong) void (^WLiveTableViewCellBlcok)();
-
+@property (weak, nonatomic) IBOutlet UIImageView *photoImgV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (nonatomic, strong) WLCourceModel *course;
 
 @end

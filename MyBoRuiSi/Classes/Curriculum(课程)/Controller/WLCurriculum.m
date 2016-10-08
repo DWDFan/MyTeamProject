@@ -15,7 +15,9 @@
 //#import "DirectSeedingViewController.h"
 #import "WLVODCourseListViewController.h"
 #import "WLLiveCourseListViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 
+#import "WLCourceModel.h"
 #import "ZGCourseTypeModel.h"
 #import "WLLiveCourseTypeCell.h"
 //#import "WLZxzbViewController.h"
@@ -35,7 +37,7 @@
 
 @property (nonatomic, strong) NSArray *hotCourseArray;
 @property (nonatomic, strong) NSArray *recommendArray;
-
+@property (nonatomic, strong) NSArray *liveCourseArray;
 
 @end
 
@@ -98,6 +100,14 @@
     } failure:^(NSError *error) {
         
     }];
+    
+    [WLCourseDataHandle requestCourseLiveSuccess:^(id responseObject) {
+        
+        _liveCourseArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)selected:(id)sender{
@@ -118,11 +128,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    int num = 2;
+    NSInteger num = 2;
     if (_type == 1) {
         
         if (section == 0) {
             num = 3;
+        }else {
+            num = 2;
         }
         
     }
@@ -177,30 +189,10 @@
                 
                 cellSix.textLabel.text = @"正在直播";
                 cell = cellSix;
-            }else if(indexPath.row == 1) {
-                
-                cellFour.imageName.image = [UIImage imageNamed:@"001"];
-                
-                cell = cellFour;
-                //在线直播
-                cellFour.WLiveTableViewCellBlcok = ^(){
-                    
-                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
-                    [self.navigationController pushViewController:vc animated:YES];
-                };
-                
             }else{
                 
-                cellFour.imageName.image = [UIImage imageNamed:@"002"];
-                
+                cellFour.course = _liveCourseArray[indexPath.row - 1];
                 cell = cellFour;
-                
-                //在线直播
-                cellFour.WLiveTableViewCellBlcok = ^(){
-                    
-                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
-                    [self.navigationController pushViewController:vc animated:YES];
-                };
             }
         }else{              // ============ 点播
             
@@ -327,6 +319,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (_type == 1 && indexPath.section == 0) {
+        
+        WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+        vc.courseId = [_liveCourseArray[indexPath.row - 1] id];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 

@@ -40,6 +40,16 @@
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
 
     _header = [[[NSBundle mainBundle]loadNibNamed:@"WLDetailsHeardTableViewCell" owner:nil options:nil] lastObject];
+    [_header setBlock:^(UIButton *sender) {
+        
+        NSNumber *type = sender.selected ? @0 : @1;
+        [WLHomeDataHandle requestHomeFollowLectureWithUid:[WLUserInfo share].userId tid:_teacherId type:type Success:^(id responseObject) {
+            
+            sender.selected = !sender.selected;
+        } failure:^(NSError *error) {
+            
+        }];
+    }];
     self.tableView_main.tableHeaderView = _header;
     
     [self requestData];
@@ -60,11 +70,6 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;

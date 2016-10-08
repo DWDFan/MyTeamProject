@@ -108,7 +108,7 @@
 {
     _articleViewModel = articleViewModel;
     
-    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = _articleViewModel.article.name;
     
@@ -127,7 +127,7 @@
         UIImageView *imageV = (UIImageView *)[_images objectAtIndex:i];
 
         if (i < _articleViewModel.article.images.count) {
-            [imageV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.images[i]] placeholderImage:[UIImage imageNamed:@"icon"]];
+            [imageV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.images[i]] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         }else {
             imageV.hidden = YES;
         }

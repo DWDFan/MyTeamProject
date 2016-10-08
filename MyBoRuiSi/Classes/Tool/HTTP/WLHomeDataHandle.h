@@ -10,10 +10,79 @@
 
 @interface WLHomeDataHandle : NSObject
 
+
+/**
+ 获取广告
+
+ @param success
+ @param failure
+ */
 + (void)requestHomeAdDataSuccess:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure;
 
 
+/**
+ 获取推荐讲师
+
+ @param num     数量
+ @param success
+ @param failure 
+ */
++ (void)requestHomeRecommendLectureWithNum:(NSNumber *)num
+                                   Success:(void (^)(id responseObject))success
+                                   failure:(void (^)(NSError *error))failure;
+
+
+/**
+ 获取推荐机构
+
+ @param num     数量
+ @param success
+ @param failure
+ */
++ (void)requestHomeRecommendInstitutionWithNum:(NSNumber *)num
+                                   Success:(void (^)(id responseObject))success
+                                   failure:(void (^)(NSError *error))failure;
+
+
+/**
+ 关注讲师
+
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowLectureWithUid:(NSString *)uid
+                                    tid:(NSString *)tid
+                                   type:(NSNumber *)type
+                                Success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
+
+/**
+ 关注机构
+ 
+ @param uid     uid
+ @param tid     tid
+ @param type    1 关注，0取消关注
+ @param success
+ @param failure
+ */
++ (void)requestHomeFollowInstitutionWithUid:(NSString *)uid
+                                    jid:(NSString *)jid
+                                   type:(NSNumber *)type
+                                Success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
+
+
+/**
+ 获取课程详情
+
+ @param courseId 课程ID
+ @param success
+ @param failure
+ */
 + (void)requestHomeClassDetailWithCourseId:(NSString *)courseId
                                    success:(void (^)(id responseObject))success
                                    failure:(void (^)(NSError *error))failure;
@@ -130,6 +199,62 @@
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure;
 
+/**
+ *  获取试卷类型
+ *
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperTypeSuccess:(void (^)(id responseObject))success
+                                   failure:(void (^)(NSError *error))failure;
 
+/**
+ *  获取试卷列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperListWithType:(NSString *)type
+                            page:(NSNumber *)page
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取试卷内容
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  根据题型获取题目列表
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestPaperDetailWithId:(NSString *)paperId
+                            type:(NSNumber *)type
+                             qid:(NSString *)qid
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  提交答案
+ *
+ *  @param type 类型
+ *  @param success
+ *  @param failure
+ */
++ (void)requestSubmitAnswerWithId:(NSString *)paperId
+                              aid:(NSString *)aid
+                           answer:(NSString *)answer
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
 
 @end

@@ -10,6 +10,17 @@
 
 @implementation LiveTableViewCell
 
+- (void)setCourse:(WLCourceModel *)course
+{
+    _course = course;
+    
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+    
+    _nameLbl.text = _course.name;
+    
+    _timeLbl.text = _course.starttm;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

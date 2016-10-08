@@ -20,6 +20,7 @@
 #import "WLJrViewController.h"
 #import "WLHomeDataHandle.h"
 #import "WLInstitutionModel.h"
+#import "WLHomeDataHandle.h"
 
 @interface WLorganVC ()
 
@@ -121,6 +122,16 @@
             infoCell = [[[NSBundle mainBundle] loadNibNamed:infoID owner:nil options:nil] lastObject];
         }
         infoCell.institution = _institution;
+        [infoCell setBlock:^(UIButton *button) {
+            
+            NSNumber *type = button.selected ? @0 : @1;
+            [WLHomeDataHandle requestHomeFollowInstitutionWithUid:[WLUserInfo share].userId jid:_institutionId type:type Success:^(id responseObject) {
+                
+                button.selected = !button.selected;
+            } failure:^(NSError *error) {
+                
+            }];
+        }];
         cell = infoCell;
         
     }else if (indexPath.section == 1) {
@@ -130,6 +141,7 @@
         if (cello == nil) {
             cello = [[[NSBundle mainBundle] loadNibNamed:orgID owner:nil options:nil] lastObject];
         }
+        cello.institution = _institution;
         cell = cello;
 
     }else {

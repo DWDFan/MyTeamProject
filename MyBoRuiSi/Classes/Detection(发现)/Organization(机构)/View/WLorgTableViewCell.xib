@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,8 +17,7 @@
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhZ-0f-qJz">
                         <rect key="frame" x="256" y="0.0" width="64" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="pCY-cz-3TN">
-                                <rect key="frame" x="12" y="15" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="pCY-cz-3TN">
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="eps-AP-mXU"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="lSV-3I-gGs"/>
@@ -26,8 +25,8 @@
                                     <constraint firstAttribute="height" constant="40" id="uxZ-cC-f2d"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小李" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5l-os-m27">
-                                <rect key="frame" x="17" y="60" width="30" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小李" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5l-os-m27">
+                                <frame key="frameInset" minX="17" minY="60" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,18 +44,20 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-nH-cPS">
-                        <rect key="frame" x="0.0" y="0.0" width="64" height="100"/>
+                    <view tag="1000" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-nH-cPS">
+                        <frame key="frameInset" width="64" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-f1-1LH">
-                                <rect key="frame" x="12" y="15" width="40" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-f1-1LH">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Ayn-to-RGM"/>
                                     <constraint firstAttribute="height" constant="40" id="LdN-AU-pRj"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小燕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-lR-NbF">
-                                <rect key="frame" x="17" y="60" width="30" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小燕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-lR-NbF">
+                                <frame key="frameInset" minX="17" minY="60" width="30" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,15 +73,15 @@
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-ny-JpO">
                         <rect key="frame" x="61" y="0.0" width="70" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-y5-90R">
-                                <rect key="frame" x="15" y="15" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-y5-90R">
+                                <frame key="frameInset" minX="15" minY="15" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U3Z-YN-n31"/>
                                     <constraint firstAttribute="width" constant="40" id="gUm-vf-u37"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小雅啊" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWx-ra-yzK">
-                                <rect key="frame" x="20" y="59" width="30" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小雅啊" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWx-ra-yzK">
+                                <frame key="frameInset" minX="20" minY="59" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,18 +99,17 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2y-T0-Jce">
-                        <rect key="frame" x="128" y="0.0" width="64" height="100"/>
+                    <view tag="1002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2y-T0-Jce">
+                        <frame key="frameInset" minX="128" width="64" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="XDl-f9-Did">
-                                <rect key="frame" x="12" y="15" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="XDl-f9-Did">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="HgY-MB-IIg"/>
                                     <constraint firstAttribute="height" constant="40" id="nJq-i8-IcW"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAh-3g-tAx">
-                                <rect key="frame" x="17" y="59" width="30" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAh-3g-tAx">
+                                <frame key="frameInset" minX="17" minY="59" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -127,11 +127,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6b-zG-NaN">
-                        <rect key="frame" x="192" y="0.0" width="64" height="100"/>
+                    <view tag="1003" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6b-zG-NaN">
+                        <frame key="frameInset" minX="192" width="64" height="99.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="thr-dJ-Xdf">
-                                <rect key="frame" x="12" y="15" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" tag="666" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-47-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="thr-dJ-Xdf">
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Gzs-Qn-Qhz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="LNo-Za-UHG"/>
@@ -139,8 +138,8 @@
                                     <constraint firstAttribute="height" constant="40" id="zpH-oB-2cO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小王" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QY6-8n-bgk">
-                                <rect key="frame" x="17" y="60" width="30" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="小王" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QY6-8n-bgk">
+                                <frame key="frameInset" minX="17" minY="60" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

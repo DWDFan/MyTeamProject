@@ -14,7 +14,7 @@
 {
     _institution = institution;
     
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:institution.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:institution.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
     _nameLbl.text = institution.name;
     

@@ -8,11 +8,14 @@
 
 #import "WLLiveCourseDetailViewController.h"
 #import "WLLookTableViewCell.h"
+#import "WLSharetowViewController.h"
 #import "WLAuthorCell.h"
 #import "WLCommetCell.h"
 #import "WLPurchaseBottomView.h"
 #import "WLHomeDataHandle.h"
+#import "WLCourseDataHandle.h"
 #import "WLCommetCell.h"
+#import "KxMenu.h"
 
 @interface WLLiveCourseDetailViewController ()
 {
@@ -70,7 +73,7 @@
     [WLHomeDataHandle requestHomeClassDetailWithCourseId:_courseId success:^(id responseObject) {
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
-        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"icon"]];
+        [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -80,7 +83,46 @@
 
 - (void)rightBtnAction:(id)sender
 {
+    NSArray *menuItems =
+    @[[KxMenuItem menuItem:@"分享"
+                     image:[UIImage imageNamed:@"图层-48346"]
+                    target:self
+                    action:@selector(shareBtnAction:)],
+      
+      [KxMenuItem menuItem:@"收藏"
+                     image:[UIImage imageNamed:@"组-5@2x_80"]
+                    target:self
+                    action:@selector(collectBtnAction:)]];
     
+    KxMenuItem *first = menuItems[0];
+    first.foreColor = [UIColor colorWithRed:136/255.0f green:136/255.0f blue:136/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    [KxMenu showMenuInView:self.view
+                  fromRect:CGRectMake(WLScreenW - 50, -40, 40, 40)
+                 menuItems:menuItems];
+
+}
+
+- (void)shareBtnAction:(id)sender
+{
+    WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
+    
+    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    
+    [self presentViewController:share animated:YES completion:^{
+    }];
+
+}
+
+- (void)collectBtnAction:(id)sender
+{
+    [WLCourseDataHandle requestCollectCourseWithCourseId:_courseId uid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+        [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,8 +167,8 @@
             if (!cell) {
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
             }
-            cell.avatarImgV.image = [UIImage imageNamed:@"icon"];
-            cell.nameLbl.text = @"王学文";
+            cell.avatarImgV.image = PHOTO_AVATAR;
+            cell.nameLbl.text = _course.author;
             cell.starView.showStar = 4.5 * 20;
             cell.starLbl.text = @"4.5分";
             return cell;
@@ -136,7 +178,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.font = [UIFont systemFontOfSize:15];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = COLOR_WORD_BLACK;
         }
         [[cell viewWithTag:666] removeFromSuperview];
@@ -147,14 +189,14 @@
             
         }else if (indexPath.row == 1) {
             
-            cell.textLabel.text = @"￥640";
+            cell.textLabel.text = _course.disPrice;
             cell.textLabel.font = [UIFont systemFontOfSize:16];
             cell.textLabel.textColor = KColorOrigin;
             [cell.textLabel sizeToFit];
             
-            if (_course.disPrice && !_disPriLbl) {
+            if (_course.disPrice && _course.price && !_disPriLbl) {
                 
-                NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.disPrice]];
+                NSString *priceStr = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.price]];
                 NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
                 NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc]initWithString:priceStr attributes:attribtDic];
                 
@@ -169,11 +211,11 @@
             
         }else if (indexPath.row == 2) {
         
-            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",@"云帆培训机构"];
+            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",_course.author];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 3) {
         
-            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",@"2015-8-8 20:00-21:00"];
+            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",_course.starttm];
         }else if (indexPath.row == 4) {
             
             cell.textLabel.text = [NSString stringWithFormat:@"名额 : %@",@"20人（已报名18人）"];
@@ -189,7 +231,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.font = [UIFont systemFontOfSize:15];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = COLOR_WORD_BLACK;
         }
         
@@ -221,7 +263,7 @@
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellId];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.textLabel.font = [UIFont systemFontOfSize:15];
+                cell.textLabel.font = [UIFont systemFontOfSize:14];
                 cell.textLabel.textColor = COLOR_WORD_BLACK;
             }
             cell.textLabel.text = [NSString stringWithFormat:@"评价(%@)",[MOTool getNULLString:_course.cmtNum]];

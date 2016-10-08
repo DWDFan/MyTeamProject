@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *starImgV4;
 @property (weak, nonatomic) IBOutlet UIImageView *starImgV5;
 @property (weak, nonatomic) IBOutlet UIButton *attentBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *leverImgV;
 
 @end
 
@@ -38,16 +39,17 @@
     _studentNumLbl.text = [NSString stringWithFormat:@"%@人",lecturer.xy_num];
     _attentionNumLbl.text = [NSString stringWithFormat:@"%@人",lecturer.gz_num];
     _descLbl.text = lecturer.desc;
-    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:lecturer.photo] placeholderImage:nil];
-    _attentBtn.enabled = lecturer.isfollow;
+    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:lecturer.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+    _attentBtn.selected = lecturer.isfollow;
     
-    _leverLbl.text = @"特级教师";
-    _institutionLbl.text = @"教育机构";
+    _leverLbl.text = @"XX机构";
+    _institutionLbl.text = @"优秀教师";
 }
 
 - (IBAction)followBtnAction:(id)sender {
     
-    _attentBtn.enabled = NO;
+    UIButton *button = (UIButton *)sender;
+    self.block ? self.block(button) : nil;
 }
 
 - (void)awakeFromNib {

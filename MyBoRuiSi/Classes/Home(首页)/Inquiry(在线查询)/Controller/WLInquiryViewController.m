@@ -68,7 +68,7 @@
 {
     [WLHomeDataHandle requestQueryCertificateWithUid:[WLUserInfo share].userId name:_nameTF.text card_id:_idTF.text zs_num:_certificateIdTF.text success:^(id responseObject) {
         
-        if (responseObject[@"data"]) {
+        if ([responseObject[@"data"] count] > 0) {
             WLFinallysViewController *vc = [[WLFinallysViewController alloc] init];
             
             vc.dataDict = @{@"type":@"EDS高级工程师", @"name":@"李四", @"birthday":@"1990-10-1", @"xueli":@"烟酒生", @"px_time":@"2000-1-1"};
