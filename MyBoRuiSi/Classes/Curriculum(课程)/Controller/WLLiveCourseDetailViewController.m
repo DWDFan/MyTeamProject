@@ -70,12 +70,11 @@
 
 - (void)requestData
 {
-    [WLHomeDataHandle requestHomeClassDetailWithCourseId:_courseId success:^(id responseObject) {
+    [WLCourseDataHandle requestCourseLiveDetailWithId:_courseId success:^(id responseObject) {
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         [self.tableView reloadData];
-        
     } failure:^(NSError *error) {
         
     }];
@@ -215,10 +214,10 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 3) {
         
-            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",_course.starttm];
+            cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",_course.zhibotm];
         }else if (indexPath.row == 4) {
             
-            cell.textLabel.text = [NSString stringWithFormat:@"名额 : %@",@"20人（已报名18人）"];
+            cell.textLabel.text = [NSString stringWithFormat:@"名额 : %@人（已报名%@人）",_course.limit,_course.bm];
         }else if (indexPath.row == 5) {
             
             cell.textLabel.text = @"其他课程";
