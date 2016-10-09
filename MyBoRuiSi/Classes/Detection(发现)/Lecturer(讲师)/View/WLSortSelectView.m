@@ -9,6 +9,9 @@
 #import "WLSortSelectView.h"
 
 @implementation WLSortSelectView
+{
+    UIButton *_currentBtn;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -30,6 +33,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(i * itemW, 0, itemW, 40);
         [button setTitleColor:COLOR_WORD_BLACK forState:UIControlStateNormal];
+        [button setTitleColor:color_red forState:UIControlStateSelected];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:1000 + i];
@@ -55,6 +59,9 @@
 
 - (void)buttonAction:(UIButton *)sender
 {
+    _currentBtn.selected = NO;
+    _currentBtn = sender;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(selectViewDidselectedItem:)]) {
         [self.delegate selectViewDidselectedItem:sender];
     }
