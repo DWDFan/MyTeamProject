@@ -11,7 +11,7 @@
 @interface ZGArticleCell ()
 
 @property (nonatomic, strong) UIImageView *avatarImgV;
-@property (nonatomic, strong) UIImageView *praImgV;
+@property (nonatomic, strong) UIButton *praBtn;
 @property (nonatomic, strong) UIImageView *cmtImgV;
 @property (nonatomic, strong) UILabel *nameLbl;
 @property (nonatomic, strong) UILabel *timeLbl;
@@ -42,10 +42,11 @@
     _avatarImgV.layer.masksToBounds = YES;
     [self addSubview:_avatarImgV];
     
-    _praImgV = [[UIImageView alloc] init];
-    _praImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-230"];
-    _praImgV.contentMode = UIViewContentModeScaleAspectFit;
-    [self addSubview:_praImgV];
+    _praBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_praBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
+    [_praBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
+    [_praBtn addTarget:self action:@selector(praBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_praBtn];
     
     _cmtImgV = [[UIImageView alloc] init];
     _cmtImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-108"];
@@ -100,8 +101,6 @@
         [_imageContainV addSubview:imageV];
         [self.images addObject:imageV];
     }
-    
-    
 }
 
 - (void)setArticleViewModel:(ZGArticleViewModel *)articleViewModel
@@ -139,10 +138,22 @@
     _titleLbl.frame = _articleViewModel.titleFrame;
     _contentLbl.frame = _articleViewModel.contentFrame;
     _imageContainV.frame = _articleViewModel.imageVFrame;
-    _praImgV.frame = _articleViewModel.praIconFrame;
+    _praBtn.frame = _articleViewModel.praIconFrame;
     _cmtImgV.frame = _articleViewModel.cmtIconFrame;
     _praLbl.frame = _articleViewModel.praFrame;
     _cmtLbl.frame = _articleViewModel.cmtFrame;
+}
+
+- (void)praBtnAction:(UIButton *)sender
+{
+    self.praiseblock ? self.praiseblock(sender) : nil;
+}
+
+- (void)addPraiseCount
+{
+    NSInteger count = [_articleViewModel.article.zanNum integerValue] + 1;
+    _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
+    _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
 }
 
 @end

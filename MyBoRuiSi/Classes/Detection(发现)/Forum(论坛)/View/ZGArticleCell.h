@@ -12,5 +12,7 @@
 @interface ZGArticleCell : UITableViewCell
 
 @property (nonatomic, strong) ZGArticleViewModel *articleViewModel;
+@property (nonatomic, copy) void(^praiseblock)(UIButton *button);
+- (void)addPraiseCount;
 
 @end

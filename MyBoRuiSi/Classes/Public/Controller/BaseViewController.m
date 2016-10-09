@@ -113,7 +113,7 @@ NSInteger const kPageSize = 20;
 
 -(UITableView *)tableView{
     if(!_tableView){
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, IOS7_TOP_Y, WLScreenW, WLScreenH-IOS7_TOP_Y) style:self.tableViewStyle?self.tableViewStyle:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH-IOS7_TOP_Y) style:self.tableViewStyle?self.tableViewStyle:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate  = self;
 //        _tableView.backgroundColor = [UIColor clearColor];
