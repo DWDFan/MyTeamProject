@@ -74,9 +74,8 @@
                      appURLScheme:kUrlScheme
                    withCompletion:^(NSString *result, PingppError *error) {
                        if ([result isEqualToString:@"success"]) {
-                           // 支付成功
-                           WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
-                           [self.navigationController pushViewController:vc animated:YES];
+                           // 支付成功 调用dopay接口
+                           [self dopay];
                            
                        } else if ([result isEqualToString:@"cancel"]){
                            //支付取消
@@ -118,7 +117,7 @@
             [button_option addTarget:self action:@selector(clickBalancePay:) forControlEvents:UIControlEventTouchUpInside];
             [button_option setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
             [button_option setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
-            if(self.type == chongzhiType){
+            if(self.type == rechargeType){
                 button_option.userInteractionEnabled = NO;
             }
             cell.accessoryView = button_option;
@@ -161,7 +160,7 @@
     if (section == 2) {
         return 30;
     }
-    return 0.01;
+   return 0.01;
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -201,6 +200,21 @@
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:@" 支付订单" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
+}
+
+#pragma mark - Request
+- (void)dopay{
+    [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

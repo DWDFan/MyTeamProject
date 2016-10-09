@@ -35,16 +35,26 @@
     
 }
 
+/** 付款 */
 - (IBAction)clickPay:(id)sender {
     
-    if (self.action_pay) {
-        self.action_pay();
+//    if (self.rechargeBlock) {
+//        self.rechargeBlock();
+//    }
+    if(self.payBlock){
+        self.payBlock([self.orderModer.price integerValue]);
     }
 }
 
-//椭圆-2
+/** 选中 事件 */
 - (IBAction)clickButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
+    sender.selected = !self.orderModer.isSelect;
+    self.orderModer.select = sender.selected;
+    if (self.selectBalanceBlock) {
+        NSInteger price = [self.orderModer.price integerValue];
+        NSString *cid = self.orderModer.id;
+        self.selectBalanceBlock(price, sender.selected,cid);
+    }
 }
 
 - (void)setIsOpen:(BOOL)isOpen
@@ -69,7 +79,7 @@
     _jiangshi.text = _orderModer.jiangshi;
     _price.text = [NSString stringWithFormat:@"￥%@",_orderModer.price];
     
-    
+    self.button_option.selected = _orderModer.isSelect;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

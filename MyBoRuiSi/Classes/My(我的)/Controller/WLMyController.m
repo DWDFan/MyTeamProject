@@ -135,7 +135,11 @@
 #pragma mark - Table view data source
 //点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (![WLUserInfo share].isLogin) {
+        WLRegisteringViewController *loginVC = [[WLRegisteringViewController alloc] init];
+        [self.navigationController pushViewController:loginVC animated:YES];
+        return;
+    }
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             //订单

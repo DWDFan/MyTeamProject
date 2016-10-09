@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitleButtonWithString:@"编辑"];
+//    [self setTitleButtonWithString:@"编辑"];
    
     [self initSelf];
     
