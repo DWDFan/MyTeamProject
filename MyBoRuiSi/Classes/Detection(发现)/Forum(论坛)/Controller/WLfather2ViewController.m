@@ -45,8 +45,6 @@
     // 添加子控制器
     [self setupChildVcs];
     
-    
-    
 }
 
 
@@ -70,8 +68,6 @@
     self.view_mian.tabbarTrackColor = color_red;
     /** 设置背景色*/
     self.view_mian.backgroundColor = [UIColor whiteColor];
-    /** 添加背景图片*/
-    self.view_mian.tabbarBackgroundImage = [UIImage imageNamed:@"QQ20160810-0"];
     //高度
     self.view_mian.tabbarHeight = 44;
     

@@ -21,8 +21,10 @@
 @interface ZGArticleModel : NSObject
 
 @property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *tid;
 @property (nonatomic, strong) NSString *photo;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) NSString *addtime;
 
@@ -30,7 +32,9 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSNumber *zanNum;
 @property (nonatomic, strong) NSNumber *cmtNum;
+@property (nonatomic, strong) NSNumber *replyNum;
 @property (nonatomic, strong) NSNumber *viewNum;
+@property (nonatomic, strong) NSNumber *view;
 @property (nonatomic, strong) NSArray *images;
 
 @end

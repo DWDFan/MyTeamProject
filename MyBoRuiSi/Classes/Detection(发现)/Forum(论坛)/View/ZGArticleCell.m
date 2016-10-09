@@ -43,7 +43,7 @@
     [self addSubview:_avatarImgV];
     
     _praImgV = [[UIImageView alloc] init];
-    _praImgV.image = [UIImage imageNamed:@"Heart-拷贝"];
+    _praImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-230"];
     _praImgV.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_praImgV];
     
@@ -110,7 +110,7 @@
     
     [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     
-    _nameLbl.text = _articleViewModel.article.name;
+    _nameLbl.text = _articleViewModel.article.name ? _articleViewModel.article.name : _articleViewModel.article.nickname;
     
     _titleLbl.text = _articleViewModel.article.title;
     
@@ -120,7 +120,7 @@
     
     _praLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
     
-    _cmtLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.cmtNum];
+    _cmtLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.cmtNum ? _articleViewModel.article.cmtNum : _articleViewModel.article.replyNum];
     
     for (int i = 0; i < 3; i ++) {
         

@@ -17,8 +17,7 @@
     
     //拼接URL
     NSString *URLStr = [NSString stringWithFormat:@"%@%@",PostUrl,URLString];
-    NSLog(@"%@+++",URLStr);
-    NSLog(@"%@---",parameters);
+    NSLog(@"+++++++++++++++\n%@\n%@",URLStr,parameters);
     [mgr GET:URLStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (!responseObject) {
@@ -34,6 +33,7 @@
 //                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
 //                [dic setObject:str_status forKey:@"statusCode"];
                 success(responseObject);
+                WLLog(@"\n%@\n*********************\n%@",URLStr,responseObject);
             }
         }else {
             if (failure) {
