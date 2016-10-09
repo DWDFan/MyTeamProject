@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSUInteger) {
-    orderPayType,
-    chongzhiType
+    orderPayType,//订单支付
+    rechargeType //充值
 }payType;
 @interface WLOrderPayViewController : UIViewController
 @property (nonatomic, strong) NSString *amountStr;
+@property (nonatomic, strong) NSString *orderId; //订单id
 @property (nonatomic, assign) payType type;
 @end

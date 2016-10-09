@@ -11,12 +11,16 @@
 #import "WLOrderPayViewController.h"
 #import "WLOrderDetailsViewController.h"
 
-
+#import "WLOrderDataHandle.h"
+#import "WLOrderModel.h"
 @interface WLShoppingsTableViewController2 ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
-@property (nonatomic,assign) BOOL isOpen;
 
+@property (nonatomic, strong) WLOrderModel *orderModel;
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation WLShoppingsTableViewController2
@@ -24,9 +28,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    _page = 1;
+    [self requestGetWaitPayWithPage:@(self.page)];
     
 }
+
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [[NSMutableArray array] init];
+    }
+    return _dataSource;
+}
+
 //- (void)openOption
 //{
 //    NSLog(@"打开 2");
@@ -42,7 +56,7 @@
 //MARK:tableView代理方法----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,9 +67,10 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
-    cell.isOpen = self.isOpen;
+    cell.orderModer = self.dataSource[indexPath.row];
+    
     __weak typeof(self) weakSelf = self;
-    cell.action_pay = ^(){
+    cell.payBlock = ^(NSInteger price){
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
@@ -90,4 +105,25 @@
     }
 }
 
+#pragma mark - Request
+- (void)requestGetWaitPayWithPage:(NSNumber *)page{
+    [WLOrderDataHandle requestGetWaitPayWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            NSArray *arrayData = dict[@"data"];
+            [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSDictionary *dictData = arrayData[idx];
+                _orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
+                [self.dataSource addObject:self.orderModel];
+            }];
+            [self.tableView_main reloadData];
+            
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            [MOProgressHUD dismissWithDelay:1];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

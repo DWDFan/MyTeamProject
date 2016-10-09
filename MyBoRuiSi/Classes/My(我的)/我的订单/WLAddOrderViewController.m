@@ -9,11 +9,14 @@
 #import "WLAddOrderViewController.h"
 #import "WLOrderPayViewController.h"
 
+#import "WLOrderDataHandle.h"
 @interface WLAddOrderViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
+@property (nonatomic, strong) UILabel *amount_lab;//总计
 
 @property (nonatomic,strong) NSMutableArray *arr_data;
+@property (nonatomic, assign) NSInteger userScore;
 
 @end
 
@@ -23,8 +26,8 @@
     
     [super viewDidLoad];
     
-    
-    self.arr_data = [NSMutableArray arrayWithArray:@[@[@"充值",@"小计"],@[@"使用积分",@"总计"]]];
+    _userScore = 0;
+    self.arr_data = [NSMutableArray arrayWithArray:@[@[self.type == orderPayType ? @"商品" : @"充值",@"小计"],@[@"使用积分",@"总计"]]];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
@@ -35,12 +38,24 @@
     self.navigationItem.titleView = btn;
 }
 
-- (IBAction)clickButton:(id)sender {
+#pragma mark - Event Response
+- (void)userJiFen:(UIButton* )sender{
+    sender.selected = !sender.selected;
     
-    WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
-    vc.amountStr = self.money;
-    vc.type = chongzhiType;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (sender.selected) {
+       self.userScore = [[WLUserInfo share].score integerValue] / 100;
+        NSInteger amount = [self.money floatValue] - self.userScore;
+        self.amount_lab.text = [NSString stringWithFormat:@"￥%zd",amount];
+    }else{
+        self.userScore = 0;
+        self.amount_lab.text = [NSString stringWithFormat:@"￥%@",self.money];
+
+    }
+    
+}
+- (IBAction)clickButton:(id)sender {
+    //request
+    [self requestCommitOrder];
 }
 
 //MARK:tableView代理方法----------
@@ -77,21 +92,53 @@
             label_details.font = [UIFont systemFontOfSize:13];
         }
         label_details.text = [NSString stringWithFormat:@"￥%@",self.money];
-
+        cell.accessoryView = label_details;
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
+            UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 140, 60)];
+            cell.accessoryView = accessoryView;
             
+            [accessoryView addSubview:({
+                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                btn.frame = CGRectMake(10, 15, 30, 30);
+                [btn setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
+                [btn setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
+                [btn addTarget:self action:@selector(userJiFen:) forControlEvents:UIControlEventTouchUpInside];
+                if([[WLUserInfo share].score isEqualToNumber:@0]) btn.userInteractionEnabled = NO;
+                btn;
+            })];
+            
+            [accessoryView addSubview:({
+                UILabel *lab_1 = [[UILabel alloc] initWithFrame:CGRectMake(40, 8, 100, 15)];
+                lab_1.textAlignment = NSTextAlignmentRight;
+                lab_1.text = @"500积分抵5元";
+                lab_1.font = [UIFont systemFontOfSize:13];
+                lab_1.textColor = RGB(51, 51, 51);
+                lab_1;
+            })];
+            
+            [accessoryView addSubview:({
+                UILabel *jiFen_lab = [[UILabel alloc] initWithFrame:CGRectMake(40, 28, 100, 15)];
+                 jiFen_lab.textAlignment = NSTextAlignmentRight;
+                jiFen_lab.text = [NSString stringWithFormat:@"现有积分%@",[WLUserInfo share].score];
+                jiFen_lab.font = [UIFont systemFontOfSize:11];
+                jiFen_lab.textColor = RGB(102, 102, 102);
+                jiFen_lab;
+            })];
+        }else if(indexPath.row ==1){
+            _amount_lab = label_details;
+            label_details.text = [NSString stringWithFormat:@"￥%@",self.money];
+            cell.accessoryView = label_details;
         }
     }
-    cell.accessoryView = label_details;
     
     
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2 && indexPath.row == 0) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
         return 60;
     }
     return 44;
@@ -110,4 +157,21 @@
     
 }
 
+#pragma mark - Request
+- (void)requestCommitOrder{
+    [WLOrderDataHandle requestCommitOrderWithUid:[WLUserInfo share].userId cid:self.cid type:self.type jifen:nil success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+            vc.amountStr = self.money;
+            vc.orderId = dict[@"id"];
+            vc.type = rechargeType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+    }];
+}
 @end

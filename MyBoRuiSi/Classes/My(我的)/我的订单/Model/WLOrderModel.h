@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSNumber *status;
 @property (nonatomic, strong) NSNumber *vipFree;
+
+@property (nonatomic, getter=isSelect, assign) BOOL select;
 @end
 /*
 {

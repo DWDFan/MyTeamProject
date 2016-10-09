@@ -17,6 +17,8 @@ typedef void(^ClickRecharge)();//充值
 @property (nonatomic,assign) BOOL isOpen;
 
 @property (nonatomic,copy) ClickRecharge action_pay;
+@property (nonatomic, copy) void(^selectBalanceBlock)(NSInteger price,BOOL isSelect, NSString *cid);
+@property (nonatomic, copy) void(^payBlock)(NSInteger price);
 
 @property (nonatomic, strong) WLOrderModel *orderModer;
 
