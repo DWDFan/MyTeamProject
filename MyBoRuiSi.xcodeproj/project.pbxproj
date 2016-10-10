@@ -143,12 +143,13 @@
 		F10E16DB1DA9F5F900474ACE /* WLForumTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16CF1DA9F5F900474ACE /* WLForumTableViewController.xib */; };
 		F10E16DC1DA9F5F900474ACE /* WLq1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */; };
 		F10E16DD1DA9F5F900474ACE /* WLq1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */; };
-		F10E16DE1DA9F5F900474ACE /* WLQuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16D41DA9F5F900474ACE /* WLQuViewController.m */; };
-		F10E16DF1DA9F5F900474ACE /* WLQuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16D51DA9F5F900474ACE /* WLQuViewController.xib */; };
 		F10E16E01DA9F5F900474ACE /* WLxqusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */; };
-		F10E16E11DA9F5F900474ACE /* WLxqusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16D81DA9F5F900474ACE /* WLxqusViewController.xib */; };
 		F10E16E51DA9F6D800474ACE /* WLfather2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16E31DA9F6D800474ACE /* WLfather2ViewController.m */; };
 		F10E16E61DA9F6D800474ACE /* WLfather2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */; };
+		F112A1CB1DAB470E004827D9 /* WLMyCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */; };
+		F112A1CE1DAB63BB004827D9 /* WLCirCleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */; };
+		F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D01DAB648E004827D9 /* WLCircleModel.m */; };
+		F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */; };
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
@@ -240,6 +241,8 @@
 		F1605D231D4F622200EF2829 /* WLSouTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1605D211D4F622200EF2829 /* WLSouTableViewController.xib */; };
 		F1605D271D4F630400EF2829 /* WLSouTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605D251D4F630400EF2829 /* WLSouTableViewCell.m */; };
 		F1605D281D4F630400EF2829 /* WLSouTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1605D261D4F630400EF2829 /* WLSouTableViewCell.xib */; };
+		F175A8ED1DAB939100279147 /* WLCircleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */; };
+		F175A8EE1DAB939100279147 /* WLCircleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */; };
 		F17D7DBD1D581183007CDC06 /* WLMyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17D7DBC1D581183007CDC06 /* WLMyController.xib */; };
 		F17D7DBF1D581208007CDC06 /* WLProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17D7DBE1D581208007CDC06 /* WLProtocolViewController.xib */; };
 		F17D7DC31D582718007CDC06 /* WLheadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17D7DC11D582718007CDC06 /* WLheadsViewController.m */; };
@@ -692,15 +695,19 @@
 		F10E16D01DA9F5F900474ACE /* WLq1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLq1ViewController.h; sourceTree = "<group>"; };
 		F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLq1ViewController.m; sourceTree = "<group>"; };
 		F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLq1ViewController.xib; sourceTree = "<group>"; };
-		F10E16D31DA9F5F900474ACE /* WLQuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuViewController.h; sourceTree = "<group>"; };
-		F10E16D41DA9F5F900474ACE /* WLQuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuViewController.m; sourceTree = "<group>"; };
-		F10E16D51DA9F5F900474ACE /* WLQuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLQuViewController.xib; sourceTree = "<group>"; };
 		F10E16D61DA9F5F900474ACE /* WLxqusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLxqusViewController.h; sourceTree = "<group>"; };
 		F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLxqusViewController.m; sourceTree = "<group>"; };
-		F10E16D81DA9F5F900474ACE /* WLxqusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLxqusViewController.xib; sourceTree = "<group>"; };
 		F10E16E21DA9F6D800474ACE /* WLfather2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLfather2ViewController.h; sourceTree = "<group>"; };
 		F10E16E31DA9F6D800474ACE /* WLfather2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLfather2ViewController.m; sourceTree = "<group>"; };
 		F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLfather2ViewController.xib; sourceTree = "<group>"; };
+		F112A1C91DAB470E004827D9 /* WLMyCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyCircleViewController.h; sourceTree = "<group>"; };
+		F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyCircleViewController.m; sourceTree = "<group>"; };
+		F112A1CC1DAB63BB004827D9 /* WLCirCleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCirCleCell.h; sourceTree = "<group>"; };
+		F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleCell.m; sourceTree = "<group>"; };
+		F112A1CF1DAB648E004827D9 /* WLCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCircleModel.h; sourceTree = "<group>"; };
+		F112A1D01DAB648E004827D9 /* WLCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCircleModel.m; sourceTree = "<group>"; };
+		F112A1D21DAB7400004827D9 /* WLCirCleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCirCleDetailViewController.h; sourceTree = "<group>"; };
+		F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleDetailViewController.m; sourceTree = "<group>"; };
 		F11839931D9CBC2500B98BF7 /* WLLiveCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseListViewController.h; sourceTree = "<group>"; };
 		F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseListViewController.m; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
@@ -839,6 +846,9 @@
 		F1605D241D4F630400EF2829 /* WLSouTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSouTableViewCell.h; sourceTree = "<group>"; };
 		F1605D251D4F630400EF2829 /* WLSouTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSouTableViewCell.m; sourceTree = "<group>"; };
 		F1605D261D4F630400EF2829 /* WLSouTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLSouTableViewCell.xib; sourceTree = "<group>"; };
+		F175A8EA1DAB939100279147 /* WLCircleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCircleInfoCell.h; sourceTree = "<group>"; };
+		F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCircleInfoCell.m; sourceTree = "<group>"; };
+		F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLCircleInfoCell.xib; sourceTree = "<group>"; };
 		F17D7DBC1D581183007CDC06 /* WLMyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLMyController.xib; sourceTree = "<group>"; };
 		F17D7DBE1D581208007CDC06 /* WLProtocolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLProtocolViewController.xib; sourceTree = "<group>"; };
 		F17D7DC01D582718007CDC06 /* WLheadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLheadsViewController.h; sourceTree = "<group>"; };
@@ -1697,18 +1707,18 @@
 				F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */,
 				F10E16CB1DA9F5F900474ACE /* WLArticleDetailViewController.h */,
 				F10E16CC1DA9F5F900474ACE /* WLArticleDetailViewController.m */,
+				F112A1C91DAB470E004827D9 /* WLMyCircleViewController.h */,
+				F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */,
 				F10E16CD1DA9F5F900474ACE /* WLForumTableViewController.h */,
 				F10E16CE1DA9F5F900474ACE /* WLForumTableViewController.m */,
 				F10E16CF1DA9F5F900474ACE /* WLForumTableViewController.xib */,
 				F10E16D01DA9F5F900474ACE /* WLq1ViewController.h */,
 				F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */,
 				F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */,
-				F10E16D31DA9F5F900474ACE /* WLQuViewController.h */,
-				F10E16D41DA9F5F900474ACE /* WLQuViewController.m */,
-				F10E16D51DA9F5F900474ACE /* WLQuViewController.xib */,
 				F10E16D61DA9F5F900474ACE /* WLxqusViewController.h */,
 				F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */,
-				F10E16D81DA9F5F900474ACE /* WLxqusViewController.xib */,
+				F112A1D21DAB7400004827D9 /* WLCirCleDetailViewController.h */,
+				F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */,
 				F7038F761DAAA81400989A6B /* WLReportViewController.h */,
 				F7038F771DAAA81400989A6B /* WLReportViewController.m */,
 			);
@@ -2214,6 +2224,8 @@
 				F181B2E71D98B8E700DE511D /* ZGArticleModel.m */,
 				F10E16C11DA9EB2600474ACE /* WLBBSAdModel.h */,
 				F10E16C21DA9EB2600474ACE /* WLBBSAdModel.m */,
+				F112A1CF1DAB648E004827D9 /* WLCircleModel.h */,
+				F112A1D01DAB648E004827D9 /* WLCircleModel.m */,
 			);
 			name = Model;
 			path = View/Model;
@@ -2429,6 +2441,11 @@
 				F1EF40271D5C14A900B19315 /* WLq1ViewTableViewCell.xib */,
 				F181B2EC1D98C35200DE511D /* ZGArticleCell.h */,
 				F181B2ED1D98C35200DE511D /* ZGArticleCell.m */,
+				F112A1CC1DAB63BB004827D9 /* WLCirCleCell.h */,
+				F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */,
+				F175A8EA1DAB939100279147 /* WLCircleInfoCell.h */,
+				F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */,
+				F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3405,9 +3422,7 @@
 				F1FB85FC1D5374AC005AAED3 /* MJPhotoBrowser.bundle in Resources */,
 				F12163121D524EA80003B5C1 /* WLorganVC.xib in Resources */,
 				CD2190CD1D54472200F13FEE /* WLAnswerTableViewController.xib in Resources */,
-				F10E16DF1DA9F5F900474ACE /* WLQuViewController.xib in Resources */,
 				F12162E51D51AA4E0003B5C1 /* WLSettingViewController.xib in Resources */,
-				F10E16E11DA9F5F900474ACE /* WLxqusViewController.xib in Resources */,
 				F17D7DC41D582718007CDC06 /* WLheadsViewController.xib in Resources */,
 				6C59199D1D4FA44900256363 /* MBProgressHUD.bundle in Resources */,
 				F1FB85511D530B5C005AAED3 /* WLorganizationgViewController.xib in Resources */,
@@ -3418,6 +3433,7 @@
 				F1C598421D4E0FED00529553 /* WLmomoTableViewCell.xib in Resources */,
 				F1E517F31D577C8600F3A885 /* WLjg1TableViewCell.xib in Resources */,
 				F1A732351D54AB5300EC755E /* WLDirectseedingTableViewCell.xib in Resources */,
+				F175A8EE1DAB939100279147 /* WLCircleInfoCell.xib in Resources */,
 				F1518F771D52D48900879B9B /* WLRegistrationtViewController.xib in Resources */,
 				F15590381D54258000EFD5F8 /* WLRecordTableViewCell.xib in Resources */,
 				F19244ED1D5F633800F0FF5B /* show.png in Resources */,
@@ -3515,7 +3531,6 @@
 				F1FB85E31D537365005AAED3 /* UIView+WebCacheOperation.m in Sources */,
 				F1E517F21D577C8600F3A885 /* WLjg1TableViewCell.m in Sources */,
 				55EB16981D9A525500C414EF /* UIActionSheet+camera.m in Sources */,
-				F10E16DE1DA9F5F900474ACE /* WLQuViewController.m in Sources */,
 				6C5919BA1D4FA44900256363 /* TTTAttributedLabel.m in Sources */,
 				F155904B1D5437F600EFD5F8 /* WLFinallyViewController.m in Sources */,
 				CD6414071D5050F0002D31AC /* WLCurriculumTableViewCell.m in Sources */,
@@ -3538,6 +3553,7 @@
 				F77FB0DA1D976D51001B287E /* WLInstitutionLecturersCell.m in Sources */,
 				6C59199F1D4FA44900256363 /* MJExtensionConst.m in Sources */,
 				F14EEA2E1D5614D400BBD158 /* WLXtnewsViewController.m in Sources */,
+				F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */,
 				F14EEA0E1D55B6B900BBD158 /* WLAbuoutViewController.m in Sources */,
 				F1C597BD1D4CFCEF00529553 /* UIBarButtonItem+Item.m in Sources */,
 				CDEB07871D55AC32009A0011 /* WLConsumeViewController.m in Sources */,
@@ -3552,6 +3568,7 @@
 				F14EEA421D56356400BBD158 /* WLKXqViewController.m in Sources */,
 				F14EEA221D55C1DB00BBD158 /* WLnewsViewController.m in Sources */,
 				F1A732321D54AB5300EC755E /* WLSelectionViewController.m in Sources */,
+				F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */,
 				F1518F761D52D48900879B9B /* WLRegistrationtViewController.m in Sources */,
 				6E13E0BC1D52EAF900616BEB /* WLShoppingsTableViewController3.m in Sources */,
 				F15590411D5430A100EFD5F8 /* WLPhysiologyViewController.m in Sources */,
@@ -3587,6 +3604,7 @@
 				CDEB07911D562085009A0011 /* WLModifyViewController.m in Sources */,
 				F1FB85C71D537365005AAED3 /* DLCustomSlideView.m in Sources */,
 				F14EEA041D55989B00BBD158 /* WLQuestionViewController.m in Sources */,
+				F112A1CB1DAB470E004827D9 /* WLMyCircleViewController.m in Sources */,
 				F1C598411D4E0FED00529553 /* WLmomoTableViewCell.m in Sources */,
 				F19244E51D5F633800F0FF5B /* ASBirthSelectSheet.m in Sources */,
 				F15590501D54425400EFD5F8 /* WLSharetowViewController.m in Sources */,
@@ -3604,6 +3622,7 @@
 				F185456F1D9A51120008F471 /* BaseViewController.m in Sources */,
 				CD22BE791D58712500BB5F47 /* WLTopViewController.m in Sources */,
 				F1FB85FB1D5374AC005AAED3 /* MJPhoto.m in Sources */,
+				F112A1CE1DAB63BB004827D9 /* WLCirCleCell.m in Sources */,
 				F1D110A31D598FC800103536 /* WLke1TableViewCell.m in Sources */,
 				F1E517CF1D57002800F3A885 /* DirectSeedingTableViewCells.m in Sources */,
 				F1AA6F471D95178200769610 /* WLDisplayStarView.m in Sources */,
@@ -3714,6 +3733,7 @@
 				6C5919A11D4FA44900256363 /* MJProperty.m in Sources */,
 				F1FB85DD1D537365005AAED3 /* SDWebImagePrefetcher.m in Sources */,
 				F1FB855A1D532B71005AAED3 /* WLTabulationViewController.m in Sources */,
+				F175A8ED1DAB939100279147 /* WLCircleInfoCell.m in Sources */,
 				CD22BF361D68221200BB5F47 /* RecommendationModelll.m in Sources */,
 				F1FB85DB1D537365005AAED3 /* SDWebImageDownloaderOperation.m in Sources */,
 				F10E16C31DA9EB2600474ACE /* WLBBSAdModel.m in Sources */,

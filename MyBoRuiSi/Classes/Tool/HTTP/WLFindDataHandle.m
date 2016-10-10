@@ -106,7 +106,8 @@
                                 success:(void (^)(id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"id" : [MOTool getNULLString:tid]};
+    NSDictionary *param = @{@"id" : [MOTool getNULLString:tid],
+                             @"uid" : [MOTool getNULLString:[WLUserInfo share].userId]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=postDetail" parameters:param success:^(id responseObject) {
         

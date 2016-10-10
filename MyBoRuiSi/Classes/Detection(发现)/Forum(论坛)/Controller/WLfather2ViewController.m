@@ -9,7 +9,7 @@
 #import "DLTabedSlideView.h"
 
 #import "WLForumTableViewController.h"
-#import "WLQuViewController.h"
+#import "WLMyCircleViewController.h"
 #import "WLxqusViewController.h"
 
 
@@ -55,7 +55,7 @@
     
     self.arr_vc = [NSMutableArray array];
     [self.arr_vc addObject:[[WLForumTableViewController alloc]init]];
-    [self.arr_vc addObject:[[WLQuViewController alloc]init]];
+    [self.arr_vc addObject:[[WLMyCircleViewController alloc]init]];
     [self.arr_vc addObject:[[WLxqusViewController alloc]init]];
     
     self.view_mian.delegate = self;

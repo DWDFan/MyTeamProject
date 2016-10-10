@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface WLxqusViewController : UIViewController
+@interface WLxqusViewController : BaseViewController
 
 @end
