@@ -112,7 +112,7 @@
                     action:@selector(btn_chat:)],
       
       [KxMenuItem menuItem:@"收藏"
-                     image:[UIImage imageNamed:@"组-5@2x_80"]
+                     image:[UIImage imageNamed:@"icon_collect_select"]
                     target:self
                     action:@selector(btn_addf:)]];
     

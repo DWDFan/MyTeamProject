@@ -122,6 +122,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLArticleDetailViewController *detailVC = [[WLArticleDetailViewController alloc] init];
     ZGArticleViewModel *artVM = _hotsArray[indexPath.row];
+    detailVC.articleViewModel = artVM;
     detailVC.articleId = artVM.article.tid;
     [self.navigationController pushViewController:detailVC animated:YES];
 }

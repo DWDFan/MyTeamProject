@@ -39,6 +39,10 @@
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *star;
 @property (nonatomic, strong) NSString *msg;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *addtime;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *photo;
 
 @end
 

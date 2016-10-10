@@ -7,9 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "ZGArticleModel.h"
 
 @interface WLArticleDetailViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *articleId;
+@property (nonatomic, strong) ZGArticleViewModel *articleViewModel;
 
 @end
