@@ -1,0 +1,148 @@
+//
+//  WLCirCleDetailViewController.m
+//  MyBoRuiSi
+//
+//  Created by Catskiy on 2016/10/10.
+//  Copyright © 2016年 itcast.com. All rights reserved.
+//
+
+#import "WLCirCleDetailViewController.h"
+#import "WLArticleDetailViewController.h"
+#import "WLFindDataHandle.h"
+#import "ZGArticleCell.h"
+#import "WLCircleInfoCell.h"
+#import "ZGArticleModel.h"
+#import "WLCircleModel.h"
+
+@interface WLCirCleDetailViewController ()
+
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) WLCircleInfoModel *infoModel;
+
+@end
+
+@implementation WLCirCleDetailViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self setNavigationBarStyleDefultWithTitle:self.circleName];
+    [self.view addSubview:self.tableView];
+    
+    UIButton *issueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    issueBtn.frame = CGRectMake(0, self.view.height - 49, WLScreenW, 49);
+    issueBtn.backgroundColor = color_red;
+    issueBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [issueBtn setTitle:@"发帖" forState:UIControlStateNormal];
+    [issueBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [issueBtn addTarget:self action:@selector(issueBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:issueBtn];
+    
+    _page = 1;
+    [self requestData];
+}
+
+- (void)requestData
+{
+    [WLFindDataHandle requestFindCircleInfoWithQid:_circleId uid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+        _infoModel = [WLCircleInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [WLFindDataHandle requestFindCircleArticleWithQid:_circleId page:@(_page) success:^(id responseObject) {
+        
+        NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        for (ZGArticleModel *art in articles) {
+            ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
+            artVM.article = art;
+            [self.dataSoureArray addObject:artVM];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)issueBtnAction:(UIButton *)sender
+{
+    
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return 1;
+    }else {
+        return self.dataSoureArray.count;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        return 100;
+    }else {
+        ZGArticleViewModel *vModel = [self.dataSoureArray objectAtIndex:indexPath.row];
+        return  vModel.cellHeight;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    if (indexPath.section == 0) {
+        
+        static NSString *ID = @"WLCircleInfoCell";
+        WLCircleInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:nil] firstObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.circleInfo = _infoModel;
+        [cell setBlock:^(UIButton *sender) {
+            
+            NSNumber *type = sender.selected ? @2 : @1;
+            [WLFindDataHandle requestFindCircleFollowWithQid:_circleId uid:[WLUserInfo share].userId type:type success:^(id responseObject) {
+                
+                sender.selected = !sender.selected;
+            } failure:^(NSError *error) {
+                [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+            }];
+        }];
+        return cell;
+
+    }else {
+        
+        static NSString *ID = @"ZGArticleCell";
+        ZGArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        
+        if (cell == nil) {
+            cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        }
+        cell.articleViewModel = self.dataSoureArray[indexPath.row];
+        return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        WLArticleDetailViewController *detailVC = [[WLArticleDetailViewController alloc] init];
+        ZGArticleViewModel *vModel = self.dataSoureArray[indexPath.row];
+        detailVC.articleId = vModel.article.tid;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+}
+
+@end

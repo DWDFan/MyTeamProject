@@ -7,9 +7,15 @@
 //
 
 #import "WLxqusViewController.h"
+#import "WLCirCleDetailViewController.h"
 #import "WLCurriculumTableViewCell.h"
+#import "WLFindDataHandle.h"
+#import "WLCircleModel.h"
+#import "WLCirCleCell.h"
 
 @interface WLxqusViewController ()
+
+@property (nonatomic, strong) NSArray *circleArray;
 
 @end
 
@@ -17,42 +23,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.tableViewStyle = UITableViewStyleGrouped;
+    [self.view addSubview:self.tableView];
+    
+    [self requestData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)requestData
+{
+    [WLFindDataHandle requestFindCircleListSuccess:^(id responseObject) {
+        
+        _circleArray = [WLcircleTypeModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     
-    return 2;
+    return _circleArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     
     return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 190;
+    
+    WLcircleTypeModel *type = _circleArray[indexPath.section];
+    
+    return [WLCirCleCell heightWithCount:type.data.count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    static NSString *deteID = @"WLCurriculumTableViewCell";
-    
-    WLCurriculumTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    WLCirCleCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[WLCirCleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    WLcircleTypeModel *type = _circleArray[indexPath.section];
+    cell.circlesArray = type.data;
     
+    [cell setBlock:^(NSString *typeId, NSString *name) {
+        
+        WLCirCleDetailViewController *detailVC = [[WLCirCleDetailViewController alloc] init];
+        detailVC.circleId = typeId;
+        detailVC.circleName = name;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }];
     return cell;
 }
 
@@ -60,19 +86,20 @@
     return 40;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 1;
+    return 0.000001;
 }
 
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *str;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *titleLbl = [[UILabel alloc] init];
+    titleLbl.frame = CGRectMake(0, 0, WLScreenW, 40);
+    titleLbl.font = [UIFont systemFontOfSize:14];
+    titleLbl.textColor = COLOR_WORD_BLACK;
     
-    if (section == 0) {
-        str = @"一级分类";
-    }else {
-        str = @"分类名称";
-    }
-    return str;
+    WLcircleTypeModel *type = _circleArray[section];
+    titleLbl.text = [NSString stringWithFormat:@"    %@",type.name];
+    return titleLbl;
 }
+
 
 @end

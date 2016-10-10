@@ -138,6 +138,19 @@
 		CDEB079C1D563D57009A0011 /* WLSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEB079A1D563D57009A0011 /* WLSuccessfulViewController.xib */; };
 		CDEB07A01D564485009A0011 /* WLPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB079E1D564485009A0011 /* WLPayViewController.m */; };
 		CDEB07A11D564485009A0011 /* WLPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDEB079F1D564485009A0011 /* WLPayViewController.xib */; };
+		F10E16C31DA9EB2600474ACE /* WLBBSAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16C21DA9EB2600474ACE /* WLBBSAdModel.m */; };
+		F10E16D91DA9F5F900474ACE /* WLArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16CC1DA9F5F900474ACE /* WLArticleDetailViewController.m */; };
+		F10E16DA1DA9F5F900474ACE /* WLForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16CE1DA9F5F900474ACE /* WLForumTableViewController.m */; };
+		F10E16DB1DA9F5F900474ACE /* WLForumTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16CF1DA9F5F900474ACE /* WLForumTableViewController.xib */; };
+		F10E16DC1DA9F5F900474ACE /* WLq1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */; };
+		F10E16DD1DA9F5F900474ACE /* WLq1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */; };
+		F10E16E01DA9F5F900474ACE /* WLxqusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */; };
+		F10E16E51DA9F6D800474ACE /* WLfather2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10E16E31DA9F6D800474ACE /* WLfather2ViewController.m */; };
+		F10E16E61DA9F6D800474ACE /* WLfather2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */; };
+		F112A1CB1DAB470E004827D9 /* WLMyCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */; };
+		F112A1CE1DAB63BB004827D9 /* WLCirCleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */; };
+		F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D01DAB648E004827D9 /* WLCircleModel.m */; };
+		F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */; };
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
@@ -229,6 +242,8 @@
 		F1605D231D4F622200EF2829 /* WLSouTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1605D211D4F622200EF2829 /* WLSouTableViewController.xib */; };
 		F1605D271D4F630400EF2829 /* WLSouTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1605D251D4F630400EF2829 /* WLSouTableViewCell.m */; };
 		F1605D281D4F630400EF2829 /* WLSouTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1605D261D4F630400EF2829 /* WLSouTableViewCell.xib */; };
+		F175A8ED1DAB939100279147 /* WLCircleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */; };
+		F175A8EE1DAB939100279147 /* WLCircleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */; };
 		F17D7DBD1D581183007CDC06 /* WLMyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17D7DBC1D581183007CDC06 /* WLMyController.xib */; };
 		F17D7DBF1D581208007CDC06 /* WLProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17D7DBE1D581208007CDC06 /* WLProtocolViewController.xib */; };
 		F17D7DC31D582718007CDC06 /* WLheadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17D7DC11D582718007CDC06 /* WLheadsViewController.m */; };
@@ -248,13 +263,8 @@
 		F185456F1D9A51120008F471 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F185456E1D9A51120008F471 /* BaseViewController.m */; };
 		F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */; };
 		F18545751D9A59D80008F471 /* WLFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545741D9A59D80008F471 /* WLFilterView.m */; };
-		F18679DC1D5B664C00EF198E /* WLxqusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18679DA1D5B664C00EF198E /* WLxqusViewController.m */; };
-		F18679DD1D5B664C00EF198E /* WLxqusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18679DB1D5B664C00EF198E /* WLxqusViewController.xib */; };
-		F18679E31D5B73A100EF198E /* WLfather2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18679E11D5B73A100EF198E /* WLfather2ViewController.m */; };
-		F18679E41D5B73A100EF198E /* WLfather2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18679E21D5B73A100EF198E /* WLfather2ViewController.xib */; };
 		F188F4E31D503C0700A46FF1 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F188F4E01D503C0700A46FF1 /* UIView+Frame.m */; };
 		F188F4E41D503C0700A46FF1 /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F188F4E21D503C0700A46FF1 /* UIView+XMGExtension.m */; };
-		F188F4E81D5046EF00A46FF1 /* WLQuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F188F4E61D5046EF00A46FF1 /* WLQuViewController.m */; };
 		F18D157F1D92327000AD88BA /* WLCourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F18D157E1D92327000AD88BA /* WLCourceModel.m */; };
 		F18D15821D925D4400AD88BA /* WLLoginDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F18D15811D925D4400AD88BA /* WLLoginDataHandle.m */; };
 		F18D15861D92774F00AD88BA /* WLUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F18D15851D92774F00AD88BA /* WLUserInfo.m */; };
@@ -363,13 +373,9 @@
 		F1E517FD1D578A7E00F3A885 /* WLCardxqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E517FB1D578A7E00F3A885 /* WLCardxqViewController.xib */; };
 		F1E518011D578B9A00F3A885 /* WLcardxqTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E517FF1D578B9A00F3A885 /* WLcardxqTableViewCell.m */; };
 		F1E518021D578B9A00F3A885 /* WLcardxqTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E518001D578B9A00F3A885 /* WLcardxqTableViewCell.xib */; };
-		F1EF40231D5C0F4400B19315 /* WLq1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EF40211D5C0F4400B19315 /* WLq1ViewController.m */; };
-		F1EF40241D5C0F4400B19315 /* WLq1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EF40221D5C0F4400B19315 /* WLq1ViewController.xib */; };
 		F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EF40261D5C14A900B19315 /* WLq1ViewTableViewCell.m */; };
 		F1EF40291D5C14A900B19315 /* WLq1ViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EF40271D5C14A900B19315 /* WLq1ViewTableViewCell.xib */; };
 		F1F1144A1D953B7700F07E7B /* WLPurchaseBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F114491D953B7700F07E7B /* WLPurchaseBottomView.m */; };
-		F1F7164E1D4F8F0F0097F859 /* WLForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7164C1D4F8F0F0097F859 /* WLForumTableViewController.m */; };
-		F1F7164F1D4F8F0F0097F859 /* WLForumTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F7164D1D4F8F0F0097F859 /* WLForumTableViewController.xib */; };
 		F1F7165D1D4F9AB30097F859 /* WLTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7165B1D4F9AB30097F859 /* WLTestTableViewCell.m */; };
 		F1F7165E1D4F9AB30097F859 /* WLTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F7165C1D4F9AB30097F859 /* WLTestTableViewCell.xib */; };
 		F1FA00B11D5ACCD200430BC6 /* WLZnewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FA00AF1D5ACCD200430BC6 /* WLZnewsTableViewCell.m */; };
@@ -438,6 +444,7 @@
 		F1FB86041D5375B1005AAED3 /* WLHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB86031D5375B1005AAED3 /* WLHomeTableViewCell.xib */; };
 		F1FB86081D538B54005AAED3 /* WLTjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB86061D538B54005AAED3 /* WLTjViewController.m */; };
 		F1FB86091D538B54005AAED3 /* WLTjViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB86071D538B54005AAED3 /* WLTjViewController.xib */; };
+		F7038F781DAAA81400989A6B /* WLReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7038F771DAAA81400989A6B /* WLReportViewController.m */; };
 		F704671A1DA407E100F3B9E9 /* WLPaperTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */; };
 		F7157BDB1D963CD8001AAED5 /* WLCourceOutlineVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7157BDA1D963CD8001AAED5 /* WLCourceOutlineVIewController.m */; };
 		F7157BDE1D963E66001AAED5 /* WLCourseDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F7157BDD1D963E66001AAED5 /* WLCourseDataHandle.m */; };
@@ -681,6 +688,29 @@
 		CDEB079D1D564485009A0011 /* WLPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLPayViewController.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.h"; sourceTree = SOURCE_ROOT; };
 		CDEB079E1D564485009A0011 /* WLPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLPayViewController.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.m"; sourceTree = SOURCE_ROOT; };
 		CDEB079F1D564485009A0011 /* WLPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLPayViewController.xib; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.xib"; sourceTree = SOURCE_ROOT; };
+		F10E16C11DA9EB2600474ACE /* WLBBSAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLBBSAdModel.h; sourceTree = "<group>"; };
+		F10E16C21DA9EB2600474ACE /* WLBBSAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLBBSAdModel.m; sourceTree = "<group>"; };
+		F10E16CB1DA9F5F900474ACE /* WLArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLArticleDetailViewController.h; sourceTree = "<group>"; };
+		F10E16CC1DA9F5F900474ACE /* WLArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLArticleDetailViewController.m; sourceTree = "<group>"; };
+		F10E16CD1DA9F5F900474ACE /* WLForumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLForumTableViewController.h; sourceTree = "<group>"; };
+		F10E16CE1DA9F5F900474ACE /* WLForumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLForumTableViewController.m; sourceTree = "<group>"; };
+		F10E16CF1DA9F5F900474ACE /* WLForumTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLForumTableViewController.xib; sourceTree = "<group>"; };
+		F10E16D01DA9F5F900474ACE /* WLq1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLq1ViewController.h; sourceTree = "<group>"; };
+		F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLq1ViewController.m; sourceTree = "<group>"; };
+		F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLq1ViewController.xib; sourceTree = "<group>"; };
+		F10E16D61DA9F5F900474ACE /* WLxqusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLxqusViewController.h; sourceTree = "<group>"; };
+		F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLxqusViewController.m; sourceTree = "<group>"; };
+		F10E16E21DA9F6D800474ACE /* WLfather2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLfather2ViewController.h; sourceTree = "<group>"; };
+		F10E16E31DA9F6D800474ACE /* WLfather2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLfather2ViewController.m; sourceTree = "<group>"; };
+		F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLfather2ViewController.xib; sourceTree = "<group>"; };
+		F112A1C91DAB470E004827D9 /* WLMyCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyCircleViewController.h; sourceTree = "<group>"; };
+		F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyCircleViewController.m; sourceTree = "<group>"; };
+		F112A1CC1DAB63BB004827D9 /* WLCirCleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCirCleCell.h; sourceTree = "<group>"; };
+		F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleCell.m; sourceTree = "<group>"; };
+		F112A1CF1DAB648E004827D9 /* WLCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCircleModel.h; sourceTree = "<group>"; };
+		F112A1D01DAB648E004827D9 /* WLCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCircleModel.m; sourceTree = "<group>"; };
+		F112A1D21DAB7400004827D9 /* WLCirCleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCirCleDetailViewController.h; sourceTree = "<group>"; };
+		F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleDetailViewController.m; sourceTree = "<group>"; };
 		F11839931D9CBC2500B98BF7 /* WLLiveCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseListViewController.h; sourceTree = "<group>"; };
 		F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseListViewController.m; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
@@ -819,6 +849,9 @@
 		F1605D241D4F630400EF2829 /* WLSouTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSouTableViewCell.h; sourceTree = "<group>"; };
 		F1605D251D4F630400EF2829 /* WLSouTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSouTableViewCell.m; sourceTree = "<group>"; };
 		F1605D261D4F630400EF2829 /* WLSouTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLSouTableViewCell.xib; sourceTree = "<group>"; };
+		F175A8EA1DAB939100279147 /* WLCircleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCircleInfoCell.h; sourceTree = "<group>"; };
+		F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCircleInfoCell.m; sourceTree = "<group>"; };
+		F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLCircleInfoCell.xib; sourceTree = "<group>"; };
 		F17D7DBC1D581183007CDC06 /* WLMyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLMyController.xib; sourceTree = "<group>"; };
 		F17D7DBE1D581208007CDC06 /* WLProtocolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLProtocolViewController.xib; sourceTree = "<group>"; };
 		F17D7DC01D582718007CDC06 /* WLheadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLheadsViewController.h; sourceTree = "<group>"; };
@@ -850,18 +883,10 @@
 		F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVODCourseListViewController.m; sourceTree = "<group>"; };
 		F18545731D9A59D80008F471 /* WLFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFilterView.h; sourceTree = "<group>"; };
 		F18545741D9A59D80008F471 /* WLFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFilterView.m; sourceTree = "<group>"; };
-		F18679D91D5B664C00EF198E /* WLxqusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLxqusViewController.h; sourceTree = "<group>"; };
-		F18679DA1D5B664C00EF198E /* WLxqusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLxqusViewController.m; sourceTree = "<group>"; };
-		F18679DB1D5B664C00EF198E /* WLxqusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLxqusViewController.xib; sourceTree = "<group>"; };
-		F18679E01D5B73A100EF198E /* WLfather2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLfather2ViewController.h; sourceTree = "<group>"; };
-		F18679E11D5B73A100EF198E /* WLfather2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLfather2ViewController.m; sourceTree = "<group>"; };
-		F18679E21D5B73A100EF198E /* WLfather2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLfather2ViewController.xib; sourceTree = "<group>"; };
 		F188F4DF1D503C0700A46FF1 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		F188F4E01D503C0700A46FF1 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		F188F4E11D503C0700A46FF1 /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
 		F188F4E21D503C0700A46FF1 /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
-		F188F4E51D5046EF00A46FF1 /* WLQuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuViewController.h; sourceTree = "<group>"; };
-		F188F4E61D5046EF00A46FF1 /* WLQuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuViewController.m; sourceTree = "<group>"; };
 		F18D157D1D92327000AD88BA /* WLCourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCourceModel.h; sourceTree = "<group>"; };
 		F18D157E1D92327000AD88BA /* WLCourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCourceModel.m; sourceTree = "<group>"; };
 		F18D15801D925D4400AD88BA /* WLLoginDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLoginDataHandle.h; sourceTree = "<group>"; };
@@ -1040,17 +1065,11 @@
 		F1E517FE1D578B9A00F3A885 /* WLcardxqTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLcardxqTableViewCell.h; sourceTree = "<group>"; };
 		F1E517FF1D578B9A00F3A885 /* WLcardxqTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLcardxqTableViewCell.m; sourceTree = "<group>"; };
 		F1E518001D578B9A00F3A885 /* WLcardxqTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLcardxqTableViewCell.xib; sourceTree = "<group>"; };
-		F1EF40201D5C0F4400B19315 /* WLq1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLq1ViewController.h; sourceTree = "<group>"; };
-		F1EF40211D5C0F4400B19315 /* WLq1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLq1ViewController.m; sourceTree = "<group>"; };
-		F1EF40221D5C0F4400B19315 /* WLq1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLq1ViewController.xib; sourceTree = "<group>"; };
 		F1EF40251D5C14A900B19315 /* WLq1ViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLq1ViewTableViewCell.h; sourceTree = "<group>"; };
 		F1EF40261D5C14A900B19315 /* WLq1ViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLq1ViewTableViewCell.m; sourceTree = "<group>"; };
 		F1EF40271D5C14A900B19315 /* WLq1ViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLq1ViewTableViewCell.xib; sourceTree = "<group>"; };
 		F1F114481D953B7700F07E7B /* WLPurchaseBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPurchaseBottomView.h; sourceTree = "<group>"; };
 		F1F114491D953B7700F07E7B /* WLPurchaseBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPurchaseBottomView.m; sourceTree = "<group>"; };
-		F1F7164B1D4F8F0F0097F859 /* WLForumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLForumTableViewController.h; sourceTree = "<group>"; };
-		F1F7164C1D4F8F0F0097F859 /* WLForumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLForumTableViewController.m; sourceTree = "<group>"; };
-		F1F7164D1D4F8F0F0097F859 /* WLForumTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLForumTableViewController.xib; sourceTree = "<group>"; };
 		F1F7165A1D4F9AB30097F859 /* WLTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestTableViewCell.h; sourceTree = "<group>"; };
 		F1F7165B1D4F9AB30097F859 /* WLTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTestTableViewCell.m; sourceTree = "<group>"; };
 		F1F7165C1D4F9AB30097F859 /* WLTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTestTableViewCell.xib; sourceTree = "<group>"; };
@@ -1176,6 +1195,8 @@
 		F1FB86051D538B54005AAED3 /* WLTjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTjViewController.h; sourceTree = "<group>"; };
 		F1FB86061D538B54005AAED3 /* WLTjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTjViewController.m; sourceTree = "<group>"; };
 		F1FB86071D538B54005AAED3 /* WLTjViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTjViewController.xib; sourceTree = "<group>"; };
+		F7038F761DAAA81400989A6B /* WLReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLReportViewController.h; sourceTree = "<group>"; };
+		F7038F771DAAA81400989A6B /* WLReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLReportViewController.m; sourceTree = "<group>"; };
 		F70467181DA407E100F3B9E9 /* WLPaperTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPaperTypeCell.h; sourceTree = "<group>"; };
 		F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPaperTypeCell.m; sourceTree = "<group>"; };
 		F7157BD91D963CD8001AAED5 /* WLCourceOutlineVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCourceOutlineVIewController.h; sourceTree = "<group>"; };
@@ -1683,6 +1704,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F10E16CA1DA9F5F900474ACE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F10E16E21DA9F6D800474ACE /* WLfather2ViewController.h */,
+				F10E16E31DA9F6D800474ACE /* WLfather2ViewController.m */,
+				F10E16E41DA9F6D800474ACE /* WLfather2ViewController.xib */,
+				F10E16CB1DA9F5F900474ACE /* WLArticleDetailViewController.h */,
+				F10E16CC1DA9F5F900474ACE /* WLArticleDetailViewController.m */,
+				F112A1C91DAB470E004827D9 /* WLMyCircleViewController.h */,
+				F112A1CA1DAB470E004827D9 /* WLMyCircleViewController.m */,
+				F10E16CD1DA9F5F900474ACE /* WLForumTableViewController.h */,
+				F10E16CE1DA9F5F900474ACE /* WLForumTableViewController.m */,
+				F10E16CF1DA9F5F900474ACE /* WLForumTableViewController.xib */,
+				F10E16D01DA9F5F900474ACE /* WLq1ViewController.h */,
+				F10E16D11DA9F5F900474ACE /* WLq1ViewController.m */,
+				F10E16D21DA9F5F900474ACE /* WLq1ViewController.xib */,
+				F10E16D61DA9F5F900474ACE /* WLxqusViewController.h */,
+				F10E16D71DA9F5F900474ACE /* WLxqusViewController.m */,
+				F112A1D21DAB7400004827D9 /* WLCirCleDetailViewController.h */,
+				F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */,
+				F7038F761DAAA81400989A6B /* WLReportViewController.h */,
+				F7038F771DAAA81400989A6B /* WLReportViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2180,6 +2227,10 @@
 			children = (
 				F181B2E61D98B8E700DE511D /* ZGArticleModel.h */,
 				F181B2E71D98B8E700DE511D /* ZGArticleModel.m */,
+				F10E16C11DA9EB2600474ACE /* WLBBSAdModel.h */,
+				F10E16C21DA9EB2600474ACE /* WLBBSAdModel.m */,
+				F112A1CF1DAB648E004827D9 /* WLCircleModel.h */,
+				F112A1D01DAB648E004827D9 /* WLCircleModel.m */,
 			);
 			name = Model;
 			path = View/Model;
@@ -2222,40 +2273,6 @@
 			sourceTree = "<group>";
 		};
 		F185456C1D9A502F0008F471 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F188F4D51D5039F100A46FF1 /* Fathers Vc(父子控制器) */ = {
-			isa = PBXGroup;
-			children = (
-				F188F4D61D5039F100A46FF1 /* Controller */,
-				F188F4D91D5039F100A46FF1 /* Model */,
-				F188F4DA1D5039F100A46FF1 /* View */,
-			);
-			path = "Fathers Vc(父子控制器)";
-			sourceTree = "<group>";
-		};
-		F188F4D61D5039F100A46FF1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F18679E01D5B73A100EF198E /* WLfather2ViewController.h */,
-				F18679E11D5B73A100EF198E /* WLfather2ViewController.m */,
-				F18679E21D5B73A100EF198E /* WLfather2ViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F188F4D91D5039F100A46FF1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F188F4DA1D5039F100A46FF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -2414,29 +2431,11 @@
 		F1A264251D4F8B9600ACE76B /* Forum(论坛) */ = {
 			isa = PBXGroup;
 			children = (
+				F10E16CA1DA9F5F900474ACE /* Controller */,
 				F181B2E51D98B8C200DE511D /* Model */,
-				F1A264261D4F8B9600ACE76B /* Controller */,
 				F1A264281D4F8B9600ACE76B /* View */,
 			);
 			path = "Forum(论坛)";
-			sourceTree = "<group>";
-		};
-		F1A264261D4F8B9600ACE76B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F1F7164B1D4F8F0F0097F859 /* WLForumTableViewController.h */,
-				F1F7164C1D4F8F0F0097F859 /* WLForumTableViewController.m */,
-				F1F7164D1D4F8F0F0097F859 /* WLForumTableViewController.xib */,
-				F188F4E51D5046EF00A46FF1 /* WLQuViewController.h */,
-				F188F4E61D5046EF00A46FF1 /* WLQuViewController.m */,
-				F18679D91D5B664C00EF198E /* WLxqusViewController.h */,
-				F18679DA1D5B664C00EF198E /* WLxqusViewController.m */,
-				F18679DB1D5B664C00EF198E /* WLxqusViewController.xib */,
-				F1EF40201D5C0F4400B19315 /* WLq1ViewController.h */,
-				F1EF40211D5C0F4400B19315 /* WLq1ViewController.m */,
-				F1EF40221D5C0F4400B19315 /* WLq1ViewController.xib */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		F1A264281D4F8B9600ACE76B /* View */ = {
@@ -2447,6 +2446,11 @@
 				F1EF40271D5C14A900B19315 /* WLq1ViewTableViewCell.xib */,
 				F181B2EC1D98C35200DE511D /* ZGArticleCell.h */,
 				F181B2ED1D98C35200DE511D /* ZGArticleCell.m */,
+				F112A1CC1DAB63BB004827D9 /* WLCirCleCell.h */,
+				F112A1CD1DAB63BB004827D9 /* WLCirCleCell.m */,
+				F175A8EA1DAB939100279147 /* WLCircleInfoCell.h */,
+				F175A8EB1DAB939100279147 /* WLCircleInfoCell.m */,
+				F175A8EC1DAB939100279147 /* WLCircleInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2731,7 +2735,6 @@
 			children = (
 				F12162901D518E600003B5C1 /* Organization(机构) */,
 				F1572F881D51824E001CC7A4 /* Lecturer(讲师) */,
-				F188F4D51D5039F100A46FF1 /* Fathers Vc(父子控制器) */,
 				F1A264251D4F8B9600ACE76B /* Forum(论坛) */,
 				F1A264311D4F8B9600ACE76B /* Test(在线考试) */,
 				F1C597981D4CF9C700529553 /* Controller */,
@@ -3312,6 +3315,7 @@
 				F14EEA141D55BB8700BBD158 /* WLWeareViewController.xib in Resources */,
 				CD6414031D5048CC002D31AC /* WLThePersonalDataTableViewCellTwo.xib in Resources */,
 				F181B2F71D9921C900DE511D /* ZGTextCell.xib in Resources */,
+				F10E16DD1DA9F5F900474ACE /* WLq1ViewController.xib in Resources */,
 				F1A732371D54AB5300EC755E /* WLSelectionTableViewCell.xib in Resources */,
 				F1E517D01D57002800F3A885 /* DirectSeedingTableViewCells.xib in Resources */,
 				F1D110BC1D59CB7100103536 /* WLkjViewController.storyboard in Resources */,
@@ -3324,11 +3328,9 @@
 				F12162A71D5193780003B5C1 /* WLorgTableViewCell.xib in Resources */,
 				F1E517DA1D57177100F3A885 /* DirectTableViewCell.xib in Resources */,
 				F1E517B81D56D19300F3A885 /* WLJs1ViewController.xib in Resources */,
-				F18679DD1D5B664C00EF198E /* WLxqusViewController.xib in Resources */,
 				F1C5983D1D4DFE0800529553 /* WLHomethreeTableViewCell.xib in Resources */,
 				F15590421D5430A100EFD5F8 /* WLPhysiologyViewController.xib in Resources */,
 				F1EF40291D5C14A900B19315 /* WLq1ViewTableViewCell.xib in Resources */,
-				F1EF40241D5C0F4400B19315 /* WLq1ViewController.xib in Resources */,
 				F1E517BD1D56D1A400F3A885 /* WLJg1ViewController.xib in Resources */,
 				F155903D1D542C9C00EFD5F8 /* WLCepViewController.xib in Resources */,
 				F1FB86041D5375B1005AAED3 /* WLHomeTableViewCell.xib in Resources */,
@@ -3359,7 +3361,6 @@
 				55F36AE11D9D181D006634CB /* WLOrderCell.xib in Resources */,
 				F17D7DC91D58295A007CDC06 /* WLTzViewController.xib in Resources */,
 				F1A264391D4F8D1600ACE76B /* WLTestTableViewController.xib in Resources */,
-				F1F7164F1D4F8F0F0097F859 /* WLForumTableViewController.xib in Resources */,
 				5595AD4E1DA8C207001758AA /* Pingpp.bundle in Resources */,
 				6E13E0C31D52EAF900616BEB /* WLTabeleViewController.xib in Resources */,
 				F1D110A41D598FC800103536 /* WLke1TableViewCell.xib in Resources */,
@@ -3376,7 +3377,6 @@
 				6E13E0BD1D52EAF900616BEB /* WLShoppingsTableViewController3.xib in Resources */,
 				F1605D281D4F630400EF2829 /* WLSouTableViewCell.xib in Resources */,
 				F12162D11D51A9DF0003B5C1 /* WLCardViewController.xib in Resources */,
-				F18679E41D5B73A100EF198E /* WLfather2ViewController.xib in Resources */,
 				F121629B1D518E600003B5C1 /* WLOrgViewController.xib in Resources */,
 				F14EEA451D56364900BBD158 /* WLKXqViewController.storyboard in Resources */,
 				F12163171D5256570003B5C1 /* WLRecomViewController.xib in Resources */,
@@ -3413,11 +3413,13 @@
 				F1572F9E1D51824E001CC7A4 /* WLLecturerViewController.xib in Resources */,
 				6E13E0B71D52EAF900616BEB /* WLShoppingsTableViewController.xib in Resources */,
 				F1D110B01D599B3D00103536 /* WLxq2ViewController.storyboard in Resources */,
+				F10E16DB1DA9F5F900474ACE /* WLForumTableViewController.xib in Resources */,
 				6E13E0BF1D52EAF900616BEB /* WLShoppingsTableViewController4.xib in Resources */,
 				6C5919B11D4FA44900256363 /* MJRefresh.bundle in Resources */,
 				CDEB078D1D55AD04009A0011 /* WLIncomeViewController.xib in Resources */,
 				F1A7321A1D54A72C00EC755E /* WLfillingViewController.xib in Resources */,
 				F1572FA21D51824E001CC7A4 /* WLDetailsTableViewCell.xib in Resources */,
+				F10E16E61DA9F6D800474ACE /* WLfather2ViewController.xib in Resources */,
 				CD22BE7A1D58712500BB5F47 /* WLTopViewController.xib in Resources */,
 				F121629D1D518E600003B5C1 /* WLOrganizatioTableViewCell.xib in Resources */,
 				F17D7DBF1D581208007CDC06 /* WLProtocolViewController.xib in Resources */,
@@ -3436,6 +3438,7 @@
 				F1C598421D4E0FED00529553 /* WLmomoTableViewCell.xib in Resources */,
 				F1E517F31D577C8600F3A885 /* WLjg1TableViewCell.xib in Resources */,
 				F1A732351D54AB5300EC755E /* WLDirectseedingTableViewCell.xib in Resources */,
+				F175A8EE1DAB939100279147 /* WLCircleInfoCell.xib in Resources */,
 				F1518F771D52D48900879B9B /* WLRegistrationtViewController.xib in Resources */,
 				F15590381D54258000EFD5F8 /* WLRecordTableViewCell.xib in Resources */,
 				F19244ED1D5F633800F0FF5B /* show.png in Resources */,
@@ -3471,12 +3474,13 @@
 				CD39D3B31D509CE900BB906D /* LiveTableViewCell.m in Sources */,
 				6C59199C1D4FA44900256363 /* MBProgressHUD+MJ.m in Sources */,
 				F1A732191D54A72C00EC755E /* WLfillingViewController.m in Sources */,
+				F10E16E01DA9F5F900474ACE /* WLxqusViewController.m in Sources */,
 				F1E517DE1D57188E00F3A885 /* DirectTableViewCellTwo.m in Sources */,
 				F1C597B41D4CFC1E00529553 /* WLTabBarButton.m in Sources */,
 				CDEB07821D559E9A009A0011 /* WLSufficientViewCell.m in Sources */,
 				F19244F91D5F6C5000F0FF5B /* CZNewfeatureController.m in Sources */,
 				F1572F9D1D51824E001CC7A4 /* WLLecturerViewController.m in Sources */,
-				F188F4E81D5046EF00A46FF1 /* WLQuViewController.m in Sources */,
+				F10E16DA1DA9F5F900474ACE /* WLForumTableViewController.m in Sources */,
 				6E13E0D61D53347900616BEB /* WLOrderPayViewController.m in Sources */,
 				F1FB85E41D537365005AAED3 /* UIView+Frame.m in Sources */,
 				F1D110C01D59D00B00103536 /* WLkjs1ViewController.m in Sources */,
@@ -3498,6 +3502,7 @@
 				6C5919BB1D4FA44900256363 /* NSDate+MJ.m in Sources */,
 				6E13E0DB1D533ED800616BEB /* WLOrderPayOKViewController.m in Sources */,
 				F14EEA291D55F91A00BBD158 /* WLnewsTableViewCell.m in Sources */,
+				F10E16E51DA9F6D800474ACE /* WLfather2ViewController.m in Sources */,
 				F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */,
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
@@ -3528,7 +3533,6 @@
 				F12163161D5256570003B5C1 /* WLRecomViewController.m in Sources */,
 				6C5919B91D4FA44900256363 /* MLEmojiLabel.m in Sources */,
 				F19244CF1D5F0E0600F0FF5B /* SVRadialGradientLayer.m in Sources */,
-				F18679E31D5B73A100EF198E /* WLfather2ViewController.m in Sources */,
 				F1FB85E31D537365005AAED3 /* UIView+WebCacheOperation.m in Sources */,
 				F1E517F21D577C8600F3A885 /* WLjg1TableViewCell.m in Sources */,
 				55EB16981D9A525500C414EF /* UIActionSheet+camera.m in Sources */,
@@ -3554,6 +3558,7 @@
 				F77FB0DA1D976D51001B287E /* WLInstitutionLecturersCell.m in Sources */,
 				6C59199F1D4FA44900256363 /* MJExtensionConst.m in Sources */,
 				F14EEA2E1D5614D400BBD158 /* WLXtnewsViewController.m in Sources */,
+				F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */,
 				F14EEA0E1D55B6B900BBD158 /* WLAbuoutViewController.m in Sources */,
 				F1C597BD1D4CFCEF00529553 /* UIBarButtonItem+Item.m in Sources */,
 				CDEB07871D55AC32009A0011 /* WLConsumeViewController.m in Sources */,
@@ -3562,13 +3567,13 @@
 				CD22BF301D66E09B00BB5F47 /* CurriculumModel.m in Sources */,
 				CD22BE921D5DB17900BB5F47 /* WLLookTableViewCell.m in Sources */,
 				F15590321D54248600EFD5F8 /* WLRecordViewController.m in Sources */,
-				F18679DC1D5B664C00EF198E /* WLxqusViewController.m in Sources */,
 				F1FB853B1D52F3AF005AAED3 /* WLProtocolViewController.m in Sources */,
 				F1FB85D21D537365005AAED3 /* TAPageControl.m in Sources */,
 				6C5919B51D4FA44900256363 /* MJRefreshHeaderView.m in Sources */,
 				F14EEA421D56356400BBD158 /* WLKXqViewController.m in Sources */,
 				F14EEA221D55C1DB00BBD158 /* WLnewsViewController.m in Sources */,
 				F1A732321D54AB5300EC755E /* WLSelectionViewController.m in Sources */,
+				F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */,
 				F1518F761D52D48900879B9B /* WLRegistrationtViewController.m in Sources */,
 				6E13E0BC1D52EAF900616BEB /* WLShoppingsTableViewController3.m in Sources */,
 				F15590411D5430A100EFD5F8 /* WLPhysiologyViewController.m in Sources */,
@@ -3604,7 +3609,7 @@
 				CDEB07911D562085009A0011 /* WLModifyViewController.m in Sources */,
 				F1FB85C71D537365005AAED3 /* DLCustomSlideView.m in Sources */,
 				F14EEA041D55989B00BBD158 /* WLQuestionViewController.m in Sources */,
-				F1F7164E1D4F8F0F0097F859 /* WLForumTableViewController.m in Sources */,
+				F112A1CB1DAB470E004827D9 /* WLMyCircleViewController.m in Sources */,
 				F1C598411D4E0FED00529553 /* WLmomoTableViewCell.m in Sources */,
 				F19244E51D5F633800F0FF5B /* ASBirthSelectSheet.m in Sources */,
 				F15590501D54425400EFD5F8 /* WLSharetowViewController.m in Sources */,
@@ -3622,6 +3627,7 @@
 				F185456F1D9A51120008F471 /* BaseViewController.m in Sources */,
 				CD22BE791D58712500BB5F47 /* WLTopViewController.m in Sources */,
 				F1FB85FB1D5374AC005AAED3 /* MJPhoto.m in Sources */,
+				F112A1CE1DAB63BB004827D9 /* WLCirCleCell.m in Sources */,
 				F1D110A31D598FC800103536 /* WLke1TableViewCell.m in Sources */,
 				F1E517CF1D57002800F3A885 /* DirectSeedingTableViewCells.m in Sources */,
 				F1AA6F471D95178200769610 /* WLDisplayStarView.m in Sources */,
@@ -3658,9 +3664,11 @@
 				F1FB85CB1D537365005AAED3 /* DLTabedSlideView.m in Sources */,
 				F1572FA11D51824E001CC7A4 /* WLDetailsTableViewCell.m in Sources */,
 				55F36ACC1D9CB1D4006634CB /* WLMyDataHandle.m in Sources */,
+				F10E16D91DA9F5F900474ACE /* WLArticleDetailViewController.m in Sources */,
 				CD6414021D5048CC002D31AC /* WLThePersonalDataTableViewCellTwo.m in Sources */,
 				F1E517D91D57177100F3A885 /* DirectTableViewCell.m in Sources */,
 				F1518F711D52CC6B00879B9B /* WLRegisteringViewController.m in Sources */,
+				F7038F781DAAA81400989A6B /* WLReportViewController.m in Sources */,
 				CDEB078C1D55AD04009A0011 /* WLIncomeViewController.m in Sources */,
 				F1FB85D91D537365005AAED3 /* SDWebImageDecoder.m in Sources */,
 				F19244CE1D5F0E0600F0FF5B /* SVProgressHUD.m in Sources */,
@@ -3679,6 +3687,7 @@
 				F1E517ED1D5778B900F3A885 /* WLjs1TableViewCell.m in Sources */,
 				F1FB856E1D535C1C005AAED3 /* WLJrViewController.m in Sources */,
 				6C5919A51D4FA44900256363 /* NSObject+MJCoding.m in Sources */,
+				F10E16DC1DA9F5F900474ACE /* WLq1ViewController.m in Sources */,
 				F1C597D81D4D042A00529553 /* WLHomeTableViewCell.m in Sources */,
 				CDEB07781D5590AE009A0011 /* WLWalletViewCell.m in Sources */,
 				F121629C1D518E600003B5C1 /* WLOrganizatioTableViewCell.m in Sources */,
@@ -3724,15 +3733,16 @@
 				6C59199E1D4FA44900256363 /* MBProgressHUD.m in Sources */,
 				6C5919971D4FA44900256363 /* AFURLConnectionOperation.m in Sources */,
 				F1FB85DA1D537365005AAED3 /* SDWebImageDownloader.m in Sources */,
-				F1EF40231D5C0F4400B19315 /* WLq1ViewController.m in Sources */,
 				6C5919A81D4FA44900256363 /* NSString+MJExtension.m in Sources */,
 				6E83956D1D56271D00E11087 /* WLAddOrderViewController.m in Sources */,
 				F1FB85D41D537365005AAED3 /* SDCycleScrollView.m in Sources */,
 				6C5919A11D4FA44900256363 /* MJProperty.m in Sources */,
 				F1FB85DD1D537365005AAED3 /* SDWebImagePrefetcher.m in Sources */,
 				F1FB855A1D532B71005AAED3 /* WLTabulationViewController.m in Sources */,
+				F175A8ED1DAB939100279147 /* WLCircleInfoCell.m in Sources */,
 				CD22BF361D68221200BB5F47 /* RecommendationModelll.m in Sources */,
 				F1FB85DB1D537365005AAED3 /* SDWebImageDownloaderOperation.m in Sources */,
+				F10E16C31DA9EB2600474ACE /* WLBBSAdModel.m in Sources */,
 				CD2190A71D53791700F13FEE /* WLexaminationpaperOneCell.m in Sources */,
 				F14EE9FF1D55985E00BBD158 /* WLJudgmentsViewController.m in Sources */,
 				F1FB85D71D537365005AAED3 /* SDImageCache.m in Sources */,

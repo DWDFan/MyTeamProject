@@ -9,7 +9,7 @@
 #import "DLFixedTabbarView.h"
 #import "DLUtility.h"
 
-#define kTrackViewHeight 2
+#define kTrackViewHeight 3
 #define kImageSpacingX 3.0f
 
 #define kLabelTagBase 1000
@@ -40,11 +40,11 @@
     
     [self addSubview:trackView_];
     /** 添加灰色分割条*/
-    for (int a = 1; a <2; a++) {
-        //UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((kScreenWidth/2)*a, 17, 0.5, 15)];
-        //label.backgroundColor = [UIColor grayColor];
-        //[self addSubview:label];
-    }
+//    for (int a = 1; a <2; a++) {
+//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((WLScreenW/2)*a, 17, 0.5, 15)];
+//        label.backgroundColor = [UIColor grayColor];
+//        [self addSubview:label];
+//    }
     
  /** 添加底部灰色装饰条*/
     CGFloat kScreenWidth = [UIScreen mainScreen].bounds.size.width;

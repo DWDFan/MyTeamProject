@@ -7,81 +7,89 @@
 //
 
 #import "WLForumTableViewController.h"
+#import "WLArticleDetailViewController.h"
 #import "SDCycleScrollView.h"
 #import "SDCollectionViewCell.h"
 
 #import "WLCurriculumTableViewCell.h"
-#import "WLcardTableViewCell.h"
+#import "ZGArticleCell.h"
+#import "WLFindDataHandle.h"
+
+#import "WLBBSAdModel.h"
+#import "ZGArticleModel.h"
 
 @interface WLForumTableViewController ()<SDCycleScrollViewDelegate>
+
+@property (nonatomic, strong) NSArray *adsArray;
+@property (nonatomic, strong) NSMutableArray *hotsArray;
+@property (nonatomic, strong) SDCycleScrollView *sycleView;
 
 @end
 
 @implementation WLForumTableViewController
 
-//懒加载
-- (NSMutableArray *)array{
+- (NSMutableArray *)hotsArray{
     
-    if (!_array) {
-        _array = [NSMutableArray array];
+    if (!_hotsArray) {
+        _hotsArray = [NSMutableArray array];
     }
-    return _array;
-    
+    return _hotsArray;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-        
-    
-   
-    
     //图片轮播器
-    SDCycleScrollView *scrollview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:[UIImage imageNamed:@"图层-50_88"]];
-    
-    scrollview.imageURLStringsGroup = @[  @"https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a4b3d7085dee3d6d2293d48b252b5910/0e2442a7d933c89524cd5cd4d51373f0830200ea.jpg",
-                                          @"https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a41eb338dd33c895a62bcb3bb72e47c2/5fdf8db1cb134954a2192ccb524e9258d1094a1e.jpg",
-                                          @"http://c.hiphotos.baidu.com/image/w%3D400/sign=c2318ff84334970a4773112fa5c8d1c0/b7fd5266d0160924c1fae5ccd60735fae7cd340d.jpg"];
-    
-    
-    
-    self.tableView.tableHeaderView = scrollview;
-    
-    //tableView偏移量
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    SDCycleScrollView *sycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:PHOTO_PLACE];
+    _sycleView = sycleView;
+    self.tableView.tableHeaderView = _sycleView;
 
-
+    [self requestData];
 }
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)requestData
+{
+    [WLFindDataHandle requestFindBBSAdsSuccess:^(id responseObject) {
+        
+        _adsArray = [WLBBSAdModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        NSMutableArray *images = [NSMutableArray arrayWithCapacity:0];
+        for (WLBBSAdModel *ad in _adsArray) {
+            [images addObject:ad.image ? ad.image : @""];
+        }
+        _sycleView.imageURLStringsGroup = images;
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [WLFindDataHandle requestFindBBSHotsSuccess:^(id responseObject) {
+        
+        NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        for (ZGArticleModel *art in articles) {
+            ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
+            artVM.article = art;
+            [self.hotsArray addObject:artVM];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - Table view data source
 
-
-//返回多少组
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Incomplete implementation, return the number of sections
-    return 1;
-}
 //返回多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
-    return 4;
+
+    return _hotsArray.count;
 }
 
 
 //cell高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 310;
+    ZGArticleViewModel *article = _hotsArray[indexPath.row];
+    return article.cellHeight;
 }
 
 //返回组头的高度
@@ -89,27 +97,34 @@
     
     return 10 ;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.000001;
+}
 //返回cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    static NSString *deteID = @"ZGArticleCell";
     
-    static NSString *deteID = @"WLcardTableViewCell";
-    
-    WLcardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
+    ZGArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    
-    
+    cell.articleViewModel = _hotsArray[indexPath.row];
     return cell;
 }
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLArticleDetailViewController *detailVC = [[WLArticleDetailViewController alloc] init];
+    ZGArticleViewModel *artVM = _hotsArray[indexPath.row];
+    detailVC.articleViewModel = artVM;
+    detailVC.articleId = artVM.article.tid;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 

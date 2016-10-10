@@ -9,7 +9,7 @@
 #import "DLTabedSlideView.h"
 
 #import "WLForumTableViewController.h"
-#import "WLQuViewController.h"
+#import "WLMyCircleViewController.h"
 #import "WLxqusViewController.h"
 
 
@@ -45,8 +45,6 @@
     // 添加子控制器
     [self setupChildVcs];
     
-    
-    
 }
 
 
@@ -57,7 +55,7 @@
     
     self.arr_vc = [NSMutableArray array];
     [self.arr_vc addObject:[[WLForumTableViewController alloc]init]];
-    [self.arr_vc addObject:[[WLQuViewController alloc]init]];
+    [self.arr_vc addObject:[[WLMyCircleViewController alloc]init]];
     [self.arr_vc addObject:[[WLxqusViewController alloc]init]];
     
     self.view_mian.delegate = self;
@@ -70,8 +68,6 @@
     self.view_mian.tabbarTrackColor = color_red;
     /** 设置背景色*/
     self.view_mian.backgroundColor = [UIColor whiteColor];
-    /** 添加背景图片*/
-    self.view_mian.tabbarBackgroundImage = [UIImage imageNamed:@"QQ20160810-0"];
     //高度
     self.view_mian.tabbarHeight = 44;
     
