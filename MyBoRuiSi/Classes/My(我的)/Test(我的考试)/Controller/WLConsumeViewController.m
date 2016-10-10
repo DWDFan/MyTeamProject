@@ -33,6 +33,12 @@
     
     //获取支出数据
     [self requestGetMyCostData];
+    
+    [WLMyDataHandle requestAddMoneyWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //颜色转图片

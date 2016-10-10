@@ -12,7 +12,9 @@ typedef NS_ENUM(NSUInteger) {
     rechargeType //充值
 }payType;
 @interface WLOrderPayViewController : UIViewController
+@property (nonatomic, copy) NSString *orderName;  //订单名称
 @property (nonatomic, strong) NSString *amountStr;
-@property (nonatomic, strong) NSString *orderId; //订单id
+@property (nonatomic, copy) NSString *needMoney;
+@property (nonatomic, copy) NSString *orderId; //订单id
 @property (nonatomic, assign) payType type;
 @end

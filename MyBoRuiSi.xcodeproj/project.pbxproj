@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550455DB1DAB323500F9A32C /* WLOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455DA1DAB323500F9A32C /* WLOrderModel.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -31,7 +32,7 @@
 		55F36ACC1D9CB1D4006634CB /* WLMyDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ACB1D9CB1D4006634CB /* WLMyDataHandle.m */; };
 		55F36ACE1D9CEBB3006634CB /* WLMyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ACD1D9CEBB3006634CB /* WLMyController.m */; };
 		55F36AD11D9D0433006634CB /* WLOrderDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */; };
-		55F36AD51D9D0C5A006634CB /* WLOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36AD41D9D0C5A006634CB /* WLOrderModel.m */; };
+		55F36AD51D9D0C5A006634CB /* WLShopCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36AD41D9D0C5A006634CB /* WLShopCarModel.m */; };
 		55F36AE01D9D181D006634CB /* WLOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ADB1D9D181D006634CB /* WLOrderCell.m */; };
 		55F36AE11D9D181D006634CB /* WLOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F36ADC1D9D181D006634CB /* WLOrderCell.xib */; };
 		55F36AE21D9D181D006634CB /* WLOrderDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F36ADE1D9D181D006634CB /* WLOrderDetailsCell.m */; };
@@ -468,6 +469,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		550455D91DAB323500F9A32C /* WLOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderModel.h; sourceTree = "<group>"; };
+		550455DA1DAB323500F9A32C /* WLOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderModel.m; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -498,8 +501,8 @@
 		55F36ACD1D9CEBB3006634CB /* WLMyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyController.m; sourceTree = "<group>"; };
 		55F36ACF1D9D0433006634CB /* WLOrderDataHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDataHandle.h; sourceTree = "<group>"; };
 		55F36AD01D9D0433006634CB /* WLOrderDataHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDataHandle.m; sourceTree = "<group>"; };
-		55F36AD31D9D0C5A006634CB /* WLOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderModel.h; sourceTree = "<group>"; };
-		55F36AD41D9D0C5A006634CB /* WLOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderModel.m; sourceTree = "<group>"; };
+		55F36AD31D9D0C5A006634CB /* WLShopCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLShopCarModel.h; sourceTree = "<group>"; };
+		55F36AD41D9D0C5A006634CB /* WLShopCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLShopCarModel.m; sourceTree = "<group>"; };
 		55F36ADA1D9D181D006634CB /* WLOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderCell.h; sourceTree = "<group>"; };
 		55F36ADB1D9D181D006634CB /* WLOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderCell.m; sourceTree = "<group>"; };
 		55F36ADC1D9D181D006634CB /* WLOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderCell.xib; sourceTree = "<group>"; };
@@ -1345,8 +1348,10 @@
 		55F36AD21D9D0C30006634CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55F36AD31D9D0C5A006634CB /* WLOrderModel.h */,
-				55F36AD41D9D0C5A006634CB /* WLOrderModel.m */,
+				55F36AD31D9D0C5A006634CB /* WLShopCarModel.h */,
+				55F36AD41D9D0C5A006634CB /* WLShopCarModel.m */,
+				550455D91DAB323500F9A32C /* WLOrderModel.h */,
+				550455DA1DAB323500F9A32C /* WLOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3519,7 +3524,7 @@
 				F1FB85E11D537365005AAED3 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F1C597C41D4CFDED00529553 /* WLCurriculum.m in Sources */,
 				F1E517E81D572E5500F3A885 /* AppraisalViewController.m in Sources */,
-				55F36AD51D9D0C5A006634CB /* WLOrderModel.m in Sources */,
+				55F36AD51D9D0C5A006634CB /* WLShopCarModel.m in Sources */,
 				F12163161D5256570003B5C1 /* WLRecomViewController.m in Sources */,
 				6C5919B91D4FA44900256363 /* MLEmojiLabel.m in Sources */,
 				F19244CF1D5F0E0600F0FF5B /* SVRadialGradientLayer.m in Sources */,
@@ -3668,6 +3673,7 @@
 				F14919381DA8DEE30098CC29 /* WLFindDataHandle.m in Sources */,
 				F1C597CE1D4CFE4900529553 /* WLHome.m in Sources */,
 				F1FB85D81D537365005AAED3 /* SDWebImageCompat.m in Sources */,
+				550455DB1DAB323500F9A32C /* WLOrderModel.m in Sources */,
 				CD22BF331D66FDF700BB5F47 /* RecommendModell.m in Sources */,
 				F1FB85C91D537365005AAED3 /* DLFixedTabbarView.m in Sources */,
 				F1E517ED1D5778B900F3A885 /* WLjs1TableViewCell.m in Sources */,

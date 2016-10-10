@@ -2,12 +2,12 @@
 //  WLOrderModel.m
 //  MyBoRuiSi
 //
-//  Created by Gatlin on 16/10/10.
+//  Created by Gatlin on 16/9/29.
 //  Copyright © 2016年 itcast.com. All rights reserved.
 //
 
-#import "WLOrderModel.h"
+#import "WLShopCarModel.h"
 
-@implementation WLOrderModel
+@implementation WLShopCarModel
 
 @end

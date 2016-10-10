@@ -70,7 +70,9 @@
 }
 
 - (void)cleanUserInfo{
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    // 删除
+    BOOL isDelete = [manager removeItemAtPath:self.userInfoArchivPath error:nil];
     _userId = nil;
 }
 

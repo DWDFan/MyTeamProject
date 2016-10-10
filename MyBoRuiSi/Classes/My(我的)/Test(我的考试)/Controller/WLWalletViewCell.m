@@ -17,7 +17,7 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    // Initialization code
+    _balance_label.text = [WLUserInfo share].money ? [WLUserInfo share].money : @"0";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

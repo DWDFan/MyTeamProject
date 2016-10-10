@@ -31,19 +31,17 @@
     [super viewDidLoad];
     
     [self initSelf];
-    
-    
-    self.arr_str = [NSMutableArray arrayWithArray:@[@[@"订单名称:  xx课程",@"订单总价:  $200.00",@"账户余额:  $400.00"],
-                                                    @[@"还需支付: $99.00"],
+    NSString *orderName = [NSString stringWithFormat:@"订单名称:  %@",self.orderName];
+    NSString *amountStr = [NSString stringWithFormat:@"订单总价:  ￥%@",self.amountStr];
+    NSString *accountStr = [NSString stringWithFormat:@"账户余额:  ￥%@",[WLUserInfo share].money ? [WLUserInfo share].money : @"0"];
+    NSString *needMoneyStr = [NSString stringWithFormat:@"还需支付: ￥%@",self.needMoney];
+    self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
+                                                    @[needMoneyStr],
                                                     @[@"支付宝支付",@"微信支付",@"银联支付"]]];
     
 }
 - (void)clickBalancePay:(UIButton *)button
 {
-    self.selectFalg.selected = NO;
-    button.selected = YES;
-    self.selectFalg = button;
-    
     switch (button.tag) {
         case 0:
             self.channel = @"alipay";
@@ -54,43 +52,55 @@
         case 2:
             self.channel = @"upacp";
             break;
-            
+        case 100:
+            if (![WLUserInfo share].money) return;  //余额为0 return
+            self.channel = @"selfPay";//selfPay 自定义 与Ping++支付渠道无关
+            break;
+        
         default:
             break;
     }
+    self.selectFalg.selected = NO;
+    button.selected = YES;
+    self.selectFalg = button;
 }
 - (IBAction)clickOKPay:(UIButton *)sender {
     if(!self.channel){
         [MOProgressHUD showErrorWithStatus:@"请选择支付方式"];
-        return;
+    }else if([self.channel isEqualToString:@"selfPay"]){
+        //request dapay
+        [self dopay];
+    }else{
+        __weak typeof(self) weakSelf = self;
+        [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
+        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.amountStr success:^(id responseObject) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MOProgressHUD dismiss];
+                [Pingpp createPayment:responseObject
+                       viewController:weakSelf
+                         appURLScheme:kUrlScheme
+                       withCompletion:^(NSString *result, PingppError *error) {
+                           if ([result isEqualToString:@"success"]) {
+                               // 支付成功 调用dopay接口
+                               [self dopay];
+                               
+                           } else if ([result isEqualToString:@"cancel"]){
+                               //支付取消
+                               [MOProgressHUD showErrorWithStatus:@"支付取消"];
+                           }else if ([result isEqualToString:@"fail"]){
+                               // 支付失败
+                               [MOProgressHUD showErrorWithStatus:@"支付失败"];
+                               
+                           }
+                       }];
+            });
+            
+        } failure:^(NSError *error) {
+            
+        }];
+
     }
-    __weak typeof(self) weakSelf = self;
-    [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.amountStr success:^(id responseObject) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MOProgressHUD dismiss];
-            [Pingpp createPayment:responseObject
-                   viewController:weakSelf
-                     appURLScheme:kUrlScheme
-                   withCompletion:^(NSString *result, PingppError *error) {
-                       if ([result isEqualToString:@"success"]) {
-                           // 支付成功 调用dopay接口
-                           [self dopay];
-                           
-                       } else if ([result isEqualToString:@"cancel"]){
-                           //支付取消
-                           [MOProgressHUD showErrorWithStatus:@"支付取消"];
-                       }else if ([result isEqualToString:@"fail"]){
-                           // 支付失败
-                           [MOProgressHUD showErrorWithStatus:@"支付失败"];
-                           
-                       }
-                   }];
-        });
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    
     
 }
 
@@ -114,6 +124,7 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 2) {
             UIButton *button_option = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 44)];
+            button_option.tag = 100;
             [button_option addTarget:self action:@selector(clickBalancePay:) forControlEvents:UIControlEventTouchUpInside];
             [button_option setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
             [button_option setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];

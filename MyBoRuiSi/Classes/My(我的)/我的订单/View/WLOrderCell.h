@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WLOrderModel.h"
+#import "WLShopCarModel.h"
 typedef void(^ClickRecharge)();//充值
 
 @interface WLOrderCell : UITableViewCell
@@ -20,6 +20,6 @@ typedef void(^ClickRecharge)();//充值
 @property (nonatomic, copy) void(^selectBalanceBlock)(NSInteger price,BOOL isSelect, NSString *cid);
 @property (nonatomic, copy) void(^payBlock)(NSInteger price);
 
-@property (nonatomic, strong) WLOrderModel *orderModer;
+@property (nonatomic, strong) WLShopCarModel *shopCarModel;
 
 @end

@@ -17,8 +17,10 @@
 @interface WLShoppingsTableViewController ()<DLTabedSlideViewDelegate>
 
 @property (strong, nonatomic) IBOutlet DLTabedSlideView *tabedSlideView;
+@property (nonatomic, strong) UIBarButtonItem *right_btn;
+
 @property (nonatomic,strong ) NSMutableArray *arr_vc;
-@property (nonatomic,weak) MOTempViewController *vc_temp;
+//@property (nonatomic,weak) MOTempViewController *vc_temp;
 
 
 @end
@@ -79,6 +81,22 @@
     //设置导航控制器导航上的背景图片，并且拉伸
     [self.navigationController.navigationBar setBackgroundImage:[UIImage cleImage:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
 }
+
+#pragma mark - Getter
+- (UIBarButtonItem *)right_btn{
+    if (!_right_btn) {
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
+        btn.backgroundColor = [UIColor clearColor];
+        [btn setBackgroundColor:[UIColor clearColor]];
+        [btn setTitleColor:color_red forState:UIControlStateNormal];
+        [btn setTitle:@"编辑" forState:UIControlStateNormal];
+        [btn setTitle:@"取消" forState:UIControlStateSelected];
+        [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+        //左
+        _right_btn = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    }
+    return _right_btn;
+}
 - (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
     return self.arr_vc.count;
 }
@@ -90,33 +108,33 @@
 }
 - (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(NSInteger)index
 {
-    [self setTitleButtonWithString:@"编辑"];
-    MOTempViewController *vc = self.arr_vc[index];
-    self.vc_temp = vc;
-}
-- (void)setTitleButtonWithString:(NSString *)title
-{
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
-    btn.backgroundColor = [UIColor clearColor];
-    [btn setBackgroundColor:[UIColor clearColor]];
-    [btn setTitleColor:color_red forState:UIControlStateNormal];
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
-    //左
-    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    // 设置导航条的按钮
-    self.navigationItem.rightBarButtonItem = right;
-}
-- (void)clickButton:(UIButton *)button
-{
-    if ([button.titleLabel.text isEqualToString:@"编辑"]) {
-        [button setTitle:@"取消" forState:UIControlStateNormal];
-        
+    if(index == 3){
+        self.navigationItem.rightBarButtonItem = self.right_btn;
+    }else{
+        self.navigationItem.rightBarButtonItem = nil;
     }
-    else{
-        [button setTitle:@"编辑" forState:UIControlStateNormal];
-       
-    }
-    
+//    MOTempViewController *vc = self.arr_vc[index];
+//    self.vc_temp = vc;
+}
+//- (void)setTitleButtonWithString:(NSString *)title
+//{
+//    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
+//    _right_btn = btn;
+//    btn.backgroundColor = [UIColor clearColor];
+//    [btn setBackgroundColor:[UIColor clearColor]];
+//    [btn setTitleColor:color_red forState:UIControlStateNormal];
+//    [btn setTitle:title forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+//    //左
+//    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:btn];
+//    // 设置导航条的按钮
+//    self.navigationItem.rightBarButtonItem = right;
+//}
+
+
+- (void)clickButton:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kEditingColseOrderNotification" object:nil userInfo:@{@"selectState": [NSNumber numberWithBool:sender.selected]}];
 }
 @end

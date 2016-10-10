@@ -62,6 +62,105 @@
 }
 
 /**
+ *  获取完成支付订单
+ */
++ (void)requestGetPayedWithUid:(NSString *)uid
+                          page:(NSNumber *)page
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getPayed" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  获取关闭订单
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetClosePayWithUid:(NSString *)uid
+                             page:(NSNumber *)page
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=closePay" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
+/**
+ *  删除购物车
+ *
+ *  @param uid     用户ID
+ *  @param cid     购物车id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestDelCarWithUid:(NSString *)uid
+                         cid:(NSString *)cid
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"cid":cid};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=delCart" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+/**
+ *  关闭订单
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id,多个id用|连接
+ *  @param success
+ *  @param failure
+ */
++ (void)requestDelOrderWithUid:(NSString *)uid
+                           oid:(NSString *)oid
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"oid":oid};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=delOrder" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ *  删除订单
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id,多个id用|连接
+ *  @param success
+ *  @param failure
+ */
++ (void)requestCutOrderWithUid:(NSString *)uid
+                           oid:(NSString *)oid
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"oid":oid};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=cutOrder" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+/**
  *  调用charge地址
  */
 + (void)requestAddCartWithUid:(NSString *)uid

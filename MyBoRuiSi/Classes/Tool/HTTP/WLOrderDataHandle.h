@@ -68,6 +68,68 @@
                       failure:(void (^)(NSError *error))failure;
 
 /**
+ *  获取完成支付订单
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetPayedWithUid:(NSString *)uid
+                            page:(NSNumber *)page
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取关闭订单
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetClosePayWithUid:(NSString *)uid
+                          page:(NSNumber *)page
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure;
+
+/**
+ *  删除购物车
+ *
+ *  @param uid     用户ID
+ *  @param cid     购物车id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestDelCarWithUid:(NSString *)uid
+                         cid:(NSString *)cid
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
+/**
+ *  关闭订单
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id,多个id用|连接
+ *  @param success
+ *  @param failure
+ */
++ (void)requestDelOrderWithUid:(NSString *)uid
+                             oid:(NSString *)oid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
+/**
+ *  删除订单
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id,多个id用|连接
+ *  @param success
+ *  @param failure
+ */
++ (void)requestCutOrderWithUid:(NSString *)uid
+                           oid:(NSString *)oid
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure;
+/**
  *  调用charge地址
  *
  *  @param uid     用户ID

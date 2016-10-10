@@ -13,11 +13,10 @@
 
 #import "WLOrderDataHandle.h"
 #import "WLOrderModel.h"
+#import "WLShopCarModel.h"
 @interface WLShoppingsTableViewController2 ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
-
-@property (nonatomic, strong) WLOrderModel *orderModel;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, assign) NSInteger page;
@@ -67,11 +66,16 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
-    cell.orderModer = self.dataSource[indexPath.row];
+    WLOrderModel *waitPayModel = self.dataSource[indexPath.row];
+    cell.shopCarModel = waitPayModel.info;
     
     __weak typeof(self) weakSelf = self;
     cell.payBlock = ^(NSInteger price){
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+        vc.amountStr = waitPayModel.info.disPrice ? [waitPayModel.info.disPrice stringValue] : [waitPayModel.info.price stringValue];
+        vc.orderName = waitPayModel.info.name;
+        vc.needMoney = waitPayModel.info.disPrice ? [waitPayModel.info.disPrice stringValue] : [waitPayModel.info.price stringValue];
+        vc.orderId = waitPayModel.id;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     
@@ -101,7 +105,8 @@
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{//请求数据源提交的插入或删除指定行接收者。
     if (editingStyle ==UITableViewCellEditingStyleDelete) {//如果编辑样式为删除样式
-        
+        WLOrderModel *waitPayModel = self.dataSource[indexPath.row];
+        [self deleteOrderWithOid:waitPayModel.id indexPath:indexPath];
     }
 }
 
@@ -113,14 +118,30 @@
             NSArray *arrayData = dict[@"data"];
             [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSDictionary *dictData = arrayData[idx];
-                _orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
-                [self.dataSource addObject:self.orderModel];
+                WLOrderModel *orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
+                WLShopCarModel *shopCarModel = [WLShopCarModel mj_objectWithKeyValues:dictData[@"info"][0]];
+                orderModel.info = shopCarModel;
+                [self.dataSource addObject:orderModel];
             }];
             [self.tableView_main reloadData];
             
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
             [MOProgressHUD dismissWithDelay:1];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)deleteOrderWithOid:(NSString *)oid indexPath:(NSIndexPath *)indexPath{
+    [WLOrderDataHandle requestDelOrderWithUid:[WLUserInfo share].userId oid:oid success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            [self.dataSource removeObjectAtIndex:indexPath.row];
+            [self.tableView_main deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
     } failure:^(NSError *error) {
         

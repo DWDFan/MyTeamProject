@@ -35,5 +35,14 @@
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure;
 
-
+/**
+ *  用户临时加钱入口   此接口给开发者调用来加余额，用来测试的
+ *
+ *  @param uid     用户ID
+ *  @param success
+ *  @param failure
+ */
++ (void)requestAddMoneyWithUid:(NSString *)uid
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
 @end

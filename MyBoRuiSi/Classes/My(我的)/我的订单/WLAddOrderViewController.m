@@ -164,7 +164,10 @@
         if ([dict[@"code"]integerValue] == 1) {
             WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
             vc.amountStr = self.money;
+            vc.needMoney = self.amount_lab.text;
             vc.orderId = dict[@"id"];
+#warning Beelin bug 订单名称
+//            vc.orderName = dict
             vc.type = rechargeType;
             [self.navigationController pushViewController:vc animated:YES];
         }else{

@@ -352,14 +352,11 @@
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
             [MOProgressHUD showSuccessWithStatus:@"加入成功"];
-            [MOProgressHUD dismissWithDelay:1];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
-            [MOProgressHUD dismissWithDelay:1];
         }
     } failure:^(NSError *error) {
         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
-        [MOProgressHUD dismissWithDelay:1];
     }];
 }
 

@@ -11,9 +11,10 @@
 #import "WLOrderDetailsViewController.h"
 #import "WLAddOrderViewController.h"
 #import "WLOrderPayViewController.h"
+#import "WLCourseDetailViewController.h"
 
 #import "WLOrderDataHandle.h"
-#import "WLOrderModel.h"
+#import "WLShopCarModel.h"
 
 #import "MJExtension.h"
 @interface WLShoppingsTableViewController1 ()<UITableViewDelegate,UITableViewDataSource>
@@ -25,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *balance_btn;
 
 
-@property (nonatomic, strong) WLOrderModel *orderModel;
+//@property (nonatomic, strong) WLShopCarModel *shopCarModel;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *arrayCid; //选中购物车ID 容器
@@ -81,7 +82,7 @@
         self.sumSelect = 0;
         self.sumSelect = self.dataSource.count;
         
-        for (WLOrderModel *model in self.dataSource) {
+        for (WLShopCarModel *model in self.dataSource) {
             model.select = YES;
             self.amount += [model.price integerValue];
             
@@ -97,11 +98,12 @@
         sender.selected = NO;
         self.amount = 0;
         self.sumSelect = 0;
-        for (WLOrderModel *model in self.dataSource) {
+        for (WLShopCarModel *model in self.dataSource) {
             model.select = NO;
         }
         self.amount_lab.text = [NSString stringWithFormat:@"%zd",self.amount];
         [self.balance_btn setTitle:@"结算" forState:UIControlStateNormal];
+         self.balance_btn.backgroundColor = RGB(193, 193, 193);
     }
     [self.tableView_main reloadData];
     
@@ -122,8 +124,8 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
-    cell.orderModer = self.dataSource[indexPath.row];
     cell.isOpen = YES;
+    cell.shopCarModel = self.dataSource[indexPath.row];
     
     //选中事件回调
     __weak typeof(self) weakSelf = self;
@@ -160,7 +162,7 @@
     cell.payBlock = ^(NSInteger price){
         WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
         vc.money = [NSString stringWithFormat:@"%zd.00",price];
-        vc.cid = weakCell.orderModer.id;
+        vc.cid = weakCell.shopCarModel.id;
         vc.type = @"kecheng";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -181,18 +183,19 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    WLOrderDetailsViewController *vc = [[WLOrderDetailsViewController alloc]init];
-    vc.arr_details = [NSMutableArray arrayWithArray:@[@"12345678",@"2015-0809",@"￥200.0",@"10.00",@"190.0"]];
-    vc.arr_data = [NSMutableArray arrayWithArray:@[@[@""],@[@"订单号 :",@"付款时间 :",@"总价 :",@"积分抵扣 :",@"实际总价 :"]]];
+    /*
+    WLShopCarModel *model = self.dataSource[indexPath.row];
+    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+    vc.courseId = model.id;
     [self.navigationController pushViewController:vc animated:YES];
+     */
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{//请求数据源提交的插入或删除指定行接收者。
     if (editingStyle ==UITableViewCellEditingStyleDelete) {//如果编辑样式为删除样式
-#warning Beelin bug 请求删除
-        [self.dataSource removeObjectAtIndex:indexPath.row];
-        [self.tableView_main deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        //request delete shopcar
+        WLShopCarModel *model = self.dataSource[indexPath.row];
+        [self requestDeleteShopCarWithCid:model.id indexPath:indexPath];
     }
 }
 
@@ -204,8 +207,8 @@
             NSArray *arrayData = dict[@"data"];
             [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSDictionary *dictData = arrayData[idx];
-                _orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
-                [self.dataSource addObject:self.orderModel];
+                WLShopCarModel *shopCarModel = [WLShopCarModel mj_objectWithKeyValues:dictData];
+                [self.dataSource addObject:shopCarModel];
             }];
             [self.tableView_main reloadData];
             
@@ -214,9 +217,22 @@
             [MOProgressHUD dismissWithDelay:1];
         }
     } failure:^(NSError *error) {
-        
+        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
     }];
 }
 
+- (void)requestDeleteShopCarWithCid:(NSString *)cid indexPath:(NSIndexPath *)indexPath{
+    [WLOrderDataHandle requestDelCarWithUid:[WLUserInfo share].userId cid:cid success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            [self.dataSource removeObjectAtIndex:indexPath.row];
+            [self.tableView_main deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }else {
+           [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
 
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+    }];
+}
 @end

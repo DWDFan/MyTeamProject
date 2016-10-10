@@ -42,17 +42,17 @@
 //        self.rechargeBlock();
 //    }
     if(self.payBlock){
-        self.payBlock([self.orderModer.price integerValue]);
+        self.payBlock([self.shopCarModel.price integerValue]);
     }
 }
 
 /** 选中 事件 */
 - (IBAction)clickButton:(UIButton *)sender {
-    sender.selected = !self.orderModer.isSelect;
-    self.orderModer.select = sender.selected;
+    sender.selected = !self.shopCarModel.isSelect;
+    self.shopCarModel.select = sender.selected;
     if (self.selectBalanceBlock) {
-        NSInteger price = [self.orderModer.price integerValue];
-        NSString *cid = self.orderModer.id;
+        NSInteger price = [self.shopCarModel.price integerValue];
+        NSString *cid = self.shopCarModel.id;
         self.selectBalanceBlock(price, sender.selected,cid);
     }
 }
@@ -71,15 +71,15 @@
 
 
 #pragma mark - Setter
-- (void)setOrderModer:(WLOrderModel *)orderModer{
-    _orderModer = orderModer;
+- (void)setShopCarModel:(WLShopCarModel *)shopCarModel{
+    _shopCarModel = shopCarModel;
     
-    [_photo sd_setImageWithURL:[NSURL URLWithString:_orderModer.photo] placeholderImage:nil];
-    _name.text = _orderModer.name;
-    _jiangshi.text = _orderModer.jiangshi;
-    _price.text = [NSString stringWithFormat:@"￥%@",_orderModer.price];
+    [_photo sd_setImageWithURL:[NSURL URLWithString:_shopCarModel.photo] placeholderImage:nil];
+    _name.text = _shopCarModel.name;
+    _jiangshi.text = _shopCarModel.jiangshi;
+    _price.text = [NSString stringWithFormat:@"￥%@",_shopCarModel.price];
     
-    self.button_option.selected = _orderModer.isSelect;
+    self.button_option.selected = _shopCarModel.isSelect;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
