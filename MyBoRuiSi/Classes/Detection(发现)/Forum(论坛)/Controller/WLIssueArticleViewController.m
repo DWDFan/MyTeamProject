@@ -59,7 +59,7 @@
     NSArray *images = _addPhotoView.images;
     for (UIImage *image in images) {
         
-        [];
+        
     }
     [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:@"" success:^(id responseObject) {
         
