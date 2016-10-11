@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "MOTempViewController.h"
 @interface WLShoppingsTableViewController4 : MOTempViewController
-
+@property (nonatomic, copy) void(^allSelectBlock)();
 @end

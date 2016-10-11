@@ -167,6 +167,19 @@
                       failure:(void (^)(NSError *error))failure;
 
 /**
+ *  订单详情
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetOrderDetailWithUid:(NSString *)uid
+                           oid:(NSString *)oid
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure;
+ 
+/**
  *  确认支付
  *
  *  @param uid     用户ID

@@ -18,4 +18,6 @@
 
 @property (nonatomic,copy) NSString *str_button;
 
+@property (nonatomic, copy) NSString *oid;
+
 @end

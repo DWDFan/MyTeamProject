@@ -12,5 +12,5 @@
 
 //导入WLWalletViewController里面的NavigationController
 @property (nonatomic,strong) UINavigationController *nav;
-
+@property (nonatomic, copy) void(^rechargeBlock)();
 @end

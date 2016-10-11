@@ -16,6 +16,8 @@
 #import "WLIncomeViewController.h"
 #import "WLModifyViewController.h"
 #import "WLForgetViewController.h"
+#import "WLTopViewController.h"
+
 @interface WLWalletViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
@@ -32,7 +34,11 @@
     
     //设置在尾部
     WLSufficientViewCell *headers = [[[NSBundle mainBundle]loadNibNamed:@"WLSufficientViewCell" owner:nil options:nil]lastObject];
-    headers.nav = self.navigationController;
+    __weak typeof(self) weakSelf = self;
+    headers.rechargeBlock = ^(){
+        WLTopViewController *vc = [[WLTopViewController alloc]init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    };
     self.tableView_main.tableFooterView = headers;
     
     

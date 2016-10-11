@@ -17,7 +17,8 @@
 @interface WLShoppingsTableViewController ()<DLTabedSlideViewDelegate>
 
 @property (strong, nonatomic) IBOutlet DLTabedSlideView *tabedSlideView;
-@property (nonatomic, strong) UIBarButtonItem *right_btn;
+@property (nonatomic, strong) UIBarButtonItem *right_Item;
+@property (nonatomic, strong) UIButton *right_btn;
 
 @property (nonatomic,strong ) NSMutableArray *arr_vc;
 //@property (nonatomic,weak) MOTempViewController *vc_temp;
@@ -83,9 +84,10 @@
 }
 
 #pragma mark - Getter
-- (UIBarButtonItem *)right_btn{
-    if (!_right_btn) {
+- (UIBarButtonItem *)right_Item{
+    if (!_right_Item) {
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
+        _right_btn = btn;
         btn.backgroundColor = [UIColor clearColor];
         [btn setBackgroundColor:[UIColor clearColor]];
         [btn setTitleColor:color_red forState:UIControlStateNormal];
@@ -93,9 +95,9 @@
         [btn setTitle:@"取消" forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         //左
-        _right_btn = [[UIBarButtonItem alloc]initWithCustomView:btn];
+        _right_Item = [[UIBarButtonItem alloc]initWithCustomView:btn];
     }
-    return _right_btn;
+    return _right_Item;
 }
 - (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
     return self.arr_vc.count;
@@ -104,12 +106,24 @@
 - (UIViewController *)DLTabedSlideViewWith:(DLTabedSlideView *)sender controllerAt:(NSInteger)index
 {
     UIViewController *vc = self.arr_vc[index];
+    if(index == 3){
+        WLShoppingsTableViewController4 *vController = (WLShoppingsTableViewController4 *)vc;
+        __weak typeof(self) weakSelf = self;
+        vController.allSelectBlock = ^(){
+            if (weakSelf.right_btn.selected) {
+                return;
+            }else{
+                [weakSelf clickButton:weakSelf.right_btn];
+            }
+        };
+        return vController;
+    }
     return vc;
 }
 - (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(NSInteger)index
 {
     if(index == 3){
-        self.navigationItem.rightBarButtonItem = self.right_btn;
+        self.navigationItem.rightBarButtonItem = self.right_Item;
     }else{
         self.navigationItem.rightBarButtonItem = nil;
     }

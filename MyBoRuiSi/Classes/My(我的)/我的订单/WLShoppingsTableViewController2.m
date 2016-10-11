@@ -30,7 +30,14 @@
     _page = 1;
     [self requestGetWaitPayWithPage:@(self.page)];
     
+    //监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
+    
 }
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
@@ -40,6 +47,11 @@
     return _dataSource;
 }
 
+#pragma mark - Implementation Notification
+- (void)reloadDataShopTalbeView:(NSNotification *)noti{
+    _page = 1;
+    [self requestGetWaitPayWithPage:@(self.page)];
+}
 //- (void)openOption
 //{
 //    NSLog(@"打开 2");

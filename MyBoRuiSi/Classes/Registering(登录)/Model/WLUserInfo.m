@@ -36,8 +36,9 @@
     return self.userId ? YES : NO;
 }
 
-- (void)archivWithDict:(NSDictionary *)dict{
+- (void)archivWithDict:(NSDictionary *)dict{    
     _userId = dict[@"id"];
+    _money = dict[@"money"];
     _nickname = dict[@"nickname"];
     _vipEndtm = dict[@"vipEndtm"];
     _vip = dict[@"vip"];
@@ -61,6 +62,7 @@
     [unarchiv finishDecoding];
     
     _userId = userInfo.userId;
+    _money = userInfo.money;
     _nickname = userInfo.nickname;
     _vipEndtm = userInfo.vipEndtm;
     _vip = userInfo.vip;
@@ -69,11 +71,24 @@
     _score = userInfo.score;
 }
 
+- (void)reArchivUserInfo{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:self forKey:@"kUserInfo"];
+    [archiver finishEncoding];
+    
+    [data writeToFile:self.userInfoArchivPath atomically:YES];
+}
+
 - (void)cleanUserInfo{
     NSFileManager *manager = [NSFileManager defaultManager];
     // 删除
     BOOL isDelete = [manager removeItemAtPath:self.userInfoArchivPath error:nil];
-    _userId = nil;
+    if(isDelete){
+        _userId = nil;
+    }else{
+        [self archivWithDict:nil];
+    }
 }
 
 
@@ -81,6 +96,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
         _userId = [aDecoder decodeObjectForKey:@"id"];
+        _money = [aDecoder decodeObjectForKey:@"money"];
         _nickname = [aDecoder decodeObjectForKey:@"nickname"];
         _vipEndtm = [aDecoder decodeObjectForKey:@"vipEndtm"];
         _vip = [aDecoder decodeBoolForKey:@"vip"];
@@ -93,6 +109,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:_userId forKey:@"id"];
+    [aCoder encodeObject:_money forKey:@"money"];
     [aCoder encodeObject:_nickname forKey:@"nickname"];
     [aCoder encodeObject:_vipEndtm forKey:@"vipEndtm"];
     [aCoder encodeBool:_vip forKey:@"vip"];
@@ -100,4 +117,12 @@
     [aCoder encodeObject:_favNum forKey:@"favNum"];
     [aCoder encodeObject:_score forKey:@"score"];
 }
+
+#pragma mark - NSCoping
+//- (id)copyWithZone:(NSZone *)zone {
+//    WLUserInfo *copy = [[[self class] allocWithZone:zone] init];
+//    copy.money = [self.money copyWithZone:zone];
+//   
+//    return copy;
+//}
 @end

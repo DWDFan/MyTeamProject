@@ -9,6 +9,7 @@
 #import "WLOrderDetailsViewController.h"
 #import "WLOrderDetailsCell.h"
 
+#import "WLOrderDataHandle.h"
 @interface WLOrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
@@ -118,5 +119,20 @@
 {
     
     
+}
+
+#pragma mark - Request
+- (void)requestGetOrderDetailWithUid:(NSString *)uid{
+    [WLOrderDataHandle requestGetOrderDetailWithUid:[WLUserInfo share].userId oid:self.oid success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+           
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+
+    } failure:^(NSError *error) {
+    
+    }];
 }
 @end

@@ -49,8 +49,7 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid};
     [MOHTTP GET:@"API/index.php?action=Vip&do=addMoney" parameters:param success:^(id responseObject) {
-        [WLUserInfo share].money = responseObject[@"data"];
-        success(responseObject);
+               success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];

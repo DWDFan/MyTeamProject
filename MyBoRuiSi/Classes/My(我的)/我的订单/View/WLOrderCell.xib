@@ -20,8 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-WO-FeT">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="6De-a4-pZi"/>
-                                    <constraint firstAttribute="height" constant="60" id="z3V-qD-3mu"/>
+                                    <constraint firstAttribute="height" constant="20" id="z3V-qD-3mu"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" image="椭圆-2"/>
                                 <connections>
                                     <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Opl-5h-lE5"/>
@@ -39,8 +40,8 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qc0-Tb-tuq">
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title=" 直播中" image="icon-直播中">
-                                    <color key="titleColor" red="0.5450980392" green="0.090196078430000007" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="点播课程" image="icon-点播">
+                                    <color key="titleColor" red="0.25098039215686274" green="0.70588235294117652" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcu-Lf-5yn">
@@ -51,7 +52,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoR-di-z47">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6N0-vo-wNL"/>
-                                    <constraint firstAttribute="width" constant="52" id="8rw-qK-Ydd"/>
+                                    <constraint firstAttribute="width" constant="60" id="8rw-qK-Ydd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="会员免费">
@@ -127,7 +128,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon-直播中" width="16" height="10"/>
+        <image name="icon-点播" width="16" height="10"/>
         <image name="moicon" width="213" height="220"/>
         <image name="椭圆-2" width="17" height="17"/>
     </resources>

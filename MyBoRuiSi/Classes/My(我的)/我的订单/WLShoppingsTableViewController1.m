@@ -45,9 +45,14 @@
     _sumSelect = 0;
     _page = 1;
     [self requestGetCarWithPage:@(self.page)];
+    
+    //监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
 
 }
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
@@ -68,11 +73,14 @@
     WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
     vc.money = [NSString stringWithFormat:@"%zd.00",self.amount];
     vc.cid = [self.arrayCid componentsJoinedByString:@"|"];
-    vc.type = @"kecheng";
+    
+    vc.type = [WLUserInfo share].isVip ? @"vip" : @"kecheng";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)clickAll:(UIButton *)sender {
+    if (!self.dataSource.count) return;
+    
     //clean arraycid all cid
     [self.arrayCid removeAllObjects];
     
@@ -84,7 +92,7 @@
         
         for (WLShopCarModel *model in self.dataSource) {
             model.select = YES;
-            self.amount += [model.price integerValue];
+            self.amount += model.disPrice ? [model.disPrice integerValue] : [model.price integerValue];
             
             //add all cid in arraycid
             [self.arrayCid addObject:model.id];
@@ -109,6 +117,13 @@
     
 }
 
+#pragma mark - Implementation Notification
+- (void)reloadDataShopTalbeView:(NSNotification *)noti{
+    _amount = 0;
+    _sumSelect = 0;
+    _page = 1;
+    [self requestGetCarWithPage:@(self.page)];
+}
 
 //MARK:tableView代理方法----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -157,16 +172,6 @@
         }
     };
     
-    //直接付款回调
-    __weak typeof(WLOrderCell *) weakCell = cell;
-    cell.payBlock = ^(NSInteger price){
-        WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
-        vc.money = [NSString stringWithFormat:@"%zd.00",price];
-        vc.cid = weakCell.shopCarModel.id;
-        vc.type = @"kecheng";
-        [self.navigationController pushViewController:vc animated:YES];
-    };
-    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,6 +206,8 @@
 
 #pragma mark - Request
 - (void)requestGetCarWithPage:(NSNumber *)page{
+    //clean dataSource
+    [self.dataSource removeAllObjects];
     [WLOrderDataHandle requestGetCartWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {

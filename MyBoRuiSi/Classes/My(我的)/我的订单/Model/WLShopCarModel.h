@@ -17,8 +17,9 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *photo;
 @property (nonatomic, strong) NSNumber *price;
-@property (nonatomic, strong) NSNumber *status;
+@property (nonatomic, strong) NSNumber *status; //0直播未开始 1、直播中 2、直播结束
 @property (nonatomic, strong) NSNumber *vipFree;
+@property (nonatomic, strong) NSNumber *type; //1.点播 2、直播
 
 @property (nonatomic, getter=isSelect, assign) BOOL select;
 @end
