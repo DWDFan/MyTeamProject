@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, WLPurchaseViewStyle) {
+    WLPurchaseViewStyleVOD,
+    WLPurchaseViewStyleLive,
+};
+
 @interface WLPurchaseBottomView : UIView
+
 @property (nonatomic, copy) void(^joinShopCarBlock)() ;
+
+@property (nonatomic, assign) BOOL canBuy;
+
+- (instancetype)initWithFrame:(CGRect)frame style:(WLPurchaseViewStyle)style;
+
 @end

@@ -18,16 +18,24 @@
 
 @implementation WLPurchaseBottomView
 
-- (instancetype)initWithFrame:(CGRect)frame
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [self setSubviews];
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(WLPurchaseViewStyle)style
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setSubviews];
+    if (self = [super initWithFrame:frame]) {
+        [self setSubviewsWithStyle:style];
     }
     return self;
 }
 
-- (void)setSubviews
+- (void)setSubviewsWithStyle:(WLPurchaseViewStyle)style
 {
     UIButton *addShopCartBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     addShopCartBtn.frame = CGRectMake(0, 0, 90, 50);
@@ -35,6 +43,7 @@
     addShopCartBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [addShopCartBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
     [addShopCartBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [addShopCartBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [addShopCartBtn addTarget:self action:@selector(addCartBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addShopCartBtn];
     _addShopCartBtn = addShopCartBtn;
@@ -45,6 +54,7 @@
     tasteBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [tasteBtn setTitle:@"体验学习" forState:UIControlStateNormal];
     [tasteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [tasteBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [tasteBtn addTarget:self action:@selector(tasteBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:tasteBtn];
     _tasteBtn = tasteBtn;
@@ -55,6 +65,7 @@
     purchaseBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [purchaseBtn setTitle:@"立即购买" forState:UIControlStateNormal];
     [purchaseBtn setTitleColor:color_red forState:UIControlStateNormal];
+    [purchaseBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [purchaseBtn addTarget:self action:@selector(purchaseBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:purchaseBtn];
     _purchaseBtn = purchaseBtn;
@@ -63,6 +74,12 @@
     topLine.frame = CGRectMake(0, 0, WLScreenW, 0.5);
     topLine.backgroundColor = COLOR_WORD_GRAY_2;
     [self addSubview:topLine];
+    
+    if (style == WLPurchaseViewStyleLive) {
+        _addShopCartBtn.frame = CGRectMake(0, 0, WLScreenW / 2, 50);
+        _purchaseBtn.frame =CGRectMake(WLScreenW / 2, 0, WLScreenW / 2, 50);
+        _tasteBtn.frame = CGRectZero;
+    }
 }
 
 - (void)addCartBtnAction:(UIButton *)sender
@@ -80,5 +97,23 @@
     
 }
 
+- (void)setCanBuy:(BOOL)canBuy
+{
+    if (!canBuy) {
+        _tasteBtn.enabled = NO;
+        _purchaseBtn.enabled = NO;
+        _addShopCartBtn.enabled = NO;
+        _tasteBtn.backgroundColor = [UIColor grayColor];
+        _purchaseBtn.backgroundColor = [UIColor grayColor];
+        _addShopCartBtn.backgroundColor = [UIColor grayColor];
+    }else {
+        _tasteBtn.enabled = YES;
+        _purchaseBtn.enabled = YES;
+        _addShopCartBtn.enabled = YES;
+        _tasteBtn.backgroundColor = KColorYellow;
+        _purchaseBtn.backgroundColor = [UIColor whiteColor];
+        _addShopCartBtn.backgroundColor = color_red;
+    }
+}
 
 @end

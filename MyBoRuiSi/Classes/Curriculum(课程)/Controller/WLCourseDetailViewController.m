@@ -9,6 +9,7 @@
 #import "WLCourseDetailViewController.h"
 #import "WLSharetowViewController.h"
 #import "WLCourceOutlineVIewController.h"
+#import "WLCoursewareViewController.h"
 #import "WLDgViewController.h"
 #import "WLorganVC.h"
 #import "WLLookTableViewCell.h"
@@ -30,7 +31,7 @@
 @property (nonatomic, weak) UILabel *introLbl;
 @property (nonatomic, weak) UILabel *disPriLbl;
 @property (nonatomic, weak) UIButton *menberBtn;
-
+@property (nonatomic, weak) WLPurchaseBottomView *bottomView;
 
 @end
 
@@ -65,13 +66,14 @@
     footer.nvc = self.navigationController;
     _tableView.tableFooterView = footer;
     
-    WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50)];
+    WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50) style:WLPurchaseViewStyleVOD];
     __weak typeof(self) weakSelf = self;
     bottomView.joinShopCarBlock = ^(){
         //request 加入购物车
         [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
     };
     [self.view addSubview:bottomView];
+    _bottomView = bottomView;
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
@@ -93,6 +95,7 @@
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+        _bottomView.canBuy = _course.canBuy;
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -335,7 +338,9 @@
             [self.navigationController pushViewController:VC animated:YES];
             
         }else {                     // 相关课件
-            
+            WLCoursewareViewController *VC = [[WLCoursewareViewController alloc] init];
+            VC.courseId = _courseId;
+            [self.navigationController pushViewController:VC animated:YES];
         }
     }else if (indexPath.row == 3) { // 机构详情
         WLorganVC *vc = [[WLorganVC alloc]init];

@@ -27,6 +27,7 @@
 }
 @property (nonatomic, strong) UIImageView *headerImgV;
 @property (nonatomic, strong) WLCourceModel *course;
+@property (nonatomic, strong) WLPurchaseBottomView *purchaseView;
 
 @end
 
@@ -60,8 +61,9 @@
     footer.nvc = self.navigationController;
     self.tableView.tableFooterView = footer;
     
-    WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50)];
+    WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50) style:WLPurchaseViewStyleLive];
     [self.view addSubview:bottomView];
+    _purchaseView = bottomView;
     
     [self setNavigationBarStyleDefultWithTitle:@"课程详情"];
     
@@ -75,6 +77,7 @@
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+        _purchaseView.canBuy = _course.canBuy;
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         

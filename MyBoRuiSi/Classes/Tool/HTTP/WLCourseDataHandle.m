@@ -33,6 +33,31 @@
 }
 
 /**
+ 获取课件列表
+ 
+ @param cid     kid 课程id
+ @param uid     uid 用户id
+ @param success
+ @param failure
+ */
++ (void)requestCoursewareWithCourseId:(NSString *)cid
+                                  uid:(NSString *)uid
+                              success:(void (^)(id responseObject))success
+                              failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"kid":cid,
+                            @"uid":uid};
+    
+    [MOHTTP GET:@"API/index.php?action=Kecheng&do=getKejian" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+/**
  *  所有评论
  *
  *  @param cid     ID
