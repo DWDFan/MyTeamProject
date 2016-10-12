@@ -8,8 +8,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLShoppingsTableViewController4">
             <connections>
-                <outlet property="allSelect_btn" destination="xtq-t0-LQC" id="eQ8-qQ-bDp"/>
-                <outlet property="delete_btn" destination="2jh-Sl-02K" id="V7H-Ou-7Km"/>
                 <outlet property="tableView_main" destination="6BE-7W-Oa6" id="vFS-YN-GJ9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,92 +17,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-7W-Oa6">
-                    <frame key="frameInset" width="600" height="600"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-7W-Oa6">
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="apL-uh-3MB"/>
                         <outlet property="delegate" destination="-1" id="xbT-7p-5Gg"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-kZ-Edd">
-                    <frame key="frameInset" minY="552" width="600" height="48"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jh-Sl-02K">
-                            <frame key="frameInset" minX="490" width="110" height="48"/>
-                            <color key="backgroundColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="110" id="thr-pF-zCT"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="删除">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="deleteAction:" destination="-1" eventType="touchUpInside" id="KyL-SX-cbT"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtq-t0-LQC">
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="YeJ-Pd-N06"/>
-                                <constraint firstAttribute="width" constant="70" id="kyr-k5-MJe"/>
-                            </constraints>
-                            <state key="normal" title="  全选" image="椭圆-2">
-                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <state key="selected" image="tick"/>
-                            <connections>
-                                <action selector="allSelectAction:" destination="-1" eventType="touchUpInside" id="pEC-n5-OsG"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="2jh-Sl-02K" firstAttribute="top" secondItem="hDM-kZ-Edd" secondAttribute="top" id="WEs-M9-eO8"/>
-                        <constraint firstAttribute="bottom" secondItem="2jh-Sl-02K" secondAttribute="bottom" id="YSx-Ko-9Ti"/>
-                        <constraint firstAttribute="height" constant="48" id="cqk-LN-Fnl"/>
-                        <constraint firstAttribute="trailing" secondItem="2jh-Sl-02K" secondAttribute="trailing" id="qGl-zD-OJF"/>
-                        <constraint firstItem="xtq-t0-LQC" firstAttribute="centerY" secondItem="hDM-kZ-Edd" secondAttribute="centerY" id="riA-0S-4j6"/>
-                        <constraint firstItem="xtq-t0-LQC" firstAttribute="leading" secondItem="hDM-kZ-Edd" secondAttribute="leading" constant="15" id="xQM-En-9lQ"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="hDM-kZ-Edd" secondAttribute="trailing" id="8IX-sD-H7z"/>
                 <constraint firstAttribute="trailing" secondItem="6BE-7W-Oa6" secondAttribute="trailing" id="VaL-Te-fzd"/>
-                <constraint firstItem="hDM-kZ-Edd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aja-vt-yWw"/>
-                <constraint firstItem="hDM-kZ-Edd" firstAttribute="top" secondItem="6BE-7W-Oa6" secondAttribute="bottom" id="en7-MW-QRb"/>
+                <constraint firstAttribute="bottom" secondItem="6BE-7W-Oa6" secondAttribute="bottom" id="c7b-rF-oE3"/>
                 <constraint firstItem="6BE-7W-Oa6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="obw-RK-xBe"/>
                 <constraint firstItem="6BE-7W-Oa6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qSG-uD-bhQ"/>
-                <constraint firstAttribute="bottom" secondItem="hDM-kZ-Edd" secondAttribute="bottom" id="seX-5B-vgU"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="hDM-kZ-Edd"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="8IX-sD-H7z"/>
-                    <exclude reference="aja-vt-yWw"/>
-                    <exclude reference="en7-MW-QRb"/>
-                    <exclude reference="seX-5B-vgU"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="subviews">
-                    <include reference="hDM-kZ-Edd"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="8IX-sD-H7z"/>
-                    <include reference="aja-vt-yWw"/>
-                    <include reference="en7-MW-QRb"/>
-                    <include reference="seX-5B-vgU"/>
-                </mask>
-            </variation>
         </view>
     </objects>
-    <resources>
-        <image name="tick" width="17" height="17"/>
-        <image name="椭圆-2" width="17" height="17"/>
-    </resources>
 </document>

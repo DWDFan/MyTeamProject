@@ -234,6 +234,8 @@
         if ([dict[@"code"]integerValue] == 1) {
             [self.dataSource removeObjectAtIndex:indexPath.row];
             [self.tableView_main deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
         }else {
            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

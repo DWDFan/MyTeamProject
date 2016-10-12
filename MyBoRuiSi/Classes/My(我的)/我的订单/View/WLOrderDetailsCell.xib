@@ -53,6 +53,12 @@
                     <constraint firstItem="fvg-mm-nO3" firstAttribute="leading" secondItem="U4k-Fu-UNd" secondAttribute="trailing" constant="8" id="vi0-Dd-2OF"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="jianshi_lab" destination="fvg-mm-nO3" id="xda-76-gkJ"/>
+                <outlet property="money_lab" destination="5Jg-AC-eTR" id="rUR-NH-re8"/>
+                <outlet property="name_lab" destination="TA7-Fr-Y59" id="WdE-9E-txL"/>
+                <outlet property="photo_imv" destination="U4k-Fu-UNd" id="RgQ-R9-cFY"/>
+            </connections>
             <point key="canvasLocation" x="219" y="144"/>
         </tableViewCell>
     </objects>

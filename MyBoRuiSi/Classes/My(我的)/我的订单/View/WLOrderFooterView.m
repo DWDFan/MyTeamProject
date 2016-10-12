@@ -11,7 +11,7 @@
 #import "WLOrderModel.h"
 @interface WLOrderFooterView ()
 @property (weak, nonatomic) IBOutlet UILabel *amount_lab;
-@property (weak, nonatomic) IBOutlet UIButton *pay_btn;
+
 @property (weak, nonatomic) IBOutlet UIButton *detail_btn;
 @property (weak, nonatomic) IBOutlet UIButton *delete_btn;
 @end

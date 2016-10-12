@@ -16,12 +16,13 @@
 #import "WLOrderDataHandle.h"
 #import "WLOrderModel.h"
 #import "WLShopCarModel.h"
-@interface WLShoppingsTableViewController2 ()<UITableViewDelegate,UITableViewDataSource>
+@interface WLShoppingsTableViewController2 ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, copy) NSString *oid;
 @end
 
 @implementation WLShoppingsTableViewController2
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView_main.tableFooterView = [[UIView alloc] init];
     _page = 1;
     [self requestGetWaitPayWithPage:@(self.page)];
     
@@ -54,18 +56,16 @@
     _page = 1;
     [self requestGetWaitPayWithPage:@(self.page)];
 }
-//- (void)openOption
-//{
-//    NSLog(@"打开 2");
-//    self.isOpen = YES;
-//    [self.tableView_main reloadData];
-//}
-//- (void)offOption
-//{
-//    NSLog(@"关闭 2");
-//    self.isOpen = NO;
-//    [self.tableView_main reloadData];
-//}
+
+
+#pragma mark - Delegate AlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //reqeust delete
+        [self deleteOrderWithOid:self.oid];
+    }
+}
+
 //MARK:tableView代理方法----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSource.count;
@@ -103,21 +103,20 @@
     footerView.payBlock = ^(NSString *oid, NSString *amount){
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         vc.amountStr = amount;
-//        vc.orderName = waitPayModel.info.name;
-//        vc.needMoney = waitPayModel.info.disPrice ? [waitPayModel.info.disPrice stringValue] : [waitPayModel.info.price stringValue];
         vc.orderId = oid;
+        vc.needMoney = amount;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     footerView.detailBlock = ^(NSString *oid){
             WLOrderDetailsViewController *vc = [[WLOrderDetailsViewController alloc]init];
-            vc.arr_details = [NSMutableArray arrayWithArray:@[@"12345678",@"2015-0809",@"￥200.0",@"10.00",@"190.0"]];
-            vc.arr_data = [NSMutableArray arrayWithArray:@[@[@""],@[@"订单号 :",@"付款时间 :",@"总价 :",@"积分抵扣 :",@"实际总价 :"]]];
-            vc.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 未开始",@" 订单详情"]];
-            vc.str_button = @"立即付款";
-            [weakSelf.navigationController pushViewController:vc animated:YES];
+        vc.orderDetailType = WLOrderDetailWaitPayType;
+        vc.oid = oid;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     footerView.deleteBlock = ^(NSString *oid){
-        [weakSelf deleteOrderWithOid:oid];
+        weakSelf.oid = oid;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否确认删除订单" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
     };
     return footerView;
 }
@@ -138,6 +137,8 @@
 
 #pragma mark - Request
 - (void)requestGetWaitPayWithPage:(NSNumber *)page{
+    //clean dataSource
+    [self.dataSource removeAllObjects];
     [WLOrderDataHandle requestGetWaitPayWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
@@ -165,6 +166,8 @@
             //刷新
             self.page = 1;
             [self requestGetWaitPayWithPage:@(self.page)];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

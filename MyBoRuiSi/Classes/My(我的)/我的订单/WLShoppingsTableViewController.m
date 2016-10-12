@@ -17,8 +17,6 @@
 @interface WLShoppingsTableViewController ()<DLTabedSlideViewDelegate>
 
 @property (strong, nonatomic) IBOutlet DLTabedSlideView *tabedSlideView;
-@property (nonatomic, strong) UIBarButtonItem *right_Item;
-@property (nonatomic, strong) UIButton *right_btn;
 
 @property (nonatomic,strong ) NSMutableArray *arr_vc;
 //@property (nonatomic,weak) MOTempViewController *vc_temp;
@@ -83,22 +81,6 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage cleImage:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
 }
 
-#pragma mark - Getter
-- (UIBarButtonItem *)right_Item{
-    if (!_right_Item) {
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
-        _right_btn = btn;
-        btn.backgroundColor = [UIColor clearColor];
-        [btn setBackgroundColor:[UIColor clearColor]];
-        [btn setTitleColor:color_red forState:UIControlStateNormal];
-        [btn setTitle:@"编辑" forState:UIControlStateNormal];
-        [btn setTitle:@"取消" forState:UIControlStateSelected];
-        [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
-        //左
-        _right_Item = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    }
-    return _right_Item;
-}
 - (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
     return self.arr_vc.count;
 }
@@ -106,49 +88,13 @@
 - (UIViewController *)DLTabedSlideViewWith:(DLTabedSlideView *)sender controllerAt:(NSInteger)index
 {
     UIViewController *vc = self.arr_vc[index];
-    if(index == 3){
-        WLShoppingsTableViewController4 *vController = (WLShoppingsTableViewController4 *)vc;
-        __weak typeof(self) weakSelf = self;
-        vController.allSelectBlock = ^(){
-            if (weakSelf.right_btn.selected) {
-                return;
-            }else{
-                [weakSelf clickButton:weakSelf.right_btn];
-            }
-        };
-        return vController;
-    }
     return vc;
 }
 - (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(NSInteger)index
 {
-    if(index == 3){
-        self.navigationItem.rightBarButtonItem = self.right_Item;
-    }else{
-        self.navigationItem.rightBarButtonItem = nil;
-    }
 //    MOTempViewController *vc = self.arr_vc[index];
 //    self.vc_temp = vc;
 }
-//- (void)setTitleButtonWithString:(NSString *)title
-//{
-//    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 30)];
-//    _right_btn = btn;
-//    btn.backgroundColor = [UIColor clearColor];
-//    [btn setBackgroundColor:[UIColor clearColor]];
-//    [btn setTitleColor:color_red forState:UIControlStateNormal];
-//    [btn setTitle:title forState:UIControlStateNormal];
-//    [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
-//    //左
-//    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:btn];
-//    // 设置导航条的按钮
-//    self.navigationItem.rightBarButtonItem = right;
-//}
 
 
-- (void)clickButton:(UIButton *)sender
-{
-    sender.selected = !sender.selected;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"kEditingColseOrderNotification" object:nil userInfo:@{@"selectState": [NSNumber numberWithBool:sender.selected]}];
-}
 @end

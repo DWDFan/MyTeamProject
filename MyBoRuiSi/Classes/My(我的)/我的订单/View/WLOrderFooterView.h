@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @class WLOrderModel;
 @interface WLOrderFooterView : UITableViewHeaderFooterView
+@property (weak, nonatomic) IBOutlet UIButton *pay_btn; //方便隐藏
+
 @property (nonatomic, copy) void(^payBlock)(NSString *oid, NSString *amount);
 @property (nonatomic, copy) void(^detailBlock)(NSString *oid);
 @property (nonatomic, copy) void(^deleteBlock)(NSString *oid);

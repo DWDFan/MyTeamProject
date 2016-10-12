@@ -7,16 +7,21 @@
 //
 
 #import "WLOrderDetailsViewController.h"
+#import "WLOrderPayViewController.h"
+
 #import "WLOrderDetailsCell.h"
 
 #import "WLOrderDataHandle.h"
+#import "WLOrderDetailModel.h"
 @interface WLOrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
-
 @property (weak, nonatomic) IBOutlet UIButton *button_click;
 
-
+@property (nonatomic,strong) NSMutableArray *arr_data;
+@property (nonatomic,strong) NSArray *arr_details;
+@property (nonatomic,strong) NSMutableArray *arr_title;
+@property (nonatomic, strong) WLOrderDetailModel *orderDetailModel;
 @end
 
 @implementation WLOrderDetailsViewController
@@ -26,11 +31,21 @@
     [super viewDidLoad];
     [self initSelf];
     
-    
+    if (self.orderDetailType == WLOrderDetailWaitPayType) {
+        self.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 未开始",@" 订单详情"]];
+        [self.button_click setTitle:@"立即付款" forState:UIControlStateNormal];
+    }else if(self.orderDetailType == WLOrderDetailPayedType){
+        self.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 未开始",@" 订单详情"]];
+        [self.button_click setTitle:@"写评论" forState:UIControlStateNormal];
+    }else{
+        self.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 已关闭",@" 订单详情"]];
+        self.button_click.hidden = YES;
+    }
+    //request
+    [self requestGetOrderDetailWithUid:self.oid];
 }
 
 - (void)initSelf{
-    
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
     [btn setBackgroundColor:[UIColor clearColor]];
@@ -38,9 +53,27 @@
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:@" 订单详情" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
-    
-    [self.button_click setTitle:self.str_button forState:UIControlStateNormal];
 }
+
+#pragma mark - Setter
+- (NSMutableArray *)arr_data{
+    if (!_arr_data) {
+        _arr_data =  [NSMutableArray arrayWithArray:@[@[],@[@"订单号 :",@"付款时间 :",@"总价 :",@"积分抵扣 :",@"实际总价 :"]]];
+    }
+    return _arr_data;
+}
+
+#pragma mark - Event Response
+- (IBAction)clickAction:(UIButton *)sender {
+    if (self.orderDetailType == WLOrderDetailWaitPayType) {
+        WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+        vc.amountStr = self.orderDetailModel.realPay;
+        vc.orderId = self.oid;
+        vc.needMoney = self.orderDetailModel.realPay;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 //MARK:tableView代理方法----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -61,25 +94,29 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderDetailsCell" owner:nil options:nil] lastObject];
         }
+        cell.orderSourceModel = self.orderDetailModel.source[indexPath.row];
         return cell;
+    }else{
+        static NSString *reuseId = @"cellId";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseId];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.font = [UIFont systemFontOfSize:15];
+            cell.textLabel.textColor = RGBA(51, 51, 51, 1);
+
+            cell.detailTextLabel.textColor = RGBA(102, 102, 102, 1);
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+        }
+        if (indexPath.row == 4) {
+            cell.detailTextLabel.textColor = RGBA(347, 100, 59, 1);
+        }
+        cell.textLabel.text = self.arr_data[indexPath.section][indexPath.row];
+        cell.detailTextLabel.text = self.arr_details[indexPath.row];
+         return cell;
     }
-    
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = self.arr_data[indexPath.section][indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.textLabel.textColor = RGBA(51, 51, 51, 1);
-    
-    UILabel *label_details = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WLScreenW - 140, 48)];
-    label_details.text = self.arr_details[indexPath.row];
-    label_details.textColor = RGBA(102, 102, 102, 1);
-    label_details.font = [UIFont systemFontOfSize:15];
-    if (indexPath.section == 1 && indexPath.row == 4) {
-        label_details.textColor = RGBA(347, 100, 59, 1);
-    }
-    cell.accessoryView = label_details;
-    
-    return cell;
+   
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -126,13 +163,24 @@
     [WLOrderDataHandle requestGetOrderDetailWithUid:[WLUserInfo share].userId oid:self.oid success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
-           
+            _orderDetailModel = [WLOrderDetailModel mj_objectWithKeyValues:dict[@"data"]];
+            NSMutableArray *array = [NSMutableArray arrayWithCapacity:_orderDetailModel.source.count];
+            for (int i = 0; i < _orderDetailModel.source.count; i ++) {
+                [array addObject:@""];
+            }
+            [self.arr_data replaceObjectAtIndex:0 withObject:array];
+            self.arr_details = @[_orderDetailModel.orderno,
+                                 _orderDetailModel.addtime,
+                                 [NSString stringWithFormat:@"￥%@.00",_orderDetailModel.total],
+                                 [NSString stringWithFormat:@"%@.00",_orderDetailModel.jifen],
+                                 [NSString stringWithFormat:@"￥%@.00",_orderDetailModel.realPay]];
+            [self.tableView_main reloadData];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
-
+        
     } failure:^(NSError *error) {
-    
+        
     }];
 }
 @end

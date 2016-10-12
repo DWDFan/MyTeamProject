@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLOrderSourceModel;
 @interface WLOrderDetailsCell : UITableViewCell
-
+@property (nonatomic, strong) WLOrderSourceModel *orderSourceModel;
 @end
