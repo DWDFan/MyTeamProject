@@ -70,7 +70,7 @@
     
     if(sender.selected){ //全选状态
         for (WLOrderModel *model in self.dataSource) {
-            model.info.select = YES;
+          
             //add all cid in arraycid
             [self.arrayOid addObject:model.id];
         }
@@ -79,7 +79,7 @@
         self.delete_btn.backgroundColor = color_red;
     }else{//全选取消状态
         for (WLOrderModel *model in self.dataSource) {
-            model.info.select = NO;
+          
         }
         self.selectCount = 0;
         [self.delete_btn setTitle:@"删除" forState:UIControlStateNormal];
@@ -103,8 +103,7 @@
     if(!self.isOpen){
         //right itme 取消编辑 全选与删除按钮都就置为原始状态
         for (WLOrderModel *model in self.dataSource) {
-            model.info.select = NO;
-        }
+                  }
         self.selectCount = 0;
         self.allSelect_btn.selected = NO;
         [self.delete_btn setTitle:@"删除" forState:UIControlStateNormal];

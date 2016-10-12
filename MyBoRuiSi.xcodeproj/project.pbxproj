@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		550455DB1DAB323500F9A32C /* WLOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455DA1DAB323500F9A32C /* WLOrderModel.m */; };
+		550455E31DADD9EE00F9A32C /* WLOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */; };
+		550455E51DADDA1700F9A32C /* WLOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -478,6 +480,9 @@
 /* Begin PBXFileReference section */
 		550455D91DAB323500F9A32C /* WLOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderModel.h; sourceTree = "<group>"; };
 		550455DA1DAB323500F9A32C /* WLOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderModel.m; sourceTree = "<group>"; };
+		550455E11DADD9EE00F9A32C /* WLOrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderFooterView.h; sourceTree = "<group>"; };
+		550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderFooterView.m; sourceTree = "<group>"; };
+		550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderFooterView.xib; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -1386,6 +1391,9 @@
 				55F36ADD1D9D181D006634CB /* WLOrderDetailsCell.h */,
 				55F36ADE1D9D181D006634CB /* WLOrderDetailsCell.m */,
 				55F36ADF1D9D181D006634CB /* WLOrderDetailsCell.xib */,
+				550455E11DADD9EE00F9A32C /* WLOrderFooterView.h */,
+				550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */,
+				550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3349,6 +3357,7 @@
 				F1E518021D578B9A00F3A885 /* WLcardxqTableViewCell.xib in Resources */,
 				F1E517B31D56CF1600F3A885 /* WLQykcxqViewController.xib in Resources */,
 				F1FB85601D532EA9005AAED3 /* WLTabulationerableViewCell.xib in Resources */,
+				550455E51DADDA1700F9A32C /* WLOrderFooterView.xib in Resources */,
 				F14EEA3E1D562ECF00BBD158 /* WLEntTableViewCell.xib in Resources */,
 				F14EEA0F1D55B6B900BBD158 /* WLAbuoutViewController.xib in Resources */,
 				F1C598381D4DDEED00529553 /* WLHometwoTableViewCell.xib in Resources */,
@@ -3577,6 +3586,7 @@
 				F1518F761D52D48900879B9B /* WLRegistrationtViewController.m in Sources */,
 				6E13E0BC1D52EAF900616BEB /* WLShoppingsTableViewController3.m in Sources */,
 				F15590411D5430A100EFD5F8 /* WLPhysiologyViewController.m in Sources */,
+				550455E31DADD9EE00F9A32C /* WLOrderFooterView.m in Sources */,
 				6C5919B31D4FA44900256363 /* MJRefreshConst.m in Sources */,
 				F181B2E81D98B8E700DE511D /* ZGArticleModel.m in Sources */,
 				F1FB85691D53552B005AAED3 /* WLdetailstwoViewController.m in Sources */,
