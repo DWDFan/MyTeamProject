@@ -116,6 +116,7 @@ NSInteger const kPageSize = 20;
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WLScreenW, WLScreenH-IOS7_TOP_Y) style:self.tableViewStyle?self.tableViewStyle:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate  = self;
+        _tableView.showsVerticalScrollIndicator = NO;
 //        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.tableFooterView = [[UIView alloc]init];
         _tableView.separatorColor = COLOR_tableView_separator;

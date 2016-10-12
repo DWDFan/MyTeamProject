@@ -8,6 +8,7 @@
 
 #import "WLCirCleDetailViewController.h"
 #import "WLArticleDetailViewController.h"
+#import "WLIssueArticleViewController.h"
 #import "WLFindDataHandle.h"
 #import "ZGArticleCell.h"
 #import "WLCircleInfoCell.h"
@@ -18,6 +19,7 @@
 
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) WLCircleInfoModel *infoModel;
+@property (nonatomic, strong) UIButton *issueBtn;
 
 @end
 
@@ -30,13 +32,15 @@
     [self.view addSubview:self.tableView];
     
     UIButton *issueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    issueBtn.frame = CGRectMake(0, self.view.height - 49, WLScreenW, 49);
+    issueBtn.frame = CGRectMake(0, WLScreenH - IOS7_TOP_Y - 49, WLScreenW, 49);
     issueBtn.backgroundColor = color_red;
+    issueBtn.hidden = YES;
     issueBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [issueBtn setTitle:@"发帖" forState:UIControlStateNormal];
     [issueBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [issueBtn addTarget:self action:@selector(issueBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:issueBtn];
+    _issueBtn = issueBtn;
     
     _page = 1;
     [self requestData];
@@ -47,7 +51,9 @@
     [WLFindDataHandle requestFindCircleInfoWithQid:_circleId uid:[WLUserInfo share].userId success:^(id responseObject) {
         
         _infoModel = [WLCircleInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
+        _infoModel.isFollow ? (_issueBtn.hidden = NO) : (_issueBtn.hidden = YES);
         [self.tableView reloadData];
+        
     } failure:^(NSError *error) {
         
     }];
@@ -68,7 +74,8 @@
 
 - (void)issueBtnAction:(UIButton *)sender
 {
-    
+    WLIssueArticleViewController *issueVC = [[WLIssueArticleViewController alloc] init];
+    [self.navigationController pushViewController:issueVC animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -109,12 +116,14 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.circleInfo = _infoModel;
+        
+        __typeof (self)weakSelf = self;
         [cell setBlock:^(UIButton *sender) {
             
             NSNumber *type = sender.selected ? @2 : @1;
             [WLFindDataHandle requestFindCircleFollowWithQid:_circleId uid:[WLUserInfo share].userId type:type success:^(id responseObject) {
-                
                 sender.selected = !sender.selected;
+                sender.selected ? (weakSelf.issueBtn.hidden = NO) : (weakSelf.issueBtn.hidden = YES);
             } failure:^(NSError *error) {
                 [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
             }];

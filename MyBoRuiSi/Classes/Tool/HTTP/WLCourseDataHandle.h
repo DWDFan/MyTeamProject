@@ -22,6 +22,19 @@
                                  failure:(void (^)(NSError *error))failure;
 
 /**
+ 获取课件列表
+
+ @param cid     kid 课程id
+ @param uid     uid 用户id
+ @param success
+ @param failure
+ */
++ (void)requestCoursewareWithCourseId:(NSString *)cid
+                                  uid:(NSString *)uid
+                                 success:(void (^)(id responseObject))success
+                                 failure:(void (^)(NSError *error))failure;
+
+/**
  *  所有评论
  *
  *  @param cid     ID
