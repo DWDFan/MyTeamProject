@@ -22,6 +22,10 @@
 @property (nonatomic, strong) UIView *imageContainV;
 @property (nonatomic, strong) NSMutableArray *images;
 
+@property (nonatomic, strong) UIButton *moreBtn;
+@property (nonatomic, strong) UILabel *viewLbl;
+@property (nonatomic, strong) UIImageView *readIcon;
+
 @end
 
 @implementation ZGArticleCell
@@ -85,6 +89,12 @@
     _cmtLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:_cmtLbl];
     
+    _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_moreBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
+    [_moreBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
+    [_moreBtn addTarget:self action:@selector(moreBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_moreBtn];
+    
     _imageContainV = [[UIView alloc] init];
     _imageContainV.layer.masksToBounds = YES;
     [self addSubview:_imageContainV];
@@ -107,7 +117,7 @@
 {
     _articleViewModel = articleViewModel;
     
-    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+    [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.photo] placeholderImage:PHOTO_PLACE];
     
     _nameLbl.text = _articleViewModel.article.name ? _articleViewModel.article.name : _articleViewModel.article.nickname;
     
@@ -124,9 +134,12 @@
     for (int i = 0; i < 3; i ++) {
         
         UIImageView *imageV = (UIImageView *)[_images objectAtIndex:i];
-
-        if (i < _articleViewModel.article.images.count) {
-            [imageV sd_setImageWithURL:[NSURL URLWithString:_articleViewModel.article.images[i]] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
+        
+        if (i < _articleViewModel.article.image.count) {
+            
+            ZGImageModel *imageModel = _articleViewModel.article.image[i];
+            [imageV sd_setImageWithURL:[NSURL URLWithString:imageModel.image] placeholderImage:PHOTO_PLACE];
+            imageV.hidden = NO;
         }else {
             imageV.hidden = YES;
         }
@@ -149,11 +162,24 @@
     self.praiseblock ? self.praiseblock(sender) : nil;
 }
 
+- (void)moreBtnAction:(UIButton *)sender
+{
+    
+}
+
 - (void)addPraiseCount
 {
     NSInteger count = [_articleViewModel.article.zanNum integerValue] + 1;
     _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
     _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
+}
+
+- (NSMutableArray *)images
+{
+    if (!_images) {
+        _images = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _images;
 }
 
 @end

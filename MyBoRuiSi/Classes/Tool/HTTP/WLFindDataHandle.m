@@ -106,8 +106,8 @@
                                 success:(void (^)(id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"id" : [MOTool getNULLString:tid],
-                             @"uid" : [MOTool getNULLString:[WLUserInfo share].userId]};
+    NSDictionary *param = @{@"tid" : [MOTool getNULLString:tid],
+                            @"uid" : [MOTool getNULLString:[WLUserInfo share].userId]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=postDetail" parameters:param success:^(id responseObject) {
         
@@ -414,6 +414,7 @@
                                 failure:(void (^)(NSError *error))failure
 {
     NSDictionary *param = @{@"qid" : [MOTool getNULLString:qid],
+                            @"uid" : [MOTool getNULLString:[WLUserInfo share].userId],
                             @"page" : page ? page : [NSNull null]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=getQuanPosts" parameters:param success:^(id responseObject) {
@@ -445,6 +446,30 @@
                             @"type" : type ? type : [NSNull null]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=focusQuan" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ 上传图片
+ 
+ @param fileData Filedata 上传图片数据
+ @param uid      uid 用户id
+ @param success
+ @param failure
+ */
++ (void)requestUploatPhotoWithFiledata:(NSData *)fileData
+                                   uid:(NSString *)uid
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid"      : [MOTool getNULLString:uid],
+                            @"Filedata" : fileData};
+    
+    [MOHTTP Post:@"API/index.php?action=Upload&do=appUploadCommon" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {
