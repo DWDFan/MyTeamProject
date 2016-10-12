@@ -17,8 +17,12 @@ typedef NS_ENUM(NSUInteger, WLPurchaseViewStyle) {
 
 @property (nonatomic, copy) void(^joinShopCarBlock)() ;
 
+
+@property (nonatomic, copy) void(^bottomViewBLock)(NSUInteger index);
+
 @property (nonatomic, assign) BOOL canBuy;
 
 - (instancetype)initWithFrame:(CGRect)frame style:(WLPurchaseViewStyle)style;
+
 
 @end

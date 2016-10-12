@@ -12,20 +12,20 @@
 
 /**
  获取讲师列表
-
+ 
  @param sort    排序类型  star 按照好评度 follow 关注量
  @param level   等级
  @param success
  @param failure
  */
 + (void)requestFindLectureListWithSort:(NSString *)sort
-                             level:(NSNumber *)level
-                           success:(void (^)(id responseObject))success
-                           failure:(void (^)(NSError *error))failure;
+                                 level:(NSNumber *)level
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure;
 
 /**
  获取机构列表
-
+ 
  @param sort    排序类型 member 员工数 follow 关注
  @param gsType  企业性质
  @param success
@@ -39,17 +39,17 @@
 
 /**
  获取BBS轮播图
-
+ 
  @param success
  @param failure
  */
 + (void)requestFindBBSAdsSuccess:(void (^)(id responseObject))success
-                     failure:(void (^)(NSError *error))failure;
+                         failure:(void (^)(NSError *error))failure;
 
 
 /**
  获取热贴
-
+ 
  @param success
  @param failure
  */
@@ -59,19 +59,19 @@
 
 /**
  获取帖子详细数据
-
+ 
  @param tid     tid 帖子id
  @param success
  @param failure
  */
 + (void)requestFindArticleDetailWithTid:(NSString *)tid
-                                   success:(void (^)(id responseObject))success
-                                   failure:(void (^)(NSError *error))failure;
+                                success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
 
 
 /**
  获取帖子回复列表
-
+ 
  @param tid     tid 帖子id
  @param page    page 页码
  @param success
@@ -85,7 +85,7 @@
 
 /**
  帖子点赞
-
+ 
  @param tid     tid 帖子id
  @param uid     uid 当前登录id
  @param success
@@ -127,7 +127,7 @@
 
 /**
  举报帖子
-
+ 
  @param tid     tid 帖子id
  @param uid     uid 当前登录id
  @param msg     msg 举报原因
@@ -137,13 +137,13 @@
 + (void)requestFindArticleReportWithTid:(NSString *)tid
                                     uid:(NSString *)uid
                                     msg:(NSString *)msg
-                                 success:(void (^)(id responseObject))success
-                                 failure:(void (^)(NSError *error))failure;
+                                success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
 
 
 /**
  发布帖子
-
+ 
  @param qid     qid 圈子id
  @param uid     uid 当前登录id
  @param title   title 帖子标题
@@ -163,7 +163,7 @@
 
 /**
  修改帖子
-
+ 
  @param qid     qid 圈子id
  @param uid     uid 当前登录id
  @param title   title 帖子标题
@@ -185,7 +185,7 @@
 
 /**
  我的帖子
-
+ 
  @param uid     uid 当前登录id
  @param success
  @param failure
@@ -197,7 +197,7 @@
 
 /**
  获取兴趣圈的列表
-
+ 
  @param success
  @param failure
  */
@@ -207,7 +207,7 @@
 
 /**
  获取我的兴趣圈
-
+ 
  @param uid     uid 当前登录id
  @param success
  @param failure
@@ -245,7 +245,7 @@
 
 /**
  关注圈子
-
+ 
  @param qid     圈子id
  @param uid     当前登录id
  @param type    1 添加关注 2 取消关注
@@ -258,5 +258,19 @@
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure;
 
+
+
+/**
+ 上传图片
+ 
+ @param fileData Filedata 上传图片数据
+ @param uid      uid 用户id
+ @param success
+ @param failure
+ */
++ (void)requestUploatPhotoWithFiledata:(NSData *)fileData
+                                   uid:(NSString *)uid
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure;
 
 @end

@@ -26,7 +26,9 @@
     self.titles = @[@"过期",@"与事实不符",@"政治敏感",@"其他问题"];
     self.tableView.rowHeight = 44;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnAction:)];
+    [self.rightBtn setTitle:@"发布" forState:UIControlStateNormal];
+    [self.rightBtn setTitleColor:color_red forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
 }
 
 - (void)rightBtnAction:(id)sender

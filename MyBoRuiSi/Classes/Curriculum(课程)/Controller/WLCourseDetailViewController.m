@@ -31,6 +31,7 @@
 @property (nonatomic, weak) UILabel *introLbl;
 @property (nonatomic, weak) UILabel *disPriLbl;
 @property (nonatomic, weak) UIButton *menberBtn;
+
 @property (nonatomic, weak) WLPurchaseBottomView *bottomView;
 
 @end
@@ -68,10 +69,25 @@
     
     WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50) style:WLPurchaseViewStyleVOD];
     __weak typeof(self) weakSelf = self;
-    bottomView.joinShopCarBlock = ^(){
-        //request 加入购物车
-        [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
-    };
+    
+    [bottomView setBottomViewBLock:^(NSUInteger index) {
+        switch (index) {
+            case 0:
+                //request 加入购物车
+                [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
+                break;
+            case 1:
+                // 体验学习
+                [weakSelf pushToOutLineViewController];
+                break;
+            case 2:
+                
+                break;
+            default:
+                break;
+        }
+    }];
+    
     [self.view addSubview:bottomView];
     _bottomView = bottomView;
     
@@ -160,7 +176,13 @@
     } failure:^(NSError *error) {
         [MOProgressHUD showErrorWithStatus:error.localizedDescription];
     }];
+}
 
+- (void)pushToOutLineViewController
+{
+    WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
+    VC.courseId = _courseId;
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 #pragma mark - tableView
@@ -278,7 +300,7 @@
             }else if (indexPath.row == 2) {
                 cell.textLabel.text = [NSString stringWithFormat:@"有效期 : %@个月",[MOTool getNULLString:_course.period]];
             }else {
-                cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",[MOTool getNULLString:_course.author]];
+                cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",[MOTool getNULLString:_course.aname]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             
@@ -333,10 +355,8 @@
     if (indexPath.section == 2) {
         
         if (indexPath.row == 0) {   // 课程大纲
-            WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
-            VC.courseId = _courseId;
-            [self.navigationController pushViewController:VC animated:YES];
             
+            [self pushToOutLineViewController];
         }else {                     // 相关课件
             WLCoursewareViewController *VC = [[WLCoursewareViewController alloc] init];
             VC.courseId = _courseId;

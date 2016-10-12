@@ -18,6 +18,15 @@
 //"viewNum": 9999
 #import <Foundation/Foundation.h>
 
+@interface ZGImageModel : NSObject
+
+@property (nonatomic, strong) NSString *addtime;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *tid;
+@property (nonatomic, strong) NSString *image;
+
+@end
+
 @interface ZGArticleModel : NSObject
 
 @property (nonatomic, strong) NSString *id;
@@ -35,7 +44,7 @@
 @property (nonatomic, strong) NSNumber *replyNum;
 @property (nonatomic, strong) NSNumber *viewNum;
 @property (nonatomic, strong) NSNumber *view;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSArray *image;
 
 @end
 

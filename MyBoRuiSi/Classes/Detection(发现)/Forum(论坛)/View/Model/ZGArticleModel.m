@@ -8,9 +8,18 @@
 
 #import "ZGArticleModel.h"
 
+@implementation ZGImageModel
+
+
+
+@end
+
 @implementation ZGArticleModel
 
-
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{@"image" : [ZGImageModel class]};
+}
 
 @end
 
@@ -35,7 +44,7 @@
     CGFloat imageH = imageW * 0.7;
     _imageVFrame = CGRectMake(ZGPaddingMax, CGRectGetMaxY(_contentFrame) + ZGPaddingMax, WLScreenW - 2 * ZGPaddingMax, imageH + ZGPaddingMax);
     
-    if (article.images.count == 0) {
+    if (article.image.count == 0) {
         _imageVFrame.size.height = 0;
     }
     

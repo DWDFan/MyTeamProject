@@ -8,6 +8,10 @@
 
 #import "WLCourceModel.h"
 
+@implementation WLOtherCourseModel
+
+@end
+
 @implementation WLCommentModel
 
 @end
@@ -16,7 +20,8 @@
 
 + (NSDictionary *)mj_objectClassInArray
 {
-    return @{@"comment" : [WLCommentModel class]};
+    return @{@"comment" : [WLCommentModel class],
+             @"other"   : [WLOtherCourseModel class]};
 }
 
 @end
