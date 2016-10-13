@@ -156,6 +156,21 @@
 		F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */; };
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
 		F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */; };
+		F11AB0501DAF5BBB0060A9B4 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0411DAF5BBB0060A9B4 /* libavcodec.a */; };
+		F11AB0511DAF5BBB0060A9B4 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0421DAF5BBB0060A9B4 /* libavfilter.a */; };
+		F11AB0521DAF5BBB0060A9B4 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0431DAF5BBB0060A9B4 /* libavformat.a */; };
+		F11AB0531DAF5BBB0060A9B4 /* libavresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0441DAF5BBB0060A9B4 /* libavresample.a */; };
+		F11AB0541DAF5BBB0060A9B4 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0451DAF5BBB0060A9B4 /* libavutil.a */; };
+		F11AB0551DAF5BBB0060A9B4 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0461DAF5BBB0060A9B4 /* libcrypto.a */; };
+		F11AB0561DAF5BBB0060A9B4 /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0471DAF5BBB0060A9B4 /* libfdk-aac.a */; };
+		F11AB0571DAF5BBB0060A9B4 /* libNELivePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0481DAF5BBB0060A9B4 /* libNELivePlayer.a */; };
+		F11AB0581DAF5BBB0060A9B4 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB0491DAF5BBB0060A9B4 /* libopenh264.a */; };
+		F11AB0591DAF5BBB0060A9B4 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB04A1DAF5BBB0060A9B4 /* librtmp.a */; };
+		F11AB05A1DAF5BBB0060A9B4 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB04B1DAF5BBB0060A9B4 /* libspeex.a */; };
+		F11AB05B1DAF5BBB0060A9B4 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB04C1DAF5BBB0060A9B4 /* libssl.a */; };
+		F11AB05C1DAF5BBB0060A9B4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB04D1DAF5BBB0060A9B4 /* libswresample.a */; };
+		F11AB05D1DAF5BBB0060A9B4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB04E1DAF5BBB0060A9B4 /* libswscale.a */; };
+		F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */ = {isa = PBXBuildFile; fileRef = F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
 		F11BEE3D1D4F20C000AA3F3A /* WLSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE3B1D4F20C000AA3F3A /* WLSearchTableViewController.m */; };
@@ -730,6 +745,23 @@
 		F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseListViewController.m; sourceTree = "<group>"; };
 		F11AAEEE1DAF352F0060A9B4 /* ZGLivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGLivePlayerViewController.h; sourceTree = "<group>"; };
 		F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGLivePlayerViewController.m; sourceTree = "<group>"; };
+		F11AB03E1DAF5BBB0060A9B4 /* NELivePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayer.h; sourceTree = "<group>"; };
+		F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayerController.h; sourceTree = "<group>"; };
+		F11AB0411DAF5BBB0060A9B4 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		F11AB0421DAF5BBB0060A9B4 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		F11AB0431DAF5BBB0060A9B4 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		F11AB0441DAF5BBB0060A9B4 /* libavresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavresample.a; sourceTree = "<group>"; };
+		F11AB0451DAF5BBB0060A9B4 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		F11AB0461DAF5BBB0060A9B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		F11AB0471DAF5BBB0060A9B4 /* libfdk-aac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libfdk-aac.a"; sourceTree = "<group>"; };
+		F11AB0481DAF5BBB0060A9B4 /* libNELivePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNELivePlayer.a; sourceTree = "<group>"; };
+		F11AB0491DAF5BBB0060A9B4 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
+		F11AB04A1DAF5BBB0060A9B4 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		F11AB04B1DAF5BBB0060A9B4 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeex.a; sourceTree = "<group>"; };
+		F11AB04C1DAF5BBB0060A9B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		F11AB04D1DAF5BBB0060A9B4 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		F11AB04E1DAF5BBB0060A9B4 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.md; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
 		F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInquiryViewController.m; sourceTree = "<group>"; };
 		F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInquiryViewController.xib; sourceTree = "<group>"; };
@@ -1256,21 +1288,35 @@
 			files = (
 				5595AD631DA8C32A001758AA /* CoreMotion.framework in Frameworks */,
 				5595AD611DA8C322001758AA /* libstdc++.tbd in Frameworks */,
+				F11AB0551DAF5BBB0060A9B4 /* libcrypto.a in Frameworks */,
 				5595AD5F1DA8C31A001758AA /* libsqlite3.0.tbd in Frameworks */,
+				F11AB05D1DAF5BBB0060A9B4 /* libswscale.a in Frameworks */,
 				5595AD5D1DA8C311001758AA /* libz.tbd in Frameworks */,
+				F11AB0571DAF5BBB0060A9B4 /* libNELivePlayer.a in Frameworks */,
 				5595AD5B1DA8C307001758AA /* libc++.tbd in Frameworks */,
 				5595AD591DA8C2F3001758AA /* CoreTelephony.framework in Frameworks */,
 				5595AD571DA8C2EB001758AA /* QuartzCore.framework in Frameworks */,
 				5595AD551DA8C2E2001758AA /* Security.framework in Frameworks */,
+				F11AB0541DAF5BBB0060A9B4 /* libavutil.a in Frameworks */,
 				5595AD531DA8C2DA001758AA /* SystemConfiguration.framework in Frameworks */,
+				F11AB0521DAF5BBB0060A9B4 /* libavformat.a in Frameworks */,
 				5595AD511DA8C2D2001758AA /* CFNetwork.framework in Frameworks */,
+				F11AB0581DAF5BBB0060A9B4 /* libopenh264.a in Frameworks */,
 				5595AD4D1DA8C207001758AA /* libpingpp+one.a in Frameworks */,
+				F11AB05C1DAF5BBB0060A9B4 /* libswresample.a in Frameworks */,
 				5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */,
 				5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */,
 				5595AD491DA8C207001758AA /* libpingpp+up.a in Frameworks */,
+				F11AB0501DAF5BBB0060A9B4 /* libavcodec.a in Frameworks */,
+				F11AB05B1DAF5BBB0060A9B4 /* libssl.a in Frameworks */,
 				5595AD481DA8C207001758AA /* libPaymentControl.a in Frameworks */,
+				F11AB05A1DAF5BBB0060A9B4 /* libspeex.a in Frameworks */,
+				F11AB0531DAF5BBB0060A9B4 /* libavresample.a in Frameworks */,
+				F11AB0511DAF5BBB0060A9B4 /* libavfilter.a in Frameworks */,
 				5595AD4C1DA8C207001758AA /* libpingppcore.a in Frameworks */,
+				F11AB0561DAF5BBB0060A9B4 /* libfdk-aac.a in Frameworks */,
 				5595AD4A1DA8C207001758AA /* libpingpp+network.a in Frameworks */,
+				F11AB0591DAF5BBB0060A9B4 /* librtmp.a in Frameworks */,
 				5595AD4B1DA8C207001758AA /* libpingpp+webview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1763,6 +1809,54 @@
 				F7F304671DABBF1300F3F3EF /* WLIssueArticleViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB03C1DAF5BBB0060A9B4 /* include */,
+				F11AB0401DAF5BBB0060A9B4 /* libs */,
+				F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */,
+			);
+			path = LivePlayer_iOS_SDK_v1.2.0;
+			sourceTree = "<group>";
+		};
+		F11AB03C1DAF5BBB0060A9B4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB03D1DAF5BBB0060A9B4 /* NELivePlayer */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		F11AB03D1DAF5BBB0060A9B4 /* NELivePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB03E1DAF5BBB0060A9B4 /* NELivePlayer.h */,
+				F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */,
+			);
+			path = NELivePlayer;
+			sourceTree = "<group>";
+		};
+		F11AB0401DAF5BBB0060A9B4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB0411DAF5BBB0060A9B4 /* libavcodec.a */,
+				F11AB0421DAF5BBB0060A9B4 /* libavfilter.a */,
+				F11AB0431DAF5BBB0060A9B4 /* libavformat.a */,
+				F11AB0441DAF5BBB0060A9B4 /* libavresample.a */,
+				F11AB0451DAF5BBB0060A9B4 /* libavutil.a */,
+				F11AB0461DAF5BBB0060A9B4 /* libcrypto.a */,
+				F11AB0471DAF5BBB0060A9B4 /* libfdk-aac.a */,
+				F11AB0481DAF5BBB0060A9B4 /* libNELivePlayer.a */,
+				F11AB0491DAF5BBB0060A9B4 /* libopenh264.a */,
+				F11AB04A1DAF5BBB0060A9B4 /* librtmp.a */,
+				F11AB04B1DAF5BBB0060A9B4 /* libspeex.a */,
+				F11AB04C1DAF5BBB0060A9B4 /* libssl.a */,
+				F11AB04D1DAF5BBB0060A9B4 /* libswresample.a */,
+				F11AB04E1DAF5BBB0060A9B4 /* libswscale.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
@@ -3064,6 +3158,7 @@
 		F1FB85701D537365005AAED3 /* Lib(第三方架) */ = {
 			isa = PBXGroup;
 			children = (
+				F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */,
 				5595AD301DA8C207001758AA /* ping++ */,
 				F1FB85711D537365005AAED3 /* DLSlideView */,
 				F1FB85841D537365005AAED3 /* KxMenu.h */,
@@ -3747,6 +3842,7 @@
 				CDEB07781D5590AE009A0011 /* WLWalletViewCell.m in Sources */,
 				F121629C1D518E600003B5C1 /* WLOrganizatioTableViewCell.m in Sources */,
 				CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */,
+				F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */,
 				F1FB85FE1D5374AC005AAED3 /* MJPhotoLoadingView.m in Sources */,
 				F1C597B31D4CFC1E00529553 /* WLTabBar.m in Sources */,
 				F1F7165D1D4F9AB30097F859 /* WLTestTableViewCell.m in Sources */,
@@ -3956,6 +4052,7 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Dependencies/WebView",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
+					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3987,6 +4084,7 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Dependencies/WebView",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
+					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
