@@ -155,6 +155,7 @@
 		F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D01DAB648E004827D9 /* WLCircleModel.m */; };
 		F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */; };
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
+		F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
 		F11BEE3D1D4F20C000AA3F3A /* WLSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE3B1D4F20C000AA3F3A /* WLSearchTableViewController.m */; };
@@ -727,6 +728,8 @@
 		F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleDetailViewController.m; sourceTree = "<group>"; };
 		F11839931D9CBC2500B98BF7 /* WLLiveCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseListViewController.h; sourceTree = "<group>"; };
 		F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseListViewController.m; sourceTree = "<group>"; };
+		F11AAEEE1DAF352F0060A9B4 /* ZGLivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGLivePlayerViewController.h; sourceTree = "<group>"; };
+		F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGLivePlayerViewController.m; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
 		F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInquiryViewController.m; sourceTree = "<group>"; };
 		F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInquiryViewController.xib; sourceTree = "<group>"; };
@@ -2719,6 +2722,8 @@
 				F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */,
 				F70F8DCF1DAD4A8200B75D0D /* WLCoursewareViewController.h */,
 				F70F8DD01DAD4A8200B75D0D /* WLCoursewareViewController.m */,
+				F11AAEEE1DAF352F0060A9B4 /* ZGLivePlayerViewController.h */,
+				F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3749,6 +3754,7 @@
 				F121629A1D518E600003B5C1 /* WLOrgViewController.m in Sources */,
 				6C5919A41D4FA44900256363 /* NSObject+MJClass.m in Sources */,
 				6E13E0B81D52EAF900616BEB /* WLShoppingsTableViewController1.m in Sources */,
+				F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */,
 				F1D110B41D59A63100103536 /* WLDgViewController.m in Sources */,
 				6C5919B81D4FA44900256363 /* UIView+MJExtension.m in Sources */,
 				F77FB0DD1D97EBEC001B287E /* WLCourseListCell.m in Sources */,
