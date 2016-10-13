@@ -7,6 +7,7 @@
 //
 
 #import "WLCourceOutlineVIewController.h"
+#import "ZGLivePlayerViewController.h"
 #import "WLCourseDataHandle.h"
 
 @interface WLCourceOutlineVIewController () <UITableViewDelegate, UITableViewDataSource>
@@ -164,5 +165,14 @@
     return 0.000001;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 0) {
+        
+        ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] init];
+        playerVC.url = [NSURL URLWithString:_outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"]];
+        [self.navigationController pushViewController:playerVC animated:YES];
+    }
+}
 
 @end
