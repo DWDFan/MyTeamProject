@@ -11,6 +11,12 @@
 		550455E31DADD9EE00F9A32C /* WLOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */; };
 		550455E51DADDA1700F9A32C /* WLOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */; };
 		550455E81DAE105400F9A32C /* WLOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455E71DAE105400F9A32C /* WLOrderDetailModel.m */; };
+		550455EB1DAF256800F9A32C /* WLCourseFavModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455EA1DAF256800F9A32C /* WLCourseFavModel.m */; };
+		550A22851DAF5D4D0025A2B5 /* WLCostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22841DAF5D4D0025A2B5 /* WLCostModel.m */; };
+		550A22881DAF78550025A2B5 /* WLMyTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22871DAF78550025A2B5 /* WLMyTestModel.m */; };
+		550A228B1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A228A1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m */; };
+		550A228E1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */; };
+		550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -492,6 +498,18 @@
 		550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLOrderFooterView.xib; sourceTree = "<group>"; };
 		550455E61DAE105400F9A32C /* WLOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOrderDetailModel.h; sourceTree = "<group>"; };
 		550455E71DAE105400F9A32C /* WLOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLOrderDetailModel.m; sourceTree = "<group>"; };
+		550455E91DAF256800F9A32C /* WLCourseFavModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLCourseFavModel.h; path = "MyBoRuiSi/Classes/My(我的)/我的订单/Model/WLCourseFavModel.h"; sourceTree = SOURCE_ROOT; };
+		550455EA1DAF256800F9A32C /* WLCourseFavModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLCourseFavModel.m; path = "MyBoRuiSi/Classes/My(我的)/我的订单/Model/WLCourseFavModel.m"; sourceTree = SOURCE_ROOT; };
+		550A22831DAF5D4D0025A2B5 /* WLCostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLCostModel.h; path = "MyBoRuiSi/Classes/My(我的)/我的订单/Model/WLCostModel.h"; sourceTree = SOURCE_ROOT; };
+		550A22841DAF5D4D0025A2B5 /* WLCostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLCostModel.m; path = "MyBoRuiSi/Classes/My(我的)/我的订单/Model/WLCostModel.m"; sourceTree = SOURCE_ROOT; };
+		550A22861DAF78550025A2B5 /* WLMyTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMyTestModel.h; sourceTree = "<group>"; };
+		550A22871DAF78550025A2B5 /* WLMyTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMyTestModel.m; sourceTree = "<group>"; };
+		550A22891DAF86E50025A2B5 /* WLMyDianBoCourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyDianBoCourseModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyDianBoCourseModel.h"; sourceTree = SOURCE_ROOT; };
+		550A228A1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyDianBoCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyDianBoCourseModel.m"; sourceTree = SOURCE_ROOT; };
+		550A228C1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyZhiBoCourseModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyZhiBoCourseModel.h"; sourceTree = SOURCE_ROOT; };
+		550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyZhiBoCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyZhiBoCourseModel.m"; sourceTree = SOURCE_ROOT; };
+		550A228F1DAF87250025A2B5 /* WLMyQiYeCourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyQiYeCourseModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyQiYeCourseModel.h"; sourceTree = SOURCE_ROOT; };
+		550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyQiYeCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyQiYeCourseModel.m"; sourceTree = SOURCE_ROOT; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -1655,6 +1673,8 @@
 		CD2190AE1D542F3800F13FEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550A22861DAF78550025A2B5 /* WLMyTestModel.h */,
+				550A22871DAF78550025A2B5 /* WLMyTestModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1711,6 +1731,8 @@
 		CD6413EE1D5045BA002D31AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550455E91DAF256800F9A32C /* WLCourseFavModel.h */,
+				550455EA1DAF256800F9A32C /* WLCourseFavModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2165,6 +2187,8 @@
 		F12162C61D51A8860003B5C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550A22831DAF5D4D0025A2B5 /* WLCostModel.h */,
+				550A22841DAF5D4D0025A2B5 /* WLCostModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2587,6 +2611,12 @@
 		F1A732261D54AB5300EC755E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550A22891DAF86E50025A2B5 /* WLMyDianBoCourseModel.h */,
+				550A228A1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m */,
+				550A228C1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.h */,
+				550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */,
+				550A228F1DAF87250025A2B5 /* WLMyQiYeCourseModel.h */,
+				550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3628,6 +3658,7 @@
 				6C5919B31D4FA44900256363 /* MJRefreshConst.m in Sources */,
 				F181B2E81D98B8E700DE511D /* ZGArticleModel.m in Sources */,
 				F1FB85691D53552B005AAED3 /* WLdetailstwoViewController.m in Sources */,
+				550A22881DAF78550025A2B5 /* WLMyTestModel.m in Sources */,
 				6C59199A1D4FA44900256363 /* AFURLSessionManager.m in Sources */,
 				F1FB85E51D537365005AAED3 /* NSArray+Log.m in Sources */,
 				F1FB85461D52FA3C005AAED3 /* WLEvaluationViewController.m in Sources */,
@@ -3653,6 +3684,7 @@
 				F1A732301D54AB5300EC755E /* WLMyCurriculumViewController.m in Sources */,
 				F149193B1DA8EBD00098CC29 /* WLSortSelectView.m in Sources */,
 				F12162D01D51A9DF0003B5C1 /* WLCardViewController.m in Sources */,
+				550455EB1DAF256800F9A32C /* WLCourseFavModel.m in Sources */,
 				F1A945791D4CF4270097FFEF /* main.m in Sources */,
 				CDEB07911D562085009A0011 /* WLModifyViewController.m in Sources */,
 				F1FB85C71D537365005AAED3 /* DLCustomSlideView.m in Sources */,
@@ -3708,6 +3740,7 @@
 				F1605D271D4F630400EF2829 /* WLSouTableViewCell.m in Sources */,
 				F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */,
 				F18D157F1D92327000AD88BA /* WLCourceModel.m in Sources */,
+				550A22851DAF5D4D0025A2B5 /* WLCostModel.m in Sources */,
 				F1E517B21D56CF1600F3A885 /* WLQykcxqViewController.m in Sources */,
 				F1C598281D4D9E8900529553 /* WLhomeOneTableViewCell.m in Sources */,
 				F1FB85CB1D537365005AAED3 /* DLTabedSlideView.m in Sources */,
@@ -3716,10 +3749,12 @@
 				F10E16D91DA9F5F900474ACE /* WLArticleDetailViewController.m in Sources */,
 				CD6414021D5048CC002D31AC /* WLThePersonalDataTableViewCellTwo.m in Sources */,
 				F1E517D91D57177100F3A885 /* DirectTableViewCell.m in Sources */,
+				550A228E1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m in Sources */,
 				F1518F711D52CC6B00879B9B /* WLRegisteringViewController.m in Sources */,
 				F7038F781DAAA81400989A6B /* WLReportViewController.m in Sources */,
 				CDEB078C1D55AD04009A0011 /* WLIncomeViewController.m in Sources */,
 				F1FB85D91D537365005AAED3 /* SDWebImageDecoder.m in Sources */,
+				550A228B1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m in Sources */,
 				F19244CE1D5F0E0600F0FF5B /* SVProgressHUD.m in Sources */,
 				6C5919A71D4FA44900256363 /* NSObject+MJProperty.m in Sources */,
 				F1FB85E61D537365005AAED3 /* NSDate+MJ.m in Sources */,
@@ -3758,6 +3793,7 @@
 				F15590461D54346400EFD5F8 /* WLZwViewController.m in Sources */,
 				F1FB85DF1D537365005AAED3 /* UIImage+GIF.m in Sources */,
 				F7625BBB1D918F4200BF2AD9 /* WLHomeDataHandle.m in Sources */,
+				550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */,
 				6E8395631D55F2AE00E11087 /* WLOrderDetailsViewController.m in Sources */,
 				F192449A1D5F0CB100F0FF5B /* MOHTTP.m in Sources */,
 				F1FB86021D5374AC005AAED3 /* SDWebImageManager+MJ.m in Sources */,

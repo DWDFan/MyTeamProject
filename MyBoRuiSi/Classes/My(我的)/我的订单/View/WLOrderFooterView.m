@@ -36,7 +36,7 @@
 - (void)setOrderModel:(WLOrderModel *)orderModel{
     _orderModel = orderModel;
     
-//    _amount_lab.text = orderModel.
+    _amount_lab.text = [NSString stringWithFormat:@"￥%@.00",orderModel.total];
 }
 - (IBAction)payAction:(UIButton *)sender {
     if (self.payBlock) {

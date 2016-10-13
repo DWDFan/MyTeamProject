@@ -9,9 +9,10 @@
 #import "WLDirectseedingViewController.h"
 #import "WLDirectseedingTableViewCell.h"
 
-
+#import "WLMyDataHandle.h"
 @interface WLDirectseedingViewController ()
-
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLDirectseedingViewController
@@ -34,7 +35,9 @@
     //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"Timer"] style:UIBarButtonItemStyleDone target:self action:@selector(Timer)];
 
-    
+    _page = 1;
+    [self requestZhiBoCourseWithPage:_page];
+
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -54,15 +57,18 @@
 -(void)Timer{
     
 }
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 9;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -74,7 +80,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -87,13 +93,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    /// stroryboard 加载@@@@@@@@@@@@@@@@@@@
-    //身份
-    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLKXqViewController" bundle:nil];
-    UIViewController *vc = [stroryboard instantiateInitialViewController];
-    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
-    [self.navigationController pushViewController:vc animated:YES];
+//    /// stroryboard 加载@@@@@@@@@@@@@@@@@@@
+//    //身份
+//    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLKXqViewController" bundle:nil];
+//    UIViewController *vc = [stroryboard instantiateInitialViewController];
+//    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
+//    [self.navigationController pushViewController:vc animated:YES];
     
+    
+}
+
+#pragma mark - Request
+- (void)requestZhiBoCourseWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetMyCourseWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
     
 }
 

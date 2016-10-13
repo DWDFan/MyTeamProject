@@ -10,16 +10,21 @@
 #import "WLkc2TableViewCell.h"
 #import "WLke1TableViewCell.h"
 
+#import "WLMyDataHandle.h"
 
+#import "WLCourseFavModel.h"
 @interface WLKcViewController ()
-
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation WLKcViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    _page = 1;
+    [self requestGetFavListWithPage:_page];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,5 +131,12 @@
     
 }
 
-
+#pragma mark - Request
+- (void)requestGetFavListWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetFavListWithUid:[WLUserInfo share].userId page:@(page) type:@(2) success:^(id responseObject) {
+       
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

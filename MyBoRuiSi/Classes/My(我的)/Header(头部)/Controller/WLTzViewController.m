@@ -1,4 +1,4 @@
-//
+ //
 //  WLTzViewController.m
 //  MyBoRuiSi
 //
@@ -7,43 +7,50 @@
 //
 
 #import "WLTzViewController.h"
-#import "WLcardTableViewCell.h"
-
 #import "WLCardxqViewController.h"
 
+#import "ZGArticleCell.h"
+
+#import "WLMyDataHandle.h"
 
 @interface WLTzViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLTzViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    _page = 1;
+    [self requestGetFavListWithPage:_page];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
 
-//返回多少组
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Incomplete implementation, return the number of sections
-    return 1;
-}
+
 //返回多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
-    return 4;
+    return self.dataSource.count;
 }
 
 
 //cell高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 310;
+    ZGArticleViewModel *vModel = [self.dataSource objectAtIndex:indexPath.row];
+    return  vModel.cellHeight;
+
 }
 
 //返回组头的高度
@@ -53,16 +60,12 @@
 }
 //返回cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    static NSString *deteID = @"WLcardTableViewCell";
-    
-    WLcardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
-    
+    static NSString *deteID = @"ZGArticleCell";
+    ZGArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    
+    cell.articleViewModel = self.dataSource[indexPath.row];
     
     return cell;
 }
@@ -76,5 +79,14 @@
 }
 
 
+#pragma mark - Request
+- (void)requestGetFavListWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetFavListWithUid:[WLUserInfo share].userId page:@(page) type:@(1) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 @end

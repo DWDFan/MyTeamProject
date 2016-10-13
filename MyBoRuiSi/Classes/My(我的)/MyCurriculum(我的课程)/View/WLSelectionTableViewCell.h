@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLMyDianBoCourseModel;
 @interface WLSelectionTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLMyDianBoCourseModel *model;
 @end

@@ -11,8 +11,10 @@
 
 #import "WLQykcxqViewController.h"
 
+#import "WLMyDataHandle.h"
 @interface WLEnterpriseTViewController ()
-
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLEnterpriseTViewController
@@ -31,7 +33,8 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    
+    _page = 1;
+    [self requestQiYeCourseWithPage:_page];
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -48,6 +51,13 @@
     return theImage;
 }
 
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
 
 //返回多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -57,8 +67,7 @@
 //返回多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    
-    return 5;
+    return self.dataSource.count;
 }
 
 
@@ -83,7 +92,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.model = self.dataSource[indexPath.row];
     
     return cell;
 }
@@ -99,6 +108,15 @@
 }
 
 
-
+#pragma mark - Request
+- (void)requestQiYeCourseWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetMyCourseWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 
 @end
