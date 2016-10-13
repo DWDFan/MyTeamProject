@@ -157,6 +157,20 @@
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
 		F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */; };
 		F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */ = {isa = PBXBuildFile; fileRef = F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */; };
+		F11AB1681DAF85DD0060A9B4 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15A1DAF85DD0060A9B4 /* libavcodec.a */; };
+		F11AB1691DAF85DD0060A9B4 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15B1DAF85DD0060A9B4 /* libavfilter.a */; };
+		F11AB16A1DAF85DD0060A9B4 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15C1DAF85DD0060A9B4 /* libavformat.a */; };
+		F11AB16B1DAF85DD0060A9B4 /* libavresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15D1DAF85DD0060A9B4 /* libavresample.a */; };
+		F11AB16C1DAF85DD0060A9B4 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15E1DAF85DD0060A9B4 /* libavutil.a */; };
+		F11AB16D1DAF85DD0060A9B4 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB15F1DAF85DD0060A9B4 /* libcrypto.a */; };
+		F11AB16E1DAF85DD0060A9B4 /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1601DAF85DD0060A9B4 /* libfdk-aac.a */; };
+		F11AB16F1DAF85DD0060A9B4 /* libNELivePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1611DAF85DD0060A9B4 /* libNELivePlayer.a */; };
+		F11AB1701DAF85DD0060A9B4 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1621DAF85DD0060A9B4 /* libopenh264.a */; };
+		F11AB1711DAF85DD0060A9B4 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1631DAF85DD0060A9B4 /* librtmp.a */; };
+		F11AB1721DAF85DD0060A9B4 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1641DAF85DD0060A9B4 /* libspeex.a */; };
+		F11AB1731DAF85DD0060A9B4 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1651DAF85DD0060A9B4 /* libssl.a */; };
+		F11AB1741DAF85DD0060A9B4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1661DAF85DD0060A9B4 /* libswresample.a */; };
+		F11AB1751DAF85DD0060A9B4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1671DAF85DD0060A9B4 /* libswscale.a */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
 		F11BEE3D1D4F20C000AA3F3A /* WLSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE3B1D4F20C000AA3F3A /* WLSearchTableViewController.m */; };
@@ -734,6 +748,20 @@
 		F11AB03E1DAF5BBB0060A9B4 /* NELivePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayer.h; sourceTree = "<group>"; };
 		F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayerController.h; sourceTree = "<group>"; };
 		F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.md; sourceTree = "<group>"; };
+		F11AB15A1DAF85DD0060A9B4 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		F11AB15B1DAF85DD0060A9B4 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		F11AB15C1DAF85DD0060A9B4 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		F11AB15D1DAF85DD0060A9B4 /* libavresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavresample.a; sourceTree = "<group>"; };
+		F11AB15E1DAF85DD0060A9B4 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		F11AB15F1DAF85DD0060A9B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		F11AB1601DAF85DD0060A9B4 /* libfdk-aac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libfdk-aac.a"; sourceTree = "<group>"; };
+		F11AB1611DAF85DD0060A9B4 /* libNELivePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNELivePlayer.a; sourceTree = "<group>"; };
+		F11AB1621DAF85DD0060A9B4 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
+		F11AB1631DAF85DD0060A9B4 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		F11AB1641DAF85DD0060A9B4 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeex.a; sourceTree = "<group>"; };
+		F11AB1651DAF85DD0060A9B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		F11AB1661DAF85DD0060A9B4 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		F11AB1671DAF85DD0060A9B4 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
 		F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInquiryViewController.m; sourceTree = "<group>"; };
 		F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInquiryViewController.xib; sourceTree = "<group>"; };
@@ -1260,21 +1288,35 @@
 			files = (
 				5595AD631DA8C32A001758AA /* CoreMotion.framework in Frameworks */,
 				5595AD611DA8C322001758AA /* libstdc++.tbd in Frameworks */,
+				F11AB16D1DAF85DD0060A9B4 /* libcrypto.a in Frameworks */,
 				5595AD5F1DA8C31A001758AA /* libsqlite3.0.tbd in Frameworks */,
+				F11AB1751DAF85DD0060A9B4 /* libswscale.a in Frameworks */,
 				5595AD5D1DA8C311001758AA /* libz.tbd in Frameworks */,
+				F11AB16F1DAF85DD0060A9B4 /* libNELivePlayer.a in Frameworks */,
 				5595AD5B1DA8C307001758AA /* libc++.tbd in Frameworks */,
 				5595AD591DA8C2F3001758AA /* CoreTelephony.framework in Frameworks */,
 				5595AD571DA8C2EB001758AA /* QuartzCore.framework in Frameworks */,
 				5595AD551DA8C2E2001758AA /* Security.framework in Frameworks */,
+				F11AB16C1DAF85DD0060A9B4 /* libavutil.a in Frameworks */,
 				5595AD531DA8C2DA001758AA /* SystemConfiguration.framework in Frameworks */,
+				F11AB16A1DAF85DD0060A9B4 /* libavformat.a in Frameworks */,
 				5595AD511DA8C2D2001758AA /* CFNetwork.framework in Frameworks */,
+				F11AB1701DAF85DD0060A9B4 /* libopenh264.a in Frameworks */,
 				5595AD4D1DA8C207001758AA /* libpingpp+one.a in Frameworks */,
+				F11AB1741DAF85DD0060A9B4 /* libswresample.a in Frameworks */,
 				5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */,
 				5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */,
 				5595AD491DA8C207001758AA /* libpingpp+up.a in Frameworks */,
+				F11AB1681DAF85DD0060A9B4 /* libavcodec.a in Frameworks */,
+				F11AB1731DAF85DD0060A9B4 /* libssl.a in Frameworks */,
 				5595AD481DA8C207001758AA /* libPaymentControl.a in Frameworks */,
+				F11AB1721DAF85DD0060A9B4 /* libspeex.a in Frameworks */,
+				F11AB16B1DAF85DD0060A9B4 /* libavresample.a in Frameworks */,
+				F11AB1691DAF85DD0060A9B4 /* libavfilter.a in Frameworks */,
 				5595AD4C1DA8C207001758AA /* libpingppcore.a in Frameworks */,
+				F11AB16E1DAF85DD0060A9B4 /* libfdk-aac.a in Frameworks */,
 				5595AD4A1DA8C207001758AA /* libpingpp+network.a in Frameworks */,
+				F11AB1711DAF85DD0060A9B4 /* librtmp.a in Frameworks */,
 				5595AD4B1DA8C207001758AA /* libpingpp+webview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1772,6 +1814,7 @@
 		F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				F11AB1591DAF85DD0060A9B4 /* libs */,
 				F11AB03C1DAF5BBB0060A9B4 /* include */,
 				F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */,
 			);
@@ -1793,6 +1836,27 @@
 				F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */,
 			);
 			path = NELivePlayer;
+			sourceTree = "<group>";
+		};
+		F11AB1591DAF85DD0060A9B4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB15A1DAF85DD0060A9B4 /* libavcodec.a */,
+				F11AB15B1DAF85DD0060A9B4 /* libavfilter.a */,
+				F11AB15C1DAF85DD0060A9B4 /* libavformat.a */,
+				F11AB15D1DAF85DD0060A9B4 /* libavresample.a */,
+				F11AB15E1DAF85DD0060A9B4 /* libavutil.a */,
+				F11AB15F1DAF85DD0060A9B4 /* libcrypto.a */,
+				F11AB1601DAF85DD0060A9B4 /* libfdk-aac.a */,
+				F11AB1611DAF85DD0060A9B4 /* libNELivePlayer.a */,
+				F11AB1621DAF85DD0060A9B4 /* libopenh264.a */,
+				F11AB1631DAF85DD0060A9B4 /* librtmp.a */,
+				F11AB1641DAF85DD0060A9B4 /* libspeex.a */,
+				F11AB1651DAF85DD0060A9B4 /* libssl.a */,
+				F11AB1661DAF85DD0060A9B4 /* libswresample.a */,
+				F11AB1671DAF85DD0060A9B4 /* libswscale.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
