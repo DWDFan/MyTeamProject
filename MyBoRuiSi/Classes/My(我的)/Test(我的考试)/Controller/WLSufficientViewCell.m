@@ -8,16 +8,13 @@
 
 #import "WLSufficientViewCell.h"
 
-#import "WLTopViewController.h"
-
 @implementation WLSufficientViewCell
 
 
 - (IBAction)TopButton:(id)sender {
-    
-    WLTopViewController *vc = [[WLTopViewController alloc]init];
-    [self.nav pushViewController:vc animated:YES];
-    
+    if (self.rechargeBlock) {
+        self.rechargeBlock();
+    }
     
 }
 

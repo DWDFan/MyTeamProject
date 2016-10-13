@@ -199,6 +199,62 @@
 }
 
 /**
+ *  订单详情
+ *
+ *  @param uid     用户ID
+ *  @param oid     订单id
+ *  @param success
+ *  @param failure
+ *
+{
+    code = 1;
+    data =     {
+        addtime = "2016-10-11 09:17:15";
+        jifen = 0;
+        orderno = 1476177435;
+        realPay = 120;
+        source =         (
+                          {
+                              apply = 10;
+                              jiangshi = 1;
+                              name = "php\U5165\U95e8";
+                              photo = "http://img.mukewang.com/529dc3380001379906000338-240-135.jpg";
+                              price = 30;
+                              showtime = "<null>";
+                              total = "<null>";
+                              type = 1;
+                          },
+                          {
+                              apply = 10;
+                              jiangshi = 1;
+                              name = "JavaScript\U5165\U95e8\U7bc7";
+                              photo = "http://img.mukewang.com/53e1d0470001ad1e06000338-240-135.jpg";
+                              price = 90;
+                              showtime = "2016-10-01 12:12:11";
+                              total = "<null>";
+                              type = 1;
+                          }
+                          );
+        status = "\U5f85\U652f\U4ed8";
+        total = 120;
+    };
+    msg = ok;
+}
+*/
++ (void)requestGetOrderDetailWithUid:(NSString *)uid
+                                 oid:(NSString *)oid
+                             success:(void (^)(id responseObject))success
+                             failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"oid":oid};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=orderDetail" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+/**
  *  确认支付
  *
  *  @param uid     用户ID
@@ -214,6 +270,8 @@
                             @"oid":oid,
                             };
     [MOHTTP GET:@"API/index.php?action=UCenter&do=doPay" parameters:param success:^(id responseObject) {
+        [WLUserInfo share].money = responseObject[@"data"];
+        [[WLUserInfo share] reArchivUserInfo];//重新归档
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);

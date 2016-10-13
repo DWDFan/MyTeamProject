@@ -33,6 +33,15 @@
 
 #import <Foundation/Foundation.h>
 
+@interface WLOtherCourseModel : NSObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) NSNumber *star;
+@property (nonatomic, strong) NSString *id;
+
+@end
+
 @interface WLCommentModel : NSObject
 
 @property (nonatomic, strong) NSString *author;
@@ -55,6 +64,7 @@
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *disPrice;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *aname;
 
 @property (nonatomic, strong) NSString *period;
 @property (nonatomic, strong) NSString *desc;
@@ -72,7 +82,7 @@
 @property (nonatomic, strong) NSString *publicTime;
 @property (nonatomic, strong) NSNumber *bm;
 @property (nonatomic, strong) NSNumber *limit;
-@property (nonatomic, strong) NSArray *other;
+@property (nonatomic, strong) NSArray<WLOtherCourseModel *> *other;
 
 @end
 

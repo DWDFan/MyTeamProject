@@ -90,7 +90,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "497788966.025062"
+                  timestampString = "497961602.453704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
@@ -105,7 +105,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "497788966.026667"
+                  timestampString = "497961602.455358"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
@@ -170,7 +170,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "497788966.035731"
+                  timestampString = "497961602.465412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
@@ -185,7 +185,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "497788966.037325"
+                  timestampString = "497961602.467504"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
@@ -250,7 +250,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/Header(%E5%A4%B4%E9%83%A8)/Controller/ThePersonalDataTableViewController.m"
-                  timestampString = "497788966.046684"
+                  timestampString = "497961602.476953"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "151"
@@ -265,7 +265,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/Header(%E5%A4%B4%E9%83%A8)/Controller/ThePersonalDataTableViewController.m"
-                  timestampString = "497788966.048338"
+                  timestampString = "497961602.47867"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "153"
@@ -289,54 +289,6 @@
             endingLineNumber = "152"
             landmarkName = "-requestGetUserInfo"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Controller/WLMyController.m"
-            timestampString = "496836535.661777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "-reloadLoginStatus:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Controller/WLMyController.m"
-            timestampString = "496836535.661777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-reloadLoginStatus:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Controller/WLMyController.m"
-            timestampString = "496836535.661777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-reloadLoginStatus:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -378,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLOrderDataHandle.m"
-            timestampString = "497773127.7223"
+            timestampString = "497949284.181915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "+requestDopayWithUid:oid:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,44 +346,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLOrderDataHandle.m"
-            timestampString = "497773127.7223"
+            timestampString = "497949284.181915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "+requestDopayWithUid:oid:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
-            timestampString = "497786134.238708"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-requestGetWaitPayWithPage:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
-            timestampString = "497786134.238708"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-requestGetWaitPayWithPage:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -457,77 +377,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
-            timestampString = "497786134.238708"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "-deleteOrderWithOid:indexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
-            timestampString = "497786134.238708"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-deleteOrderWithOid:indexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController4.m"
-            timestampString = "497775901.441488"
+            timestampString = "497959886.460726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-requestCutOrderWithOid:indexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Curriculum(&#x8bfe;&#x7a0b;)/Controller/WLCourseDetailViewController.m"
-            timestampString = "497777668.951955"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-requestData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Curriculum(&#x8bfe;&#x7a0b;)/Controller/WLCourseDetailViewController.m"
-            timestampString = "497777670.27613"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-requestData"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-requestCutOrderWithOid:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -585,22 +441,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
-            timestampString = "497784392.051425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLOrderPayViewController.m"
             timestampString = "497785703.458162"
             startingColumnNumber = "9223372036854775807"
@@ -634,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "497787702.103048"
+            timestampString = "497870157.49553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "+requestAddMoneyWithUid:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -650,12 +490,154 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "497787702.103048"
+            timestampString = "497870157.49553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "+requestAddMoneyWithUid:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Registering(&#x767b;&#x5f55;)/Model/WLUserInfo.m"
+            timestampString = "497866864.34046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-loadUserInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController1.m"
+            timestampString = "497872362.470074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-requestGetCarWithPage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/View/WLOrderCell.m"
+            timestampString = "497863912.970918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-setShopCarModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController4.m"
+            timestampString = "497959886.460726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-requestCutOrderWithOid:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[WLShoppingsTableViewController4 requestCutOrderWithOid:]_block_invoke"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController4.m"
+                  timestampString = "497961602.532777"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "489">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.143"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController4.m"
+                  timestampString = "497961602.53474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.144"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController4.m"
+                  timestampString = "497961602.536386"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[WLShoppingsTableViewController4 requestCutOrderWithOid:]_block_invoke.146"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController4.m"
+                  timestampString = "497961602.538124"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController4.m"
+            timestampString = "497959886.460726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-requestCutOrderWithOid:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -666,11 +648,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Registering(&#x767b;&#x5f55;)/Model/WLUserInfo.m"
-            timestampString = "497787658.358196"
+            timestampString = "497866864.34046"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-cleanUserInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Test(&#x6211;&#x7684;&#x8003;&#x8bd5;)/Controller/WLWalletViewCell.m"
+            timestampString = "497866095.202964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-awakeFromNib"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Header(&#x5934;&#x90e8;)/Controller/WLRegisteringViewController.m"
+            timestampString = "497866631.012347"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-DuLbutton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Registering(&#x767b;&#x5f55;)/Model/WLUserInfo.m"
+            timestampString = "497866668.346038"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-archivWithDict:"
             landmarkType = "7">
          </BreakpointContent>
@@ -681,13 +711,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Registering(&#x767b;&#x5f55;)/Model/WLUserInfo.m"
-            timestampString = "497788043.674882"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/Test(&#x6211;&#x7684;&#x8003;&#x8bd5;)/Controller/WLTopViewController.m"
+            timestampString = "497869482.843338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-loadUserInfo"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-nextstepbtn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -697,13 +727,125 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Registering(&#x767b;&#x5f55;)/Model/WLUserInfo.m"
-            timestampString = "497788060.091975"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController1.m"
+            timestampString = "497872362.470074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-loadUserInfo"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-clickOK:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLAddOrderViewController.m"
+            timestampString = "497870672.948999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "-requestCommitOrder"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLOrderDetailsViewController.m"
+            timestampString = "497961601.188357"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
+            timestampString = "497956050.606242"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-requestGetWaitPayWithPage:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WLShoppingsTableViewController2 requestGetWaitPayWithPage:]"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController2.m"
+                  timestampString = "497953228.689442"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[WLShoppingsTableViewController2 requestGetWaitPayWithPage:]_block_invoke"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/My(%E6%88%91%E7%9A%84)/%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95/WLShoppingsTableViewController2.m"
+                  timestampString = "497953228.693456"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLShoppingsTableViewController2.m"
+            timestampString = "497959886.460726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-deleteOrderWithOid:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
+            timestampString = "497961480.505568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "+requestGetFavListWithUid:page:type:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

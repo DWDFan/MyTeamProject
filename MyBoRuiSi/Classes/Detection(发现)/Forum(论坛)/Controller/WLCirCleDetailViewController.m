@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setNavigationBarStyleDefultWithTitle:self.circleName];
     [self.view addSubview:self.tableView];
     
@@ -42,6 +42,11 @@
     [self.view addSubview:issueBtn];
     _issueBtn = issueBtn;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     _page = 1;
     [self requestData];
 }
@@ -51,7 +56,10 @@
     [WLFindDataHandle requestFindCircleInfoWithQid:_circleId uid:[WLUserInfo share].userId success:^(id responseObject) {
         
         _infoModel = [WLCircleInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
-        _infoModel.isFollow ? (_issueBtn.hidden = NO) : (_issueBtn.hidden = YES);
+        if (_infoModel.isFollow) {
+            _issueBtn.hidden = NO;
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -75,6 +83,7 @@
 - (void)issueBtnAction:(UIButton *)sender
 {
     WLIssueArticleViewController *issueVC = [[WLIssueArticleViewController alloc] init];
+    issueVC.circleId = _circleId;
     [self.navigationController pushViewController:issueVC animated:YES];
 }
 
@@ -129,7 +138,7 @@
             }];
         }];
         return cell;
-
+        
     }else {
         
         static NSString *ID = @"ZGArticleCell";

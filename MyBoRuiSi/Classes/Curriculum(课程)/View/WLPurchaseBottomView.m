@@ -38,7 +38,7 @@
 - (void)setSubviewsWithStyle:(WLPurchaseViewStyle)style
 {
     UIButton *addShopCartBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    addShopCartBtn.frame = CGRectMake(0, 0, 90, 50);
+    addShopCartBtn.frame = CGRectMake(0, 0, 100, 50);
     addShopCartBtn.backgroundColor = color_red;
     addShopCartBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [addShopCartBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
@@ -49,7 +49,7 @@
     _addShopCartBtn = addShopCartBtn;
     
     UIButton *tasteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    tasteBtn.frame = CGRectMake(90, 0, 90, 50);
+    tasteBtn.frame = CGRectMake(100, 0, 100, 50);
     tasteBtn.backgroundColor = KColorYellow;
     tasteBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [tasteBtn setTitle:@"体验学习" forState:UIControlStateNormal];
@@ -60,7 +60,7 @@
     _tasteBtn = tasteBtn;
     
     UIButton *purchaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    purchaseBtn.frame = CGRectMake(180, 0,  WLScreenW - 180, 50);
+    purchaseBtn.frame = CGRectMake(200, 0,  WLScreenW - 200, 50);
     purchaseBtn.backgroundColor = [UIColor whiteColor];
     purchaseBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [purchaseBtn setTitle:@"立即购买" forState:UIControlStateNormal];
@@ -69,7 +69,7 @@
     [purchaseBtn addTarget:self action:@selector(purchaseBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:purchaseBtn];
     _purchaseBtn = purchaseBtn;
-
+    
     UIView *topLine = [[UIView alloc] init];
     topLine.frame = CGRectMake(0, 0, WLScreenW, 0.5);
     topLine.backgroundColor = COLOR_WORD_GRAY_2;
@@ -84,17 +84,17 @@
 
 - (void)addCartBtnAction:(UIButton *)sender
 {
-    !self.joinShopCarBlock ?: self.joinShopCarBlock();
+    !self.bottomViewBLock ?: self.bottomViewBLock(0);
 }
 
 - (void)tasteBtnAction:(UIButton *)sender
 {
-    
+    !self.bottomViewBLock ?: self.bottomViewBLock(1);
 }
 
 - (void)purchaseBtnAction:(UIButton *)sender
 {
-    
+    !self.bottomViewBLock ?: self.bottomViewBLock(2);
 }
 
 - (void)setCanBuy:(BOOL)canBuy

@@ -49,11 +49,28 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid};
     [MOHTTP GET:@"API/index.php?action=Vip&do=addMoney" parameters:param success:^(id responseObject) {
-        [WLUserInfo share].money = responseObject[@"data"];
-        success(responseObject);
+               success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
 
+}
+
+/**
+ *  我的收藏
+ */
++ (void)requestGetFavListWithUid:(NSString *)uid
+                            page:(NSNumber *)page
+                            type:(NSNumber *)type
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"type":type,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getFavList" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
 }
 @end

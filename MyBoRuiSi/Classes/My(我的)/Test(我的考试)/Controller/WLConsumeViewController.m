@@ -34,11 +34,6 @@
     //获取支出数据
     [self requestGetMyCostData];
     
-    [WLMyDataHandle requestAddMoneyWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
 }
 
 //颜色转图片
@@ -112,7 +107,7 @@
 #pragma mark - Request
 - (void)requestGetMyCostData{
    [WLMyDataHandle requestGetMyCostWithUid:[WLUserInfo share].userId page:@(self.page) success:^(id responseObject) {
-   
+       
    } failure:^(NSError *error) {
        
    }];

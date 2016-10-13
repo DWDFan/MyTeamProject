@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UITextField *titleTF;
 @property (nonatomic, strong) ZGPlaceHolderTextView *contentTV;
 @property (nonatomic, strong) SZAddImage *addPhotoView;
+@property (nonatomic , strong) NSMutableArray *arrSelectImgs;
+@property (nonatomic , strong) NSMutableArray *imageNames;
 
 @end
 
@@ -56,18 +58,45 @@
 
 - (void)uploadPhoto
 {
-    NSArray *images = _addPhotoView.images;
-    for (UIImage *image in images) {
+    self.arrSelectImgs = _addPhotoView.images;
+    
+    [self.imageNames removeAllObjects];
+    
+    [MOProgressHUD showWithStatus:@"正在上传图片..."];
+    
+    for (int i = 0; i < self.arrSelectImgs.count; i ++) {
         
-        
+        NSData *fileData = UIImageJPEGRepresentation(self.arrSelectImgs[i], 0.2);
+        [WLFindDataHandle requestUploatPhotoWithFiledata:fileData uid:[WLUserInfo share].userId success:^(id responseObject) {
+            
+            [MOProgressHUD showSuccessWithStatus:@"上传成功"];
+            [self.imageNames addObject:responseObject[@"link"]];
+            if (self.imageNames.count == self.arrSelectImgs.count) {
+                [self issueArticleData];
+            }
+        } failure:^(NSError *error) {
+            [MOProgressHUD showErrorWithStatus:@"上传失败"];
+        }];
     }
-    [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:@"" success:^(id responseObject) {
-        
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    
+}
 
+- (void)issueArticleData
+{
+    NSString *pics = self.imageNames[0];
+    for (int i = 1; i < self.imageNames.count; i ++) {
+        
+        pics = [pics stringByAppendingString:@"|"];
+        pics = [pics stringByAppendingString:self.imageNames[i]];
+    }
+    
+    [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:pics success:^(id responseObject) {
+        
+        [MOProgressHUD showSuccessWithStatus:@"发布成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+    }];
 }
 
 - (UITextField *)titleTF
@@ -93,6 +122,22 @@
         _contentTV.delegate = self;
     }
     return _contentTV;
+}
+
+- (NSMutableArray *)imageNames
+{
+    if (!_imageNames) {
+        _imageNames = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _imageNames;
+}
+
+- (NSMutableArray *)arrSelectImgs
+{
+    if (!_arrSelectImgs) {
+        _arrSelectImgs = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _arrSelectImgs;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

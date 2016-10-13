@@ -12,9 +12,9 @@
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, assign) BOOL isLogin;
-@property (nonatomic, copy) NSString *money;
-@property (nonatomic, copy) NSString *nickname;
-@property (nonatomic, copy) NSString *vipEndtm;
+@property (nonatomic, strong) NSString *money;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *vipEndtm;
 @property (nonatomic, strong) NSNumber *telphone;
 @property (nonatomic, strong) NSNumber *favNum;
 @property (nonatomic, strong) NSNumber *score;
@@ -28,6 +28,8 @@
 /** 解档 加载用户数据 */
 - (void)loadUserInfo;
 
+/** 修改用户数据 重新归档 */
+- (void)reArchivUserInfo;
 /** 清除用户数据 */
 - (void)cleanUserInfo;
 

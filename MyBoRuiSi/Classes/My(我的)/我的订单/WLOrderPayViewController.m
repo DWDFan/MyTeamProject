@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     [self initSelf];
-    NSString *orderName = [NSString stringWithFormat:@"订单名称:  %@",self.orderName];
+    NSString *orderName = [NSString stringWithFormat:@"订单编号:  %@",self.orderId];
     NSString *amountStr = [NSString stringWithFormat:@"订单总价:  ￥%@",self.amountStr];
     NSString *accountStr = [NSString stringWithFormat:@"账户余额:  ￥%@",[WLUserInfo share].money ? [WLUserInfo share].money : @"0"];
     NSString *needMoneyStr = [NSString stringWithFormat:@"还需支付: ￥%@",self.needMoney];

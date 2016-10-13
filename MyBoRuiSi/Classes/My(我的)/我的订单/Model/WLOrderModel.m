@@ -7,7 +7,10 @@
 //
 
 #import "WLOrderModel.h"
-
+#import "WLShopCarModel.h"
 @implementation WLOrderModel
-
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"info" : [WLShopCarModel class]
+             };
+}
 @end

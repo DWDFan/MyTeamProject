@@ -45,4 +45,19 @@
 + (void)requestAddMoneyWithUid:(NSString *)uid
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure;
+
+/**
+ *  我的收藏
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param type     收藏类型 1 帖子 2 课程
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetFavListWithUid:(NSString *)uid
+                             page:(NSNumber *)page
+                             type:(NSNumber *)type
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 @end

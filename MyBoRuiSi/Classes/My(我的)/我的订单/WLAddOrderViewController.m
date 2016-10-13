@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     _userScore = 0;
-    self.arr_data = [NSMutableArray arrayWithArray:@[@[self.type == orderPayType ? @"商品" : @"充值",@"小计"],@[@"使用积分",@"总计"]]];
+    self.arr_data = [NSMutableArray arrayWithArray:@[@[@"商品",@"小计"],@[@"使用积分",@"总计"]]];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
@@ -168,7 +168,7 @@
             vc.orderId = dict[@"id"];
 #warning Beelin bug 订单名称
 //            vc.orderName = dict
-            vc.type = rechargeType;
+            vc.type = orderPayType;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];

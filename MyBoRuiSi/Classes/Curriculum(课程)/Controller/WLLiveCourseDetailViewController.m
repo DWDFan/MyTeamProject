@@ -23,7 +23,7 @@
     UILabel *_titleLbl;
     UILabel *_introLbl;
     UILabel *_disPriLbl;
-
+    
 }
 @property (nonatomic, strong) UIImageView *headerImgV;
 @property (nonatomic, strong) WLCourceModel *course;
@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self setSubviews];
     
     [self requestData];
@@ -103,7 +103,7 @@
     [KxMenu showMenuInView:self.view
                   fromRect:CGRectMake(WLScreenW - 50, -40, 40, 40)
                  menuItems:menuItems];
-
+    
 }
 
 - (void)shareBtnAction:(id)sender
@@ -115,7 +115,7 @@
     
     [self presentViewController:share animated:YES completion:^{
     }];
-
+    
 }
 
 - (void)collectBtnAction:(id)sender
@@ -169,11 +169,16 @@
             WLAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:authorCellId];
             if (!cell) {
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            cell.avatarImgV.image = PHOTO_AVATAR;
-            cell.nameLbl.text = _course.author;
-            cell.starView.showStar = 4.5 * 20;
-            cell.starLbl.text = @"4.5分";
+            if (_course.other.count > 0) {
+                WLOtherCourseModel *otherCourse = _course.other[0];
+                [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:otherCourse.photo] placeholderImage:PHOTO_PLACE];
+                cell.nameLbl.text = otherCourse.name;
+                cell.starView.showStar = [otherCourse.star floatValue] * 20;
+                cell.starLbl.text = [NSString stringWithFormat:@"%@分",otherCourse.star];
+                
+            }
             return cell;
         }
         
@@ -213,11 +218,11 @@
             }
             
         }else if (indexPath.row == 2) {
-        
+            
             cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",_course.author];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 3) {
-        
+            
             cell.textLabel.text = [NSString stringWithFormat:@"直播时间 : %@",_course.zhibotm];
         }else if (indexPath.row == 4) {
             
@@ -258,7 +263,7 @@
         _introLbl.height = height;
         _introLbl.text = _course.desc;
         return cell;
-
+        
     }else {
         
         if (indexPath.row == 0) {

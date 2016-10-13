@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger, WLOrderDetailType) {
+    WLOrderDetailWaitPayType, WLOrderDetailPayedType, WLOrderDetailCloseType
+};
 @interface WLOrderDetailsViewController : UIViewController
 
-@property (nonatomic,strong) NSMutableArray *arr_data;
+@property (nonatomic, assign) WLOrderDetailType orderDetailType;
 
-@property (nonatomic,strong) NSMutableArray *arr_details;
 
-@property (nonatomic,strong) NSMutableArray *arr_title;
+
 
 @property (nonatomic,copy) NSString *str_button;
+
+@property (nonatomic, copy) NSString *oid;
 
 @end

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,35 +12,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="101.5"/>
+                <frame key="frameInset" width="320" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ESD基础知识大讲堂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-Fr-Y59">
-                        <rect key="frame" x="15" y="14" width="295" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="DY8-FW-Q8a"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moicon" translatesAutoresizingMaskIntoConstraints="NO" id="U4k-Fu-UNd">
-                        <rect key="frame" x="15" y="42" width="48" height="48"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="2ac-wL-rYT"/>
                             <constraint firstAttribute="width" constant="48" id="Gsg-f8-Y3a"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="汪峰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-mm-nO3">
-                        <rect key="frame" x="71" y="72" width="30" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="汪峰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvg-mm-nO3">
+                        <frame key="frameInset" minX="71" minY="72" width="30" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥640.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jg-AC-eTR">
-                        <rect key="frame" x="232.5" y="40.5" width="72.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.54509803921568623" green="0.090196078431372548" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.54509803921568623" green="0.090196078431372548" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -55,6 +53,12 @@
                     <constraint firstItem="fvg-mm-nO3" firstAttribute="leading" secondItem="U4k-Fu-UNd" secondAttribute="trailing" constant="8" id="vi0-Dd-2OF"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="jianshi_lab" destination="fvg-mm-nO3" id="xda-76-gkJ"/>
+                <outlet property="money_lab" destination="5Jg-AC-eTR" id="rUR-NH-re8"/>
+                <outlet property="name_lab" destination="TA7-Fr-Y59" id="WdE-9E-txL"/>
+                <outlet property="photo_imv" destination="U4k-Fu-UNd" id="RgQ-R9-cFY"/>
+            </connections>
             <point key="canvasLocation" x="219" y="144"/>
         </tableViewCell>
     </objects>

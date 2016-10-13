@@ -10,6 +10,7 @@
 @class WLShopCarModel;
 @interface WLOrderModel : NSObject
 @property (nonatomic, copy) NSString *id;
-@property (nonatomic, strong) WLShopCarModel *info;
+@property (nonatomic, strong) NSArray <WLShopCarModel *>*info;
+
 @property (nonatomic, copy) NSString *name;
 @end

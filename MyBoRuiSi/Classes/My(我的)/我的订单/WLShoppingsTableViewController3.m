@@ -10,34 +10,64 @@
 #import "WLOrderCell.h"
 #import "WLOrderDetailsViewController.h"
 
+#import "WLOrderFooterView.h"
+
+#import "WLOrderDataHandle.h"
+#import "WLOrderModel.h"
+#import "WLShopCarModel.h"
 @interface WLShoppingsTableViewController3 ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 @property (nonatomic,assign) BOOL isOpen;
-
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, copy) NSString *oid;
 @end
 
 @implementation WLShoppingsTableViewController3
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.tableView_main.tableFooterView = [[UIView alloc] init];
+    //监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
+    
+    //request
+    _page = 1;
+    [self requestGePayedWithPage:@(self.page)];
 }
-//- (void)openOption
-//{
-//    NSLog(@"打开 3");
-//    self.isOpen = YES;
-//    [self.tableView_main reloadData];
-//}
-//- (void)offOption
-//{
-//    NSLog(@"关闭 3");
-//    self.isOpen = NO;
-//    [self.tableView_main reloadData];
-//}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [[NSMutableArray array] init];
+    }
+    return _dataSource;
+}
+
+#pragma mark - Implementation Notification
+- (void)reloadDataShopTalbeView:(NSNotification *)noti{
+    _page = 1;
+    [self requestGePayedWithPage:@(self.page)];
+}
+
+#pragma mark - Delegate AlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //reqeust delete
+        [self deleteOrderWithOid:self.oid];
+    }
+}
 //MARK:tableView代理方法----------
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 20;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.dataSource.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    WLOrderModel *waitPayModel = self.dataSource[section];
+    return waitPayModel.info.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -48,10 +78,38 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
-    cell.isOpen = self.isOpen;
-    
+       
+    WLOrderModel *payModel = self.dataSource[indexPath.row];
+    cell.shopCarModel = payModel.info[indexPath.row];;
     return cell;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    //1 创建可重用cell对象
+    static NSString *reuseId = @"WLOrderFooterView";
+    WLOrderFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseId];
+    if (footerView == nil) {
+        footerView = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderFooterView" owner:nil options:nil] lastObject];
+        footerView.pay_btn.hidden = YES;
+    }
+    footerView.orderModel = self.dataSource[section];
+    
+    //事件回调
+    __weak typeof(self) weakSelf = self;
+    footerView.detailBlock = ^(NSString *oid){
+        WLOrderDetailsViewController *vc = [[WLOrderDetailsViewController alloc]init];
+        vc.orderDetailType = WLOrderDetailPayedType;
+        vc.oid = oid;
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    };
+    footerView.deleteBlock = ^(NSString *oid){
+        weakSelf.oid = oid;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否确认删除订单" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    };
+    return footerView;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 110;
@@ -62,23 +120,48 @@
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.01;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WLOrderDetailsViewController *vc = [[WLOrderDetailsViewController alloc]init];
-    vc.arr_details = [NSMutableArray arrayWithArray:@[@"12345678",@"2015-0809",@"￥200.0",@"10.00",@"190.0"]];
-    vc.arr_data = [NSMutableArray arrayWithArray:@[@[@""],@[@"订单号 :",@"付款时间 :",@"总价 :",@"积分抵扣 :",@"实际总价 :"]]];
-    vc.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 待评价",@" 订单详情"]];
-    vc.str_button = @"写评论";
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{//请求数据源提交的插入或删除指定行接收者。
-    if (editingStyle ==UITableViewCellEditingStyleDelete) {//如果编辑样式为删除样式
-        
-    }
+    return 44;
 }
 
+
+
+#pragma mark - Request
+- (void)requestGePayedWithPage:(NSNumber *)page{
+    //clean dataSource
+    [self.dataSource removeAllObjects];
+
+    [WLOrderDataHandle requestGetPayedWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            NSArray *arrayData = dict[@"data"];
+            [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSDictionary *dictData = arrayData[idx];
+                WLOrderModel *orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
+                [self.dataSource addObject:orderModel];
+            }];
+            [self.tableView_main reloadData];
+            
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)deleteOrderWithOid:(NSString *)oid{
+    [WLOrderDataHandle requestDelOrderWithUid:[WLUserInfo share].userId oid:oid success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            _page = 1;
+            [self requestGePayedWithPage:@(self.page)];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end
