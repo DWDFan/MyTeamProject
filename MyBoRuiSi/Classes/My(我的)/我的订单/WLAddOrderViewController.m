@@ -105,7 +105,7 @@
                 [btn setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
                 [btn setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
                 [btn addTarget:self action:@selector(userJiFen:) forControlEvents:UIControlEventTouchUpInside];
-                if([[WLUserInfo share].score isEqualToNumber:@0]) btn.userInteractionEnabled = NO;
+                if([[WLUserInfo share].score isEqualToString:@"0"]) btn.userInteractionEnabled = NO;
                 btn;
             })];
             

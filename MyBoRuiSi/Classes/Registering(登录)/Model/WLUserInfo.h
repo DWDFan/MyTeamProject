@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *vipEndtm;
 @property (nonatomic, strong) NSNumber *telphone;
 @property (nonatomic, strong) NSNumber *favNum;
-@property (nonatomic, strong) NSNumber *score;
+@property (nonatomic, strong) NSString *score;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *job;

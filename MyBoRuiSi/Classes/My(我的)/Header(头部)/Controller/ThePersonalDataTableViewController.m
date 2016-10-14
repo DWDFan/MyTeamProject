@@ -23,7 +23,7 @@
     self.title = @"个人资料";
     
     //获取用户信息
-    [self requestGetUserInfo];
+    //[self requestGetUserInfo];
 }
 
 
@@ -144,13 +144,13 @@
 
 
 #pragma mark - Request
-- (void)requestGetUserInfo
-{
-    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
-}
+//- (void)requestGetUserInfo
+//{
+//    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+//}
 
 @end
