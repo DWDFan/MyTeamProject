@@ -111,6 +111,7 @@
     
     if (cell == nil) {
         cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
+        cell.type = ZGArticleCellTypeList;
     }
     cell.articleViewModel = _hotsArray[indexPath.row];
     return cell;

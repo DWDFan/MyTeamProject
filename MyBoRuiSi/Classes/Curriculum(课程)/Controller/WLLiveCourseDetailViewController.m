@@ -15,6 +15,7 @@
 #import "WLPurchaseBottomView.h"
 #import "WLHomeDataHandle.h"
 #import "WLCourseDataHandle.h"
+#import "WLOrderDataHandle.h"
 #import "WLCommetCell.h"
 #import "KxMenu.h"
 
@@ -62,6 +63,21 @@
     self.tableView.tableFooterView = footer;
     
     WLPurchaseBottomView *bottomView = [[WLPurchaseBottomView alloc] initWithFrame:CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50) style:WLPurchaseViewStyleLive];
+    __weak typeof(self) weakSelf = self;
+    
+    [bottomView setBottomViewBLock:^(NSUInteger index) {
+        switch (index) {
+            case 0:
+                //request 加入购物车
+                [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
+                break;
+            case 2:
+                // 立即购买
+                break;
+            default:
+                break;
+        }
+    }];
     [self.view addSubview:bottomView];
     _purchaseView = bottomView;
     
@@ -307,6 +323,21 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
+}
+
+#pragma mark - Request
+- (void)requestJoinShopCarWithGoodId:(NSString *)goodId{
+    [MOProgressHUD show];
+    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId goodid:goodId success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"]integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:@"加入成功"];
+        }else{
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+    }];
 }
 
 @end

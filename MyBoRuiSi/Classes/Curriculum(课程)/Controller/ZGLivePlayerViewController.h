@@ -12,6 +12,7 @@
 
 @interface ZGLivePlayerViewController : BaseViewController
 
+@property(nonatomic, strong) NSString *courseId;
 @property(nonatomic, strong) NSURL *url;
 @property(nonatomic, strong) NSString *decodeType;
 @property(nonatomic, strong) NSString *mediaType;

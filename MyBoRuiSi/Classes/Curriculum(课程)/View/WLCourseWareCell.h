@@ -10,8 +10,11 @@
 
 @interface WLCourseWareCell : UITableViewCell
 
-@property (nonatomic ,strong) NSDictionary *coursewareDic;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSDictionary *coursewareDic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLbl;
+
+@property (nonatomic, copy) void(^block)(NSInteger operationType, NSInteger row);
 
 @end

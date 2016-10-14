@@ -20,11 +20,11 @@
 }
 - (IBAction)viewBtnAction:(id)sender {
     
-    
+    self.block ? self.block(0, _indexPath.row) : nil;
 }
 - (IBAction)downloadBtnAction:(id)sender {
     
-    
+    self.block ? self.block(1, _indexPath.row) : nil;
 }
 
 - (void)awakeFromNib {

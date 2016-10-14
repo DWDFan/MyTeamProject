@@ -67,11 +67,11 @@
 #pragma mark加入机构
 -(void)Trestorg{
     
-    WLJrViewController *share = [[WLJrViewController alloc]init];
-    
-    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    WLJrViewController *joinVC = [[WLJrViewController alloc]init];
+    joinVC.institutionId = _institutionId;
+    joinVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
 
-    [self presentViewController:share animated:YES completion:^{
+    [self presentViewController:joinVC animated:YES completion:^{
         
     }];
 }

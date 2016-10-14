@@ -9,8 +9,18 @@
 #import "WLJrViewController.h"
 
 #import "WLTjViewController.h"
+#import "WLHomeDataHandle.h"
 
-@interface WLJrViewController ()
+@interface WLJrViewController ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@property (weak, nonatomic) IBOutlet UITextField *telTF;
+@property (weak, nonatomic) IBOutlet UITextField *departTF;
+@property (weak, nonatomic) IBOutlet UIView *containView;
+
+//@property (assign, nonatomic) BOOL isNeedUp;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomContain;
 
 @end
 
@@ -18,7 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.bgView.backgroundColor = RGBA(0, 0, 0, 0.15);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    self.isNeedUp = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,40 +51,55 @@
 //提交按钮
 - (IBAction)QdbtnClike:(id)sender {
     
-    WLTjViewController *share = [[WLTjViewController alloc]init];
-    
-//    
-//    [share dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
-    
-    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    
-    
-    [self presentViewController:share animated:YES completion:^{
-       // NSLog(@"展示完毕");
-    }];
-    
-    
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        
-//       // NSLog(@"222");
-//        
-//    }];
-    
-    
-//      WLTjViewController *share = [[WLTjViewController alloc]init];
-//    [self.navigationController pushViewController:share animated:YES];
-//
+    if (_nameTF.text.length == 0) {
+        [MOProgressHUD showErrorWithStatus:@"请输入名字!"];
+    }else if (_telTF.text.length < 11) {
+        [MOProgressHUD showErrorWithStatus:@"手机号有误!"];
+    }else if (_departTF.text.length == 0) {
+        [MOProgressHUD showErrorWithStatus:@"请输入部门!"];
+    }else {
+        [WLHomeDataHandle requestInstitutionJoinWithUid:[WLUserInfo share].userId
+                                                    jid:_institutionId
+                                                   name:_nameTF.text
+                                               telphone:_telTF.text
+                                                 depart:_departTF.text
+                                                success:^(id responseObject) {
+                                                    
+                                                    WLTjViewController *share = [[WLTjViewController alloc]init];
+                                                    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                                                    [self presentViewController:share animated:YES completion:^{
+                                                    }];
+
+                                                    
+                                                } failure:^(NSError *error) {
+                                                    [self dismissViewControllerAnimated:YES completion:nil];
+                                                    [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+                                                }];
+    }
     
 }
 
 //点击屏幕退出
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+- (void)keyboardShow:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomContain.constant = 220;
+    }];
+}
+
+- (void)keyboardHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomContain.constant = 0;
+    }];
+}
 
 /*
 #pragma mark - Navigation

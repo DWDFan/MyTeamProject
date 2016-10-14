@@ -218,6 +218,39 @@
 }
 
 /**
+ 加入机构
+ 
+ @param uid      uid 用户id
+ @param jid      jid 机构id
+ @param name     name 名字
+ @param telphone telphone 手机号
+ @param depart   depart 部门
+ @param success
+ @param failure
+ */
++ (void)requestInstitutionJoinWithUid:(NSString *)uid
+                                  jid:(NSString *)jid
+                                 name:(NSString *)name
+                             telphone:(NSString *)telphone
+                               depart:(NSString *)depart
+                              success:(void (^)(id responseObject))success
+                              failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid"      : [MOTool getNULLString:uid],
+                            @"jid"      : [MOTool getNULLString:jid],
+                            @"name"     : [MOTool getNULLString:name],
+                            @"telphone" : [MOTool getNULLString:telphone],
+                            @"depart"   : [MOTool getNULLString:depart]};
+    
+    [MOHTTP GET:@"API/index.php?action=Jigou&do=joinJg" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
  *  搜索课程
  *
  *  @param jid     机构ID

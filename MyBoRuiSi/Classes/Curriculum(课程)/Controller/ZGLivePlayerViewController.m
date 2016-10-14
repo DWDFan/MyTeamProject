@@ -8,6 +8,7 @@
 
 #import "ZGLivePlayerViewController.h"
 #import "NELivePlayerController.h"
+#import "WLReportViewController.h"
 #import "NELivePlayer.h"
 
 
@@ -44,6 +45,18 @@ CGFloat screenWidth;
 CGFloat screenHeight;
 bool isHardware = YES;
 bool ismute     = NO;
+
+
+- (instancetype)initWithURL:(NSURL *)url andDecodeParm:(NSMutableArray *)decodeParm {
+    self = [super init];
+    if (self) {
+        self.url = url;
+        self.decodeType = [decodeParm objectAtIndex:0];
+        self.mediaType = [decodeParm objectAtIndex:1];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,7 +100,8 @@ bool ismute     = NO;
 
 }
 
-- (void)loadView {
+- (void)loadView
+{
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
     //当前屏幕宽高
@@ -102,26 +116,6 @@ bool ismute     = NO;
     //控制
     self.controlOverlay = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, screenHeight, screenWidth)];
     [self.controlOverlay addTarget:self action:@selector(onClickOverlay:) forControlEvents:UIControlEventTouchDown];
-    
-    //顶部控制栏
-//    self.topControlView    = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenHeight, 40)];
-//    self.topControlView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ic_background_black.png"]];
-//    self.topControlView.alpha = 0.8;
-    //退出按钮
-//    self.playQuitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [self.playQuitBtn setImage:[UIImage imageNamed:@"btn_player_quit"] forState:UIControlStateNormal];
-//    self.playQuitBtn.frame = CGRectMake(10, 0, 40, 40);
-//    [self.playQuitBtn addTarget:self action:@selector(onClickBack:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.topControlView addSubview:self.playQuitBtn];
-    //文件名
-//    self.fileName = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, screenHeight - 140, 40)];
-//    self.fileName.text = [self.url lastPathComponent];
-//    self.fileName.textAlignment = NSTextAlignmentCenter; //文字居中
-//    //self.fileName.textColor = [UIColor whiteColor];
-//    self.fileName.textColor = [[UIColor alloc] initWithRed:191/255.0 green:191/255.0 blue:191/255.0 alpha:1];
-//    //self.fileName.adjustsFontSizeToFitWidth = YES;
-//    self.fileName.font = [UIFont fontWithName:self.fileName.font.fontName size:13.0];
-//    [self.topControlView addSubview:self.fileName];
     
     //缓冲提示
     self.bufferingIndicate = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
@@ -138,7 +132,7 @@ bool ismute     = NO;
     
     
     //底部控制栏
-    self.bottomControlView = [[UIView alloc] initWithFrame:CGRectMake(0, screenWidth - 50, screenWidth, 50)];
+    self.bottomControlView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, screenWidth, 50)];
     self.bottomControlView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ic_background_black.png"]];
     self.bottomControlView.alpha = 0.8;
     
@@ -180,7 +174,7 @@ bool ismute     = NO;
     
     
     //文件总时长
-    self.totalDuration = [[UILabel alloc] initWithFrame:CGRectMake(screenHeight-215, 15, 50, 20)];
+    self.totalDuration = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth-100, 15, 50, 20)];
     self.totalDuration.text = @"--:--:--";
     self.totalDuration.textAlignment = NSTextAlignmentCenter;
     //self.totalDuration.textColor = [UIColor whiteColor];
@@ -189,36 +183,10 @@ bool ismute     = NO;
     [self.bottomControlView addSubview:self.totalDuration];
     
     
-    //声音打开按钮
-    self.audioBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.audioBtn setImage:[UIImage imageNamed:@"btn_player_mute02"] forState:UIControlStateNormal];
-    self.audioBtn.frame = CGRectMake(screenHeight-150, 5, 40, 40);
-    [self.audioBtn addTarget:self action:@selector(onClickMute:) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomControlView addSubview:self.audioBtn];
-    
-    //静音按钮
-    self.muteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.muteBtn setImage:[UIImage imageNamed:@"btn_player_mute01"] forState:UIControlStateNormal];
-    self.muteBtn.frame = CGRectMake(screenHeight-150, 5, 40, 40);
-    [self.muteBtn addTarget:self action:@selector(onClickMute:) forControlEvents:UIControlEventTouchUpInside];
-    self.muteBtn.hidden = YES;
-    [self.bottomControlView addSubview:self.muteBtn];
-    
-    //截图
-    self.snapshotBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.snapshotBtn setImage:[UIImage imageNamed:@"btn_player_snap"] forState:UIControlStateNormal];
-    self.snapshotBtn.frame = CGRectMake(screenHeight-100, 5, 40, 40);
-//    if ([self.mediaType isEqualToString:@"localAudio"]) {
-//        self.snapshotBtn.hidden = YES;
-//    }
-    [self.snapshotBtn addTarget:self action:@selector(onClickSnapshot:) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomControlView addSubview:self.snapshotBtn];
-    
-    
     //显示模式
     self.scaleModeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.scaleModeBtn setImage:[UIImage imageNamed:@"btn_player_scale02"] forState:UIControlStateNormal];
-    self.scaleModeBtn.frame = CGRectMake(screenHeight-50, 5, 40, 40);
+    self.scaleModeBtn.frame = CGRectMake(screenWidth-50, 5, 40, 40);
     if ([self.mediaType isEqualToString:@"localAudio"]) {
         self.scaleModeBtn.hidden = YES;
     }
@@ -241,13 +209,12 @@ bool ismute     = NO;
     [NELivePlayerController setLogLevel:NELP_LOG_DEBUG];
     
     
-    
     self.liveplayer = [[NELivePlayerController alloc] initWithContentURL:self.url];
     if (self.liveplayer == nil) { // 返回空则表示初始化失败
         NSLog(@"player initilize failed, please tay again!");
     }
     self.liveplayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.liveplayer.view.frame = self.playerView.bounds;
+    self.liveplayer.view.frame = CGRectMake(0, 80, screenWidth, 300);
     [self.liveplayer setScalingMode:NELPMovieScalingModeFill];
     
     self.view.autoresizesSubviews = YES;
@@ -258,8 +225,6 @@ bool ismute     = NO;
     [self.view addSubview:self.bufferingIndicate];
     [self.view addSubview:self.bufferingReminder];
     self.mediaControl.delegatePlayer = self.liveplayer;
- 
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -267,27 +232,57 @@ bool ismute     = NO;
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
     [self setNavigationBarStyleDefultWithTitle:@"观看直播"];
     [self settitleColor:[UIColor whiteColor] backgroundColor:[UIColor blackColor]];
-    
     self.leftBtn.hidden = NO;
     [self.rightBtn setImage:[UIImage imageNamed:@"举报"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
     
+    
+    [self.liveplayer isLogToFile:YES];
+    
+    if ([self.mediaType isEqualToString:@"livestream"] ) {
+        [self.liveplayer setBufferStrategy:NELPLowDelay]; //直播低延时模式
+    }
+    else {
+        [self.liveplayer setBufferStrategy:NELPAntiJitter]; //点播抗抖动
+    }
+    [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit]; //设置画面显示模式，默认原始大小
+    [self.liveplayer setShouldAutoplay:YES]; //设置prepareToPlay完成后是否自动播放
+    [self.liveplayer setHardwareDecoder:isHardware]; //设置解码模式，是否开启硬件解码
+    [self.liveplayer setPauseInBackground:NO]; //设置切入后台时的状态，暂停还是继续播放
+    [self.liveplayer prepareToPlay]; //初始化视频文件
 }
 
-- (void)leftBtnAction:(UIButton *)sender
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super leftBtnAction:sender];
+    [super viewDidDisappear:animated];
+    
+    [self.liveplayer shutdown]; //退出播放并释放相关资源
+    [self.liveplayer.view removeFromSuperview];
+    self.liveplayer = nil;
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerDidPreparedToPlayNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerLoadStateChangedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerPlaybackFinishedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerFirstVideoDisplayedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerFirstAudioDisplayedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerVideoParseErrorNotification object:_liveplayer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGB(255, 255, 255)] forBarMetrics:UIBarMetricsDefault];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
+
+- (void)rightBtnAction:(id)sender
+{
+    WLReportViewController *VC = [[WLReportViewController alloc] init];
+    VC.articleId = _courseId;
+    [self.navigationController pushViewController:VC animated:YES];
+}
 
 - (BOOL)shouldAutorotate
 {

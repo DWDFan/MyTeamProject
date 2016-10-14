@@ -46,6 +46,10 @@
 @property (nonatomic, strong) NSNumber *view;
 @property (nonatomic, strong) NSArray *image;
 
+@property (nonatomic, strong) NSString *qid;
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, assign) BOOL selfZan;
+
 @end
 
 @interface ZGArticleViewModel : NSObject
@@ -59,8 +63,11 @@
 @property (nonatomic, assign) CGRect imageVFrame;
 @property (nonatomic, assign) CGRect praIconFrame;
 @property (nonatomic, assign) CGRect cmtIconFrame;
+@property (nonatomic, assign) CGRect readIconFrame;
 @property (nonatomic, assign) CGRect praFrame;
 @property (nonatomic, assign) CGRect cmtFrame;
+@property (nonatomic, assign) CGRect readFrame;
+@property (nonatomic, assign) CGRect moreBtnFrame;
 @property (nonatomic, assign) CGFloat cellHeight;
 
 @end

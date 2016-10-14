@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *images;
 
 @property (nonatomic, strong) UIButton *moreBtn;
-@property (nonatomic, strong) UILabel *viewLbl;
+@property (nonatomic, strong) UILabel *readLbl;
 @property (nonatomic, strong) UIImageView *readIcon;
 
 @end
@@ -46,6 +46,7 @@
     _avatarImgV.layer.masksToBounds = YES;
     [self addSubview:_avatarImgV];
     
+    // 赞,评论,阅读图标/按钮
     _praBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_praBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
     [_praBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
@@ -56,6 +57,12 @@
     _cmtImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-108"];
     _cmtImgV.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_cmtImgV];
+    
+    _readIcon = [[UIImageView alloc] init];
+    _readIcon.image = [UIImage imageNamed:@"素彩网www.sc115.com-114"];
+    _readIcon.contentMode = UIViewContentModeScaleAspectFit;
+    _readIcon.hidden = YES;
+    [self addSubview:_readIcon];
     
     _timeLbl = [[UILabel alloc] init];
     _timeLbl.textColor = COLOR_WORD_GRAY_2;
@@ -79,6 +86,7 @@
     _contentLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:_contentLbl];
     
+    // 赞,评论,阅读数量
     _praLbl = [[UILabel alloc] init];
     _praLbl.textColor = COLOR_WORD_GRAY_2;
     _praLbl.font = [UIFont systemFontOfSize:12];
@@ -89,11 +97,20 @@
     _cmtLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:_cmtLbl];
     
+    _readLbl = [[UILabel alloc] init];
+    _readLbl.textColor = COLOR_WORD_GRAY_2;
+    _readLbl.font = [UIFont systemFontOfSize:12];
+    _readLbl.hidden = YES;
+    [self addSubview:_readLbl];
+
+    
     _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_moreBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
-    [_moreBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
+    [_moreBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-139-拷贝"] forState:UIControlStateNormal];
     [_moreBtn addTarget:self action:@selector(moreBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_moreBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -13, 0, 0)];
+    _moreBtn.hidden = YES;
     [self addSubview:_moreBtn];
+
     
     _imageContainV = [[UIView alloc] init];
     _imageContainV.layer.masksToBounds = YES;
@@ -131,6 +148,8 @@
     
     _cmtLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.cmtNum ? _articleViewModel.article.cmtNum : _articleViewModel.article.replyNum];
     
+    _readLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.viewNum];
+    
     for (int i = 0; i < 3; i ++) {
         
         UIImageView *imageV = (UIImageView *)[_images objectAtIndex:i];
@@ -153,8 +172,24 @@
     _imageContainV.frame = _articleViewModel.imageVFrame;
     _praBtn.frame = _articleViewModel.praIconFrame;
     _cmtImgV.frame = _articleViewModel.cmtIconFrame;
+    _readIcon.frame = _articleViewModel.readIconFrame;
     _praLbl.frame = _articleViewModel.praFrame;
     _cmtLbl.frame = _articleViewModel.cmtFrame;
+    _readLbl.frame = _articleViewModel.readFrame;
+    _moreBtn.frame = _articleViewModel.moreBtnFrame;
+    
+    _praBtn.selected = _articleViewModel.article.selfZan;
+    
+    if ([[WLUserInfo share].userId isEqualToString:_articleViewModel.article.uid]) {
+        
+        _readIcon.hidden = NO;
+        _readLbl.hidden = NO;
+        _moreBtn.hidden = NO;
+    }else {
+        _readIcon.hidden = YES;
+        _readLbl.hidden = YES;
+        _moreBtn.hidden = YES;
+    }
 }
 
 - (void)praBtnAction:(UIButton *)sender
@@ -164,7 +199,7 @@
 
 - (void)moreBtnAction:(UIButton *)sender
 {
-    
+    self.moreBlock ? self.moreBlock(sender) : nil;
 }
 
 - (void)addPraiseCount
@@ -180,6 +215,20 @@
         _images = [NSMutableArray arrayWithCapacity:0];
     }
     return _images;
+}
+
+- (void)setType:(ZGArticleCellType)type
+{
+    _type = type;
+    if (type == ZGArticleCellTypeList) {
+        _readIcon.alpha = 0;
+        _readLbl.alpha = 0;
+        _moreBtn.alpha = 0;
+    }else {
+        _readIcon.alpha = 1;
+        _readLbl.alpha = 1;
+        _moreBtn.alpha = 1;
+    }
 }
 
 @end

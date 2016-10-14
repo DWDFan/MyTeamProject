@@ -281,6 +281,8 @@
 		F181B2EE1D98C35200DE511D /* ZGArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F181B2ED1D98C35200DE511D /* ZGArticleCell.m */; };
 		F181B2F61D9921C900DE511D /* ZGTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F181B2F41D9921C900DE511D /* ZGTextCell.m */; };
 		F181B2F71D9921C900DE511D /* ZGTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F181B2F51D9921C900DE511D /* ZGTextCell.xib */; };
+		F18305511DB088FC0073F413 /* WLCourseWarePreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18305501DB088FC0073F413 /* WLCourseWarePreViewController.m */; };
+		F18305541DB0A7850073F413 /* ZGDownLoadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F18305531DB0A7850073F413 /* ZGDownLoadUtil.m */; };
 		F183F3F71D9D1B74001821F0 /* WLLiveCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */; };
 		F185456F1D9A51120008F471 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F185456E1D9A51120008F471 /* BaseViewController.m */; };
 		F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */; };
@@ -931,6 +933,10 @@
 		F181B2F31D9921C900DE511D /* ZGTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGTextCell.h; sourceTree = "<group>"; };
 		F181B2F41D9921C900DE511D /* ZGTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGTextCell.m; sourceTree = "<group>"; };
 		F181B2F51D9921C900DE511D /* ZGTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGTextCell.xib; sourceTree = "<group>"; };
+		F183054F1DB088FC0073F413 /* WLCourseWarePreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCourseWarePreViewController.h; sourceTree = "<group>"; };
+		F18305501DB088FC0073F413 /* WLCourseWarePreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCourseWarePreViewController.m; sourceTree = "<group>"; };
+		F18305521DB0A7850073F413 /* ZGDownLoadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGDownLoadUtil.h; sourceTree = "<group>"; };
+		F18305531DB0A7850073F413 /* ZGDownLoadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGDownLoadUtil.m; sourceTree = "<group>"; };
 		F183F3F51D9D1B74001821F0 /* WLLiveCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseDetailViewController.h; sourceTree = "<group>"; };
 		F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseDetailViewController.m; sourceTree = "<group>"; };
 		F185456D1D9A51120008F471 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1489,6 +1495,8 @@
 				F19244971D5F0CA100F0FF5B /* HTTP */,
 				6C5919331D4FA3B600256363 /* MOTool.h */,
 				6C5919341D4FA3B600256363 /* MOTool.m */,
+				F18305521DB0A7850073F413 /* ZGDownLoadUtil.h */,
+				F18305531DB0A7850073F413 /* ZGDownLoadUtil.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2831,6 +2839,8 @@
 				F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */,
 				F11AB17A1DAF95500060A9B4 /* ZGLivePlayerControl.h */,
 				F11AB17B1DAF95500060A9B4 /* ZGLivePlayerControl.m */,
+				F183054F1DB088FC0073F413 /* WLCourseWarePreViewController.h */,
+				F18305501DB088FC0073F413 /* WLCourseWarePreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3645,6 +3655,7 @@
 				F7998FF91D9C1F3E001F01B0 /* WLLiveCourseTypeCell.m in Sources */,
 				550455E81DAE105400F9A32C /* WLOrderDetailModel.m in Sources */,
 				F14EEA331D5621F700BBD158 /* WLreplTableViewCell.m in Sources */,
+				F18305541DB0A7850073F413 /* ZGDownLoadUtil.m in Sources */,
 				F1A84BA41D50A17100394214 /* WLDetection.m in Sources */,
 				F14EEA1D1D55C1C700BBD158 /* WLReplyViewController.m in Sources */,
 				6C5919991D4FA44900256363 /* AFURLResponseSerialization.m in Sources */,
@@ -3704,6 +3715,7 @@
 				CD6413F81D5046EB002D31AC /* ThePersonalDataTableViewController.m in Sources */,
 				F12162A61D5193780003B5C1 /* WLorgTableViewCell.m in Sources */,
 				F78A6E4E1DA933C70032E976 /* WLFindInstitutioListCell.m in Sources */,
+				F18305511DB088FC0073F413 /* WLCourseWarePreViewController.m in Sources */,
 				F1D110B91D59A64600103536 /* WLkjViewController.m in Sources */,
 				F17E528C1D93CEEA003AB734 /* WLInstitutionModel.m in Sources */,
 				6E13E0C71D52EB0A00616BEB /* WLMyTableViewCell.m in Sources */,

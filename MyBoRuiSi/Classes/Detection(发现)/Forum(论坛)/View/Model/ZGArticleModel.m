@@ -54,6 +54,11 @@
     _cmtIconFrame = CGRectMake(CGRectGetMaxX(_praFrame), _praIconFrame.origin.y, 15, 15);
     _cmtFrame = CGRectMake(CGRectGetMaxX(_cmtIconFrame) + ZGPadding, _praIconFrame.origin.y, 60, 15);
     
+    _readIconFrame = CGRectMake(CGRectGetMaxX(_cmtFrame), _praIconFrame.origin.y, 15, 15);
+    _readFrame = CGRectMake(CGRectGetMaxX(_readIconFrame) + ZGPadding, _praIconFrame.origin.y, 60, 15);
+    
+    _moreBtnFrame = CGRectMake( WLScreenW - ZGPaddingMax - 20, _readFrame.origin.y, 30, 15);
+    
     _cellHeight = CGRectGetMaxY(_praIconFrame) + ZGPaddingMax;
 }
 

@@ -169,8 +169,14 @@
 {
     if (indexPath.row != 0) {
         
-        ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] init];
-        playerVC.url = [NSURL URLWithString:_outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"]];
+        NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
+        [decodeParm addObject:@"software"];
+        [decodeParm addObject:@"videoOnDemand"];
+#warning testData -- fzg
+//        NSURL *url = [NSURL URLWithString:_outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"]];
+        NSURL *url = [NSURL URLWithString:@"http://v.cctv.com/flash/mp4video6/TMS/2011/01/05/cf752b1c12ce452b3040cab2f90bc265_h264818000nero_aac32-1.mp4"];
+        ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
+        playerVC.courseId = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"id"];
         [self.navigationController pushViewController:playerVC animated:YES];
     }
 }

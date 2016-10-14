@@ -42,6 +42,7 @@
 
 - (void)requestData
 {
+    // 帖子内容
     [WLFindDataHandle requestFindArticleDetailWithTid:_articleId success:^(id responseObject) {
         
         ZGArticleModel *article = [ZGArticleModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -52,6 +53,7 @@
         
     }];
     
+    // 评论列表
     [WLFindDataHandle requestFindArticleCommentListWithTid:_articleId page:_page success:^(id responseObject) {
         
         _commentsArray = [WLCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
@@ -59,6 +61,36 @@
     } failure:^(NSError *error) {
         
     }];
+    
+    // 阅读
+    [WLFindDataHandle requestFindArticleReadWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+- (void)showMoreMenuInRect:(CGRect)rect
+{
+    NSArray *menuItems =
+    @[[KxMenuItem menuItem:@"分享"
+                     image:[UIImage imageNamed:@"图层-48346"]
+                    target:self
+                    action:@selector(share)],
+      [KxMenuItem menuItem:@"收藏"
+                     image:[UIImage imageNamed:@"icon_collect_select"]
+                    target:self
+                    action:@selector(collect)]
+      ];
+    KxMenuItem *first = menuItems[0];
+    first.foreColor = [UIColor colorWithRed:136/255.0f green:136/255.0f blue:136/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    [KxMenu showMenuInView:self.view
+                  fromRect:rect
+                 menuItems:menuItems];
+
 }
 
 #pragma mark - 导航栏右按钮
@@ -90,11 +122,6 @@
 - (void)share
 {
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
-    
-    //
-    //    [share dismissViewControllerAnimated:YES completion:^{
-    //
-    //    }];
     
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
@@ -158,6 +185,14 @@
                 [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
             }];
         }];
+        
+        [cell setMoreBlock:^(UIButton *button){
+            
+            CGRect frame = [button.superview convertRect:button.frame toView:self.view];
+            frame.origin.x -= ZGPaddingMax;
+            [self showMoreMenuInRect:frame];
+        }];
+        
         return cell;
 
     }else if (indexPath.section == 1 && indexPath.row == 0) {
