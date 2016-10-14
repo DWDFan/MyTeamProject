@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "ZGLivePlayerControl.h"
 
-@interface ZGLivePlayerViewController : UIViewController
+@interface ZGLivePlayerViewController : BaseViewController
 
 @property(nonatomic, strong) NSURL *url;
 @property(nonatomic, strong) NSString *decodeType;

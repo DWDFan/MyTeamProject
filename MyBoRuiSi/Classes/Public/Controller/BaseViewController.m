@@ -4,6 +4,9 @@ NSInteger const kPageSize = 20;
 #import "BaseViewController.h"
 //#import "PersonalRequestClient.h"
 @interface BaseViewController()<UIGestureRecognizerDelegate>
+
+@property (nonatomic, weak) UIButton *titleBtn;
+
 @end
 
 @implementation BaseViewController
@@ -12,7 +15,7 @@ NSInteger const kPageSize = 20;
 {
     [super viewWillAppear:animated];
 
-    self.leftBtn.userInteractionEnabled = NO;
+//    self.leftBtn.userInteractionEnabled = NO;
     WLLog(@"current UIViewController is:%@",NSStringFromClass(self.class));
 //    if (!SINGLE.isLogin) {
 //        [[Common shareAppDelegate] pushLogin];
@@ -57,7 +60,14 @@ NSInteger const kPageSize = 20;
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
+    self.titleBtn = btn;
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)settitleColor:titleColor backgroundColor:(UIColor *)bgColor
+{
+    [self.titleBtn setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];
 }
 
 -(NSMutableArray *)dataSoureArray{
@@ -67,23 +77,23 @@ NSInteger const kPageSize = 20;
     return _dataSoureArray;
 }
 
-//- (UIButton *)leftBtn{
-//    if(!_leftBtn){
-//        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _leftBtn.frame = CGRectMake(0, 0,25, 25);
-//        _leftBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-//        _leftBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(5, -5, 0, 0);
-//        [_leftBtn setImage:[UIImage imageNamed:@"goback"] forState:0];
-//        [_leftBtn addTarget:self
-//                    action:@selector(leftBtnAction:)
-//          forControlEvents:UIControlEventTouchUpInside];
-//        [_leftBtn setTitleColor:[UIColor blackColor] forState:0];
-//        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBtn];
-//    }
-//    
-//    return _leftBtn;
-//}
+- (UIButton *)leftBtn{
+    if(!_leftBtn){
+        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _leftBtn.frame = CGRectMake(0, 0,25, 25);
+        _leftBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+        _leftBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+        [_leftBtn setImage:[UIImage imageNamed:@"nav_back_white"] forState:0];
+        [_leftBtn addTarget:self
+                    action:@selector(leftBtnAction:)
+          forControlEvents:UIControlEventTouchUpInside];
+        [_leftBtn setTitleColor:[UIColor blackColor] forState:0];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftBtn];
+    }
+    
+    return _leftBtn;
+}
 
 -(UIBarButtonItem *)rightBtnItem{
     if(!_rightBtnItem){
@@ -117,7 +127,6 @@ NSInteger const kPageSize = 20;
         _tableView.dataSource = self;
         _tableView.delegate  = self;
         _tableView.showsVerticalScrollIndicator = NO;
-//        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.tableFooterView = [[UIView alloc]init];
         _tableView.separatorColor = COLOR_tableView_separator;
         [self.view addSubview:_tableView];

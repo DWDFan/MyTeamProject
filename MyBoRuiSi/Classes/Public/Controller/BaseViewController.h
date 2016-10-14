@@ -43,6 +43,8 @@ extern NSInteger const kPageSize;
 
 - (void)setNavigationBarStyleDefultWithTitle:(NSString *)title;
 
+- (void)settitleColor:titleColor backgroundColor:(UIColor *)bgColor;
+
 #pragma mark 基本设置
 - (void)baseSettting;
 
