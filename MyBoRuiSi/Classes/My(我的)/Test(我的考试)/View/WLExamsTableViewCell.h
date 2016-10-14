@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLMyTestModel;
 @interface WLExamsTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLMyTestModel *model;
+@property (nonatomic, copy) void(^lookAnswerBlock)();
 @end

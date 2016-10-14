@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLMyQiYeCourseModel;
 @interface WLEntTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLMyQiYeCourseModel *model;
 @end

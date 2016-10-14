@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSArray <WLShopCarModel *>*info;
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *total;
 @end

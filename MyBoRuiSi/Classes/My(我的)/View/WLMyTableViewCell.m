@@ -50,11 +50,12 @@
 @end
 @implementation WLUserLoginstatusCell
 - (void)awakeFromNib {
+    [super awakeFromNib];
     _vip_btn.layer.masksToBounds = YES;
     _vip_btn.layer.cornerRadius = 3;
     
     _name.text = [WLUserInfo share].nickname;
-    _score.text = [[WLUserInfo share].score stringValue];
+    _score.text = [WLUserInfo share].score;
     _collectionCount.text = [[WLUserInfo share].favNum stringValue];
     
     if ([WLUserInfo share].isVip) {

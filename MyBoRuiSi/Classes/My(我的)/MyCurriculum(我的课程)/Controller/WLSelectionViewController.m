@@ -11,8 +11,11 @@
 #import "WLSelectionTableViewCell.h"
 #import "WLxq2ViewController.h"
 
+#import "WLMyDataHandle.h"
 @interface WLSelectionViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLSelectionViewController
@@ -31,8 +34,13 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    _page = 1;
+    [self requestDiBoCourseWithPage:_page];
     
 }
+
+
+
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
 {
@@ -48,14 +56,17 @@
     return theImage;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 9;
+    return self.dataSource.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -67,7 +78,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -82,13 +93,22 @@
     
     /// stroryboard 加载@@@@@@@@@@@@@@@@@@@
     //身份
-    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLxq2ViewController" bundle:nil];
-    UIViewController *vc = [stroryboard instantiateInitialViewController];
-    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLxq2ViewController" bundle:nil];
+//    UIViewController *vc = [stroryboard instantiateInitialViewController];
+//    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
+//    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
-
+#pragma mark - Request
+- (void)requestDiBoCourseWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetMyCourseWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+     
+}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLMyZhiBoCourseModel;
 @interface WLDirectseedingTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLMyZhiBoCourseModel *model;
 @end

@@ -9,8 +9,11 @@
 #import "WLConsumeViewController.h"
 
 #import "WLMyDataHandle.h"
+#import "WLCostModel.h"
 @interface WLConsumeViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSUInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLConsumeViewController
@@ -51,43 +54,47 @@
     return theImage;
 }
 
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
+
 //MARK:tableView代理方法----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    //隐藏点击cell的效果
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @" ESD培训课程（点播）";
-        }
-        if (indexPath.row == 1) {
-            cell.textLabel.text = @"提现";
-        }
-        if (indexPath.row == 2) {
-            cell.textLabel.text = @" 静电防护基础培训课（直播）";
-        }
+    static NSString *Id = @"cellId";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Id];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:Id];
+        //隐藏点击cell的效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    //添加图片
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //添加文本
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 120, 44)];
-    label.textAlignment = NSTextAlignmentRight;
-    label.text = @"-¥500.00";
-    label.textColor = [UIColor purpleColor];
-    cell.accessoryView = label;
     
+    
+    WLCostModel *model = self.dataSource[indexPath.row];
+    cell.textLabel.text = model.action;
+    cell.detailTextLabel.text = model.addtime;
+    
+    UILabel *right_lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
+    right_lab.textAlignment = NSTextAlignmentRight;
+    right_lab.textColor = color_red;
+    right_lab.font = [UIFont systemFontOfSize:15];
+    right_lab.text = [NSString stringWithFormat:@"￥%@.00",model.price];
+    cell.accessoryView = right_lab;
+
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 55;
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -107,7 +114,8 @@
 #pragma mark - Request
 - (void)requestGetMyCostData{
    [WLMyDataHandle requestGetMyCostWithUid:[WLUserInfo share].userId page:@(self.page) success:^(id responseObject) {
-       
+       self.dataSource = responseObject;
+       [self.tableView reloadData];
    } failure:^(NSError *error) {
        
    }];

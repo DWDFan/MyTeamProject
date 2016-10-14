@@ -10,9 +10,12 @@
 #import "WLExamsTableViewCell.h"
 #import "WLAnswerTableViewController.h"
 
+#import "WLMyDataHandle.h"
 
 @interface WLTestViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *TestTabble;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
@@ -20,8 +23,7 @@
 
 -(UITableView *)TestTabble{
     if (_TestTabble == nil) {
-        
-        self.TestTabble = [[UITableView alloc]init];
+        _TestTabble = [[UITableView alloc]init];
     }
     return _TestTabble;
 }
@@ -44,8 +46,18 @@
     
     self.TestTabble.rowHeight =100;
     
+    _page = 1;
+    [self requestGetMyTestWithPage:self.page];
+    
 }
 
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
 
 //返回多少组
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -55,7 +67,7 @@
 //返回多少行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.dataSource.count;
 }
 
 
@@ -68,15 +80,19 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLExamsTableViewCell" owner:nil options:nil] lastObject];
     }
+    cell.lookAnswerBlock = ^(){
+        //查看答案
+    };
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 
 //设置点击跳转到下一个界面
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%ld",indexPath.row);
-    WLAnswerTableViewController *vc = [[WLAnswerTableViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    NSLog(@"%ld",indexPath.row);
+//    WLAnswerTableViewController *vc = [[WLAnswerTableViewController alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //颜色转图片
@@ -91,6 +107,17 @@
     UIGraphicsEndImageContext();
     
     return theImage;
+}
+
+
+#pragma mark - Request
+- (void)requestGetMyTestWithPage:(NSUInteger)page{
+    [WLMyDataHandle requestGetMyTestWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.TestTabble reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

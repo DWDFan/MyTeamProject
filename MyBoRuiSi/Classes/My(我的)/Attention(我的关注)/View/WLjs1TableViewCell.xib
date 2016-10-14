@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,67 +12,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <frame key="frameInset" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-48_94" translatesAutoresizingMaskIntoConstraints="NO" id="d71-9V-P4N">
-                        <rect key="frame" x="10" y="9" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="6IF-SM-Mta"/>
                             <constraint firstAttribute="height" constant="80" id="Ooq-gG-oOf"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="孙子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfP-or-w7X">
-                        <rect key="frame" x="100" y="9" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孙子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfP-or-w7X">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="tKA-b8-0CN">
-                        <rect key="frame" x="155" y="15" width="10" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="vep-yN-5wH"/>
-                            <constraint firstAttribute="width" constant="10" id="wIU-6T-Bxv"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="d1d-U8-udm">
-                        <rect key="frame" x="173" y="15" width="10" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="10" id="oPi-p2-bbA"/>
-                            <constraint firstAttribute="height" constant="10" id="vud-Yk-77m"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="720-ba-VLX">
-                        <rect key="frame" x="191" y="15" width="10" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="ft3-HV-79H"/>
-                            <constraint firstAttribute="width" constant="10" id="vzq-kh-0sR"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="uin-32-Zyp">
-                        <rect key="frame" x="209" y="15" width="10" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="10" id="cgq-l1-IFd"/>
-                            <constraint firstAttribute="height" constant="10" id="keh-F0-KUX"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="5cZ-S3-i1l">
-                        <rect key="frame" x="212" y="15" width="10" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="10" id="aEj-Cz-85K"/>
-                            <constraint firstAttribute="height" constant="10" id="o3G-pR-p7b"/>
-                        </constraints>
-                    </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-RJ-rSS">
-                        <rect key="frame" x="280" y="5" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="AHO-Gt-GKY"/>
-                            <constraint firstAttribute="height" constant="30" id="xn7-Cf-yLV"/>
-                        </constraints>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-RJ-rSS">
+                        <frame key="frameInset" minY="5" width="30" height="30" maxX="10"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="取消关注"/>
+                        <connections>
+                            <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NJy-eg-Dao"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv0-KM-hZA">
-                        <rect key="frame" x="98" y="41" width="210" height="50"/>
+                        <frame key="frameInset" minX="98" minY="41" width="210" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="i4u-tt-hNM"/>
                         </constraints>
@@ -80,34 +44,36 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tua-aR-T0E">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="0vH-hx-qXd"/>
+                            <constraint firstAttribute="height" constant="20" id="oMI-BG-7d7"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5cZ-S3-i1l" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="1OB-Sr-beo"/>
-                    <constraint firstItem="tKA-b8-0CN" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="4Ke-cO-q6F"/>
                     <constraint firstItem="VfP-or-w7X" firstAttribute="leading" secondItem="d71-9V-P4N" secondAttribute="trailing" constant="10" id="8Vz-Cu-g6q"/>
-                    <constraint firstItem="d1d-U8-udm" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="ABH-92-pd3"/>
-                    <constraint firstAttribute="trailing" secondItem="ohf-RJ-rSS" secondAttribute="trailing" constant="10" id="Hhb-3Z-VzJ"/>
-                    <constraint firstItem="5cZ-S3-i1l" firstAttribute="leading" secondItem="uin-32-Zyp" secondAttribute="trailing" constant="5" id="IsA-gl-Gkq"/>
-                    <constraint firstItem="uin-32-Zyp" firstAttribute="leading" secondItem="720-ba-VLX" secondAttribute="trailing" constant="5" id="Jsy-Vy-RbH"/>
+                    <constraint firstItem="Tua-aR-T0E" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="D4d-i2-BY7"/>
                     <constraint firstItem="Vv0-KM-hZA" firstAttribute="leading" secondItem="VfP-or-w7X" secondAttribute="leading" id="Pax-sn-KdL"/>
-                    <constraint firstItem="uin-32-Zyp" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="Pts-bc-dt1"/>
-                    <constraint firstItem="720-ba-VLX" firstAttribute="centerY" secondItem="VfP-or-w7X" secondAttribute="centerY" id="U1K-dp-xIZ"/>
-                    <constraint firstItem="d1d-U8-udm" firstAttribute="leading" secondItem="tKA-b8-0CN" secondAttribute="trailing" constant="5" id="UDG-1I-a5Y"/>
                     <constraint firstAttribute="trailing" secondItem="Vv0-KM-hZA" secondAttribute="trailing" constant="10" id="ZKP-m5-SL0"/>
                     <constraint firstItem="d71-9V-P4N" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b9a-bq-ShA"/>
                     <constraint firstItem="VfP-or-w7X" firstAttribute="top" secondItem="d71-9V-P4N" secondAttribute="top" id="bY3-y3-Ovp"/>
-                    <constraint firstItem="ohf-RJ-rSS" firstAttribute="centerY" secondItem="5cZ-S3-i1l" secondAttribute="centerY" id="bbE-8T-1hV"/>
-                    <constraint firstItem="720-ba-VLX" firstAttribute="leading" secondItem="d1d-U8-udm" secondAttribute="trailing" constant="5" id="icU-Qv-ALh"/>
+                    <constraint firstItem="Tua-aR-T0E" firstAttribute="leading" secondItem="VfP-or-w7X" secondAttribute="trailing" constant="8" id="eX1-HR-r8X"/>
                     <constraint firstItem="Vv0-KM-hZA" firstAttribute="top" secondItem="VfP-or-w7X" secondAttribute="bottom" constant="15" id="l1b-9l-zJa"/>
-                    <constraint firstItem="tKA-b8-0CN" firstAttribute="leading" secondItem="VfP-or-w7X" secondAttribute="trailing" constant="10" id="rSx-2j-gaw"/>
                     <constraint firstItem="d71-9V-P4N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yOI-aQ-XB6"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="des_lab" destination="Vv0-KM-hZA" id="foZ-L5-lhw"/>
+                <outlet property="jiangshi_lab" destination="VfP-or-w7X" id="fhe-Kz-mRe"/>
+                <outlet property="photo_imv" destination="d71-9V-P4N" id="qLU-EN-NXf"/>
+                <outlet property="star_view" destination="Tua-aR-T0E" id="RHc-Id-tvA"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="取消关注" width="22" height="22"/>
         <image name="图层-48_94" width="375" height="190"/>
-        <image name="素彩网www.sc115.com-102" width="11" height="11"/>
     </resources>
 </document>

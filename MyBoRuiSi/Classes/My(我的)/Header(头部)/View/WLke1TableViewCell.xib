@@ -58,6 +58,13 @@
                     <constraint firstItem="Htf-Ih-QNZ" firstAttribute="leading" secondItem="fHl-sK-yMo" secondAttribute="leading" id="vDe-HP-Nij"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="jiangshi_lab" destination="mP7-F3-GGO" id="STc-4i-QAJ"/>
+                <outlet property="name_lab" destination="fHl-sK-yMo" id="SSC-KG-s3F"/>
+                <outlet property="photo_imv" destination="JJb-0o-jOP" id="WuZ-XC-h4g"/>
+                <outlet property="price_lab" destination="Htf-Ih-QNZ" id="mHI-dn-lx8"/>
+                <outlet property="studyNum_lab" destination="E5M-i2-HrL" id="jds-jC-dBa"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

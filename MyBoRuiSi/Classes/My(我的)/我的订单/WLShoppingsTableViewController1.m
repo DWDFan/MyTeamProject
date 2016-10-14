@@ -74,7 +74,7 @@
     vc.money = [NSString stringWithFormat:@"%zd.00",self.amount];
     vc.cid = [self.arrayCid componentsJoinedByString:@"|"];
     
-    vc.type = [WLUserInfo share].isVip ? @"vip" : @"kecheng";
+    vc.type = @"kecheng";
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,65 +12,60 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="310"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="309"/>
+                <frame key="frameInset" width="320" height="309"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="008" translatesAutoresizingMaskIntoConstraints="NO" id="apg-bs-rmY">
-                        <rect key="frame" x="10" y="10" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="C8s-to-hFZ"/>
                             <constraint firstAttribute="width" constant="30" id="fyV-ov-92I"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="意由." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSR-ub-Qqx">
-                        <rect key="frame" x="58" y="14" width="42" height="21"/>
+                        <frame key="frameInset" minX="58" minY="14" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-7-7 12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84N-Y1-8ce">
-                        <rect key="frame" x="215" y="16" width="95" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三届奥运会都是番茄炒蛋，恒源一个好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYV-wr-ble">
-                        <rect key="frame" x="10" y="50" width="289" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="三届奥运会都是番茄炒蛋，恒源一个好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYV-wr-ble">
+                        <frame key="frameInset" minX="10" minY="50" width="289" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="对于网友们的评论，来自温州的设计师叶超莹已经习惯了，这是他第三次面对类似的批评了。叶超莹是浙江爵帅制衣有限公司的董事长，通过与恒源祥的关系，这家公司承接了设计、生产奥运礼服的重任。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mT4-yb-gXy">
-                        <rect key="frame" x="10" y="80" width="300" height="50"/>
+                        <frame key="frameInset" minX="10" minY="80" width="300" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="yct-cT-aSb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="第一盘“番茄炒蛋”上桌后，叶超莹收获无数批评，甚至有人称他为“中国的罪人”，这让他觉得" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7B-ac-MHm">
-                        <rect key="frame" x="10" y="145" width="300" height="30"/>
+                        <frame key="frameInset" minX="10" minY="145" width="300" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Yyc-ce-PKm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5x-cA-Efx">
-                        <rect key="frame" x="10" y="185" width="300" height="70"/>
+                        <frame key="frameInset" minX="10" minY="185" width="300" height="70"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKh-O3-CYH">
-                                <rect key="frame" x="203" y="10" width="97" height="50"/>
                                 <state key="normal" image="图层-48-拷贝-3"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-ze-V2j">
-                                <rect key="frame" x="0.0" y="10" width="97" height="50"/>
                                 <state key="normal" image="图层-48-拷贝-3"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82R-mD-R2Y">
-                                <rect key="frame" x="102" y="10" width="97" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82R-mD-R2Y">
                                 <state key="normal" title="Button" image="图层-48-拷贝-3"/>
                             </button>
                         </subviews>
@@ -90,7 +86,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zym-BS-buo">
-                        <rect key="frame" x="10" y="265" width="50" height="30"/>
+                        <frame key="frameInset" minX="10" minY="265" width="50" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="gr1-Os-6Zr"/>
                             <constraint firstAttribute="width" constant="50" id="xPj-7J-Owg"/>
@@ -99,11 +95,11 @@
                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="19" image="Heart-拷贝">
-                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzb-1C-DBe">
-                        <rect key="frame" x="95" y="265" width="50" height="30"/>
+                        <frame key="frameInset" minX="95" minY="265" width="50" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="XDV-2t-a1R"/>
                             <constraint firstAttribute="height" constant="30" id="g3X-8n-gMB"/>
@@ -112,7 +108,7 @@
                         <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="20" image="素彩网www.sc115.com-108">
-                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                 </subviews>
@@ -142,17 +138,20 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarImgV" destination="yxO-gY-6mN" id="Vm9-PH-y2W"/>
+                <outlet property="comment_btn" destination="Bzb-1C-DBe" id="Wlo-RV-XQu"/>
                 <outlet property="contextLbl" destination="mT4-yb-gXy" id="qla-Rb-uef"/>
                 <outlet property="dateLbl" destination="84N-Y1-8ce" id="0Tw-Kf-gay"/>
                 <outlet property="nameLbl" destination="jSR-ub-Qqx" id="5LZ-OA-cjK"/>
+                <outlet property="parise_btn" destination="zym-BS-buo" id="Pu3-Jw-iMB"/>
+                <outlet property="photo_imv" destination="apg-bs-rmY" id="n9b-gT-0ga"/>
                 <outlet property="titleLbl" destination="EYV-wr-ble" id="09q-hZ-CP7"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="008" width="1028" height="824"/>
-        <image name="Heart-拷贝" width="11" height="9"/>
-        <image name="图层-48-拷贝-3" width="112" height="70"/>
-        <image name="素彩网www.sc115.com-108" width="14" height="12"/>
+        <image name="Heart-拷贝" width="10" height="9"/>
+        <image name="图层-48-拷贝-3" width="111" height="69"/>
+        <image name="素彩网www.sc115.com-108" width="13" height="12"/>
     </resources>
 </document>
