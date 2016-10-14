@@ -50,7 +50,7 @@
         }
         
         cells.describeLabel.text = @"头像:";
-        cells.imageName.image = [UIImage imageNamed:@"图层-47-拷贝"];
+//        cells.imageName sd_setImageWithURL:[NSURL URLWithString:[WLUserInfo share].photo];
         
         cell = cells;
         
@@ -65,36 +65,36 @@
         
         if (indexPath.row == 1) {
             cells.describeLabel.text = @"昵称:";
-            cells.contentLabel.text = @"嘻嘻";
+            cells.contentLabel.text = [WLUserInfo share].nickname ? [WLUserInfo share].nickname : @"";
             
         }else if (indexPath.row == 2) {
             
             cells.describeLabel.text = @"性别:";
-            cells.contentLabel.text = @"女神";
+            cells.contentLabel.text = [WLUserInfo share].sex ? [WLUserInfo share].sex : @"";
             
             
         }else if (indexPath.row == 3) {
             
             cells.describeLabel.text = @"生日:";
-            cells.contentLabel.text = @"2008.10.08";
+//            cells.contentLabel.text = [WLUserInfo share].nickname ? [WLUserInfo share].nickname : @"";
             
             
         }else if (indexPath.row == 4) {
             
             cells.describeLabel.text = @"所在公司:";
-            cells.contentLabel.text = @"哈哈";
+            cells.contentLabel.text = [WLUserInfo share].company ? [WLUserInfo share].company : @"";
             
             
         }else if (indexPath.row == 5) {
             
             cells.describeLabel.text = @"职业:";
-            cells.contentLabel.text = @"JJ";
+            cells.contentLabel.text = [WLUserInfo share].job ? [WLUserInfo share].job : @"";
             
             
         }else{
             
             cells.describeLabel.text = @"地址:";
-            cells.contentLabel.text = @"北京呢";
+            cells.contentLabel.text = [WLUserInfo share].address ? [WLUserInfo share].address : @"";
             
             
             

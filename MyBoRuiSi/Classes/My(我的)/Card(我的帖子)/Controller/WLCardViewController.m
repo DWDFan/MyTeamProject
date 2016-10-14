@@ -7,12 +7,17 @@
 //
 
 #import "WLCardViewController.h"
-#import "WLcardTableViewCell.h"
+#import "WLArticleDetailViewController.h"
 
-#import "WLCardxqViewController.h"
+#import "ZGArticleCell.h"
 
-@interface WLCardViewController ()
-
+#import "WLMyDataHandle.h"
+@interface WLCardViewController ()<UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSString  *tid;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @end
 
 @implementation WLCardViewController
@@ -27,10 +32,8 @@
     [btn setTitle:@"我的帖子" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    
+    self.tableView.tableFooterView = [[UIView alloc] init]; 
     
 }
 //颜色转图片
@@ -47,23 +50,30 @@
     
     return theImage;
 }
-
-//返回多少组
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Incomplete implementation, return the number of sections
-    return 1;
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
-//返回多少行
+
+#pragma mark - Delegate AlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //reqeust delete
+        [self requestDeleteMyPostWithTid:self.tid indexPath:self.indexPath];
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
-    return 3;
+    return self.dataSource.count;
 }
 
 
 //cell高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 310;
+    ZGArticleViewModel *vModel = [self.dataSource objectAtIndex:indexPath.row];
+    return  vModel.cellHeight;
 }
 
 //返回组头的高度
@@ -73,36 +83,57 @@
 }
 //返回cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    static NSString *deteID = @"WLcardTableViewCell";
-    
-    WLcardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
-    
+    static NSString *deteID = @"ZGArticleCell";
+    ZGArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:deteID];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    
+    cell.articleViewModel = self.dataSource[indexPath.row];
     
     return cell;
+
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{//请求数据源提交的插入或删除指定行接收者。
+    if (editingStyle ==UITableViewCellEditingStyleDelete) {//如果编辑样式为删除样式
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否确认删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+        
+        ZGArticleViewModel *model = self.dataSource[indexPath.row];
+        self.tid = model.article.id;
+        self.indexPath = indexPath;
+    }
 }
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //帖子详情
-    WLCardxqViewController *cadr = [[WLCardxqViewController alloc]init];
+    WLArticleDetailViewController *cadr = [[WLArticleDetailViewController alloc]init];
+    ZGArticleViewModel *model = self.dataSource[indexPath.row];
+    cadr.articleId = model.article.id;
     [self.navigationController pushViewController:cadr animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Request
+- (void)requestGetMyPost{
+    [WLMyDataHandle requestGetMyPostWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
-*/
 
+- (void)requestDeleteMyPostWithTid:(NSString *)tid indexPath:(NSIndexPath *)indexPath{
+    [WLMyDataHandle requestDeleteMyPostWithUid:[WLUserInfo share].userId tid:self.tid success:^(id responseObject) {
+        [self.dataSource removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 @end

@@ -11,32 +11,35 @@
 
 #import "WLorganVC.h"
 
+#import "WLMyDataHandle.h"
+#import "WLMyAttentionModel.h"
 @interface WLJg1ViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLJg1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _page = 1;
+    [self requestGetMyFollowJsWithPage:_page];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
 
-//返回多少组
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Incomplete implementation, return the number of sections
-    return 1;
-}
+
 //返回多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    
-    return 6;
+    return self.dataSource.count;
 }
 
 
@@ -61,7 +64,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.model = self.dataSource[indexPath.row];
     
     return cell;
 }
@@ -71,18 +74,20 @@
     
     //机构详情
     WLorganVC *vc = [[WLorganVC alloc]init];
+    WLMyAttentionModel *model = self.dataSource[indexPath.row];
+    vc.institutionId = model.tid;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Request
+- (void)requestGetMyFollowJsWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetMyFollowJsWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
-*/
 
 @end

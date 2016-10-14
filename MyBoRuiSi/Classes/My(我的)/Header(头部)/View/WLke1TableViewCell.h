@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WLCourseFavModel;
 
 @interface WLke1TableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLCourseFavModel *model;
 @end

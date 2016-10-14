@@ -112,4 +112,53 @@
                             page:(NSNumber *)page
                          success:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取我的帖子
+ *
+ *  @param uid     用户ID
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMyPostWithUid:(NSString *)uid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
+/**
+ *  删除我的帖子
+ *
+ *  @param uid     用户ID
+ *  @param tid     帖子id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestDeleteMyPostWithUid:(NSString *)uid
+                               tid:(NSString *)tid
+                           success:(void (^)(id responseObject))success
+                           failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取我的关注讲师列表
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMyFollowJsWithUid:(NSString *)uid
+                             page:(NSNumber *)page
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取我的关注机构列表
+ *
+ *  @param uid     用户ID
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMyFollowJgWithUid:(NSString *)uid
+                             page:(NSNumber *)page
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 @end

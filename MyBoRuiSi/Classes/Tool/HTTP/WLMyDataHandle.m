@@ -15,6 +15,7 @@
 #import "WLMyDianBoCourseModel.h"
 #import "WLMyZhiBoCourseModel.h"
 #import "WLMyQiYeCourseModel.h"
+#import "WLMyAttentionModel.h"
 @implementation WLMyDataHandle
 /**
  *  我的收入
@@ -35,6 +36,7 @@
             success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
 
     } failure:^(NSError *error) {
@@ -61,6 +63,7 @@
                 success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
 
     } failure:^(NSError *error) {
@@ -115,6 +118,7 @@
             }
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
         }
        
     } failure:^(NSError *error) {
@@ -142,6 +146,7 @@
             success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
         
     } failure:^(NSError *error) {
@@ -169,6 +174,7 @@
             success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
         
     } failure:^(NSError *error) {
@@ -200,6 +206,7 @@
             success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
         
     } failure:^(NSError *error) {
@@ -231,10 +238,116 @@
             success(dataSource);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
         }
         
     } failure:^(NSError *error) {
         failure(error);
     }];
 }
+
+/**
+ *  获取我的帖子
+ */
++ (void)requestGetMyPostWithUid:(NSString *)uid
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid};
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=myPost" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            for (NSDictionary *dict in responseObject[@"data"]) {
+                ZGArticleModel *art =  [ZGArticleModel mj_objectWithKeyValues:dict];
+                ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
+                artVM.article = art;
+                [dataSource addObject:artVM];
+            }
+            success(dataSource);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+/**
+ *  删除我的帖子
+ */
++ (void)requestDeleteMyPostWithUid:(NSString *)uid
+                               tid:(NSString *)tid
+                           success:(void (^)(id responseObject))success
+                           failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid};
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=myPost" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            success(nil);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+/**
+ *  获取我的关注讲师列表
+ */
++ (void)requestGetMyFollowJsWithUid:(NSString *)uid
+                               page:(NSNumber *)page
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMyFollowJs" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            for (NSDictionary *dict in responseObject[@"data"]) {
+                WLMyAttentionModel *model =  [WLMyAttentionModel mj_objectWithKeyValues:dict];
+                [dataSource addObject:model];
+            }
+            success(dataSource);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+/**
+ *  获取我的关注机构列表
+ */
++ (void)requestGetMyFollowJgWithUid:(NSString *)uid
+                               page:(NSNumber *)page
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMyFollowJg" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            for (NSDictionary *dict in responseObject[@"data"]) {
+                WLMyAttentionModel *model =  [WLMyAttentionModel mj_objectWithKeyValues:dict];
+                [dataSource addObject:model];
+            }
+            success(dataSource);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
 @end

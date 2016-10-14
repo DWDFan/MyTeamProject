@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSNumber *telphone;
 @property (nonatomic, strong) NSNumber *favNum;
 @property (nonatomic, strong) NSNumber *score;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *company;
+@property (nonatomic, strong) NSString *job;
+@property (nonatomic, strong) NSString *sex;
 @property (nonatomic, assign, getter=isVip) BOOL vip;
 
 @property (nonatomic, strong) NSString *userInfoArchivPath;
@@ -37,19 +41,22 @@
 @end
 /*
 {
-    bagPwd = 0;
-    code = 1;
-    favNum = 100;
-    hadJg = 1;
-    id = 17;
-    money = "<null>";
-    msg = "\U767b\U9646\U6210\U529f";
-    nickname = "\U6682\U65e0";
-    score = 0;
-    statusCode = "(null)";
-    telphone = 13288664746;
-    vip = 0;
-    vipEndtm = "<null>";
+ address = "";
+ bagPwd = 1;
+ birth = "";
+ company = "";
+ favNum = 2;
+ hadJg = 1;
+ id = 17;
+ job = "";
+ money = 599970;
+ nickname = "\U6682\U65e0";
+ photo = "";
+ score = 30;
+ sex = "";
+ telphone = 13288664746;
+ vip = 0;
+ vipEndtm = "";
 }
 
 vipEndtm vip过期日期

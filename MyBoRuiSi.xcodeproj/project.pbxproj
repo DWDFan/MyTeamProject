@@ -17,6 +17,7 @@
 		550A228B1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A228A1DAF86E50025A2B5 /* WLMyDianBoCourseModel.m */; };
 		550A228E1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */; };
 		550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */; };
+		550A22941DB07BB10025A2B5 /* WLMyAttentionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22931DB07BB10025A2B5 /* WLMyAttentionModel.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -510,6 +511,8 @@
 		550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyZhiBoCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyZhiBoCourseModel.m"; sourceTree = SOURCE_ROOT; };
 		550A228F1DAF87250025A2B5 /* WLMyQiYeCourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyQiYeCourseModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyQiYeCourseModel.h"; sourceTree = SOURCE_ROOT; };
 		550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyQiYeCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyQiYeCourseModel.m"; sourceTree = SOURCE_ROOT; };
+		550A22921DB07BB10025A2B5 /* WLMyAttentionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyAttentionModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyAttentionModel.h"; sourceTree = SOURCE_ROOT; };
+		550A22931DB07BB10025A2B5 /* WLMyAttentionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyAttentionModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyAttentionModel.m"; sourceTree = SOURCE_ROOT; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -2030,6 +2033,8 @@
 		F12162AA1D51A8860003B5C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550A22921DB07BB10025A2B5 /* WLMyAttentionModel.h */,
+				550A22931DB07BB10025A2B5 /* WLMyAttentionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3654,6 +3659,7 @@
 				F1518F761D52D48900879B9B /* WLRegistrationtViewController.m in Sources */,
 				6E13E0BC1D52EAF900616BEB /* WLShoppingsTableViewController3.m in Sources */,
 				F15590411D5430A100EFD5F8 /* WLPhysiologyViewController.m in Sources */,
+				550A22941DB07BB10025A2B5 /* WLMyAttentionModel.m in Sources */,
 				550455E31DADD9EE00F9A32C /* WLOrderFooterView.m in Sources */,
 				6C5919B31D4FA44900256363 /* MJRefreshConst.m in Sources */,
 				F181B2E81D98B8E700DE511D /* ZGArticleModel.m in Sources */,

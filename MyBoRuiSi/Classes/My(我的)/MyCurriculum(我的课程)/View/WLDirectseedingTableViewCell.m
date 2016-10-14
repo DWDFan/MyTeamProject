@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *disprice_lab;
 @property (weak, nonatomic) IBOutlet UIButton *status_btn;
 @property (weak, nonatomic) IBOutlet UILabel *star_lab;
-@property (weak, nonatomic) IBOutlet WLDisplayStarView *star_view;
+@property (weak, nonatomic) IBOutlet UIView *star_view;
 @end
 
 @implementation WLDirectseedingTableViewCell
@@ -26,7 +26,8 @@
     // Initialization code
     [super awakeFromNib];
    
-    _star_view.maxStar = 60;
+    _star_view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (void)setModel:(WLMyZhiBoCourseModel *)model{
@@ -38,7 +39,9 @@
     _disprice_lab.text = [NSString stringWithFormat:@"￥%@", model.dis_price];
     _publictime_lab.text = [NSString stringWithFormat:@"讲课时间：%@",model.publictime];
 
-    _star_view.showStar = [model.star integerValue];
+    WLDisplayStarView *starView = [[WLDisplayStarView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
+    starView.showStar = [model.star integerValue]* 20;
+    [_star_view addSubview:starView];
     _star_lab.text = [NSString stringWithFormat:@"%@分",model.star];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
