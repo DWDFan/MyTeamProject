@@ -18,6 +18,20 @@
 		550A228E1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A228D1DAF870A0025A2B5 /* WLMyZhiBoCourseModel.m */; };
 		550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */; };
 		550A22941DB07BB10025A2B5 /* WLMyAttentionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550A22931DB07BB10025A2B5 /* WLMyAttentionModel.m */; };
+		550A22A41DB0C6140025A2B5 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22961DB0C6140025A2B5 /* libavcodec.a */; };
+		550A22A51DB0C6140025A2B5 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22971DB0C6140025A2B5 /* libavfilter.a */; };
+		550A22A61DB0C6140025A2B5 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22981DB0C6140025A2B5 /* libavformat.a */; };
+		550A22A71DB0C6140025A2B5 /* libavresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22991DB0C6140025A2B5 /* libavresample.a */; };
+		550A22A81DB0C6140025A2B5 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229A1DB0C6140025A2B5 /* libavutil.a */; };
+		550A22A91DB0C6140025A2B5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229B1DB0C6140025A2B5 /* libcrypto.a */; };
+		550A22AA1DB0C6140025A2B5 /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229C1DB0C6140025A2B5 /* libfdk-aac.a */; };
+		550A22AB1DB0C6140025A2B5 /* libNELivePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229D1DB0C6140025A2B5 /* libNELivePlayer.a */; };
+		550A22AC1DB0C6140025A2B5 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229E1DB0C6140025A2B5 /* libopenh264.a */; };
+		550A22AD1DB0C6140025A2B5 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A229F1DB0C6140025A2B5 /* librtmp.a */; };
+		550A22AE1DB0C6140025A2B5 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A01DB0C6140025A2B5 /* libspeex.a */; };
+		550A22AF1DB0C6140025A2B5 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A11DB0C6140025A2B5 /* libssl.a */; };
+		550A22B01DB0C6140025A2B5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A21DB0C6140025A2B5 /* libswresample.a */; };
+		550A22B11DB0C6140025A2B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A31DB0C6140025A2B5 /* libswscale.a */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -162,6 +176,11 @@
 		F112A1D11DAB648E004827D9 /* WLCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D01DAB648E004827D9 /* WLCircleModel.m */; };
 		F112A1D41DAB7400004827D9 /* WLCirCleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */; };
 		F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */; };
+		F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */; };
+		F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */ = {isa = PBXBuildFile; fileRef = F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */; };
+		F11AB1771DAF8E230060A9B4 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1761DAF8E230060A9B4 /* libbz2.tbd */; };
+		F11AB1791DAF8E530060A9B4 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AB1781DAF8E530060A9B4 /* libiconv.tbd */; };
+		F11AB17C1DAF95500060A9B4 /* ZGLivePlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F11AB17B1DAF95500060A9B4 /* ZGLivePlayerControl.m */; };
 		F11BEE381D4EE3B800AA3F3A /* WLInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */; };
 		F11BEE391D4EE3B800AA3F3A /* WLInquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */; };
 		F11BEE3D1D4F20C000AA3F3A /* WLSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11BEE3B1D4F20C000AA3F3A /* WLSearchTableViewController.m */; };
@@ -513,6 +532,20 @@
 		550A22901DAF87250025A2B5 /* WLMyQiYeCourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyQiYeCourseModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyQiYeCourseModel.m"; sourceTree = SOURCE_ROOT; };
 		550A22921DB07BB10025A2B5 /* WLMyAttentionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLMyAttentionModel.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyAttentionModel.h"; sourceTree = SOURCE_ROOT; };
 		550A22931DB07BB10025A2B5 /* WLMyAttentionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLMyAttentionModel.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLMyAttentionModel.m"; sourceTree = SOURCE_ROOT; };
+		550A22961DB0C6140025A2B5 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		550A22971DB0C6140025A2B5 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		550A22981DB0C6140025A2B5 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		550A22991DB0C6140025A2B5 /* libavresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavresample.a; sourceTree = "<group>"; };
+		550A229A1DB0C6140025A2B5 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		550A229B1DB0C6140025A2B5 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		550A229C1DB0C6140025A2B5 /* libfdk-aac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libfdk-aac.a"; sourceTree = "<group>"; };
+		550A229D1DB0C6140025A2B5 /* libNELivePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNELivePlayer.a; sourceTree = "<group>"; };
+		550A229E1DB0C6140025A2B5 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
+		550A229F1DB0C6140025A2B5 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		550A22A01DB0C6140025A2B5 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libspeex.a; sourceTree = "<group>"; };
+		550A22A11DB0C6140025A2B5 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		550A22A21DB0C6140025A2B5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		550A22A31DB0C6140025A2B5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -748,6 +781,15 @@
 		F112A1D31DAB7400004827D9 /* WLCirCleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCirCleDetailViewController.m; sourceTree = "<group>"; };
 		F11839931D9CBC2500B98BF7 /* WLLiveCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseListViewController.h; sourceTree = "<group>"; };
 		F11839941D9CBC2500B98BF7 /* WLLiveCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseListViewController.m; sourceTree = "<group>"; };
+		F11AAEEE1DAF352F0060A9B4 /* ZGLivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGLivePlayerViewController.h; sourceTree = "<group>"; };
+		F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGLivePlayerViewController.m; sourceTree = "<group>"; };
+		F11AB03E1DAF5BBB0060A9B4 /* NELivePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayer.h; sourceTree = "<group>"; };
+		F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NELivePlayerController.h; sourceTree = "<group>"; };
+		F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNote.md; sourceTree = "<group>"; };
+		F11AB1761DAF8E230060A9B4 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		F11AB1781DAF8E530060A9B4 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		F11AB17A1DAF95500060A9B4 /* ZGLivePlayerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGLivePlayerControl.h; sourceTree = "<group>"; };
+		F11AB17B1DAF95500060A9B4 /* ZGLivePlayerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGLivePlayerControl.m; sourceTree = "<group>"; };
 		F11BEE351D4EE3B800AA3F3A /* WLInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInquiryViewController.h; sourceTree = "<group>"; };
 		F11BEE361D4EE3B800AA3F3A /* WLInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInquiryViewController.m; sourceTree = "<group>"; };
 		F11BEE371D4EE3B800AA3F3A /* WLInquiryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInquiryViewController.xib; sourceTree = "<group>"; };
@@ -1272,24 +1314,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550A22AF1DB0C6140025A2B5 /* libssl.a in Frameworks */,
+				550A22AA1DB0C6140025A2B5 /* libfdk-aac.a in Frameworks */,
+				F11AB1791DAF8E530060A9B4 /* libiconv.tbd in Frameworks */,
+				F11AB1771DAF8E230060A9B4 /* libbz2.tbd in Frameworks */,
 				5595AD631DA8C32A001758AA /* CoreMotion.framework in Frameworks */,
 				5595AD611DA8C322001758AA /* libstdc++.tbd in Frameworks */,
 				5595AD5F1DA8C31A001758AA /* libsqlite3.0.tbd in Frameworks */,
+				550A22A81DB0C6140025A2B5 /* libavutil.a in Frameworks */,
+				550A22A41DB0C6140025A2B5 /* libavcodec.a in Frameworks */,
 				5595AD5D1DA8C311001758AA /* libz.tbd in Frameworks */,
 				5595AD5B1DA8C307001758AA /* libc++.tbd in Frameworks */,
 				5595AD591DA8C2F3001758AA /* CoreTelephony.framework in Frameworks */,
+				550A22B11DB0C6140025A2B5 /* libswscale.a in Frameworks */,
+				550A22A91DB0C6140025A2B5 /* libcrypto.a in Frameworks */,
 				5595AD571DA8C2EB001758AA /* QuartzCore.framework in Frameworks */,
 				5595AD551DA8C2E2001758AA /* Security.framework in Frameworks */,
 				5595AD531DA8C2DA001758AA /* SystemConfiguration.framework in Frameworks */,
 				5595AD511DA8C2D2001758AA /* CFNetwork.framework in Frameworks */,
+				550A22A71DB0C6140025A2B5 /* libavresample.a in Frameworks */,
+				550A22A61DB0C6140025A2B5 /* libavformat.a in Frameworks */,
 				5595AD4D1DA8C207001758AA /* libpingpp+one.a in Frameworks */,
 				5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */,
+				550A22AD1DB0C6140025A2B5 /* librtmp.a in Frameworks */,
+				550A22AC1DB0C6140025A2B5 /* libopenh264.a in Frameworks */,
 				5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */,
 				5595AD491DA8C207001758AA /* libpingpp+up.a in Frameworks */,
 				5595AD481DA8C207001758AA /* libPaymentControl.a in Frameworks */,
 				5595AD4C1DA8C207001758AA /* libpingppcore.a in Frameworks */,
 				5595AD4A1DA8C207001758AA /* libpingpp+network.a in Frameworks */,
+				550A22AE1DB0C6140025A2B5 /* libspeex.a in Frameworks */,
+				550A22A51DB0C6140025A2B5 /* libavfilter.a in Frameworks */,
 				5595AD4B1DA8C207001758AA /* libpingpp+webview.a in Frameworks */,
+				550A22B01DB0C6140025A2B5 /* libswresample.a in Frameworks */,
+				550A22AB1DB0C6140025A2B5 /* libNELivePlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1310,6 +1368,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550A22951DB0C6140025A2B5 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				550A22961DB0C6140025A2B5 /* libavcodec.a */,
+				550A22971DB0C6140025A2B5 /* libavfilter.a */,
+				550A22981DB0C6140025A2B5 /* libavformat.a */,
+				550A22991DB0C6140025A2B5 /* libavresample.a */,
+				550A229A1DB0C6140025A2B5 /* libavutil.a */,
+				550A229B1DB0C6140025A2B5 /* libcrypto.a */,
+				550A229C1DB0C6140025A2B5 /* libfdk-aac.a */,
+				550A229D1DB0C6140025A2B5 /* libNELivePlayer.a */,
+				550A229E1DB0C6140025A2B5 /* libopenh264.a */,
+				550A229F1DB0C6140025A2B5 /* librtmp.a */,
+				550A22A01DB0C6140025A2B5 /* libspeex.a */,
+				550A22A11DB0C6140025A2B5 /* libssl.a */,
+				550A22A21DB0C6140025A2B5 /* libswresample.a */,
+				550A22A31DB0C6140025A2B5 /* libswscale.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		5595AD301DA8C207001758AA /* ping++ */ = {
 			isa = PBXGroup;
 			children = (
@@ -1389,6 +1468,8 @@
 		5595AD4F1DA8C2D1001758AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F11AB1781DAF8E530060A9B4 /* libiconv.tbd */,
+				F11AB1761DAF8E230060A9B4 /* libbz2.tbd */,
 				5595AD621DA8C32A001758AA /* CoreMotion.framework */,
 				5595AD601DA8C322001758AA /* libstdc++.tbd */,
 				5595AD5E1DA8C31A001758AA /* libsqlite3.0.tbd */,
@@ -1785,6 +1866,33 @@
 				F7F304671DABBF1300F3F3EF /* WLIssueArticleViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				550A22951DB0C6140025A2B5 /* libs */,
+				F11AB03C1DAF5BBB0060A9B4 /* include */,
+				F11AB04F1DAF5BBB0060A9B4 /* ReleaseNote.md */,
+			);
+			path = LivePlayer_iOS_SDK_v1.2.0;
+			sourceTree = "<group>";
+		};
+		F11AB03C1DAF5BBB0060A9B4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB03D1DAF5BBB0060A9B4 /* NELivePlayer */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		F11AB03D1DAF5BBB0060A9B4 /* NELivePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F11AB03E1DAF5BBB0060A9B4 /* NELivePlayer.h */,
+				F11AB03F1DAF5BBB0060A9B4 /* NELivePlayerController.h */,
+			);
+			path = NELivePlayer;
 			sourceTree = "<group>";
 		};
 		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
@@ -2754,6 +2862,10 @@
 				F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */,
 				F70F8DCF1DAD4A8200B75D0D /* WLCoursewareViewController.h */,
 				F70F8DD01DAD4A8200B75D0D /* WLCoursewareViewController.m */,
+				F11AAEEE1DAF352F0060A9B4 /* ZGLivePlayerViewController.h */,
+				F11AAEEF1DAF35300060A9B4 /* ZGLivePlayerViewController.m */,
+				F11AB17A1DAF95500060A9B4 /* ZGLivePlayerControl.h */,
+				F11AB17B1DAF95500060A9B4 /* ZGLivePlayerControl.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3094,6 +3206,7 @@
 		F1FB85701D537365005AAED3 /* Lib(第三方架) */ = {
 			isa = PBXGroup;
 			children = (
+				F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */,
 				5595AD301DA8C207001758AA /* ping++ */,
 				F1FB85711D537365005AAED3 /* DLSlideView */,
 				F1FB85841D537365005AAED3 /* KxMenu.h */,
@@ -3336,7 +3449,7 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 68SA3JHC33;
+						DevelopmentTeam = 7DHRY55F6V;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -3764,6 +3877,7 @@
 				F19244CE1D5F0E0600F0FF5B /* SVProgressHUD.m in Sources */,
 				6C5919A71D4FA44900256363 /* NSObject+MJProperty.m in Sources */,
 				F1FB85E61D537365005AAED3 /* NSDate+MJ.m in Sources */,
+				F11AB17C1DAF95500060A9B4 /* ZGLivePlayerControl.m in Sources */,
 				6C5919921D4FA44900256363 /* AFHTTPRequestOperation.m in Sources */,
 				CD2190A91D53791700F13FEE /* WLExamsTableViewCell.m in Sources */,
 				6C5919941D4FA44900256363 /* AFHTTPSessionManager.m in Sources */,
@@ -3783,6 +3897,7 @@
 				CDEB07781D5590AE009A0011 /* WLWalletViewCell.m in Sources */,
 				F121629C1D518E600003B5C1 /* WLOrganizatioTableViewCell.m in Sources */,
 				CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */,
+				F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */,
 				F1FB85FE1D5374AC005AAED3 /* MJPhotoLoadingView.m in Sources */,
 				F1C597B31D4CFC1E00529553 /* WLTabBar.m in Sources */,
 				F1F7165D1D4F9AB30097F859 /* WLTestTableViewCell.m in Sources */,
@@ -3790,6 +3905,7 @@
 				F121629A1D518E600003B5C1 /* WLOrgViewController.m in Sources */,
 				6C5919A41D4FA44900256363 /* NSObject+MJClass.m in Sources */,
 				6E13E0B81D52EAF900616BEB /* WLShoppingsTableViewController1.m in Sources */,
+				F11AAEF01DAF35300060A9B4 /* ZGLivePlayerViewController.m in Sources */,
 				F1D110B41D59A63100103536 /* WLDgViewController.m in Sources */,
 				6C5919B81D4FA44900256363 /* UIView+MJExtension.m in Sources */,
 				F77FB0DD1D97EBEC001B287E /* WLCourseListCell.m in Sources */,
@@ -3974,7 +4090,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 68SA3JHC33;
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Channels/Alipay",
@@ -3992,6 +4108,7 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Dependencies/WebView",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
+					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4005,7 +4122,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 68SA3JHC33;
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Channels/Alipay",
@@ -4023,6 +4140,7 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Dependencies/WebView",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
+					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = itcast.cn.MyBoRuiSi3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
