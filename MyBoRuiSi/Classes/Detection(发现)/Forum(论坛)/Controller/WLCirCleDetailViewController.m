@@ -67,7 +67,7 @@
     }];
     
     [WLFindDataHandle requestFindCircleArticleWithQid:_circleId page:@(_page) success:^(id responseObject) {
-        
+        _page == 1 ? [self.dataSoureArray removeAllObjects] : nil;
         NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         for (ZGArticleModel *art in articles) {
             ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
@@ -146,6 +146,7 @@
         
         if (cell == nil) {
             cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+            cell.type = ZGArticleCellTypeList;
         }
         cell.articleViewModel = self.dataSoureArray[indexPath.row];
         return cell;

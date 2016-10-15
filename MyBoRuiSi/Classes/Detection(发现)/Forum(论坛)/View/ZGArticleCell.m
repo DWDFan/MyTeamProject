@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIImageView *avatarImgV;
 @property (nonatomic, strong) UIButton *praBtn;
-@property (nonatomic, strong) UIImageView *cmtImgV;
+@property (nonatomic, strong) UIButton *cmtImgV;
 @property (nonatomic, strong) UILabel *nameLbl;
 @property (nonatomic, strong) UILabel *timeLbl;
 @property (nonatomic, strong) UILabel *titleLbl;
@@ -52,11 +52,12 @@
     [_praBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
     [_praBtn addTarget:self action:@selector(praBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_praBtn];
-    
-    _cmtImgV = [[UIImageView alloc] init];
-    _cmtImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-108"];
-    _cmtImgV.contentMode = UIViewContentModeScaleAspectFit;
+
+    _cmtImgV = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_cmtImgV setImage:[UIImage imageNamed:@"素彩网www.sc115.com-108"] forState:UIControlStateNormal];
+    [_cmtImgV addTarget:self action:@selector(cmtBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_cmtImgV];
+
     
     _readIcon = [[UIImageView alloc] init];
     _readIcon.image = [UIImage imageNamed:@"素彩网www.sc115.com-114"];
@@ -197,6 +198,11 @@
     self.praiseblock ? self.praiseblock(sender) : nil;
 }
 
+- (void)cmtBtnAction:(UIButton *)sender
+{
+    self.commentBlock ? self.commentBlock(sender) : nil;
+}
+
 - (void)moreBtnAction:(UIButton *)sender
 {
     self.moreBlock ? self.moreBlock(sender) : nil;
@@ -205,6 +211,13 @@
 - (void)addPraiseCount
 {
     NSInteger count = [_articleViewModel.article.zanNum integerValue] + 1;
+    _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
+    _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
+}
+
+- (void)subPraiseCount
+{
+    NSInteger count = [_articleViewModel.article.zanNum integerValue] - 1;
     _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
     _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
 }

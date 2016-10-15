@@ -406,7 +406,7 @@ typedef enum {
     const CGFloat kMarginY = 5.f;
     
     UIFont *titleFont = [KxMenu titleFont];
-    if (!titleFont) titleFont = [UIFont boldSystemFontOfSize:16];
+    if (!titleFont) titleFont = [UIFont systemFontOfSize:14];
     
     CGFloat maxImageWidth = 0;    
     CGFloat maxItemHeight = 0;
@@ -513,7 +513,8 @@ typedef enum {
             titleLabel.text = menuItem.title;
             titleLabel.font = titleFont;
             titleLabel.textAlignment = menuItem.alignment;
-            titleLabel.textColor = menuItem.foreColor ? menuItem.foreColor : [UIColor colorWithRed:136 / 255.0 green:136 / 255.0 blue:136 / 255.0 alpha:1]; //字体的颜色
+//            titleLabel.textColor = menuItem.foreColor ? menuItem.foreColor : [UIColor colorWithRed:136 / 255.0 green:136 / 255.0 blue:136 / 255.0 alpha:1]; //字体的颜色
+            titleLabel.textColor = COLOR_WORD_GRAY_1;
             titleLabel.backgroundColor = [UIColor clearColor];
             titleLabel.autoresizingMask = UIViewAutoresizingNone;
             //titleLabel.backgroundColor = [UIColor greenColor];
@@ -522,11 +523,13 @@ typedef enum {
         
         if (menuItem.image) {
             
-            const CGRect imageFrame = {kMarginX * 2, kMarginY, maxImageWidth, maxItemHeight - kMarginY * 2};
+//            const CGRect imageFrame = {kMarginX * 2 - 10, kMarginY, maxImageWidth, maxItemHeight - kMarginY * 2};
+            const CGRect imageFrame = {kMarginX * 2 - 10, kMarginY + 2, maxImageWidth, 18};
+
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageFrame];
             imageView.image = menuItem.image;
             imageView.clipsToBounds = YES;
-            imageView.contentMode = UIViewContentModeCenter;
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView.autoresizingMask = UIViewAutoresizingNone;
             [itemView addSubview:imageView];
         }

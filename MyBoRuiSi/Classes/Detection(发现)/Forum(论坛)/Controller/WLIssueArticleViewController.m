@@ -33,14 +33,29 @@
 
 - (void)setSubviews
 {
-    [self setNavigationBarStyleDefultWithTitle:@"发帖"];
-    
-    [self.rightBtn setTitle:@"发布" forState:UIControlStateNormal];
-    [self.rightBtn setTitleColor:color_red forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
-    
     self.tableViewStyle = UITableViewStyleGrouped;
     self.tableView.scrollEnabled = NO;
+    
+    if (_type == EditTypeEdit) {
+        [self setNavigationBarStyleDefultWithTitle:@"修改"];
+        
+        self.titleTF.text = self.articleViewModel.article.title;
+        self.contentTV.text = self.articleViewModel.article.content;
+//        self.addPhotoView.images = self.articleViewModel.article.image;
+        
+        UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        sureBtn.frame = CGRectMake(0, WLScreenH - IOS7_TOP_Y - 49, WLScreenW, 49);
+        sureBtn.backgroundColor = color_red;
+        [sureBtn setTitle:@"确认" forState:UIControlStateNormal];
+        [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [sureBtn addTarget:self action:@selector(rightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:sureBtn];
+    }else {
+        [self setNavigationBarStyleDefultWithTitle:@"发帖"];
+        [self.rightBtn setTitle:@"发布" forState:UIControlStateNormal];
+        [self.rightBtn setTitleColor:color_red forState:UIControlStateNormal];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
+    }
 }
 
 - (void)rightBtnAction:(id)sender
@@ -56,6 +71,8 @@
     [self uploadPhoto];
 }
 
+
+
 - (void)uploadPhoto
 {
     self.arrSelectImgs = _addPhotoView.images;
@@ -63,6 +80,11 @@
     [self.imageNames removeAllObjects];
     
     [MOProgressHUD showWithStatus:@"正在上传图片..."];
+    
+    if (self.arrSelectImgs.count == 0) {
+        [self issueArticleData];
+        return;
+    }
     
     for (int i = 0; i < self.arrSelectImgs.count; i ++) {
         
@@ -83,20 +105,39 @@
 
 - (void)issueArticleData
 {
-    NSString *pics = self.imageNames[0];
+    NSString *pics = self.imageNames.count > 0 ? self.imageNames[0] : [NSNull null];
     for (int i = 1; i < self.imageNames.count; i ++) {
         
         pics = [pics stringByAppendingString:@"|"];
         pics = [pics stringByAppendingString:self.imageNames[i]];
     }
     
-    [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:pics success:^(id responseObject) {
+    if (_type == EditTypeEdit) {
         
-        [MOProgressHUD showSuccessWithStatus:@"发布成功"];
-        [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
-    }];
+        [WLFindDataHandle requestFindArticleEditWithQid:_articleViewModel.article.qid
+                                                    uid:[WLUserInfo share].userId
+                                                  title:_titleTF.text
+                                                content:_contentTV.text
+                                                   pics:pics
+                                                    tid:_articleViewModel.article.tid
+                                                success:^(id responseObject) {
+            
+            [MOProgressHUD showSuccessWithStatus:@"修改成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } failure:^(NSError *error) {
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        }];
+    }else {
+        
+        [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:pics success:^(id responseObject) {
+            
+            [MOProgressHUD showSuccessWithStatus:@"发布成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        }];
+    }
 }
 
 - (UITextField *)titleTF

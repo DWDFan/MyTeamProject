@@ -20,10 +20,10 @@ typedef NS_ENUM(NSUInteger, ZGArticleCellType) {
 @property (nonatomic, assign) ZGArticleCellType type;
 
 @property (nonatomic, copy) void(^moreBlock)(UIButton *button);
-
+@property (nonatomic, copy) void(^commentBlock)(UIButton *button);
 /** 点赞 */
 @property (nonatomic, copy) void(^praiseblock)(UIButton *button);
 - (void)addPraiseCount;
-
+- (void)subPraiseCount;
 
 @end

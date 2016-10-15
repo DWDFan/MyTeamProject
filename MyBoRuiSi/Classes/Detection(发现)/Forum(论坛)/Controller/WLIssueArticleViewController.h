@@ -7,9 +7,17 @@
 //
 
 #import "BaseViewController.h"
+#import "ZGArticleModel.h"
+
+typedef NS_ENUM(NSUInteger, EditType) {
+    EditTypeIssue = 1,
+    EditTypeEdit
+};
 
 @interface WLIssueArticleViewController : BaseViewController
 
+@property (nonatomic, strong) ZGArticleViewModel *articleViewModel;
+@property (nonatomic, assign) EditType type;
 @property (nonatomic, strong) NSString *circleId;
 
 @end
