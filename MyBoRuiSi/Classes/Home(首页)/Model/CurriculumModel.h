@@ -17,6 +17,7 @@
 @property (nonatomic,copy) NSString *disPrice;
 @property (nonatomic,copy) NSString *photo;
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSNumber *type;
 
 
 

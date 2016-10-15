@@ -116,6 +116,12 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _lecturesArray.count;
 }
@@ -130,7 +136,9 @@
     if (cell == nil) {
         cell = [[WLFindLecturerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    cell.lecturer = _lecturesArray[indexPath.row];
+    if (indexPath.row < _lecturesArray.count- 1) {
+        cell.lecturer = _lecturesArray[indexPath.row];
+    }
     return cell;
 }
 

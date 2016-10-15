@@ -33,6 +33,7 @@
 #import "UIImage+Image.h"
 #import "AFNetworking.h"
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 
 @interface WLHome ()<SDCycleScrollViewDelegate,UISearchBarDelegate>
 
@@ -291,11 +292,17 @@
     
     if (indexPath.section == 1) {
         //课程详情
-        WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
-//        WLdetailstwoViewController *detail = [[WLdetailstwoViewController alloc] init];
-
-        detail.courseId = [_arr_curriculum[indexPath.row] id];
-        [self.navigationController pushViewController:detail animated:YES];
+        CurriculumModel *model = _arr_curriculum[indexPath.row];
+        
+        if ([model.type isEqualToNumber:@1]) {
+            WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
+            detail.courseId = [_arr_curriculum[indexPath.row] id];
+            [self.navigationController pushViewController:detail animated:YES];
+        }else {
+            WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+            vc.courseId =  [_arr_curriculum[indexPath.row] id];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
         
     }else if (indexPath.section == 2){
         //讲师详情

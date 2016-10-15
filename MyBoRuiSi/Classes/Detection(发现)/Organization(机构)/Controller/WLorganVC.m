@@ -15,6 +15,7 @@
 #import "WLTabulationViewController.h"
 #import "WLdetailsViewController.h"
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 
 #import "WLdetailstwoViewController.h"//课程详情
 #import "WLJrViewController.h"
@@ -237,9 +238,21 @@
     if (indexPath.section == 2) {
         
         //课程详情
-        WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc]init];
-        vc.courseId = [_institution.list[indexPath.row] id];
-        [self.navigationController pushViewController:vc animated:YES];
+//        WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc]init];
+//        vc.courseId = [_institution.list[indexPath.row] id];
+//        [self.navigationController pushViewController:vc animated:YES];
+        
+        WLCourseListModel *model = _institution.list[indexPath.row];
+        if ([model.type isEqualToNumber:@1]) {
+            WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
+            detail.courseId = model.id;
+            [self.navigationController pushViewController:detail animated:YES];
+        }else {
+            WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+            vc.courseId = model.id;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     }
 }
 

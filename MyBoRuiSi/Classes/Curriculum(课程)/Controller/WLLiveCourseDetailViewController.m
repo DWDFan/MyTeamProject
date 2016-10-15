@@ -213,7 +213,7 @@
             
         }else if (indexPath.row == 1) {
             
-            cell.textLabel.text = _course.disPrice;
+            cell.textLabel.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:_course.disPrice]];
             cell.textLabel.font = [UIFont systemFontOfSize:16];
             cell.textLabel.textColor = KColorOrigin;
             [cell.textLabel sizeToFit];
@@ -235,7 +235,7 @@
             
         }else if (indexPath.row == 2) {
             
-            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",_course.author];
+            cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",_course.aname];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 3) {
             

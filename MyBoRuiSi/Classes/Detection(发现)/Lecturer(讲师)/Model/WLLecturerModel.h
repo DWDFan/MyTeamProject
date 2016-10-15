@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *disPrice;
 @property (nonatomic, strong) NSNumber *star;
 @property (nonatomic, strong) NSString *follow;
+@property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSString *id;
 
 @end

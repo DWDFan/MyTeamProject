@@ -90,6 +90,8 @@
 //设置点击跳转到下一个界面
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 //    NSLog(@"%ld",indexPath.row);
 //    WLAnswerTableViewController *vc = [[WLAnswerTableViewController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];

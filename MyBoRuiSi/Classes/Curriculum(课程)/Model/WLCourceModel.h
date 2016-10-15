@@ -82,6 +82,7 @@
 @property (nonatomic, strong) NSString *publicTime;
 @property (nonatomic, strong) NSNumber *bm;
 @property (nonatomic, strong) NSNumber *limit;
+@property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSArray<WLOtherCourseModel *> *other;
 
 @end
