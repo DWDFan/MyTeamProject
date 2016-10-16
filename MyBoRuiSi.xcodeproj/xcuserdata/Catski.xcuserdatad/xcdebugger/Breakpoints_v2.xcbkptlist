@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Detection(&#x53d1;&#x73b0;)/Forum(&#x8bba;&#x575b;)/Controller/WLIssueArticleViewController.m"
-            timestampString = "498307618.309194"
+            timestampString = "498323418.983326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-imagePickerDidFinished:"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Detection(&#x53d1;&#x73b0;)/Forum(&#x8bba;&#x575b;)/Controller/WLIssueArticleViewController.m"
-            timestampString = "498308339.964876"
+            timestampString = "498323418.983326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "-imagePickerDidCancel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -288,6 +288,38 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "-rightBtnAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Detection(&#x53d1;&#x73b0;)/Forum(&#x8bba;&#x575b;)/Controller/WLIssueArticleViewController.m"
+            timestampString = "498322602.89985"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-imagePickerDidFinished:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Detection(&#x53d1;&#x73b0;)/Forum(&#x8bba;&#x575b;)/Controller/WLIssueArticleViewController.m"
+            timestampString = "498323418.983326"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "-imagePickerDidFinished:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

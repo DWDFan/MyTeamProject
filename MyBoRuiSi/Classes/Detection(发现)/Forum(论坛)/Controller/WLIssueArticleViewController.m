@@ -241,13 +241,21 @@
 
 - (void)imagePickerDidFinished:(JFImagePickerController *)picker {
     
+    [self.selectImages removeAllObjects];
     NSMutableArray *temp = [NSMutableArray arrayWithCapacity:6];
     
     for ( ALAsset *asset in picker.assets) {
         [[JFImageManager sharedManager] thumbWithAsset:asset resultHandler:^(UIImage *result) {
             [temp addObject:result];
-            [self.selectImages addObject:result];
         }];
+        
+        //获取资源图片的详细资源信息
+        ALAssetRepresentation* representation = [asset defaultRepresentation];
+        //获取资源图片的高清图
+        UIImage *fullImage = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+        NSData *data = UIImageJPEGRepresentation(fullImage, 0.2);
+        UIImage *thumbImage = [UIImage imageWithData:data];
+        [self.selectImages addObject:thumbImage];
     }
     
     self.multiSelectView.arrImages = temp;
