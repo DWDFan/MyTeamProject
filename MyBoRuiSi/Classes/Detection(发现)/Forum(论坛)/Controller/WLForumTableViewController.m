@@ -44,6 +44,7 @@
     SDCycleScrollView *sycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:PHOTO_PLACE];
     _sycleView = sycleView;
     self.tableView.tableHeaderView = _sycleView;
+    self.tableView.showsVerticalScrollIndicator = NO;
 
     [self requestData];
 }

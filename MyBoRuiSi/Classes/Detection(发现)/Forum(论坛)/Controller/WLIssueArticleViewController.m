@@ -10,15 +10,18 @@
 #import "WLFindDataHandle.h"
 #import "ZGPlaceHolderTextView.h"
 #import "SZAddImage.h"
+#import "DWDMultiSelectImageView.h"
+#import "JFImagePickerController.h"
 
 #define imageW (WLScreenW - 30 - 40)/5
 
-@interface WLIssueArticleViewController ()<UITextViewDelegate>
+@interface WLIssueArticleViewController ()<UITextViewDelegate, DWDMultiSelectImageViewDelegate, JFImagePickerDelegate>
 
 @property (nonatomic, strong) UITextField *titleTF;
 @property (nonatomic, strong) ZGPlaceHolderTextView *contentTV;
 @property (nonatomic, strong) SZAddImage *addPhotoView;
-@property (nonatomic , strong) NSMutableArray *arrSelectImgs;
+@property (nonatomic, strong) DWDMultiSelectImageView *multiSelectView;
+@property (nonatomic , strong) NSMutableArray *selectImages;
 @property (nonatomic , strong) NSMutableArray *imageNames;
 
 @end
@@ -75,25 +78,23 @@
 
 - (void)uploadPhoto
 {
-    self.arrSelectImgs = _addPhotoView.images;
     
     [self.imageNames removeAllObjects];
     
     [MOProgressHUD showWithStatus:@"正在上传图片..."];
     
-    if (self.arrSelectImgs.count == 0) {
+    if (self.selectImages.count == 0) {
         [self issueArticleData];
         return;
     }
     
-    for (int i = 0; i < self.arrSelectImgs.count; i ++) {
+    for (int i = 0; i < self.selectImages.count; i ++) {
         
-        NSData *fileData = UIImageJPEGRepresentation(self.arrSelectImgs[i], 0.2);
+        NSData *fileData = UIImageJPEGRepresentation(self.selectImages[i], 0.2);
         [WLFindDataHandle requestUploatPhotoWithFiledata:fileData uid:[WLUserInfo share].userId success:^(id responseObject) {
             
-            [MOProgressHUD showSuccessWithStatus:@"上传成功"];
             [self.imageNames addObject:responseObject[@"link"]];
-            if (self.imageNames.count == self.arrSelectImgs.count) {
+            if (self.imageNames.count == self.selectImages.count) {
                 [self issueArticleData];
             }
         } failure:^(NSError *error) {
@@ -173,12 +174,12 @@
     return _imageNames;
 }
 
-- (NSMutableArray *)arrSelectImgs
+- (NSMutableArray *)selectImages
 {
-    if (!_arrSelectImgs) {
-        _arrSelectImgs = [NSMutableArray arrayWithCapacity:0];
+    if (!_selectImages) {
+        _selectImages = [NSMutableArray arrayWithCapacity:0];
     }
-    return _arrSelectImgs;
+    return _selectImages;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -219,11 +220,45 @@
     }else {
         [cell addSubview:self.contentTV];
         
-        _addPhotoView = [[SZAddImage alloc] initWithFrame:CGRectMake(0, self.contentTV.bottom + ZGPaddingMax, WLScreenW, 200)];
-        [cell addSubview:_addPhotoView];
+//        _addPhotoView = [[SZAddImage alloc] initWithFrame:CGRectMake(0, self.contentTV.bottom + ZGPaddingMax, WLScreenW, 200)];
+//        [cell addSubview:_addPhotoView];
+        
+        _multiSelectView  = [[DWDMultiSelectImageView alloc] init];
+        _multiSelectView.frame = CGRectMake(0, self.contentTV.bottom + ZGPaddingMax, WLScreenW, 200);
+        _multiSelectView.delegate = self;
+        [cell addSubview:_multiSelectView];
     }
     return cell;
 }
+
+
+- (void)multiSelectImageViewDidSelectAddButton:(DWDMultiSelectImageView *)multiSelectImageView {
+    JFImagePickerController *picker = [[JFImagePickerController alloc] initWithRootViewController:self];
+    picker.pickerDelegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+
+- (void)imagePickerDidFinished:(JFImagePickerController *)picker {
+    
+    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:6];
+    
+    for ( ALAsset *asset in picker.assets) {
+        [[JFImageManager sharedManager] thumbWithAsset:asset resultHandler:^(UIImage *result) {
+            [temp addObject:result];
+            [self.selectImages addObject:result];
+        }];
+    }
+    
+    self.multiSelectView.arrImages = temp;
+    self.multiSelectView.height = self.multiSelectView.frame.size.height;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerDidCancel:(JFImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

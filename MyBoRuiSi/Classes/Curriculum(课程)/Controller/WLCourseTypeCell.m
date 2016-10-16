@@ -70,4 +70,16 @@
     self.block ? self.block(model.id) : nil;
 }
 
++ (CGFloat)heightWithCount:(NSInteger)count
+{
+    CGFloat itemW = WLScreenW / 4;
+    CGFloat itemH = itemW + 10;
+    
+    if (count == 0) return itemH;
+    
+    NSInteger row = (count - 1)/4 + 1;
+    
+    return row * itemH;
+}
+
 @end

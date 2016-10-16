@@ -230,7 +230,7 @@
  @param failure
  */
 + (void)requestFindArticleAddReplyWithUid:(NSString *)uid
-                                      tid:(NSString *)tid
+                                      pid:(NSString *)pid
                                   content:(NSString *)content
                                   success:(void (^)(id responseObject))success
                                   failure:(void (^)(NSError *error))failure;

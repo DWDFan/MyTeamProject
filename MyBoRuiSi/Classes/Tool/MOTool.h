@@ -17,6 +17,9 @@
  *  在高度一定的情况下返回一个适合的宽度
  */
 + (CGFloat)MOtextSizeW:(NSString *)text WithHigth:(CGFloat)width WithFount:(UIFont *)fount;
+
+
++(CGSize)heightForText:(NSString *)value size:(CGSize )width font:(UIFont *)font;
 /**
  *  把控件切圆
  *
@@ -100,4 +103,7 @@
 
 
 - (UIImage*) createImageWithColor: (UIColor*) color;
+
++ (void)pushLoginViewControllerWithController:(UIViewController *)controller;
+
 @end

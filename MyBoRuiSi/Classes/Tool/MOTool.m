@@ -8,8 +8,9 @@
 
 #import "MOTool.h"
 #import "NSDate+MJ.h"
-@implementation MOTool
+#import "WLRegisteringViewController.h"
 
+@implementation MOTool
 
 
 //MARK: --------------------------------NSString------------------------------
@@ -141,7 +142,7 @@
     NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
     NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
     NSComparisonResult result = [dateA compare:dateB];
-    //DLog(@"date1 : %@, date2 : %@", oneDay, anotherDay);
+    //WLLog(@"date1 : %@, date2 : %@", oneDay, anotherDay);
     if (result == NSOrderedDescending) {
         //NSLog(@"Date1  is in the future");
         return 1;
@@ -464,4 +465,26 @@
     
     return theImage;
 }
+
++ (void)pushLoginViewControllerWithController:(UIViewController *)controller
+{
+    WLRegisteringViewController *loginVC = [[WLRegisteringViewController alloc] init];
+    [controller.navigationController pushViewController:loginVC animated:YES];
+}
+
++(CGSize)heightForText:(NSString *)value size:(CGSize )width font:(UIFont *)font
+{
+    CGSize sizeToFit;
+    if(([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)){
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+        
+        sizeToFit = [value boundingRectWithSize:width options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    }
+    
+    return sizeToFit;
+    
+}
+
 @end

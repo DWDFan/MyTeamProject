@@ -52,6 +52,9 @@
 @property (nonatomic, strong) NSString *addtime;
 @property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *photo;
+// 帖子回复
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *rid;
 
 @end
 

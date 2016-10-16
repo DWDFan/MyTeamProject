@@ -156,16 +156,20 @@
     WLCourseTypeCell *cellsF = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cellsF) {
         cellsF = [[WLCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cellsF.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
    WLCurriculumTableViewCellTwo  *cellTwo = [tableView dequeueReusableCellWithIdentifier:IDTwo];
     if (!cellTwo) {
         cellTwo = [[[NSBundle mainBundle] loadNibNamed:IDTwo owner:nil options:nil] lastObject];
+        cellTwo.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     
     WLCourseTypeCell  *cellThree = [tableView dequeueReusableCellWithIdentifier:IDThree];
     if (!cellThree) {
         cellThree =  [[WLCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDThree];
+        cellThree.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     LiveTableViewCell  *cellFour = [tableView dequeueReusableCellWithIdentifier:IDFour];
@@ -176,11 +180,13 @@
     WLLiveCourseTypeCell *cellFive = [tableView dequeueReusableCellWithIdentifier:IDFive];
     if (!cellFive) {
         cellFive =[[WLLiveCourseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDFive];
+        cellFive.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     
     UITableViewCell *cellSix = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    
+    cellSix.selectionStyle = UITableViewCellSelectionStyleNone;
+
     
     if (indexPath.section == 0) {
         
@@ -279,7 +285,7 @@
                 
                 
             }else{
-                a = 220;
+                return [WLLiveCourseTypeCell heightWithCount:_hotCourseArray.count];
             }
         }
     }else{
@@ -290,7 +296,7 @@
                 
             }else{
                 
-                a = 190;
+                return [WLCourseTypeCell heightWithCount:_hotCourseArray.count];
             }
         }else{
             
@@ -298,7 +304,7 @@
                 
             }else{
                 
-                a = 100;
+                return [WLCourseTypeCell heightWithCount:_recommendArray.count];
             }
         }
     }
@@ -320,7 +326,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (_type == 1 && indexPath.section == 0) {
+    if (_type == 1 && indexPath.section == 0 && indexPath.row != 0) {
         
         WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
         vc.courseId = [_liveCourseArray[indexPath.row - 1] id];

@@ -395,13 +395,13 @@
  @param failure
  */
 + (void)requestFindArticleAddReplyWithUid:(NSString *)uid
-                                      tid:(NSString *)tid
+                                      pid:(NSString *)pid
                                   content:(NSString *)content
                                   success:(void (^)(id responseObject))success
                                   failure:(void (^)(NSError *error))failure
 {
     NSDictionary *param = @{@"uid" : [MOTool getNULLString:uid],
-                            @"tid" : [MOTool getNULLString:tid],
+                            @"pid" : [MOTool getNULLString:pid],
                             @"content" : [MOTool getNULLString:content]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=addReply" parameters:param success:^(id responseObject) {

@@ -66,7 +66,7 @@
             [self.navigationController pushViewController:VC animated:YES];
         }else {
 #warning testData -- fzg
-            [MOProgressHUD showWithStatus:@"正在下载课件..."];
+            [MOProgressHUD showSuccessWithStatus:@"正在下载课件..."];
             NSURL *url = [NSURL URLWithString:self.dataSoureArray[indexPath.row][@"kjUrl"]];
             ZGDownLoadUtil *downloadUtil = [[ZGDownLoadUtil alloc] init];
             [downloadUtil downLoadFileWithUrl:url completion:^(BOOL isComplete) {

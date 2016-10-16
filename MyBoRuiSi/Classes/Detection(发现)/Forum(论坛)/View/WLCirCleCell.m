@@ -39,6 +39,14 @@
 {
     _circlesArray = circlesArray;
     
+    for (UIView *subView in self.subviews) {
+        
+        if ([subView isKindOfClass:[circleBtn class]]) {
+            
+            [subView removeFromSuperview];
+        }
+    }
+    
     CGFloat itemW = WLScreenW / 4;
     CGFloat itemH = itemW - 10;
     

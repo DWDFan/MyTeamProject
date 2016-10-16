@@ -7,6 +7,7 @@
 //
 
 #import "SZAddImage.h"
+#import "JFImagePickerController.h"
 
 #define imageH ((WLScreenW - 30 - 40)/5) // 图片高度
 #define imageW ((WLScreenW - 30 - 40)/5) // 图片宽度
@@ -16,7 +17,7 @@
 #define kAdeleImage @"del_image" // 删除按钮图片
 #define kAddImage @"add_image" // 添加按钮图片
 
-@interface SZAddImage()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SZAddImage()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, JFImagePickerDelegate>
 {
     // 标识被编辑的按钮 -1 为添加新的按钮
     NSInteger editTag;
@@ -81,10 +82,14 @@
 // 调用图片选择器
 - (void)callImagePicker
 {
-    UIImagePickerController *pc = [[UIImagePickerController alloc] init];
-    pc.allowsEditing = YES;
-    pc.delegate = self;
-    [self.window.rootViewController presentViewController:pc animated:YES completion:nil];
+//    UIImagePickerController *pc = [[UIImagePickerController alloc] init];
+//    pc.allowsEditing = YES;
+//    pc.delegate = self;
+//    [self.window.rootViewController presentViewController:pc animated:YES completion:nil];
+    JFImagePickerController *picker = [[JFImagePickerController alloc] initWithRootViewController:self.window.rootViewController];
+    picker.pickerDelegate = self;
+    
+    [self.window.rootViewController presentViewController:picker animated:YES completion:nil];
 }
 
 
@@ -215,6 +220,26 @@
         [self.images insertObject:image atIndex:editTag - 1];
     }
     // 退出图片选择控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerDidFinished:(JFImagePickerController *)picker {
+    
+    NSMutableArray *temp = [NSMutableArray arrayWithCapacity:9];
+    
+    for (ALAsset *asset in picker.assets) {
+        [[JFImageManager sharedManager] thumbWithAsset:asset resultHandler:^(UIImage *result) {
+            [temp addObject:result];
+        }];
+    }
+    
+//    self.multiSelectImageView.arrImages = temp;
+//    self.multiSelectImageHeight.constant = self.multiSelectImageView.frame.size.height;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerDidCancel:(JFImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

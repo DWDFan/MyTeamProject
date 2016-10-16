@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSArray *typeArray;
 @property (nonatomic, copy) void(^block)(NSString *typeId);
++ (CGFloat)heightWithCount:(NSInteger)count;
 
 @end

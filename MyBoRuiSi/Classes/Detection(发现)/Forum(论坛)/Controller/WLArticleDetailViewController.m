@@ -21,8 +21,8 @@
 
 @property (nonatomic, strong) UITextField *replyTF;
 @property (nonatomic, strong) UIView *bottomView;
-@property (nonatomic, strong) NSArray *commentsArray;
-@property (nonatomic, assign) NSNumber *page;
+@property (nonatomic, strong) NSMutableArray *commentsArray;
+@property (nonatomic, assign) NSInteger page;
 
 @end
 
@@ -58,14 +58,22 @@
     sendBtn.layer.cornerRadius = 4;
     sendBtn.layer.masksToBounds = YES;
     sendBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [sendBtn addTarget:self action:@selector(sendReply:) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:sendBtn];
     
-    _page = @0;
+    UIView *topLine = [[UIView alloc] init];
+    topLine.frame = CGRectMake(0, 0, WLScreenW, 0.5);
+    topLine.backgroundColor = COLOR_tableView_separator;
+    [self.bottomView addSubview:topLine];
+    
+    [self.tableView addFooterWithTarget:self action:@selector(requestCommentData)];
     [self requestData];
 }
 
 - (void)requestData
 {
+    _page = 1;
+    
     // 帖子内容
     [WLFindDataHandle requestFindArticleDetailWithTid:_articleId success:^(id responseObject) {
         
@@ -78,21 +86,38 @@
     }];
     
     // 评论列表
-    [WLFindDataHandle requestFindArticleCommentListWithTid:_articleId page:_page success:^(id responseObject) {
-        
-        _commentsArray = [WLCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.tableView reloadData];
-    } failure:^(NSError *error) {
-        
-    }];
+    [self requestCommentData];
     
     // 阅读
     [WLFindDataHandle requestFindArticleReadWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
         
+    } failure:^(NSError *error) {
+    }];
+}
+
+- (void)requestCommentData
+{
+    // 评论列表
+    [WLFindDataHandle requestFindArticleCommentListWithTid:_articleId page:@(_page) success:^(id responseObject) {
+        
+        _page == 1 ? [self.commentsArray removeAllObjects] : nil;
+        NSMutableArray *mArray = [WLCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.commentsArray addObjectsFromArray:mArray];
+        [self.tableView footerEndRefreshing];
+        [self.tableView reloadData];
+        _page ++;
         
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (NSMutableArray *)commentsArray
+{
+    if (!_commentsArray) {
+        _commentsArray = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _commentsArray;
 }
 
 #pragma mark - 编辑
@@ -187,9 +212,21 @@
     [self.navigationController pushViewController:reportVC animated:YES];
 }
 
-- (void)comment
+- (void)sendReply:(UIButton *)sender
 {
-    [self.replyTF becomeFirstResponder];
+    if (_replyTF.text.length == 0) return;
+    
+    [WLFindDataHandle requestFindArticleAddReplyWithUid:[WLUserInfo share].userId pid:_articleId content:_replyTF.text success:^(id responseObject) {
+        
+        _replyTF.text = @"";
+        [_replyTF resignFirstResponder];
+        
+        // 刷新
+        [self requestData];
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -244,7 +281,7 @@
         
         [cell setCommentBlock:^(UIButton *button) {
 
-            [weakSelf comment];
+            [self.replyTF becomeFirstResponder];
         }];
         
         [cell setMoreBlock:^(UIButton *button){
@@ -335,10 +372,9 @@
 
 - (void)keyboardShow:(NSNotification *)notification
 {
-    NSValue *value = notification.userInfo[@"UIKeyboardFrameBeginUserInfoKey"];
+    NSValue *value = notification.userInfo[UIKeyboardFrameEndUserInfoKey];
     CGSize keyboardSize = [value CGRectValue].size;
     CGFloat keyboardHeight = keyboardSize.height;
-    
     [UIView animateWithDuration:0.3 animations:^{
         self.bottomView.y = WLScreenH - IOS7_TOP_Y - keyboardHeight - self.bottomView.height;
     }];
@@ -350,6 +386,5 @@
         self.bottomView.y = WLScreenH - IOS7_TOP_Y;
     }];
 }
-
 
 @end

@@ -27,22 +27,24 @@
     
     _priceLbl.text = [NSString stringWithFormat:@"￥%@",_course.disPrice];
     
-    if ([_course.zbStatus isEqual:@2]) {
-        _liveStatusImgV.hidden = YES;
+    if ([_course.zbStatus integerValue] == 0) {
+        [_liveStatusImgV setImage:[UIImage imageNamed:@"直播未开始"] forState:UIControlStateNormal];
+        [_liveStatusImgV setTitle:@"直播未开始" forState:UIControlStateNormal];
+    }else if ([_course.zbStatus integerValue] == 1){
+        [_liveStatusImgV setImage:[UIImage imageNamed:@"icon-直播中"] forState:UIControlStateNormal];
+        [_liveStatusImgV setTitle:@"直播进行中" forState:UIControlStateNormal];
+    }else if ([_course.zbStatus integerValue] == 2) {
+        [_liveStatusImgV setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_liveStatusImgV setTitle:@"直播已结束" forState:UIControlStateNormal];
     }else {
-        _liveStatusImgV.hidden = NO;
+        _liveStatusImgV.hidden = YES;
     }
     
 }
 
 - (void)awakeFromNib {
-
+    [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

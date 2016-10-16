@@ -41,7 +41,8 @@
     _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, heihgt);
     
     CGFloat imageW = (WLScreenW - ZGPaddingMax * 2 - 2 * ZGPadding) / 3;
-    CGFloat imageH = imageW * 0.7;
+    NSInteger row = (_article.image.count - 1)/3 + 1;
+    CGFloat imageH = (imageW * 0.7) * row + (row - 1) * ZGPadding;
     _imageVFrame = CGRectMake(ZGPaddingMax, CGRectGetMaxY(_contentFrame) + ZGPaddingMax, WLScreenW - 2 * ZGPaddingMax, imageH + ZGPaddingMax);
     
     if (article.image.count == 0) {

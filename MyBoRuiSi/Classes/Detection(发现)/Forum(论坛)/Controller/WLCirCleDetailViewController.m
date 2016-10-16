@@ -132,7 +132,15 @@
             NSNumber *type = sender.selected ? @2 : @1;
             [WLFindDataHandle requestFindCircleFollowWithQid:_circleId uid:[WLUserInfo share].userId type:type success:^(id responseObject) {
                 sender.selected = !sender.selected;
-                sender.selected ? (weakSelf.issueBtn.hidden = NO) : (weakSelf.issueBtn.hidden = YES);
+                _infoModel.isFollow = sender.selected;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshMyCircle" object:nil];
+                if (sender.selected) {
+                    weakSelf.issueBtn.hidden = NO;
+                    weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+                }else {
+                    weakSelf.issueBtn.hidden = YES;
+                    weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                }
             } failure:^(NSError *error) {
                 [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
             }];

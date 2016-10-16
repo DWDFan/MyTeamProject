@@ -7,6 +7,7 @@
 //
 
 #import "ZGArticleCell.h"
+#import "YYPhotoGroupView.h"
 
 @interface ZGArticleCell ()
 
@@ -120,14 +121,20 @@
     CGFloat imageW = (WLScreenW - ZGPaddingMax * 2 - 2 * ZGPadding) / 3;
     CGFloat imageH = imageW * 0.7;
     
-    for (int i = 0; i < 3; i ++) {
+    for (int i = 0; i < 6; i ++) {
         
+        NSInteger row = i/3;
+        NSInteger col = i%3;
         UIImageView *imageV = [[UIImageView alloc] init];
-        imageV.frame = CGRectMake((imageW + ZGPadding) * i, 0, imageW, imageH);
+        imageV.frame = CGRectMake((imageW + ZGPadding) * col, (imageH + 10) * row, imageW, imageH);
         imageV.contentMode = UIViewContentModeScaleAspectFill;
         imageV.layer.masksToBounds = YES;
         [_imageContainV addSubview:imageV];
         [self.images addObject:imageV];
+        
+        imageV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePhotoImgV:)];
+        [imageV addGestureRecognizer:tap];
     }
 }
 
@@ -151,7 +158,7 @@
     
     _readLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.viewNum];
     
-    for (int i = 0; i < 3; i ++) {
+    for (int i = 0; i < 6; i ++) {
         
         UIImageView *imageV = (UIImageView *)[_images objectAtIndex:i];
         
@@ -242,6 +249,33 @@
         _readLbl.alpha = 1;
         _moreBtn.alpha = 1;
     }
+}
+
+- (void)handlePhotoImgV:(id)recognizer{
+    
+    if (_type == ZGArticleCellTypeList) {
+        return;
+    }
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)recognizer;
+    NSMutableArray *items = [NSMutableArray new];
+    
+
+    for (NSUInteger i = 0; i < _articleViewModel.article.image.count; i++) {
+        
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = self.images[i];
+        ZGImageModel *imageModel = _articleViewModel.article.image[i];
+        item.largeImageURL = [NSURL URLWithString:imageModel.image];
+        item.largeImageSize = CGSizeMake(60, 60);
+        [items addObject:item];
+    }
+    
+    UIImageView *fromV = (UIImageView *)tap.view;
+    NSLog(@"%f",fromV.frame.size.width);
+    
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items isForce:YES];
+    [v presentFromImageView:fromV toContainer:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:YES completion:nil];
 }
 
 @end

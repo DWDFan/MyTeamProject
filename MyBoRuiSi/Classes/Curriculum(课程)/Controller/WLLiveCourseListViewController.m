@@ -30,9 +30,15 @@
 
 - (void)requestData
 {
+    self.page = 1;
+
     [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@2 ppid:self.sortId priceOrder:self.priceOrder zbstatus:@1 saleNum:self.saleNumOrder level:@0 success:^(id responseObject) {
         
-        self.courses = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.page == 1 ? [self.courses removeAllObjects] : nil;
+        
+        NSArray *mArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.courses addObjectsFromArray:mArray];
+        [self.tableView footerEndRefreshing];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
