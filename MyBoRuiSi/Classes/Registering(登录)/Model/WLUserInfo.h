@@ -12,12 +12,12 @@
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, assign) BOOL isLogin;
-@property (nonatomic, strong) NSString *money;
+@property (nonatomic, strong) NSNumber *money;
 @property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *vipEndtm;
-@property (nonatomic, strong) NSNumber *telphone;
+@property (nonatomic, strong) NSString *telphone;
 @property (nonatomic, strong) NSNumber *favNum;
-@property (nonatomic, strong) NSString *score;
+@property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *job;

@@ -33,8 +33,13 @@
 #import "UIImage+Image.h"
 #import "AFNetworking.h"
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
+#import "WLArticleDetailViewController.h"
+#import "WebViewController.h"
+#import "WLRegisteringViewController.h"
 
-@interface WLHome ()<SDCycleScrollViewDelegate,UISearchBarDelegate>
+
+@interface WLHome ()<SDCycleScrollViewDelegate,UISearchBarDelegate,UIAlertViewDelegate>
 
 @property(nonatomic,strong) UIView *views;
 
@@ -43,6 +48,9 @@
 @property (nonatomic,strong)NSMutableArray *teacherArray;
 
 @property (nonatomic,strong)NSMutableArray *arr_Recommendation;
+
+@property (nonatomic, strong) NSArray *adsArray;
+
 @end
 
 
@@ -90,6 +98,7 @@
     SDCycleScrollView *scrollview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:[UIImage imageNamed:@"图层-50_88"]];
     
     self.tableView.tableHeaderView = scrollview;
+    self.tableView.showsVerticalScrollIndicator = NO;
     
     UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 60)];
     search.placeholder = @"搜索";
@@ -102,23 +111,9 @@
         //返回参数
         if ([dic[@"code"] intValue] == 1 ) {
             
-            //用数组取值
-            NSArray *array_main = dic[@"data"];
-            //创建可变数组
+            self.adsArray = dic[@"data"];
             NSMutableArray *mutabArray = [NSMutableArray array];
-               //遍历数组所有值
-//            for (int i = 0; i < array_main.count; i++) {
-//                //用字典接收
-//                NSDictionary *dic_two = array_main[i];
-//                
-//                NSLog(@"%@",dic_two[@"img"]);
-//                
-//                添加到数组
-//                [mutabArray addObject:dic_two[@"img"]];
-//            }
-            for (NSDictionary *dic  in array_main) {
-                //NSLog(@"%@",dic[@"title"]);
-                
+            for (NSDictionary *dic  in self.adsArray) {
                 [mutabArray addObject:dic[@"img"]];
             }
             scrollview.imageURLStringsGroup = mutabArray;
@@ -126,13 +121,6 @@
             
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
         }
-        
-        
-        
-         NSLog(@"%@",responseObject);
-        
-        
-        
     } failure:^(NSError *error) {
         
     }];
@@ -233,6 +221,30 @@
     }];
 }
 
+// 点击图片回调
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    NSDictionary *dict = self.adsArray[index];
+    NSString *type = dict[@"type"];
+    
+    if ([type isEqualToString:@"kecheng"]) {
+        
+        WLCourseDetailViewController *VC = [[WLCourseDetailViewController alloc] init];
+        VC.courseId = dict[@"url"];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else if ([type isEqualToString:@"bbs"]) {
+    
+        WLArticleDetailViewController *VC = [[WLArticleDetailViewController alloc] init];
+        VC.articleId = dict[@"url"];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else if ([type isEqualToString:@"other"]){
+    
+        WebViewController *VC = [[WebViewController alloc] init];
+        VC.urlstr = dict[@"url"];
+        VC.titleStr = dict[@"title"];
+        [self.navigationController pushViewController:VC animated:YES];
+    }
+}
 
 //cancel按钮点击时调用
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
@@ -291,11 +303,17 @@
     
     if (indexPath.section == 1) {
         //课程详情
-        WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
-//        WLdetailstwoViewController *detail = [[WLdetailstwoViewController alloc] init];
-
-        detail.courseId = [_arr_curriculum[indexPath.row] id];
-        [self.navigationController pushViewController:detail animated:YES];
+        CurriculumModel *model = _arr_curriculum[indexPath.row];
+        
+        if ([model.type isEqualToNumber:@1]) {
+            WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
+            detail.courseId = [_arr_curriculum[indexPath.row] id];
+            [self.navigationController pushViewController:detail animated:YES];
+        }else {
+            WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+            vc.courseId =  [_arr_curriculum[indexPath.row] id];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
         
     }else if (indexPath.section == 2){
         //讲师详情
@@ -332,12 +350,22 @@
                 cells.WLHomeTableViewCellBlock = ^(){
                     
                     //证书查询
+                    if (![WLUserInfo share].isLogin) {
+                        
+                        [self alertLogin];
+                        return ;
+                    }
                     WLInquiryViewController *inqui = [[WLInquiryViewController alloc]init];
                     [weakSelf.navigationController pushViewController:inqui animated:YES];
                };
 
                 cells.WLHomeTableViewCellBlockTwo = ^(){
                     
+                    if (![WLUserInfo share].isLogin) {
+                        
+                        [self alertLogin];
+                        return ;
+                    }
                     //在线测评
                     WLEvaluationViewController *evaluation = [[WLEvaluationViewController alloc]init];
                     [weakSelf.navigationController pushViewController:evaluation animated:YES];
@@ -401,8 +429,21 @@
     
     
     return cell;
-
 }
+
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
+}
+
 //开始触摸
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
  

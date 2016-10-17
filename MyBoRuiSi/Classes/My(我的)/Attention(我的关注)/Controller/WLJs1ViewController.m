@@ -70,9 +70,8 @@
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    /**
-     讲师详情
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     WLDetailsViewController *det = [[WLDetailsViewController alloc]init];
     WLMyAttentionModel *model = self.dataSource[indexPath.row];
     det.teacherId = model.tid;

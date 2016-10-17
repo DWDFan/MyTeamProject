@@ -27,6 +27,16 @@
     [self setSubviews];
     
     [self requestData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(requestData)
+                                                 name:@"refreshMyCircle"
+                                               object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshMyCircle" object:nil];
 }
 
 - (void)requestData
@@ -58,6 +68,7 @@
     WLCirCleCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[WLCirCleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.circlesArray = _circlesArray;
     [cell setBlock:^(NSString *typeId, NSString *name) {

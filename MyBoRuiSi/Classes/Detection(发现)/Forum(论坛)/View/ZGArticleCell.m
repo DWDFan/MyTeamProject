@@ -7,12 +7,13 @@
 //
 
 #import "ZGArticleCell.h"
+#import "YYPhotoGroupView.h"
 
 @interface ZGArticleCell ()
 
 @property (nonatomic, strong) UIImageView *avatarImgV;
 @property (nonatomic, strong) UIButton *praBtn;
-@property (nonatomic, strong) UIImageView *cmtImgV;
+@property (nonatomic, strong) UIButton *cmtImgV;
 @property (nonatomic, strong) UILabel *nameLbl;
 @property (nonatomic, strong) UILabel *timeLbl;
 @property (nonatomic, strong) UILabel *titleLbl;
@@ -23,7 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *images;
 
 @property (nonatomic, strong) UIButton *moreBtn;
-@property (nonatomic, strong) UILabel *viewLbl;
+@property (nonatomic, strong) UILabel *readLbl;
 @property (nonatomic, strong) UIImageView *readIcon;
 
 @end
@@ -46,16 +47,24 @@
     _avatarImgV.layer.masksToBounds = YES;
     [self addSubview:_avatarImgV];
     
+    // 赞,评论,阅读图标/按钮
     _praBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_praBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
     [_praBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
     [_praBtn addTarget:self action:@selector(praBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_praBtn];
-    
-    _cmtImgV = [[UIImageView alloc] init];
-    _cmtImgV.image = [UIImage imageNamed:@"素彩网www.sc115.com-108"];
-    _cmtImgV.contentMode = UIViewContentModeScaleAspectFit;
+
+    _cmtImgV = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_cmtImgV setImage:[UIImage imageNamed:@"素彩网www.sc115.com-108"] forState:UIControlStateNormal];
+    [_cmtImgV addTarget:self action:@selector(cmtBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_cmtImgV];
+
+    
+    _readIcon = [[UIImageView alloc] init];
+    _readIcon.image = [UIImage imageNamed:@"素彩网www.sc115.com-114"];
+    _readIcon.contentMode = UIViewContentModeScaleAspectFit;
+    _readIcon.hidden = YES;
+    [self addSubview:_readIcon];
     
     _timeLbl = [[UILabel alloc] init];
     _timeLbl.textColor = COLOR_WORD_GRAY_2;
@@ -79,6 +88,7 @@
     _contentLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:_contentLbl];
     
+    // 赞,评论,阅读数量
     _praLbl = [[UILabel alloc] init];
     _praLbl.textColor = COLOR_WORD_GRAY_2;
     _praLbl.font = [UIFont systemFontOfSize:12];
@@ -89,11 +99,20 @@
     _cmtLbl.font = [UIFont systemFontOfSize:12];
     [self addSubview:_cmtLbl];
     
+    _readLbl = [[UILabel alloc] init];
+    _readLbl.textColor = COLOR_WORD_GRAY_2;
+    _readLbl.font = [UIFont systemFontOfSize:12];
+    _readLbl.hidden = YES;
+    [self addSubview:_readLbl];
+
+    
     _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_moreBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-230"] forState:UIControlStateNormal];
-    [_moreBtn setImage:[UIImage imageNamed:@"follow_heart_nomal"] forState:UIControlStateSelected];
+    [_moreBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-139-拷贝"] forState:UIControlStateNormal];
     [_moreBtn addTarget:self action:@selector(moreBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_moreBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -13, 0, 0)];
+    _moreBtn.hidden = YES;
     [self addSubview:_moreBtn];
+
     
     _imageContainV = [[UIView alloc] init];
     _imageContainV.layer.masksToBounds = YES;
@@ -102,14 +121,20 @@
     CGFloat imageW = (WLScreenW - ZGPaddingMax * 2 - 2 * ZGPadding) / 3;
     CGFloat imageH = imageW * 0.7;
     
-    for (int i = 0; i < 3; i ++) {
+    for (int i = 0; i < 6; i ++) {
         
+        NSInteger row = i/3;
+        NSInteger col = i%3;
         UIImageView *imageV = [[UIImageView alloc] init];
-        imageV.frame = CGRectMake((imageW + ZGPadding) * i, 0, imageW, imageH);
+        imageV.frame = CGRectMake((imageW + ZGPadding) * col, (imageH + 10) * row, imageW, imageH);
         imageV.contentMode = UIViewContentModeScaleAspectFill;
         imageV.layer.masksToBounds = YES;
         [_imageContainV addSubview:imageV];
         [self.images addObject:imageV];
+        
+        imageV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePhotoImgV:)];
+        [imageV addGestureRecognizer:tap];
     }
 }
 
@@ -131,7 +156,9 @@
     
     _cmtLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.cmtNum ? _articleViewModel.article.cmtNum : _articleViewModel.article.replyNum];
     
-    for (int i = 0; i < 3; i ++) {
+    _readLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.viewNum];
+    
+    for (int i = 0; i < 6; i ++) {
         
         UIImageView *imageV = (UIImageView *)[_images objectAtIndex:i];
         
@@ -153,8 +180,24 @@
     _imageContainV.frame = _articleViewModel.imageVFrame;
     _praBtn.frame = _articleViewModel.praIconFrame;
     _cmtImgV.frame = _articleViewModel.cmtIconFrame;
+    _readIcon.frame = _articleViewModel.readIconFrame;
     _praLbl.frame = _articleViewModel.praFrame;
     _cmtLbl.frame = _articleViewModel.cmtFrame;
+    _readLbl.frame = _articleViewModel.readFrame;
+    _moreBtn.frame = _articleViewModel.moreBtnFrame;
+    
+    _praBtn.selected = _articleViewModel.article.selfZan;
+    
+    if ([[WLUserInfo share].userId isEqualToString:_articleViewModel.article.uid]) {
+        
+        _readIcon.hidden = NO;
+        _readLbl.hidden = NO;
+        _moreBtn.hidden = NO;
+    }else {
+        _readIcon.hidden = YES;
+        _readLbl.hidden = YES;
+        _moreBtn.hidden = YES;
+    }
 }
 
 - (void)praBtnAction:(UIButton *)sender
@@ -162,14 +205,26 @@
     self.praiseblock ? self.praiseblock(sender) : nil;
 }
 
+- (void)cmtBtnAction:(UIButton *)sender
+{
+    self.commentBlock ? self.commentBlock(sender) : nil;
+}
+
 - (void)moreBtnAction:(UIButton *)sender
 {
-    
+    self.moreBlock ? self.moreBlock(sender) : nil;
 }
 
 - (void)addPraiseCount
 {
     NSInteger count = [_articleViewModel.article.zanNum integerValue] + 1;
+    _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
+    _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
+}
+
+- (void)subPraiseCount
+{
+    NSInteger count = [_articleViewModel.article.zanNum integerValue] - 1;
     _articleViewModel.article.zanNum = [NSNumber numberWithInteger:count];
     _praLbl.text =  [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
 }
@@ -180,6 +235,47 @@
         _images = [NSMutableArray arrayWithCapacity:0];
     }
     return _images;
+}
+
+- (void)setType:(ZGArticleCellType)type
+{
+    _type = type;
+    if (type == ZGArticleCellTypeList) {
+        _readIcon.alpha = 0;
+        _readLbl.alpha = 0;
+        _moreBtn.alpha = 0;
+    }else {
+        _readIcon.alpha = 1;
+        _readLbl.alpha = 1;
+        _moreBtn.alpha = 1;
+    }
+}
+
+- (void)handlePhotoImgV:(id)recognizer{
+    
+    if (_type == ZGArticleCellTypeList) {
+        return;
+    }
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)recognizer;
+    NSMutableArray *items = [NSMutableArray new];
+    
+
+    for (NSUInteger i = 0; i < _articleViewModel.article.image.count; i++) {
+        
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = self.images[i];
+        ZGImageModel *imageModel = _articleViewModel.article.image[i];
+        item.largeImageURL = [NSURL URLWithString:imageModel.image];
+        item.largeImageSize = CGSizeMake(60, 60);
+        [items addObject:item];
+    }
+    
+    UIImageView *fromV = (UIImageView *)tap.view;
+    NSLog(@"%f",fromV.frame.size.width);
+    
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items isForce:YES];
+    [v presentFromImageView:fromV toContainer:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:YES completion:nil];
 }
 
 @end

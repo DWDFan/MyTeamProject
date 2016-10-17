@@ -16,8 +16,6 @@
 
 @interface WLVODCourseListViewController ()<WLFilterViewDelegate>
 
-
-
 @end
 
 @implementation WLVODCourseListViewController
@@ -29,7 +27,6 @@
     [self setSubviews];
     
     [self requestData];
-
 }
 
 - (void)setSubviews
@@ -43,6 +40,7 @@
     self.tableView.frame = CGRectMake(0, 45, WLScreenW, WLScreenH - IOS7_TOP_Y - 45);
     self.tableView.rowHeight = 100;
     
+    [self.tableView addFooterWithTarget:self action:@selector(requestListData)];
     [self setNavigationBarStyleDefultWithTitle:@"在线点播"];
     
     _saleNumOrder = @"desc";
@@ -51,9 +49,15 @@
 
 - (void)requestData
 {
-    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
+    _page = 1;
+
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
         
-        _courses = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        _page == 1 ? [self.courses removeAllObjects] : nil;
+        
+        NSArray *mArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.courses addObjectsFromArray:mArray];
+        [self.tableView footerEndRefreshing];
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -66,6 +70,29 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (void)requestListData
+{
+    _page ++;
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
+        
+        NSArray *mArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.courses addObjectsFromArray:mArray];
+        [self.tableView footerEndRefreshing];
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (NSMutableArray *)courses
+{
+    if (!_courses) {
+        _courses = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _courses;
 }
 
 #pragma mark - filterViewDelegate

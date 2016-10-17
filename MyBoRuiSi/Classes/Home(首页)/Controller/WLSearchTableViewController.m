@@ -17,6 +17,7 @@
 #import "WLSouTableViewController.h"
 
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 #import "WLDetailsViewController.h"
 #import "WLorganVC.h"
 
@@ -533,9 +534,17 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
         case ZGSearchTypeCourse:
         case ZGSearchTypeStandard:
         {
-            WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
-            vc.courseId = [_dataSourceArray[indexPath.row] id];
-            [self.navigationController pushViewController:vc animated:YES];
+            WLCourceModel *model = _dataSourceArray[indexPath.row];
+            if ([model.type isEqualToNumber:@1]) {
+
+                WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+                vc.courseId = [_dataSourceArray[indexPath.row] id];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else {
+                WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+                vc.courseId = [_dataSourceArray[indexPath.row] id];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
             break;
         case ZGSearchTypeLecturer:

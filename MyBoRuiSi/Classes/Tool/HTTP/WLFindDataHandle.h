@@ -98,6 +98,19 @@
 
 
 /**
+ 帖子取消点赞
+ 
+ @param tid     tid 帖子id
+ @param uid     uid 当前登录id
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleCanclePriseWithTid:(NSString *)tid
+                                         uid:(NSString *)uid
+                                     success:(void (^)(id responseObject))success
+                                     failure:(void (^)(NSError *error))failure;
+
+/**
  帖子浏览
  
  @param tid     tid 帖子id
@@ -194,6 +207,33 @@
                             success:(void (^)(id responseObject))success
                             failure:(void (^)(NSError *error))failure;
 
+
+/**
+ 删除我的帖子
+
+ @param uid
+ @param tid
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleDeleteWithUid:(NSString *)uid
+                                    tid:(NSString *)tid
+                                success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure;
+
+/**
+ 添加回复
+ 
+ @param uid
+ @param tid
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleAddReplyWithUid:(NSString *)uid
+                                      pid:(NSString *)pid
+                                  content:(NSString *)content
+                                  success:(void (^)(id responseObject))success
+                                  failure:(void (^)(NSError *error))failure;
 
 /**
  获取兴趣圈的列表

@@ -33,7 +33,10 @@
     self.navigationItem.titleView = btn;
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    self.tableView.tableFooterView = [[UIView alloc] init]; 
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    _page = 1;
+    [self requestGetMyPost];
     
 }
 //颜色转图片
@@ -107,7 +110,7 @@
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //帖子详情
     WLArticleDetailViewController *cadr = [[WLArticleDetailViewController alloc]init];
     ZGArticleViewModel *model = self.dataSource[indexPath.row];

@@ -89,6 +89,7 @@
 #pragma mark 点击tableViewcell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLorganVC *vc = [[WLorganVC alloc]init];
     RecommendationModelll *model = [self.institutionsArray objectAtIndex:indexPath.row];
     vc.institutionId = model.id;

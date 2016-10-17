@@ -55,8 +55,8 @@
     _vip_btn.layer.cornerRadius = 3;
     
     _name.text = [WLUserInfo share].nickname;
-    _score.text = [WLUserInfo share].score;
-    _collectionCount.text = [[WLUserInfo share].favNum stringValue];
+    _collectionCount.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].favNum];
+    _score.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].score];
     
     if ([WLUserInfo share].isVip) {
         _vip_Imv.image = [UIImage imageNamed:@"icon-is会员"];

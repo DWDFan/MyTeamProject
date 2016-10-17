@@ -40,6 +40,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.showsVerticalScrollIndicator = NO;
     
     WLSortSelectView *sortView = [[WLSortSelectView alloc] initWithFrame:CGRectMake(0, 0, WLScreenW, 40)];
     sortView.titlesArray = @[@"企业规模",@"企业性质",@"关注度"];

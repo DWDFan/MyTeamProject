@@ -10,7 +10,7 @@
 
 #import "WLDetailsTableViewCell.h"
 #import "WLDetailsHeardTableViewCell.h"
-
+#import "WLLiveCourseDetailViewController.h"
 #import "WLCourseDetailViewController.h"
 #import "WLHomeDataHandle.h"
 #import "WLUserInfo.h"
@@ -121,9 +121,21 @@
     
     //课程详情
 //    DirectViewController *dire = [[DirectViewController alloc]init];
-    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
-    vc.courseId = [_lecturer.list[indexPath.row] id];
-    [self.navigationController pushViewController:vc animated:YES];
+//    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+//    vc.courseId = [_lecturer.list[indexPath.row] id];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    WLCourseListModel *model = _lecturer.list[indexPath.row];
+    if ([model.type isEqualToNumber:@1]) {
+        WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
+        detail.courseId = model.id;
+        [self.navigationController pushViewController:detail animated:YES];
+    }else {
+        WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+        vc.courseId = model.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
 }
 
 

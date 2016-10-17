@@ -168,6 +168,31 @@
 }
 
 /**
+ 帖子取消点赞
+ 
+ @param tid     tid 帖子id
+ @param uid     uid 当前登录id
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleCanclePriseWithTid:(NSString *)tid
+                                         uid:(NSString *)uid
+                                     success:(void (^)(id responseObject))success
+                                     failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"tid" : [MOTool getNULLString:tid],
+                            @"uid" : [MOTool getNULLString:uid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=qxZanPost" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+/**
  帖子浏览
  
  @param tid     tid 帖子id
@@ -304,7 +329,7 @@
                             @"title" : [MOTool getNULLString:title],
                             @"content" : [MOTool getNULLString:content],
                             @"pics" : [MOTool getNULLString:pics],
-                            @"tid":[MOTool getNULLString:tid]};
+                            @"id":[MOTool getNULLString:tid]};
     
     [MOHTTP GET:@"API/index.php?action=Bbs&do=editPost" parameters:param success:^(id responseObject) {
         
@@ -336,6 +361,56 @@
     }];
 }
 
+
+/**
+ 删除我的帖子
+ 
+ @param uid
+ @param tid
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleDeleteWithUid:(NSString *)uid
+                                    tid:(NSString *)tid
+                                success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid" : [MOTool getNULLString:uid],
+                            @"tid" : [MOTool getNULLString:tid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=delMyPost" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ 添加回复
+ 
+ @param uid
+ @param tid
+ @param success
+ @param failure
+ */
++ (void)requestFindArticleAddReplyWithUid:(NSString *)uid
+                                      pid:(NSString *)pid
+                                  content:(NSString *)content
+                                  success:(void (^)(id responseObject))success
+                                  failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid" : [MOTool getNULLString:uid],
+                            @"pid" : [MOTool getNULLString:pid],
+                            @"content" : [MOTool getNULLString:content]};
+    
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=addReply" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 /**
  获取兴趣圈的列表

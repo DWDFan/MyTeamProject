@@ -28,6 +28,11 @@
 #define COLOR_BLACK RGBA(38, 38, 38, 1)
 #define COLOR_BG_YELLOW  RGBA(248, 177, 43, 1)
 
+#define IOS6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) // 判断是否是IOS6的系统
+#define IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) // 判断是否是IOS7的系统
+#define IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) // 判断是否是IOS8的系统
+#define IOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) // 判断是否是IOS8的系统
+
 //字体色彩
 #define COLOR_WORD_BLACK HEXCOLOR(0x333333)
 #define COLOR_WORD_GRAY_1 HEXCOLOR(0x666666)
@@ -46,7 +51,7 @@
 
 #ifdef DEBUG
 #define WLLog(...) NSLog(__VA_ARGS__)
-#define WLLogFunc DWDLog(@"%s", __func__)
+#define WLLogFunc DWWLLog(@"%s", __func__)
 // 打印调试
 #else
 #define WLLog(...)
@@ -56,6 +61,7 @@
 #import "UIImage+Image.h"
 #import "UIView+Frame.h"
 #import "MJExtension.h"
+#import "MJRefresh.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 #import "WLUserInfo.h"

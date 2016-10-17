@@ -71,7 +71,8 @@
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     //机构详情
     WLorganVC *vc = [[WLorganVC alloc]init];
     WLMyAttentionModel *model = self.dataSource[indexPath.row];

@@ -33,11 +33,14 @@
 
 - (void)rightBtnAction:(id)sender
 {
+    [MOProgressHUD showWithStatus:@"正在提交..."];
     [WLFindDataHandle requestFindArticleReportWithTid:_articleId uid:[WLUserInfo share].userId msg:_titles[_selectIndex] success:^(id responseObject) {
         
-        [self.navigationController popViewControllerAnimated:YES];
+        [MOProgressHUD dismiss];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        [self.navigationController popViewControllerAnimated:YES];
+        [MOProgressHUD dismiss];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 

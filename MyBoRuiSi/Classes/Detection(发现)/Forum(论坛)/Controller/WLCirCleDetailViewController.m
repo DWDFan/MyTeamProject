@@ -67,7 +67,7 @@
     }];
     
     [WLFindDataHandle requestFindCircleArticleWithQid:_circleId page:@(_page) success:^(id responseObject) {
-        
+        _page == 1 ? [self.dataSoureArray removeAllObjects] : nil;
         NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         for (ZGArticleModel *art in articles) {
             ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
@@ -132,7 +132,15 @@
             NSNumber *type = sender.selected ? @2 : @1;
             [WLFindDataHandle requestFindCircleFollowWithQid:_circleId uid:[WLUserInfo share].userId type:type success:^(id responseObject) {
                 sender.selected = !sender.selected;
-                sender.selected ? (weakSelf.issueBtn.hidden = NO) : (weakSelf.issueBtn.hidden = YES);
+                _infoModel.isFollow = sender.selected;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshMyCircle" object:nil];
+                if (sender.selected) {
+                    weakSelf.issueBtn.hidden = NO;
+                    weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+                }else {
+                    weakSelf.issueBtn.hidden = YES;
+                    weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                }
             } failure:^(NSError *error) {
                 [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
             }];
@@ -146,6 +154,7 @@
         
         if (cell == nil) {
             cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+            cell.type = ZGArticleCellTypeList;
         }
         cell.articleViewModel = self.dataSoureArray[indexPath.row];
         return cell;

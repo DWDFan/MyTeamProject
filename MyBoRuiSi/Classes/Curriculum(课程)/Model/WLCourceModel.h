@@ -52,6 +52,9 @@
 @property (nonatomic, strong) NSString *addtime;
 @property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *photo;
+// 帖子回复
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *rid;
 
 @end
 
@@ -82,6 +85,7 @@
 @property (nonatomic, strong) NSString *publicTime;
 @property (nonatomic, strong) NSNumber *bm;
 @property (nonatomic, strong) NSNumber *limit;
+@property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSArray<WLOtherCourseModel *> *other;
 
 @end

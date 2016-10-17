@@ -62,14 +62,14 @@
 {
     _comment = comment;
     
-    _nameLbl.text = comment.author;
+    _nameLbl.text = comment.author ? comment.author : comment.nickname;
     
-    _timeLbl.text = comment.date;
+    _timeLbl.text = comment.date ? comment.date : comment.addtime;
     
-    _commentLbl.text = comment.msg;
+    _commentLbl.text = comment.msg ? comment.msg : comment.content;
     
     _starView.showStar = [comment.star floatValue] * 20;
-    
+
     CGFloat width = [MOTool MOtextSizeW:_nameLbl.text WithHigth:12 WithFount:_nameLbl.font];
     
     _nameLbl.width = width < 120 ? width : 120;

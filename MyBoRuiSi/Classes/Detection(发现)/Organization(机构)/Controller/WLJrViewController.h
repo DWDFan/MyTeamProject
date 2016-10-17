@@ -10,4 +10,6 @@
 
 @interface WLJrViewController : UIViewController
 
+@property (nonatomic, strong) NSString *institutionId;
+
 @end

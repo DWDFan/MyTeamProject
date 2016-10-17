@@ -12,10 +12,11 @@
 @interface WLVODCourseListViewController : BaseViewController
 
 @property (nonatomic, strong) WLFilterView *filterView;
-@property (nonatomic, strong) NSArray *courses;
+@property (nonatomic, strong) NSMutableArray *courses;
 @property (nonatomic, strong) NSArray *filterArray;
 @property (nonatomic, strong) NSString *saleNumOrder;         // 销量
 @property (nonatomic, strong) NSString *priceOrder;
 @property (nonatomic, strong) NSString *sortId;
+@property (nonatomic, assign) NSInteger page;
 
 @end

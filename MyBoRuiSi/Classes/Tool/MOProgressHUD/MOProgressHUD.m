@@ -45,6 +45,12 @@
     [self initProgress];
     [SVProgressHUD showWithStatus:status];
 }
+
++ (void)showWithStatus:(NSString *)status WithTarget:(UIView *)target
+{
+    
+}
+
 + (void)initProgress
 {
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];

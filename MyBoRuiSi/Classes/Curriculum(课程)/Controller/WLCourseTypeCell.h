@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) void(^block)(NSString *typeId);
 
++ (CGFloat)heightWithCount:(NSInteger)count;
+
 @end

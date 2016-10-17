@@ -58,7 +58,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
     
     //监听是否登录
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLoginStatus:) name:@"changeLoginStatus" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloaWLLoginStatus:) name:@"changeLoginStatus" object:nil];
 }
 
 
@@ -122,7 +122,7 @@
 
 #pragma mark - Notification implementation
 /** 刷新用户登录状态 */
-- (void)reloadLoginStatus:(NSNotification *)noti{
+- (void)reloaWLLoginStatus:(NSNotification *)noti{
     //加载用户数据
     [[WLUserInfo share] loadUserInfo];
     if ([WLUserInfo share].isLogin) {

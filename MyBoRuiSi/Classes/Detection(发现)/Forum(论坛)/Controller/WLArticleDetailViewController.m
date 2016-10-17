@@ -9,6 +9,7 @@
 #import "WLArticleDetailViewController.h"
 #import "WLSharetowViewController.h"
 #import "WLReportViewController.h"
+#import "WLIssueArticleViewController.h"
 #import "WLFindDataHandle.h"
 #import "ZGArticleCell.h"
 #import "WLCommetCell.h"
@@ -18,8 +19,10 @@
 
 @interface WLArticleDetailViewController ()
 
-@property (nonatomic, strong) NSArray *commentsArray;
-@property (nonatomic, assign) NSNumber *page;
+@property (nonatomic, strong) UITextField *replyTF;
+@property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) NSMutableArray *commentsArray;
+@property (nonatomic, assign) NSInteger page;
 
 @end
 
@@ -35,13 +38,43 @@
     self.tableViewStyle = UITableViewStyleGrouped;
     [self.view addSubview:self.tableView];
     
-    _page = @0;
+    self.bottomView = [[UIView alloc] init];
+    self.bottomView.frame = CGRectMake(0, WLScreenH - IOS7_TOP_Y, WLScreenW, 40);
+    self.bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.bottomView];
     
+    self.replyTF = [[UITextField alloc] init];
+    self.replyTF.frame = CGRectMake(ZGPaddingMax, 5, WLScreenW - 2 * ZGPaddingMax - 70, 30);
+    self.replyTF.placeholder = @"发表评论";
+    self.replyTF.font = [UIFont systemFontOfSize:14];
+    self.replyTF.borderStyle = UITextBorderStyleRoundedRect;
+    [self.bottomView addSubview:self.replyTF];
+    
+    UIButton *sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    sendBtn.frame = CGRectMake(self.replyTF.right + 10, 5, 60, 30);
+    sendBtn.backgroundColor = color_red;
+    [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    sendBtn.layer.cornerRadius = 4;
+    sendBtn.layer.masksToBounds = YES;
+    sendBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [sendBtn addTarget:self action:@selector(sendReply:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:sendBtn];
+    
+    UIView *topLine = [[UIView alloc] init];
+    topLine.frame = CGRectMake(0, 0, WLScreenW, 0.5);
+    topLine.backgroundColor = COLOR_tableView_separator;
+    [self.bottomView addSubview:topLine];
+    
+    [self.tableView addFooterWithTarget:self action:@selector(requestCommentData)];
     [self requestData];
 }
 
 - (void)requestData
 {
+    _page = 1;
+    
+    // 帖子内容
     [WLFindDataHandle requestFindArticleDetailWithTid:_articleId success:^(id responseObject) {
         
         ZGArticleModel *article = [ZGArticleModel mj_objectWithKeyValues:responseObject[@"data"]];
@@ -52,12 +85,76 @@
         
     }];
     
-    [WLFindDataHandle requestFindArticleCommentListWithTid:_articleId page:_page success:^(id responseObject) {
+    // 评论列表
+    [self requestCommentData];
+    
+    // 阅读
+    [WLFindDataHandle requestFindArticleReadWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
         
-        _commentsArray = [WLCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+    } failure:^(NSError *error) {
+    }];
+}
+
+- (void)requestCommentData
+{
+    // 评论列表
+    [WLFindDataHandle requestFindArticleCommentListWithTid:_articleId page:@(_page) success:^(id responseObject) {
+        
+        _page == 1 ? [self.commentsArray removeAllObjects] : nil;
+        NSMutableArray *mArray = [WLCommentModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.commentsArray addObjectsFromArray:mArray];
+        [self.tableView footerEndRefreshing];
         [self.tableView reloadData];
+        _page ++;
+        
     } failure:^(NSError *error) {
         
+    }];
+}
+
+- (NSMutableArray *)commentsArray
+{
+    if (!_commentsArray) {
+        _commentsArray = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _commentsArray;
+}
+
+#pragma mark - 编辑
+
+- (void)showMoreMenuInRect:(CGRect)rect
+{
+    NSArray *menuItems =
+    @[[KxMenuItem menuItem:@"修改"
+                     image:[UIImage imageNamed:@"icon_endit"]
+                    target:self
+                    action:@selector(editArticle)],
+      [KxMenuItem menuItem:@"删除"
+                     image:[UIImage imageNamed:@"icon_delete"]
+                    target:self
+                    action:@selector(deleteArticle)]
+      ];
+    [KxMenu showMenuInView:self.view
+                  fromRect:rect
+                 menuItems:menuItems];
+
+}
+
+- (void)editArticle
+{
+    WLIssueArticleViewController *VC = [[WLIssueArticleViewController alloc] init];
+    VC.type = EditTypeEdit;
+    VC.articleViewModel = _articleViewModel;
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
+- (void)deleteArticle
+{
+    [WLFindDataHandle requestFindArticleDeleteWithUid:[WLUserInfo share].userId tid:_articleId success:^(id responseObject) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 
@@ -91,11 +188,6 @@
 {
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
     
-    //
-    //    [share dismissViewControllerAnimated:YES completion:^{
-    //
-    //    }];
-    
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     
@@ -118,6 +210,23 @@
 {
     WLReportViewController *reportVC = [[WLReportViewController alloc] init];
     [self.navigationController pushViewController:reportVC animated:YES];
+}
+
+- (void)sendReply:(UIButton *)sender
+{
+    if (_replyTF.text.length == 0) return;
+    
+    [WLFindDataHandle requestFindArticleAddReplyWithUid:[WLUserInfo share].userId pid:_articleId content:_replyTF.text success:^(id responseObject) {
+        
+        _replyTF.text = @"";
+        [_replyTF resignFirstResponder];
+        
+        // 刷新
+        [self requestData];
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -148,16 +257,40 @@
         cell.articleViewModel = _articleViewModel;
         // 点赞
         __typeof(cell) weakCell = cell;
-        
+        __typeof(self) weakSelf = self;
         [cell setPraiseblock:^(UIButton *button) {
-            [WLFindDataHandle requestFindArticlePriseWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
-                
-                button.selected = YES;
-                [weakCell addPraiseCount];
-            } failure:^(NSError *error) {
-                [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
-            }];
+            
+            if (!button.selected) { // 未点赞
+                [WLFindDataHandle requestFindArticlePriseWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
+                    
+                    button.selected = YES;
+                    [weakCell addPraiseCount];
+                } failure:^(NSError *error) {
+                    [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+                }];
+            }else {
+                [WLFindDataHandle requestFindArticleCanclePriseWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
+                    
+                    button.selected = NO;
+                    [weakCell subPraiseCount];
+                } failure:^(NSError *error) {
+                    [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+                }];
+            }
         }];
+        
+        [cell setCommentBlock:^(UIButton *button) {
+
+            [self.replyTF becomeFirstResponder];
+        }];
+        
+        [cell setMoreBlock:^(UIButton *button){
+            
+            CGRect frame = [button.superview convertRect:button.frame toView:self.view];
+            frame.origin.x -= ZGPaddingMax;
+            [weakSelf showMoreMenuInRect:frame];
+        }];
+        
         return cell;
 
     }else if (indexPath.section == 1 && indexPath.row == 0) {
@@ -215,6 +348,43 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardShow:(NSNotification *)notification
+{
+    NSValue *value = notification.userInfo[UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [value CGRectValue].size;
+    CGFloat keyboardHeight = keyboardSize.height;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.bottomView.y = WLScreenH - IOS7_TOP_Y - keyboardHeight - self.bottomView.height;
+    }];
+}
+
+- (void)keyboardHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.bottomView.y = WLScreenH - IOS7_TOP_Y;
+    }];
 }
 
 @end

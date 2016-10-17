@@ -7,7 +7,9 @@
 //
 
 #import "WLCoursewareViewController.h"
+#import "WLCourseWarePreViewController.h"
 #import "WLCourseDataHandle.h"
+#import "ZGDownLoadUtil.h"
 #import "WLCourseWareCell.h"
 
 @interface WLCoursewareViewController ()
@@ -52,8 +54,28 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLCourseWareCell" owner:nil options:nil] firstObject];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.indexPath = indexPath;
     cell.coursewareDic = self.dataSoureArray[indexPath.row];
+    
+    [cell setBlock:^(NSInteger type, NSInteger row) {
+        
+        if (type == 0) {
+            
+            WLCourseWarePreViewController *VC = [[WLCourseWarePreViewController alloc] init];
+            VC.courseWareId = self.dataSoureArray[indexPath.row][@"kid"];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else {
+#warning testData -- fzg
+            [MOProgressHUD showSuccessWithStatus:@"正在下载课件..."];
+            NSURL *url = [NSURL URLWithString:self.dataSoureArray[indexPath.row][@"kjUrl"]];
+            ZGDownLoadUtil *downloadUtil = [[ZGDownLoadUtil alloc] init];
+            [downloadUtil downLoadFileWithUrl:url completion:^(BOOL isComplete) {
+                [MOProgressHUD showSuccessWithStatus:@"下载完成!"];
+            }];
+        }
+    }];
     return cell;
 }
+
 
 @end
