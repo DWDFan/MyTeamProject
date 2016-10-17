@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/huima/!svn/ver/34/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage
+END
+UIImage+RoundedCorner.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+RoundedCorner.m
+END
+UIImage+Color.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Color.h
+END
+UIImage+ScreenAdapter.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+ScreenAdapter.h
+END
+UIImage+Color.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Color.m
+END
+UIImage+ScreenAdapter.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+ScreenAdapter.m
+END
+UIImage+RemoteSize.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+RemoteSize.h
+END
+UIImage+RemoteSize.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+RemoteSize.m
+END
+UIImage+Orientation.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Orientation.h
+END
+UIImage+Orientation.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Orientation.m
+END
+UIImage+Resize.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/huima/!svn/ver/34/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Resize.h
+END
+UIImage+Resize.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/huima/!svn/ver/34/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Resize.m
+END
+UIImage+animatedGIF.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+animatedGIF.h
+END
+UIImage+PDF.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+PDF.h
+END
+UIImage+animatedGIF.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+animatedGIF.m
+END
+UIImage+FX.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+FX.h
+END
+UIImage+PDF.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+PDF.m
+END
+UIImage+FileName.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+FileName.h
+END
+UIImage+FX.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+FX.m
+END
+UIImage+Alpha.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Alpha.h
+END
+UIImage+FileName.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+FileName.m
+END
+UIImage+Alpha.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Alpha.m
+END
+UIImage+Rotate.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Rotate.h
+END
+UIImage+Merge.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Merge.h
+END
+UIImage+Rotate.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Rotate.m
+END
+UIImage+Capture.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Capture.h
+END
+UIImage+Blur.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Blur.h
+END
+UIImage+Merge.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Merge.m
+END
+UIImage+GIF.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+GIF.h
+END
+UIImage+Capture.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Capture.m
+END
+UIImage+RoundedCorner.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+RoundedCorner.h
+END
+UIImage+Blur.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+Blur.m
+END
+UIImage+GIF.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/huima/!svn/ver/3/ios/homevip/YouGuanJia/YouGuanJia/Extend/UIKit/UIImage/UIImage+GIF.m
+END
