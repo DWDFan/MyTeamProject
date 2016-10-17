@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *job;
 @property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) NSString *birth;
 @property (nonatomic, assign, getter=isVip) BOOL vip;
 
 @property (nonatomic, strong) NSString *userInfoArchivPath;

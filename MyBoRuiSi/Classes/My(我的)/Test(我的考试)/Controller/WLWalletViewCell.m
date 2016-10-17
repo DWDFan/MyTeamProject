@@ -18,7 +18,7 @@
     
     [super awakeFromNib];
     
-    _balance_label.text = [[WLUserInfo share].money stringValue];
+    _balance_label.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].money];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

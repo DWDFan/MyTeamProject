@@ -32,6 +32,7 @@ static int const showtime = 3;
 {
     if (self = [super initWithFrame:frame]) {
         
+        self.backgroundColor = [UIColor whiteColor];
         // 1.广告图片
         _adView = [[UIImageView alloc] initWithFrame:frame];
         _adView.userInteractionEnabled = YES;

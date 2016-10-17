@@ -107,9 +107,13 @@
     WLUserLoginstatusCell *header = [[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil][1];
     
     __weak typeof(self) weakSelf = self;
+    __weak typeof(WLUserLoginstatusCell*) weakHeader = header;
     header.tapHeaderBlock = ^(){
-        ThePersonalDataTableViewController *PersonalData = [[ThePersonalDataTableViewController alloc] init];
-        [weakSelf.navigationController pushViewController:PersonalData animated:YES];
+        ThePersonalDataTableViewController *personalData = [[ThePersonalDataTableViewController alloc] init];
+        personalData.reloadDataBlock = ^(){
+            [weakHeader reloadData];
+        };
+        [weakSelf.navigationController pushViewController:personalData animated:YES];
     };
     header.colletionActionBlock = ^(){
         //我的收藏

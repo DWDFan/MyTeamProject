@@ -350,4 +350,32 @@
 
 }
 
+/**
+ *  修改个人资料
+
+ */
++ (void)requestUpdateInfoWithUid:(NSString *)uid
+                             key:(NSString *)key
+                             val:(NSString *)val
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"key":key,
+                            @"val":val};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=User&do=updateInfo" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showImage:nil withStatus:@"修改成功"];
+            success(responseObject);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        failure(error);
+    }];
+    
+}
 @end
