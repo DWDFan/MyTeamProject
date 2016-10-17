@@ -383,6 +383,16 @@
 		F18306831DB473990073F413 /* WebView+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306251DB473980073F413 /* WebView+Debug.m */; };
 		F18306841DB473990073F413 /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306281DB473980073F413 /* UIWindow+Hierarchy.m */; };
 		F18306871DB473E50073F413 /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306861DB473E50073F413 /* NSString+Util.m */; };
+		F183069D1DB47EBB0073F413 /* JFAssetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F183068C1DB47EBB0073F413 /* JFAssetHelper.m */; };
+		F183069E1DB47EBB0073F413 /* JFImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F183068E1DB47EBB0073F413 /* JFImageCollectionViewController.m */; };
+		F183069F1DB47EBB0073F413 /* JFImageGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306901DB47EBB0073F413 /* JFImageGroupTableViewController.m */; };
+		F18306A01DB47EBB0073F413 /* JFImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306921DB47EBB0073F413 /* JFImageManager.m */; };
+		F18306A11DB47EBB0073F413 /* JFImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306941DB47EBB0073F413 /* JFImagePickerController.m */; };
+		F18306A21DB47EBB0073F413 /* JFImagePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306961DB47EBB0073F413 /* JFImagePickerViewCell.m */; };
+		F18306A31DB47EBB0073F413 /* JFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306981DB47EBB0073F413 /* JFPhotoBrowserViewController.m */; };
+		F18306A41DB47EBB0073F413 /* JFPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F183069A1DB47EBB0073F413 /* JFPhotoView.m */; };
+		F18306A51DB47EBB0073F413 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F183069B1DB47EBB0073F413 /* LICENSE */; };
+		F18306A61DB47EBB0073F413 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F183069C1DB47EBB0073F413 /* README.md */; };
 		F183F3F71D9D1B74001821F0 /* WLLiveCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */; };
 		F185456F1D9A51120008F471 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F185456E1D9A51120008F471 /* BaseViewController.m */; };
 		F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */; };
@@ -589,16 +599,6 @@
 		F7EC17771DB36B680057D7D6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17651DB36B680057D7D6 /* UIImageView+HighlightedWebCache.m */; };
 		F7EC17781DB36B680057D7D6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17671DB36B680057D7D6 /* UIImageView+WebCache.m */; };
 		F7EC17791DB36B680057D7D6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17691DB36B680057D7D6 /* UIView+WebCacheOperation.m */; };
-		F7EC17921DB375890057D7D6 /* JFAssetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC177E1DB375890057D7D6 /* JFAssetHelper.m */; };
-		F7EC17931DB375890057D7D6 /* JFImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17801DB375890057D7D6 /* JFImageCollectionViewController.m */; };
-		F7EC17941DB375890057D7D6 /* JFImageGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17821DB375890057D7D6 /* JFImageGroupTableViewController.m */; };
-		F7EC17951DB375890057D7D6 /* JFImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17841DB375890057D7D6 /* JFImageManager.m */; };
-		F7EC17961DB375890057D7D6 /* JFImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17861DB375890057D7D6 /* JFImagePickerController.m */; };
-		F7EC17971DB375890057D7D6 /* JFImagePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC17881DB375890057D7D6 /* JFImagePickerViewCell.m */; };
-		F7EC17981DB375890057D7D6 /* JFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC178A1DB375890057D7D6 /* JFPhotoBrowserViewController.m */; };
-		F7EC17991DB375890057D7D6 /* JFPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC178C1DB375890057D7D6 /* JFPhotoView.m */; };
-		F7EC179A1DB375890057D7D6 /* JFImagePicker.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F7EC178D1DB375890057D7D6 /* JFImagePicker.xcconfig */; };
-		F7EC179B1DB375890057D7D6 /* JFImagePicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC178E1DB375890057D7D6 /* JFImagePicker-dummy.m */; };
 		F7EC179E1DB378820057D7D6 /* DWDMultiSelectImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC179D1DB378820057D7D6 /* DWDMultiSelectImageView.m */; };
 		F7F304681DABBF1300F3F3EF /* WLIssueArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F304671DABBF1300F3F3EF /* WLIssueArticleViewController.m */; };
 		F7F3046C1DABC54400F3F3EF /* ZGPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F3046B1DABC54400F3F3EF /* ZGPlaceHolderTextView.m */; };
@@ -1253,6 +1253,24 @@
 		F18306281DB473980073F413 /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		F18306851DB473E50073F413 /* NSString+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Util.h"; sourceTree = "<group>"; };
 		F18306861DB473E50073F413 /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
+		F183068B1DB47EBB0073F413 /* JFAssetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFAssetHelper.h; sourceTree = "<group>"; };
+		F183068C1DB47EBB0073F413 /* JFAssetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFAssetHelper.m; sourceTree = "<group>"; };
+		F183068D1DB47EBB0073F413 /* JFImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFImageCollectionViewController.h; sourceTree = "<group>"; };
+		F183068E1DB47EBB0073F413 /* JFImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFImageCollectionViewController.m; sourceTree = "<group>"; };
+		F183068F1DB47EBB0073F413 /* JFImageGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFImageGroupTableViewController.h; sourceTree = "<group>"; };
+		F18306901DB47EBB0073F413 /* JFImageGroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFImageGroupTableViewController.m; sourceTree = "<group>"; };
+		F18306911DB47EBB0073F413 /* JFImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFImageManager.h; sourceTree = "<group>"; };
+		F18306921DB47EBB0073F413 /* JFImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFImageManager.m; sourceTree = "<group>"; };
+		F18306931DB47EBB0073F413 /* JFImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFImagePickerController.h; sourceTree = "<group>"; };
+		F18306941DB47EBB0073F413 /* JFImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFImagePickerController.m; sourceTree = "<group>"; };
+		F18306951DB47EBB0073F413 /* JFImagePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFImagePickerViewCell.h; sourceTree = "<group>"; };
+		F18306961DB47EBB0073F413 /* JFImagePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFImagePickerViewCell.m; sourceTree = "<group>"; };
+		F18306971DB47EBB0073F413 /* JFPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		F18306981DB47EBB0073F413 /* JFPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPhotoBrowserViewController.m; sourceTree = "<group>"; };
+		F18306991DB47EBB0073F413 /* JFPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPhotoView.h; sourceTree = "<group>"; };
+		F183069A1DB47EBB0073F413 /* JFPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPhotoView.m; sourceTree = "<group>"; };
+		F183069B1DB47EBB0073F413 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F183069C1DB47EBB0073F413 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F183F3F51D9D1B74001821F0 /* WLLiveCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseDetailViewController.h; sourceTree = "<group>"; };
 		F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseDetailViewController.m; sourceTree = "<group>"; };
 		F185456D1D9A51120008F471 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1612,25 +1630,6 @@
 		F7EC17671DB36B680057D7D6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		F7EC17681DB36B680057D7D6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		F7EC17691DB36B680057D7D6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		F7EC177D1DB375890057D7D6 /* JFAssetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFAssetHelper.h; path = JFImagePickerController/JFImagePickerController/JFAssetHelper.h; sourceTree = "<group>"; };
-		F7EC177E1DB375890057D7D6 /* JFAssetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFAssetHelper.m; path = JFImagePickerController/JFImagePickerController/JFAssetHelper.m; sourceTree = "<group>"; };
-		F7EC177F1DB375890057D7D6 /* JFImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImageCollectionViewController.h; path = JFImagePickerController/JFImagePickerController/JFImageCollectionViewController.h; sourceTree = "<group>"; };
-		F7EC17801DB375890057D7D6 /* JFImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImageCollectionViewController.m; path = JFImagePickerController/JFImagePickerController/JFImageCollectionViewController.m; sourceTree = "<group>"; };
-		F7EC17811DB375890057D7D6 /* JFImageGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImageGroupTableViewController.h; path = JFImagePickerController/JFImagePickerController/JFImageGroupTableViewController.h; sourceTree = "<group>"; };
-		F7EC17821DB375890057D7D6 /* JFImageGroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImageGroupTableViewController.m; path = JFImagePickerController/JFImagePickerController/JFImageGroupTableViewController.m; sourceTree = "<group>"; };
-		F7EC17831DB375890057D7D6 /* JFImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImageManager.h; path = JFImagePickerController/JFImagePickerController/JFImageManager.h; sourceTree = "<group>"; };
-		F7EC17841DB375890057D7D6 /* JFImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImageManager.m; path = JFImagePickerController/JFImagePickerController/JFImageManager.m; sourceTree = "<group>"; };
-		F7EC17851DB375890057D7D6 /* JFImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImagePickerController.h; path = JFImagePickerController/JFImagePickerController/JFImagePickerController.h; sourceTree = "<group>"; };
-		F7EC17861DB375890057D7D6 /* JFImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImagePickerController.m; path = JFImagePickerController/JFImagePickerController/JFImagePickerController.m; sourceTree = "<group>"; };
-		F7EC17871DB375890057D7D6 /* JFImagePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImagePickerViewCell.h; path = JFImagePickerController/JFImagePickerController/JFImagePickerViewCell.h; sourceTree = "<group>"; };
-		F7EC17881DB375890057D7D6 /* JFImagePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImagePickerViewCell.m; path = JFImagePickerController/JFImagePickerController/JFImagePickerViewCell.m; sourceTree = "<group>"; };
-		F7EC17891DB375890057D7D6 /* JFPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPhotoBrowserViewController.h; path = JFImagePickerController/JFImagePickerController/JFPhotoBrowserViewController.h; sourceTree = "<group>"; };
-		F7EC178A1DB375890057D7D6 /* JFPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPhotoBrowserViewController.m; path = JFImagePickerController/JFImagePickerController/JFPhotoBrowserViewController.m; sourceTree = "<group>"; };
-		F7EC178B1DB375890057D7D6 /* JFPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPhotoView.h; path = JFImagePickerController/JFImagePickerController/JFPhotoView.h; sourceTree = "<group>"; };
-		F7EC178C1DB375890057D7D6 /* JFPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPhotoView.m; path = JFImagePickerController/JFImagePickerController/JFPhotoView.m; sourceTree = "<group>"; };
-		F7EC178D1DB375890057D7D6 /* JFImagePicker.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = JFImagePicker.xcconfig; sourceTree = "<group>"; };
-		F7EC178E1DB375890057D7D6 /* JFImagePicker-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JFImagePicker-dummy.m"; sourceTree = "<group>"; };
-		F7EC178F1DB375890057D7D6 /* JFImagePicker-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JFImagePicker-prefix.pch"; sourceTree = "<group>"; };
 		F7EC179C1DB378820057D7D6 /* DWDMultiSelectImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDMultiSelectImageView.h; sourceTree = "<group>"; };
 		F7EC179D1DB378820057D7D6 /* DWDMultiSelectImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDMultiSelectImageView.m; sourceTree = "<group>"; };
 		F7F304661DABBF1300F3F3EF /* WLIssueArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLIssueArticleViewController.h; sourceTree = "<group>"; };
@@ -3154,6 +3153,47 @@
 			path = UIWindow;
 			sourceTree = "<group>";
 		};
+		F18306881DB47EBB0073F413 /* JFImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F18306891DB47EBB0073F413 /* JFImagePickerController */,
+				F183069B1DB47EBB0073F413 /* LICENSE */,
+				F183069C1DB47EBB0073F413 /* README.md */,
+			);
+			path = JFImagePicker;
+			sourceTree = "<group>";
+		};
+		F18306891DB47EBB0073F413 /* JFImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				F183068A1DB47EBB0073F413 /* JFImagePickerController */,
+			);
+			path = JFImagePickerController;
+			sourceTree = "<group>";
+		};
+		F183068A1DB47EBB0073F413 /* JFImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				F183068B1DB47EBB0073F413 /* JFAssetHelper.h */,
+				F183068C1DB47EBB0073F413 /* JFAssetHelper.m */,
+				F183068D1DB47EBB0073F413 /* JFImageCollectionViewController.h */,
+				F183068E1DB47EBB0073F413 /* JFImageCollectionViewController.m */,
+				F183068F1DB47EBB0073F413 /* JFImageGroupTableViewController.h */,
+				F18306901DB47EBB0073F413 /* JFImageGroupTableViewController.m */,
+				F18306911DB47EBB0073F413 /* JFImageManager.h */,
+				F18306921DB47EBB0073F413 /* JFImageManager.m */,
+				F18306931DB47EBB0073F413 /* JFImagePickerController.h */,
+				F18306941DB47EBB0073F413 /* JFImagePickerController.m */,
+				F18306951DB47EBB0073F413 /* JFImagePickerViewCell.h */,
+				F18306961DB47EBB0073F413 /* JFImagePickerViewCell.m */,
+				F18306971DB47EBB0073F413 /* JFPhotoBrowserViewController.h */,
+				F18306981DB47EBB0073F413 /* JFPhotoBrowserViewController.m */,
+				F18306991DB47EBB0073F413 /* JFPhotoView.h */,
+				F183069A1DB47EBB0073F413 /* JFPhotoView.m */,
+			);
+			path = JFImagePickerController;
+			sourceTree = "<group>";
+		};
 		F18545691D9A502F0008F471 /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -3958,7 +3998,7 @@
 		F1FB85701D537365005AAED3 /* Lib(第三方架) */ = {
 			isa = PBXGroup;
 			children = (
-				F7EC17911DB375890057D7D6 /* JFImagePicker */,
+				F18306881DB47EBB0073F413 /* JFImagePicker */,
 				F7EC17491DB36B680057D7D6 /* SDWebImage */,
 				F11AB03B1DAF5BBB0060A9B4 /* LivePlayer_iOS_SDK_v1.2.0 */,
 				5595AD301DA8C207001758AA /* ping++ */,
@@ -4132,42 +4172,6 @@
 				F7EC17691DB36B680057D7D6 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		F7EC17901DB375890057D7D6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F7EC178D1DB375890057D7D6 /* JFImagePicker.xcconfig */,
-				F7EC178E1DB375890057D7D6 /* JFImagePicker-dummy.m */,
-				F7EC178F1DB375890057D7D6 /* JFImagePicker-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JFImagePicker";
-			sourceTree = "<group>";
-		};
-		F7EC17911DB375890057D7D6 /* JFImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				F7EC177D1DB375890057D7D6 /* JFAssetHelper.h */,
-				F7EC177E1DB375890057D7D6 /* JFAssetHelper.m */,
-				F7EC177F1DB375890057D7D6 /* JFImageCollectionViewController.h */,
-				F7EC17801DB375890057D7D6 /* JFImageCollectionViewController.m */,
-				F7EC17811DB375890057D7D6 /* JFImageGroupTableViewController.h */,
-				F7EC17821DB375890057D7D6 /* JFImageGroupTableViewController.m */,
-				F7EC17831DB375890057D7D6 /* JFImageManager.h */,
-				F7EC17841DB375890057D7D6 /* JFImageManager.m */,
-				F7EC17851DB375890057D7D6 /* JFImagePickerController.h */,
-				F7EC17861DB375890057D7D6 /* JFImagePickerController.m */,
-				F7EC17871DB375890057D7D6 /* JFImagePickerViewCell.h */,
-				F7EC17881DB375890057D7D6 /* JFImagePickerViewCell.m */,
-				F7EC17891DB375890057D7D6 /* JFPhotoBrowserViewController.h */,
-				F7EC178A1DB375890057D7D6 /* JFPhotoBrowserViewController.m */,
-				F7EC178B1DB375890057D7D6 /* JFPhotoView.h */,
-				F7EC178C1DB375890057D7D6 /* JFPhotoView.m */,
-				F7EC17901DB375890057D7D6 /* Support Files */,
-			);
-			name = JFImagePicker;
-			path = ../../../../../Desktop/trunk/Pods/JFImagePicker;
 			sourceTree = "<group>";
 		};
 		F7F304691DABC4EE00F3F3EF /* View */ = {
@@ -4355,7 +4359,6 @@
 				F1A264391D4F8D1600ACE76B /* WLTestTableViewController.xib in Resources */,
 				5595AD4E1DA8C207001758AA /* Pingpp.bundle in Resources */,
 				6E13E0C31D52EAF900616BEB /* WLTabeleViewController.xib in Resources */,
-				F7EC179A1DB375890057D7D6 /* JFImagePicker.xcconfig in Resources */,
 				F1D110A41D598FC800103536 /* WLke1TableViewCell.xib in Resources */,
 				F17D7DBD1D581183007CDC06 /* WLMyController.xib in Resources */,
 				F14EEA231D55C1DB00BBD158 /* WLnewsViewController.xib in Resources */,
@@ -4392,6 +4395,7 @@
 				F1FA00B21D5ACCD200430BC6 /* WLZnewsTableViewCell.xib in Resources */,
 				55F36AE71D9E74AB006634CB /* WLLookTableViewCell.xib in Resources */,
 				F14EEA1E1D55C1C700BBD158 /* WLReplyViewController.xib in Resources */,
+				F18306A51DB47EBB0073F413 /* LICENSE in Resources */,
 				6E13E0D71D53347900616BEB /* WLOrderPayViewController.xib in Resources */,
 				F1C5982E1D4DAAD400529553 /* WLDetectionTableViewCell.xib in Resources */,
 				F1518F721D52CC6B00879B9B /* WLRegisteringViewController.xib in Resources */,
@@ -4470,12 +4474,12 @@
 				F1A732191D54A72C00EC755E /* WLfillingViewController.m in Sources */,
 				F10E16E01DA9F5F900474ACE /* WLxqusViewController.m in Sources */,
 				F1E517DE1D57188E00F3A885 /* DirectTableViewCellTwo.m in Sources */,
-				F7EC17931DB375890057D7D6 /* JFImageCollectionViewController.m in Sources */,
 				F183066B1DB473990073F413 /* UITextView+Select.m in Sources */,
 				F1C597B41D4CFC1E00529553 /* WLTabBarButton.m in Sources */,
 				CDEB07821D559E9A009A0011 /* WLSufficientViewCell.m in Sources */,
 				F19244F91D5F6C5000F0FF5B /* CZNewfeatureController.m in Sources */,
 				F1572F9D1D51824E001CC7A4 /* WLLecturerViewController.m in Sources */,
+				F183069E1DB47EBB0073F413 /* JFImageCollectionViewController.m in Sources */,
 				F10E16DA1DA9F5F900474ACE /* WLForumTableViewController.m in Sources */,
 				F18306521DB473990073F413 /* UILabel+SuggestSize.m in Sources */,
 				6E13E0D61D53347900616BEB /* WLOrderPayViewController.m in Sources */,
@@ -4485,7 +4489,6 @@
 				550455E81DAE105400F9A32C /* WLOrderDetailModel.m in Sources */,
 				F14EEA331D5621F700BBD158 /* WLreplTableViewCell.m in Sources */,
 				F18305541DB0A7850073F413 /* ZGDownLoadUtil.m in Sources */,
-				F7EC17961DB375890057D7D6 /* JFImagePickerController.m in Sources */,
 				F18306581DB473990073F413 /* UINavigationItem+Loading.m in Sources */,
 				F1A84BA41D50A17100394214 /* WLDetection.m in Sources */,
 				F14EEA1D1D55C1C700BBD158 /* WLReplyViewController.m in Sources */,
@@ -4499,6 +4502,7 @@
 				F183066D1DB473990073F413 /* UIView+Constraints.m in Sources */,
 				F183064A1DB473990073F413 /* UIImage+Resize.m in Sources */,
 				F181B2F61D9921C900DE511D /* ZGTextCell.m in Sources */,
+				F18306A31DB47EBB0073F413 /* JFPhotoBrowserViewController.m in Sources */,
 				F14EEA381D562E2300BBD158 /* WLEnterpriseTViewController.m in Sources */,
 				F183F3F71D9D1B74001821F0 /* WLLiveCourseDetailViewController.m in Sources */,
 				6C5919A01D4FA44900256363 /* MJFoundation.m in Sources */,
@@ -4607,8 +4611,8 @@
 				F181B2E81D98B8E700DE511D /* ZGArticleModel.m in Sources */,
 				F1FB85691D53552B005AAED3 /* WLdetailstwoViewController.m in Sources */,
 				F7EC17701DB36B680057D7D6 /* SDWebImageDownloader.m in Sources */,
-				F7EC17941DB375890057D7D6 /* JFImageGroupTableViewController.m in Sources */,
 				550A22881DAF78550025A2B5 /* WLMyTestModel.m in Sources */,
+				F18306A21DB47EBB0073F413 /* JFImagePickerViewCell.m in Sources */,
 				6C59199A1D4FA44900256363 /* AFURLSessionManager.m in Sources */,
 				F18306531DB473990073F413 /* UINavigationBar+Awesome.m in Sources */,
 				F1FB85E51D537365005AAED3 /* NSArray+Log.m in Sources */,
@@ -4626,7 +4630,6 @@
 				CD2190CC1D54472200F13FEE /* WLAnswerTableViewController.m in Sources */,
 				F18306311DB473980073F413 /* UIButton+BackgroundColor.m in Sources */,
 				F7C0ECBB1D9D6DAB00338A15 /* WLAuthorCell.m in Sources */,
-				F7EC17991DB375890057D7D6 /* JFPhotoView.m in Sources */,
 				F183062F1DB473980073F413 /* UIBezierPath+SVG.m in Sources */,
 				F1FB855F1D532EA9005AAED3 /* WLTabulationerableViewCell.m in Sources */,
 				F188F4E31D503C0700A46FF1 /* UIView+Frame.m in Sources */,
@@ -4643,7 +4646,6 @@
 				F1E518011D578B9A00F3A885 /* WLcardxqTableViewCell.m in Sources */,
 				F1C597C01D4CFD2A00529553 /* UIImage+Image.m in Sources */,
 				CDEB07961D5625EF009A0011 /* WLForgetViewController.m in Sources */,
-				F7EC17981DB375890057D7D6 /* JFPhotoBrowserViewController.m in Sources */,
 				F18306671DB473990073F413 /* UITableViewCell+NIB.m in Sources */,
 				F183064E1DB473990073F413 /* UIImageView+Addition.m in Sources */,
 				6C5919A61D4FA44900256363 /* NSObject+MJKeyValue.m in Sources */,
@@ -4665,7 +4667,6 @@
 				F18306871DB473E50073F413 /* NSString+Util.m in Sources */,
 				F18306721DB473990073F413 /* UIView+RecursiveDescription.m in Sources */,
 				F1F1144A1D953B7700F07E7B /* WLPurchaseBottomView.m in Sources */,
-				F7EC179B1DB375890057D7D6 /* JFImagePicker-dummy.m in Sources */,
 				F19244BB1D5F0D5900F0FF5B /* MOProgressHUD.m in Sources */,
 				F1FB85C81D537365005AAED3 /* DLSlideView.m in Sources */,
 				F1AA6F441D95162900769610 /* WLCommetCell.m in Sources */,
@@ -4678,9 +4679,9 @@
 				F18D15821D925D4400AD88BA /* WLLoginDataHandle.m in Sources */,
 				F1FB85CD1D537365005AAED3 /* KxMenu.m in Sources */,
 				F185456F1D9A51120008F471 /* BaseViewController.m in Sources */,
-				F7EC17921DB375890057D7D6 /* JFAssetHelper.m in Sources */,
 				F183063A1DB473980073F413 /* UIColor+Web.m in Sources */,
 				F183065D1DB473990073F413 /* UIScrollView+Addition.m in Sources */,
+				F18306A11DB47EBB0073F413 /* JFImagePickerController.m in Sources */,
 				CD22BE791D58712500BB5F47 /* WLTopViewController.m in Sources */,
 				F1FB85FB1D5374AC005AAED3 /* MJPhoto.m in Sources */,
 				F7EC179E1DB378820057D7D6 /* DWDMultiSelectImageView.m in Sources */,
@@ -4698,6 +4699,7 @@
 				F181B2EE1D98C35200DE511D /* ZGArticleCell.m in Sources */,
 				F183062C1DB473980073F413 /* UIBarButtonItem+Action.m in Sources */,
 				F1FB85CC1D537365005AAED3 /* DLUtility.m in Sources */,
+				F183069F1DB47EBB0073F413 /* JFImageGroupTableViewController.m in Sources */,
 				F1E517E31D5718F900F3A885 /* DirectTableViewCellThree.m in Sources */,
 				F18306361DB473980073F413 /* UIColor+Gradient.m in Sources */,
 				CDEB079B1D563D57009A0011 /* WLSuccessfulViewController.m in Sources */,
@@ -4714,6 +4716,7 @@
 				F1D110AD1D599A2000103536 /* WLxq2ViewController.m in Sources */,
 				F1C598371D4DDEED00529553 /* WLHometwoTableViewCell.m in Sources */,
 				F17D7DC31D582718007CDC06 /* WLheadsViewController.m in Sources */,
+				F18306A61DB47EBB0073F413 /* README.md in Sources */,
 				F7EC17761DB36B680057D7D6 /* UIImage+MultiFormat.m in Sources */,
 				F1FB86011D5374AC005AAED3 /* MJPhotoView.m in Sources */,
 				F183066E1DB473990073F413 /* UIView+Debug.m in Sources */,
@@ -4723,6 +4726,7 @@
 				F1518F7B1D52DE9300879B9B /* WLConsummationViewController.m in Sources */,
 				F7EC17751DB36B680057D7D6 /* UIImage+GIF.m in Sources */,
 				F7EC176D1DB36B680057D7D6 /* SDImageCache.m in Sources */,
+				F18306A01DB47EBB0073F413 /* JFImageManager.m in Sources */,
 				F11839951D9CBC2500B98BF7 /* WLLiveCourseListViewController.m in Sources */,
 				F188F4E41D503C0700A46FF1 /* UIView+XMGExtension.m in Sources */,
 				F18306761DB473990073F413 /* UIView+Toast.m in Sources */,
@@ -4785,7 +4789,6 @@
 				F18306411DB473990073F413 /* UIImage+Capture.m in Sources */,
 				F11AB05E1DAF5BBB0060A9B4 /* ReleaseNote.md in Sources */,
 				F1FB85FE1D5374AC005AAED3 /* MJPhotoLoadingView.m in Sources */,
-				F7EC17971DB375890057D7D6 /* JFImagePickerViewCell.m in Sources */,
 				F1C597B31D4CFC1E00529553 /* WLTabBar.m in Sources */,
 				F1F7165D1D4F9AB30097F859 /* WLTestTableViewCell.m in Sources */,
 				F7B24D1A1D997701006E96E6 /* ZGCourseTypeModel.m in Sources */,
@@ -4808,6 +4811,7 @@
 				F18306771DB473990073F413 /* UIView+ViewController.m in Sources */,
 				F183065C1DB473990073F413 /* UIScreen+Frame.m in Sources */,
 				F7EC17721DB36B680057D7D6 /* SDWebImageManager.m in Sources */,
+				F183069D1DB47EBB0073F413 /* JFAssetHelper.m in Sources */,
 				F183067A1DB473990073F413 /* UIViewController+MJPopupViewController.m in Sources */,
 				F18306821DB473990073F413 /* UIWebView+Style.m in Sources */,
 				550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */,
@@ -4865,8 +4869,8 @@
 				F11BEE3D1D4F20C000AA3F3A /* WLSearchTableViewController.m in Sources */,
 				F7EC17711DB36B680057D7D6 /* SDWebImageDownloaderOperation.m in Sources */,
 				F19244CC1D5F0E0600F0FF5B /* SVProgressAnimatedView.m in Sources */,
+				F18306A41DB47EBB0073F413 /* JFPhotoView.m in Sources */,
 				F18306731DB473990073F413 /* UIView+Screenshot.m in Sources */,
-				F7EC17951DB375890057D7D6 /* JFImageManager.m in Sources */,
 				F7EC176F1DB36B680057D7D6 /* SDWebImageDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

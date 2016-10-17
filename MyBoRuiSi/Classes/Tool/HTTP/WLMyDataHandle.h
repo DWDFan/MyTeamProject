@@ -161,4 +161,25 @@
                              page:(NSNumber *)page
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure;
+/**
+ *  修改个人资料
+ *
+ *  @param uid     用户ID
+ *  @param key     修改字段
+ *  @param val     字段内容
+ *  @param success
+ *  @param failure
+ 'nickname' 名字
+ 'sex' 性别 (男/女)
+ 'photo' 头像
+ 'birth' 生日
+ 'job' 工作
+ 'company' 公司
+ 'address' 地址
+ */
++ (void)requestUpdateInfoWithUid:(NSString *)uid
+                             key:(NSString *)key
+                             val:(NSString *)val
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
 @end

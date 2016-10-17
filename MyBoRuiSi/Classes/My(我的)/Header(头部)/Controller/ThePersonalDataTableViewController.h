@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ThePersonalDataTableViewController : UITableViewController
-
+@property (nonatomic, copy) void(^reloadDataBlock)();
 @end

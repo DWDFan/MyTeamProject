@@ -7,7 +7,7 @@
 //
 
 #import "WLTopViewController.h"
-#import "WLAddOrderViewController.h"
+#import "WLOrderPayViewController.h"
 
 #define kMaxAmount        9999999
 @interface WLTopViewController ()<UITextFieldDelegate>
@@ -49,10 +49,11 @@
 }
 - (IBAction)nextstepbtn:(id)sender {
     if ([self isValidateMoney:self.moneyTextField.text]) {
-        WLAddOrderViewController *top = [[WLAddOrderViewController alloc]init];
+        WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         //转换金额  1  转换成 1.00
-        top.money = [NSString stringWithFormat:@"%@.00",self.moneyTextField.text];
-        [self.navigationController pushViewController:top animated:YES];
+//        top.money = [NSString stringWithFormat:@"%@.00",self.moneyTextField.text];
+        vc.type = rechargeType;
+        [self.navigationController pushViewController:vc animated:YES];
 
     }else{
         [MOProgressHUD showErrorWithStatus:@"输入金额错误"];

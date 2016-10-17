@@ -22,4 +22,6 @@
 @interface WLUserLoginstatusCell : UITableViewCell
 @property (nonatomic,copy)  void(^tapHeaderBlock)();
 @property (nonatomic,copy)  void(^colletionActionBlock)();
+
+- (void)reloadData;//更新数据
 @end

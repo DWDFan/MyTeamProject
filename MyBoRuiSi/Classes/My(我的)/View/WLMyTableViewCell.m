@@ -54,6 +54,7 @@
     _vip_btn.layer.masksToBounds = YES;
     _vip_btn.layer.cornerRadius = 3;
     
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:[WLUserInfo share].photo] placeholderImage:PHOTO_AVATAR];
     _name.text = [WLUserInfo share].nickname;
     _collectionCount.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].favNum];
     _score.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].score];
@@ -76,4 +77,18 @@
     }
 }
 
+#pragma mark - Public Method
+- (void)reloadData{
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:[WLUserInfo share].photo] placeholderImage:PHOTO_AVATAR];
+    _name.text = [WLUserInfo share].nickname;
+    _collectionCount.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].favNum];
+    _score.text = [NSString stringWithFormat:@"%@",[WLUserInfo share].score];
+    
+    if ([WLUserInfo share].isVip) {
+        _vip_Imv.image = [UIImage imageNamed:@"icon-is会员"];
+    }else{
+        _vip_Imv.image = [UIImage imageNamed:@"icon-会员"];
+    }
+    
+}
 @end
