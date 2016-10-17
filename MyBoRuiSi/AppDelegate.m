@@ -11,6 +11,9 @@
 #import "WLRoot.h"
 
 #import "Pingpp.h"
+#import "AdvertiseHelper.h"
+#import "WLHomeDataHandle.h"
+
 @interface AppDelegate ()
 
 @end
@@ -22,17 +25,32 @@
     
     //创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
+    self.window.backgroundColor = [UIColor whiteColor];
     [WLRoot chooseRootViewController:self.window];
+    [self.window makeKeyAndVisible];
+    
+    [self setupAdveriseView];
+
+    [Pingpp setDebugMode:YES];
     
     //加载用户信息
     [[WLUserInfo share] loadUserInfo];
     
-    //窗口可视化
-    [self.window makeKeyAndVisible];
-    
-    [Pingpp setDebugMode:YES];
     return YES;
+}
+
+#pragma mark 启动广告
+-(void)setupAdveriseView
+{
+    // TODO 请求广告接口 获取广告图片
+    [WLHomeDataHandle requestLaunchAdvertiseWithType:@1 success:^(id responseObject) {
+        
+        NSString *image = responseObject[@"data"];
+        [AdvertiseHelper showAdvertiserView:image];
+
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 // iOS 8 及以下请用这个

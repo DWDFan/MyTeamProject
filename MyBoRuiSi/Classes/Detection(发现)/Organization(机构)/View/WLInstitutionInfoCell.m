@@ -41,7 +41,7 @@
     
     _followNumLbl.text = [NSString stringWithFormat:@"关注量：%@",[MOTool getNULLString:institution.gz_num]];
     
-    _joinInsNumLbl.text = [NSString stringWithFormat:@"已加入机构：%@",[MOTool getNULLString:institution.jr_num]];
+    _joinInsNumLbl.text = [NSString stringWithFormat:@"已加入机构：%@",[MOTool getNULLString:institution.member]];
     
     _comNumLbl.text = [NSString stringWithFormat:@"公司规模：%@人",[MOTool getNULLString:institution.gs_num]];
     

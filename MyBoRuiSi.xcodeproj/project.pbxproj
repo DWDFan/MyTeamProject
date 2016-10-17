@@ -393,6 +393,9 @@
 		F18306A41DB47EBB0073F413 /* JFPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F183069A1DB47EBB0073F413 /* JFPhotoView.m */; };
 		F18306A51DB47EBB0073F413 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F183069B1DB47EBB0073F413 /* LICENSE */; };
 		F18306A61DB47EBB0073F413 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F183069C1DB47EBB0073F413 /* README.md */; };
+		F18306AC1DB4A25E0073F413 /* AdvertiseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306A91DB4A25E0073F413 /* AdvertiseHelper.m */; };
+		F18306AD1DB4A25E0073F413 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306AB1DB4A25E0073F413 /* AdvertiseView.m */; };
+		F18306B01DB4CC8D0073F413 /* DWDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F18306AF1DB4CC8D0073F413 /* DWDProgressHUD.m */; };
 		F183F3F71D9D1B74001821F0 /* WLLiveCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */; };
 		F185456F1D9A51120008F471 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F185456E1D9A51120008F471 /* BaseViewController.m */; };
 		F18545721D9A567B0008F471 /* WLVODCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18545711D9A567B0008F471 /* WLVODCourseListViewController.m */; };
@@ -1271,6 +1274,12 @@
 		F183069A1DB47EBB0073F413 /* JFPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPhotoView.m; sourceTree = "<group>"; };
 		F183069B1DB47EBB0073F413 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F183069C1DB47EBB0073F413 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F18306A81DB4A25E0073F413 /* AdvertiseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseHelper.h; sourceTree = "<group>"; };
+		F18306A91DB4A25E0073F413 /* AdvertiseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseHelper.m; sourceTree = "<group>"; };
+		F18306AA1DB4A25E0073F413 /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
+		F18306AB1DB4A25E0073F413 /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
+		F18306AE1DB4CC8D0073F413 /* DWDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDProgressHUD.h; sourceTree = "<group>"; };
+		F18306AF1DB4CC8D0073F413 /* DWDProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDProgressHUD.m; sourceTree = "<group>"; };
 		F183F3F51D9D1B74001821F0 /* WLLiveCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLiveCourseDetailViewController.h; sourceTree = "<group>"; };
 		F183F3F61D9D1B74001821F0 /* WLLiveCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLiveCourseDetailViewController.m; sourceTree = "<group>"; };
 		F185456D1D9A51120008F471 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -1854,6 +1863,7 @@
 		6C5919321D4FA3AC00256363 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				F18306A71DB4A25E0073F413 /* AdvertiseHelper */,
 				55EB16951D9A51F700C414EF /* Control */,
 				F19244BC1D5F0E0600F0FF5B /* SVProgressHUD */,
 				F19244B81D5F0D5900F0FF5B /* MOProgressHUD */,
@@ -3194,6 +3204,17 @@
 			path = JFImagePickerController;
 			sourceTree = "<group>";
 		};
+		F18306A71DB4A25E0073F413 /* AdvertiseHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F18306A81DB4A25E0073F413 /* AdvertiseHelper.h */,
+				F18306A91DB4A25E0073F413 /* AdvertiseHelper.m */,
+				F18306AA1DB4A25E0073F413 /* AdvertiseView.h */,
+				F18306AB1DB4A25E0073F413 /* AdvertiseView.m */,
+			);
+			path = AdvertiseHelper;
+			sourceTree = "<group>";
+		};
 		F18545691D9A502F0008F471 /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -4177,6 +4198,8 @@
 		F7F304691DABC4EE00F3F3EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F18306AE1DB4CC8D0073F413 /* DWDProgressHUD.h */,
+				F18306AF1DB4CC8D0073F413 /* DWDProgressHUD.m */,
 				F7F3046A1DABC54400F3F3EF /* ZGPlaceHolderTextView.h */,
 				F7F3046B1DABC54400F3F3EF /* ZGPlaceHolderTextView.m */,
 			);
@@ -4489,6 +4512,7 @@
 				550455E81DAE105400F9A32C /* WLOrderDetailModel.m in Sources */,
 				F14EEA331D5621F700BBD158 /* WLreplTableViewCell.m in Sources */,
 				F18305541DB0A7850073F413 /* ZGDownLoadUtil.m in Sources */,
+				F18306AD1DB4A25E0073F413 /* AdvertiseView.m in Sources */,
 				F18306581DB473990073F413 /* UINavigationItem+Loading.m in Sources */,
 				F1A84BA41D50A17100394214 /* WLDetection.m in Sources */,
 				F14EEA1D1D55C1C700BBD158 /* WLReplyViewController.m in Sources */,
@@ -4516,6 +4540,8 @@
 				F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */,
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
+				F18306B01DB4CC8D0073F413 /* DWDProgressHUD.m in Sources */,
+				F18306AC1DB4A25E0073F413 /* AdvertiseHelper.m in Sources */,
 				6E13E0D11D53126A00616BEB /* MOTempViewController.m in Sources */,
 				F18306401DB473990073F413 /* UIImage+Blur.m in Sources */,
 				F18306291DB473980073F413 /* UIAlertView+Block.m in Sources */,

@@ -10,6 +10,7 @@
 #import "WLCourseDataHandle.h"
 #import "WLCourseWareCell.h"
 #import "ZGDownLoadUtil.h"
+#import "DWDProgressHUD.h"
 
 @interface WLCourseWarePreViewController ()
 
@@ -63,13 +64,13 @@
 
 - (void)downloadBtnAction:(UIButton *)sender
 {
-    #warning testData -- fzg
     sender.enabled = NO;
-    [MOProgressHUD showWithStatus:@"正在下载课件..."];
-    NSURL *url = [NSURL URLWithString:@"http://4493bz.1985t.com/uploads/allimg/141204/4-141204095J8.jpg"];
+    DWDProgressHUD *hud = [DWDProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud showText:@"正在下载课件..."];
+    NSURL *url = [NSURL URLWithString:self.dataSoureDic[@"link"]];
     ZGDownLoadUtil *downloadUtil = [[ZGDownLoadUtil alloc] init];
     [downloadUtil downLoadFileWithUrl:url completion:^(BOOL isComplete) {
-        [MOProgressHUD showSuccessWithStatus:@"下载完成!"];
+        [hud showText:@"下载完成" afterDelay:0.3];
     }];
 }
 

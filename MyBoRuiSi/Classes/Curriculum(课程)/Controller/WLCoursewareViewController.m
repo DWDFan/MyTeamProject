@@ -11,6 +11,7 @@
 #import "WLCourseDataHandle.h"
 #import "ZGDownLoadUtil.h"
 #import "WLCourseWareCell.h"
+#import "DWDProgressHUD.h"
 
 @interface WLCoursewareViewController ()
 
@@ -66,11 +67,12 @@
             [self.navigationController pushViewController:VC animated:YES];
         }else {
 #warning testData -- fzg
-            [MOProgressHUD showSuccessWithStatus:@"正在下载课件..."];
+            DWDProgressHUD *hud = [DWDProgressHUD showHUDAddedTo:self.view animated:YES];
+            [hud showText:@"正在下载课件..."];
             NSURL *url = [NSURL URLWithString:self.dataSoureArray[indexPath.row][@"kjUrl"]];
             ZGDownLoadUtil *downloadUtil = [[ZGDownLoadUtil alloc] init];
             [downloadUtil downLoadFileWithUrl:url completion:^(BOOL isComplete) {
-                [MOProgressHUD showSuccessWithStatus:@"下载完成!"];
+                [hud showText:@"下载完成" afterDelay:0.3];
             }];
         }
     }];

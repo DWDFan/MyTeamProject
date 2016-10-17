@@ -232,7 +232,8 @@ bool ismute     = NO;
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self setNavigationBarStyleDefultWithTitle:@"观看直播"];
+    NSString *title = [self.mediaType isEqualToString:@"livestream"] ? @"观看直播" : @"观看点播";
+    [self setNavigationBarStyleDefultWithTitle:title];
     [self settitleColor:[UIColor whiteColor] backgroundColor:[UIColor blackColor]];
     self.leftBtn.hidden = NO;
     [self.rightBtn setImage:[UIImage imageNamed:@"举报"] forState:UIControlStateNormal];
@@ -241,17 +242,17 @@ bool ismute     = NO;
     
     [self.liveplayer isLogToFile:YES];
     
-    if ([self.mediaType isEqualToString:@"livestream"] ) {
-        [self.liveplayer setBufferStrategy:NELPLowDelay]; //直播低延时模式
+    if ([self.mediaType isEqualToString:@"livestream"]) {
+        [self.liveplayer setBufferStrategy:NELPLowDelay];           //直播低延时模式
     }
     else {
-        [self.liveplayer setBufferStrategy:NELPAntiJitter]; //点播抗抖动
+        [self.liveplayer setBufferStrategy:NELPAntiJitter];         //点播抗抖动
     }
     [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit]; //设置画面显示模式，默认原始大小
-    [self.liveplayer setShouldAutoplay:YES]; //设置prepareToPlay完成后是否自动播放
-    [self.liveplayer setHardwareDecoder:isHardware]; //设置解码模式，是否开启硬件解码
-    [self.liveplayer setPauseInBackground:NO]; //设置切入后台时的状态，暂停还是继续播放
-    [self.liveplayer prepareToPlay]; //初始化视频文件
+    [self.liveplayer setShouldAutoplay:YES];                        //设置prepareToPlay完成后是否自动播放
+    [self.liveplayer setHardwareDecoder:isHardware];                //设置解码模式，是否开启硬件解码
+    [self.liveplayer setPauseInBackground:NO];                      //设置切入后台时的状态，暂停还是继续播放
+    [self.liveplayer prepareToPlay];                                //初始化视频文件
 }
 
 - (void)viewDidDisappear:(BOOL)animated
