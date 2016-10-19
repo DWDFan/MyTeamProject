@@ -10,6 +10,7 @@
 #import "WLOrderPayOKViewController.h"
 
 #import "WLOrderDataHandle.h"
+#import "WLMyDataHandle.h"
 
 #import "Pingpp.h"
 
@@ -35,9 +36,15 @@
     NSString *amountStr = [NSString stringWithFormat:@"订单总价:  ￥%@",self.amountStr];
     NSString *accountStr = [NSString stringWithFormat:@"账户余额:  ￥%@",[WLUserInfo share].money ? [WLUserInfo share].money : @"0"];
     NSString *needMoneyStr = [NSString stringWithFormat:@"还需支付: ￥%@",self.needMoney];
-    self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
-                                                    @[needMoneyStr],
-                                                    @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+    if (self.type == orderPayType) {
+        self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
+                                                        @[needMoneyStr],
+                                                        @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+    }else if (self.type == rechargeType){
+        self.arr_str = [NSMutableArray arrayWithArray:@[@[@"",@"",@""],
+                                                        @[needMoneyStr],
+                                                        @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+    }
     
 }
 - (void)clickBalancePay:(UIButton *)button
@@ -81,8 +88,10 @@
                          appURLScheme:kUrlScheme
                        withCompletion:^(NSString *result, PingppError *error) {
                            if ([result isEqualToString:@"success"]) {
-                               // 支付成功 调用dopay接口
-                               [self dopay];
+                               // 支付成功 调用dopay接口。 充值不需要调用dopay
+                               if (self.type == orderPayType) {
+                                    [self dopay];
+                               }
                                
                            } else if ([result isEqualToString:@"cancel"]){
                                //支付取消
@@ -122,6 +131,10 @@
     cell.textLabel.text = str_title;
     
     if (indexPath.section == 0) {
+        //充值类型 直接返回cell
+        if (self.type == rechargeType) return cell;
+    
+        //支付类型
         if (indexPath.row == 2) {
             UIButton *button_option = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 44)];
             button_option.tag = 100;
@@ -164,6 +177,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.type == rechargeType && indexPath.section == 0) {
+        return 0;
+    }
     return 44;
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -175,6 +191,9 @@
 }
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (self.type == rechargeType && section == 0) {
+        return 0.01;
+    }
     if (section == 1){
         return 0.01;
     }
@@ -228,4 +247,12 @@
     }];
 }
 
+
+- (void)requestCheckoutPwd{
+    [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:nil success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

@@ -32,6 +32,8 @@
 		550A22AF1DB0C6140025A2B5 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A11DB0C6140025A2B5 /* libssl.a */; };
 		550A22B01DB0C6140025A2B5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A21DB0C6140025A2B5 /* libswresample.a */; };
 		550A22B11DB0C6140025A2B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A31DB0C6140025A2B5 /* libswscale.a */; };
+		550D1CC91DB7623E00FBAF47 /* WLInputBagPwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */; };
+		550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -657,6 +659,9 @@
 		550A22A11DB0C6140025A2B5 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		550A22A21DB0C6140025A2B5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		550A22A31DB0C6140025A2B5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		550D1CC71DB7623E00FBAF47 /* WLInputBagPwdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInputBagPwdView.h; sourceTree = "<group>"; };
+		550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInputBagPwdView.m; sourceTree = "<group>"; };
+		550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInputBagPwdView.xib; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -1847,6 +1852,9 @@
 				550455E11DADD9EE00F9A32C /* WLOrderFooterView.h */,
 				550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */,
 				550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */,
+				550D1CC71DB7623E00FBAF47 /* WLInputBagPwdView.h */,
+				550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */,
+				550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4424,6 +4432,7 @@
 				F1FB85FC1D5374AC005AAED3 /* MJPhotoBrowser.bundle in Resources */,
 				F12163121D524EA80003B5C1 /* WLorganVC.xib in Resources */,
 				CD2190CD1D54472200F13FEE /* WLAnswerTableViewController.xib in Resources */,
+				550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */,
 				F12162E51D51AA4E0003B5C1 /* WLSettingViewController.xib in Resources */,
 				F17D7DC41D582718007CDC06 /* WLheadsViewController.xib in Resources */,
 				6C59199D1D4FA44900256363 /* MBProgressHUD.bundle in Resources */,
@@ -4770,6 +4779,7 @@
 				F17D7DC81D58295A007CDC06 /* WLTzViewController.m in Sources */,
 				F14919381DA8DEE30098CC29 /* WLFindDataHandle.m in Sources */,
 				F1C597CE1D4CFE4900529553 /* WLHome.m in Sources */,
+				550D1CC91DB7623E00FBAF47 /* WLInputBagPwdView.m in Sources */,
 				550455DB1DAB323500F9A32C /* WLOrderModel.m in Sources */,
 				CD22BF331D66FDF700BB5F47 /* RecommendModell.m in Sources */,
 				F1FB85C91D537365005AAED3 /* DLFixedTabbarView.m in Sources */,

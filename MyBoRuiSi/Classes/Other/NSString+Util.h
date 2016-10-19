@@ -16,4 +16,10 @@
 - (CGSize)sizeWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height;
 
 + (NSString *)reverseString:(NSString *)strSrc;
+
+/** MD5 小写32位 */
+- (NSString*)md532BitLower;
+
+/** 验证 纯数字 */
+- (BOOL)isNumber;
 @end

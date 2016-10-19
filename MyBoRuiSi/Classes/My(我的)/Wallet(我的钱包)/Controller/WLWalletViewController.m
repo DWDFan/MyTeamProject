@@ -8,6 +8,7 @@
 
 #import "UIImage+Image.h"
 #import "KxMenu.h"
+#import "UIAlertView+Block.h"
 
 #import "WLWalletViewController.h"
 #import "WLWalletViewCell.h"
@@ -17,8 +18,10 @@
 #import "WLModifyViewController.h"
 #import "WLForgetViewController.h"
 #import "WLTopViewController.h"
+#import "WLPayViewController.h"
 
-@interface WLWalletViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "WLInputBagPwdView.h"
+@interface WLWalletViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 
@@ -36,8 +39,10 @@
     WLSufficientViewCell *headers = [[[NSBundle mainBundle]loadNibNamed:@"WLSufficientViewCell" owner:nil options:nil]lastObject];
     __weak typeof(self) weakSelf = self;
     headers.rechargeBlock = ^(){
-        WLTopViewController *vc = [[WLTopViewController alloc]init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
+        if ([weakSelf checkoutPwd]) {
+            WLTopViewController *vc = [[WLTopViewController alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
     };
     self.tableView_main.tableFooterView = headers;
     
@@ -83,6 +88,29 @@
     return theImage;
 }
 
+
+/** 验证是否已经设置钱包密码 */
+- (BOOL)checkoutPwd{
+    if ([[WLUserInfo share].bagPwd isEqualToString:@""] || ![WLUserInfo share].bagPwd) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"需要设置钱包密码才可以使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+//        WLPayViewController *vc = [[WLPayViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+        WLInputBagPwdView *view = [WLInputBagPwdView inputBagPawdView];
+        view.frame = self.view.bounds;
+        [self.view addSubview:view];
+    }
+}
+
+
 //设置右边的按钮
 -(void)nav_w_add_prer{
     
@@ -116,22 +144,10 @@
 }
 //分享
 - (void)btn_chat:(id)sender{
-    
-    
-    
-    WLModifyViewController *Modify = [[WLModifyViewController alloc]init];
-//
-//
-//       [share dismissViewControllerAnimated:YES completion:^{
-//
-//       }];
-//    
-//    Wallets.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self.navigationController pushViewController:Modify animated:YES];
-//    [self presentViewController:Wallets animated:YES completion:^{
-//        // NSLog(@"展示完毕");
-//    }];
-    
+    if ([self checkoutPwd]) {
+         WLModifyViewController *Modify = [[WLModifyViewController alloc]init];
+         [self.navigationController pushViewController:Modify animated:YES];
+    }
     
 }
 
@@ -147,9 +163,10 @@
  *
  */
 - (void)btn_addf:(id)sender{
-    WLForgetViewController *Forget = [[WLForgetViewController alloc]init];
-    
-    [self.navigationController pushViewController:Forget animated:YES];
+    if ([self checkoutPwd]) {
+        WLForgetViewController *Forget = [[WLForgetViewController alloc]init];
+        [self.navigationController pushViewController:Forget animated:YES];
+    }
 }
 
 
@@ -197,13 +214,15 @@
 //设置点击跳转到下一个界面
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            WLConsumeViewController *ConsumeVC = [[WLConsumeViewController alloc]init];
-            [self.navigationController pushViewController:ConsumeVC animated:YES];
-        }if (indexPath.row == 1) {
-            WLIncomeViewController *IncomeVC = [[WLIncomeViewController alloc]init];
-            [self.navigationController pushViewController:IncomeVC animated:YES];
+    if ([self checkoutPwd]) {
+        if (indexPath.section == 0) {
+            if (indexPath.row == 0) {
+                WLConsumeViewController *ConsumeVC = [[WLConsumeViewController alloc]init];
+                [self.navigationController pushViewController:ConsumeVC animated:YES];
+            }if (indexPath.row == 1) {
+                WLIncomeViewController *IncomeVC = [[WLIncomeViewController alloc]init];
+                [self.navigationController pushViewController:IncomeVC animated:YES];
+            }
         }
     }
 }

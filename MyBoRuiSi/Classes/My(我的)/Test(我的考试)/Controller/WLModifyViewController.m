@@ -7,8 +7,14 @@
 //
 #import "WLModifyViewController.h"
 #import "WLSuccessfulViewController.h"
-@interface WLModifyViewController ()
 
+#import "WLMyDataHandle.h"
+#import "NSString+Util.h"
+
+@interface WLModifyViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *old_TextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwd_1_TextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwd_2_TextField;
 @end
 
 @implementation WLModifyViewController
@@ -31,6 +37,8 @@
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
 
+    //request
+     [self requestUpdatePwd];
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -47,12 +55,50 @@
     return theImage;
 }
 
-- (void)Modify{//跳转到下一界面
-    WLSuccessfulViewController *SuccessfulVC = [[WLSuccessfulViewController alloc]init];
-    [self.navigationController pushViewController:SuccessfulVC animated:YES];
-//    //返回我的钱包首页
-//    [self.navigationController popViewControllerAnimated:YES];
+#pragma mark - Private Method
+- (BOOL)checkoutPwd{
+    [self.view endEditing:YES];
+    if(![self.pwd_1_TextField.text isEqualToString:self.pwd_2_TextField.text]){
+        [MOProgressHUD showErrorWithStatus:@"密码不一致"];
+    }else if (self.pwd_1_TextField.text.length != 6 || self.pwd_2_TextField.text.length != 6) {
+        [MOProgressHUD showErrorWithStatus:@"请输入6位数密码"];
+    } else if (![self.pwd_1_TextField.text isNumber] && ![self.pwd_2_TextField.text isNumber]){
+        [MOProgressHUD showErrorWithStatus:@"请输入6位纯数字密码"];
+    }else if (self.pwd_1_TextField.text.length == 6 && self.pwd_2_TextField.text.length == 6 && [self.pwd_1_TextField.text isEqualToString:self.pwd_2_TextField.text]){
+        return YES;
+    }
+    return NO;
 }
+- (void)Modify{
+    //request
+    if([self checkoutPwd]){
+        [self requestUpdatePwd];
+    }
+}
+
+#pragma mark - TextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == self.pwd_1_TextField) {
+        [self.pwd_2_TextField becomeFirstResponder];
+    }else{
+        //request
+        if([self checkoutPwd]){
+            [self requestUpdatePwd];
+        }
+    }
+    return YES;
+}
+
+#pragma mark - Request
+- (void)requestUpdatePwd{
+    [WLMyDataHandle requestUpdatePwdWithUid:[WLUserInfo share].userId oldpwd:[self.old_TextField.text md532BitLower] pwd:[self.pwd_1_TextField.text md532BitLower] success:^(id responseObject) {
+        WLSuccessfulViewController *SuccessfulVC = [[WLSuccessfulViewController alloc]init];
+        [self.navigationController pushViewController:SuccessfulVC animated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 
 
 @end
