@@ -521,4 +521,13 @@
     }];
 }
 
++ (void)requestLaunchAdvertiseWithType:(NSNumber *)type
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"type":type};
+    
+    [MOHTTP GET:@"API/index.php?action=Ad&do=start" parameters:param success:success failure:failure];
+}
+
 @end

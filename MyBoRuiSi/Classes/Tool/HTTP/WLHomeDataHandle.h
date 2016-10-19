@@ -276,4 +276,9 @@
                          success:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure;
 
+
++ (void)requestLaunchAdvertiseWithType:(NSNumber *)type
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure;
+
 @end

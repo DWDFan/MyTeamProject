@@ -29,6 +29,7 @@
 @property (nonatomic, strong) NSNumber *gz_num;
 @property (nonatomic, strong) NSNumber *gs_num;
 @property (nonatomic, strong) NSNumber *jr_num;
+@property (nonatomic, strong) NSNumber *member;
 
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) NSArray<WLGoodTeacherModel *> *goodTeacher;

@@ -93,25 +93,24 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     [button_main setTitle:@"请输入名称" forState:UIControlStateNormal];
     [button_main setTitleColor:[UIColor colorWithRed:137 / 250.0 green:137 / 250.0 blue:137 / 250.0 alpha:1] forState:UIControlStateNormal];
     button_main.titleLabel.font = [UIFont systemFontOfSize:15];
-    [button_main setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [button_main setImageEdgeInsets:UIEdgeInsetsMake(0.0, -3, 0.0, 0.0)];
     [textField_main addSubview:button_main];
     button_main.userInteractionEnabled = NO;
     self.button_main = button_main;
     
     [view addSubview:textField_main];
     
+    CGFloat viewtowX =  CGRectGetMaxX(textField_main.frame);
     
-   CGFloat viewtowX =  CGRectGetMaxX(textField_main.frame);
+    CGFloat viewtowY = CGRectGetMinY(textField_main.frame);
     
-   CGFloat viewtowY = CGRectGetMinY(textField_main.frame);
-    
-    UIView *viewtow = [[UIView alloc]initWithFrame:CGRectMake(viewtowX + 3, viewtowY + 7, 2, 20)];
+    UIView *viewtow = [[UIView alloc]initWithFrame:CGRectMake(viewtowX + 3, viewtowY + 7, 1, 20)];
     viewtow.backgroundColor = [UIColor colorWithRed:241/255 green:241/255 blue:241/255 alpha:0.1];
     
     [view addSubview:viewtow];
     
     //添加btn
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(viewtowX + 10, viewtowY, 60, 35)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(viewtowX + 7, viewtowY, 60, 35)];
     btn.backgroundColor = [UIColor clearColor];
     btn.layer.cornerRadius = 5;
     btn.clipsToBounds = YES;
@@ -127,8 +126,8 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     CGSize sizeWidth =[MOTool sizeWithString:@"机构" font:[UIFont systemFontOfSize:15]];
     CGFloat labelWidth = sizeWidth.width;
     
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + 8, 0, -labelWidth);
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + 1, 0, -labelWidth);
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth - 5, 0, imageWidth);
     _typeBtn = btn;
 
     //[btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -5, 0.0, 0.0)];
@@ -185,6 +184,12 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
 -(void)btnClik:(UIButton *)btn{
     
     btn.selected = !btn.selected;
+    
+    if (!btn.selected) {
+        [KxMenu dismissMenu];
+        return;
+    };
+    
     CGFloat btnX  =  CGRectGetMaxX(btn.frame);
     CGFloat btnY  =  CGRectGetMaxY (btn.frame);
     

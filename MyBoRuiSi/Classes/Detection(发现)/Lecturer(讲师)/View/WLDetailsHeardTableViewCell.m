@@ -42,6 +42,18 @@
     [_avatarImgV sd_setImageWithURL:[NSURL URLWithString:lecturer.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
     _attentBtn.selected = lecturer.isfollow;
     
+    for (int i = 0; i < 5; i ++) {
+        
+        UIImageView *starView = [self viewWithTag:100 + i];
+
+        if (i >= [lecturer.star integerValue]) {
+            starView.hidden = YES;
+        }else {
+            starView.hidden = NO;
+        }
+        
+    }
+    
     _leverLbl.text = @"XX机构";
     _institutionLbl.text = @"优秀教师";
 }

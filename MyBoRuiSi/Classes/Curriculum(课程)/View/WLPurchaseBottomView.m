@@ -43,7 +43,7 @@
     addShopCartBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [addShopCartBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
     [addShopCartBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [addShopCartBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
+//    [addShopCartBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [addShopCartBtn addTarget:self action:@selector(addCartBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addShopCartBtn];
     _addShopCartBtn = addShopCartBtn;
@@ -54,7 +54,7 @@
     tasteBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [tasteBtn setTitle:@"体验学习" forState:UIControlStateNormal];
     [tasteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [tasteBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
+//    [tasteBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [tasteBtn addTarget:self action:@selector(tasteBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:tasteBtn];
     _tasteBtn = tasteBtn;
@@ -65,7 +65,7 @@
     purchaseBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [purchaseBtn setTitle:@"立即购买" forState:UIControlStateNormal];
     [purchaseBtn setTitleColor:color_red forState:UIControlStateNormal];
-    [purchaseBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
+//    [purchaseBtn setTitleColor:COLOR_WORD_GRAY_2 forState:UIControlStateDisabled];
     [purchaseBtn addTarget:self action:@selector(purchaseBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:purchaseBtn];
     _purchaseBtn = purchaseBtn;
@@ -84,6 +84,8 @@
 
 - (void)addCartBtnAction:(UIButton *)sender
 {
+    _addShopCartBtn.enabled = NO;
+    _addShopCartBtn.backgroundColor = [UIColor lightGrayColor];
     !self.bottomViewBLock ?: self.bottomViewBLock(0);
 }
 
@@ -103,9 +105,9 @@
         _tasteBtn.enabled = NO;
         _purchaseBtn.enabled = NO;
         _addShopCartBtn.enabled = NO;
-        _tasteBtn.backgroundColor = [UIColor grayColor];
-        _purchaseBtn.backgroundColor = [UIColor grayColor];
-        _addShopCartBtn.backgroundColor = [UIColor grayColor];
+        _tasteBtn.backgroundColor = [UIColor lightGrayColor];
+        _purchaseBtn.backgroundColor = [UIColor lightGrayColor];
+        _addShopCartBtn.backgroundColor = [UIColor lightGrayColor];
     }else {
         _tasteBtn.enabled = YES;
         _purchaseBtn.enabled = YES;

@@ -59,7 +59,6 @@
 {
     [WLHomeDataHandle requestTeacherDetailWithUid:[WLUserInfo share].userId jid:_teacherId success:^(id responseObject) {
         
-        WLLog(@"%@",responseObject);
         _lecturer = [WLLecturerModel mj_objectWithKeyValues:responseObject[@"data"]];
         _header.lecturer = _lecturer;
         [self.tableView_main reloadData];

@@ -134,6 +134,17 @@
             imgV.tag = 6666;
             [cell addSubview:imgV];
             
+            UIView *coverView = [[UIView alloc] initWithFrame:imgV.bounds];
+            coverView.backgroundColor = [UIColor blackColor];
+            coverView.alpha = 0.2;
+            [cell addSubview:coverView];
+
+            UIImageView *iconImgV = [[UIImageView alloc] init];
+            iconImgV.frame = CGRectMake(WLScreenW/2 - 40/2, 200/2 - 40/2, 40, 40);
+            iconImgV.contentMode = UIViewContentModeScaleAspectFit;
+            iconImgV.image = [UIImage imageNamed:@"组-1"];
+            [cell addSubview:iconImgV];
+            
             UILabel *titleLbl =[[UILabel alloc] init];
             titleLbl.frame = CGRectMake(15, imgV.height - 14 - 15, WLScreenW - 30, 14);
             titleLbl.font = [UIFont systemFontOfSize:14];

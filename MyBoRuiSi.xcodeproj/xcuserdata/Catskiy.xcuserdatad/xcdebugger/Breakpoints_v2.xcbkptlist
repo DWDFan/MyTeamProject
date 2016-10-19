@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Curriculum(&#x8bfe;&#x7a0b;)/Controller/WLCourseWarePreViewController.m"
-            timestampString = "498117086.761079"
+            timestampString = "498388623.862768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
