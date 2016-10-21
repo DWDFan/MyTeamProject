@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLPayViewController">
             <connections>
+                <outlet property="pwd_1_textField" destination="ZKS-cj-fky" id="Lhz-TE-Hvu"/>
+                <outlet property="pwd_2_textField" destination="WaX-cB-c7M" id="jwH-49-yXs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,7 +47,7 @@
                                 <constraint firstAttribute="width" constant="270" id="hm8-fp-5Sb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="eCc-W4-HLR"/>
@@ -58,6 +60,9 @@
                                     <include reference="hm8-fp-5Sb"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="PbE-uH-naH"/>
+                            </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="再次输入新的支付密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lA-zS-jNA">
                             <constraints>
@@ -86,7 +91,7 @@
                                 <constraint firstAttribute="height" constant="30" id="zf2-mC-wAQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="acN-Lu-xhE"/>
@@ -99,6 +104,9 @@
                                     <include reference="zf2-mC-wAQ"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="A7Z-ig-x4b"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <constraints>
@@ -123,14 +131,14 @@
                         <mask key="constraints">
                             <exclude reference="41G-a6-3Tq"/>
                             <exclude reference="TlX-V2-X2i"/>
-                            <exclude reference="Chv-B0-eLv"/>
-                            <exclude reference="iBN-fq-n3S"/>
-                            <exclude reference="nZu-Eg-MbC"/>
-                            <exclude reference="ty9-1q-sDO"/>
                             <exclude reference="JHy-Gq-meA"/>
                             <exclude reference="d8P-G5-isn"/>
                             <exclude reference="RUi-Zb-maR"/>
                             <exclude reference="oTk-IM-qXt"/>
+                            <exclude reference="Chv-B0-eLv"/>
+                            <exclude reference="iBN-fq-n3S"/>
+                            <exclude reference="nZu-Eg-MbC"/>
+                            <exclude reference="ty9-1q-sDO"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -143,14 +151,14 @@
                         <mask key="constraints">
                             <include reference="41G-a6-3Tq"/>
                             <include reference="TlX-V2-X2i"/>
-                            <include reference="Chv-B0-eLv"/>
-                            <include reference="iBN-fq-n3S"/>
-                            <include reference="nZu-Eg-MbC"/>
-                            <include reference="ty9-1q-sDO"/>
                             <include reference="JHy-Gq-meA"/>
                             <include reference="d8P-G5-isn"/>
                             <include reference="RUi-Zb-maR"/>
                             <include reference="oTk-IM-qXt"/>
+                            <include reference="Chv-B0-eLv"/>
+                            <include reference="iBN-fq-n3S"/>
+                            <include reference="nZu-Eg-MbC"/>
+                            <include reference="ty9-1q-sDO"/>
                         </mask>
                     </variation>
                 </view>

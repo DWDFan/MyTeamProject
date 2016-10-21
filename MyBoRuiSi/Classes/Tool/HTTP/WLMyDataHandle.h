@@ -182,4 +182,44 @@
                              val:(NSString *)val
                          success:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure;
+
+/**
+ *  设置支付密码
+ *
+ *  @param uid     用户ID
+ *  @param pwd     密码（算法小写32位MD5）
+ *  @param success
+ *  @param failure
+ */
++ (void)requestSetPwdWithUid:(NSString *)uid
+                         pwd:(NSString *)pwd
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
+/**
+ *  修改我的钱包密码
+ *
+ *  @param uid     用户ID
+ *  @param oldpwd  旧密码（算法小写32位MD5）
+ *  @param pwd     密码（算法小写32位MD5）
+ *  @param success
+ *  @param failure
+ */
++ (void)requestUpdatePwdWithUid:(NSString *)uid
+                         oldpwd:(NSString *)oldpwd
+                            pwd:(NSString *)pwd
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
+
+/**
+ *  验证我的钱包密码
+ *
+ *  @param uid     用户ID
+ *  @param pwd     密码（算法小写32位MD5）
+ *  @param success
+ *  @param failure
+ */
++ (void)requestCheckPwdWithUid:(NSString *)uid
+                           pwd:(NSString *)pwd
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure;
 @end

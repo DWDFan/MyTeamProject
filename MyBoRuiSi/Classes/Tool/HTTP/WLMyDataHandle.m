@@ -378,4 +378,75 @@
     }];
     
 }
+
+/**
+ *  设置支付密码
+ */
++ (void)requestSetPwdWithUid:(NSString *)uid
+                         pwd:(NSString *)pwd
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"pwd":pwd};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=setPwd" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"设置成功"]];
+            success(responseObject);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+/**
+ *  修改我的钱包密码
+ */
++ (void)requestUpdatePwdWithUid:(NSString *)uid
+                         oldpwd:(NSString *)oldpwd
+                            pwd:(NSString *)pwd
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"oldpwd":oldpwd,
+                             @"pwd":pwd};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=updatePwd" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            success(responseObject);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
+
+/**
+ *  验证我的钱包密码
+ */
++ (void)requestCheckPwdWithUid:(NSString *)uid
+                           pwd:(NSString *)pwd
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"pwd":pwd};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=checkPwd" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            success(responseObject);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
+}
 @end

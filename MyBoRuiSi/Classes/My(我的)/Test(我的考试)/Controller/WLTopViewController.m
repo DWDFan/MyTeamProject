@@ -51,7 +51,7 @@
     if ([self isValidateMoney:self.moneyTextField.text]) {
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         //转换金额  1  转换成 1.00
-//        top.money = [NSString stringWithFormat:@"%@.00",self.moneyTextField.text];
+        vc.needMoney = [NSString stringWithFormat:@"%@.00",self.moneyTextField.text];
         vc.type = rechargeType;
         [self.navigationController pushViewController:vc animated:YES];
 

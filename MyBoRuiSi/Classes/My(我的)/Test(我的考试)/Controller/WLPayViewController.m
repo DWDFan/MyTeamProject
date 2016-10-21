@@ -8,7 +8,11 @@
 
 #import "WLPayViewController.h"
 
-@interface WLPayViewController ()
+#import "WLMyDataHandle.h"
+#import "NSString+Util.h"
+@interface WLPayViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *pwd_1_textField;
+@property (weak, nonatomic) IBOutlet UITextField *pwd_2_textField;
 
 @end
 
@@ -30,6 +34,8 @@
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
     
+    //request
+     [self requestSetPwd];
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -46,9 +52,46 @@
     return theImage;
 }
 
+#pragma mark - Private Method
+- (BOOL)checkoutPwd{
+    [self.view endEditing:YES];
+    if(![self.pwd_1_textField.text isEqualToString:self.pwd_2_textField.text]){
+        [MOProgressHUD showErrorWithStatus:@"密码不一致"];
+    }else if (self.pwd_1_textField.text.length != 6 || self.pwd_2_textField.text.length != 6) {
+        [MOProgressHUD showErrorWithStatus:@"请输入6位数密码"];
+    } else if (![self.pwd_1_textField.text isNumber] && ![self.pwd_2_textField.text isNumber]){
+         [MOProgressHUD showErrorWithStatus:@"请输入6位纯数字密码"];
+    }else if (self.pwd_1_textField.text.length == 6 && self.pwd_2_textField.text.length == 6 && [self.pwd_1_textField.text isEqualToString:self.pwd_2_textField.text]){
+        return YES;
+    }
+    return NO;
+}
 - (void)Modify{
-    //返回我的钱包首页
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    //request
+    if([self checkoutPwd]){
+        [self requestSetPwd];
+    }
 }
 
+#pragma mark - TextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == self.pwd_1_textField) {
+        [self.pwd_2_textField becomeFirstResponder];
+    }else{
+        //request
+        if([self checkoutPwd]){
+            [self requestSetPwd];
+        }
+    }
+    return YES;
+}
+
+#pragma mark - Request
+- (void)requestSetPwd{
+    [WLMyDataHandle requestSetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] success:^(id responseObject) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end
