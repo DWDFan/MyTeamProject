@@ -39,10 +39,10 @@
     WLSufficientViewCell *headers = [[[NSBundle mainBundle]loadNibNamed:@"WLSufficientViewCell" owner:nil options:nil]lastObject];
     __weak typeof(self) weakSelf = self;
     headers.rechargeBlock = ^(){
-        if ([weakSelf checkoutPwd]) {
+       // if ([weakSelf checkoutPwd]) {
             WLTopViewController *vc = [[WLTopViewController alloc]init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
-        }
+        //}
     };
     self.tableView_main.tableFooterView = headers;
     
@@ -102,11 +102,8 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-//        WLPayViewController *vc = [[WLPayViewController alloc] init];
-//        [self.navigationController pushViewController:vc animated:YES];
-        WLInputBagPwdView *view = [WLInputBagPwdView inputBagPawdView];
-        view.frame = self.view.bounds;
-        [self.view addSubview:view];
+        WLPayViewController *vc = [[WLPayViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

@@ -9,6 +9,31 @@
 #import <Foundation/Foundation.h>
 
 @interface WLMyDataHandle : NSObject
+
+/**
+ *  获取vip价格表
+ *
+ *  @param uid     用户ID
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetVipFeeWithUid:(NSString *)uid
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
+
+/**
+ *  vip续费
+ *
+ *  @param uid     用户ID
+ *  @param year    几年
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetVipFeeWithUid:(NSString *)uid
+                           year:(NSNumber *)year
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
+
 /**
  *  我的收入
  *

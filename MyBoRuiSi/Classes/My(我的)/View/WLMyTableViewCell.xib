@@ -244,6 +244,9 @@
                                 <state key="normal" title="开通会员">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="OpenVipAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oM0-Np-eIH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cE-Qg-w5q">
                                 <frame key="frameInset" minX="75" minY="15" width="51" height="21"/>

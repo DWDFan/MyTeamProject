@@ -104,8 +104,9 @@
                 btn.frame = CGRectMake(10, 15, 30, 30);
                 [btn setImage:[UIImage imageNamed:@"椭圆-2"] forState:UIControlStateNormal];
                 [btn setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
+                NSString *score = [NSString stringWithFormat:@"%@",[WLUserInfo share].score];
                 [btn addTarget:self action:@selector(userJiFen:) forControlEvents:UIControlEventTouchUpInside];
-                if([[WLUserInfo share].score isEqualToNumber:@0]) btn.userInteractionEnabled = NO;
+                if([score isEqualToString:@"0"] || score.length == 0) btn.userInteractionEnabled = NO;
                 btn;
             })];
             

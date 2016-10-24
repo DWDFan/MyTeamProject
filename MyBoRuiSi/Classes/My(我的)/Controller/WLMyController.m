@@ -7,9 +7,7 @@
 //
 
 #import "WLMyController.h"
-#import "WLDetectionTableViewCell.h"
 
-#import "WLMyTableViewCell.h"
 #import "ThePersonalDataTableViewController.h"
 #import "WLRegisteringViewController.h"
 
@@ -23,12 +21,15 @@
 #import "WLTestViewController.h"//考试
 #import "WLWalletViewController.h"//钱包
 #import "WLNoticesViewController.h"//通知
-
-#import "UIImage+Image.h"
-
 #import "WLheadsViewController.h"
 
+#import "WLDetectionTableViewCell.h"
+#import "WLMyTableViewCell.h"
+#import "WLVipPriceListView.h"
 
+#import "WLMyDataHandle.h"
+
+#import "UIImage+Image.h"
 @interface WLMyController ()
 
 @end
@@ -59,6 +60,7 @@
     
     //监听是否登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloaWLLoginStatus:) name:@"changeLoginStatus" object:nil];
+    
 }
 
 
@@ -119,6 +121,41 @@
         //我的收藏
         WLheadsViewController *head = [[WLheadsViewController alloc]init];
         [weakSelf.navigationController pushViewController:head animated:YES];
+    };
+    
+    header.openVipBlock = ^(){
+        if([WLUserInfo share].vip){//续费
+            [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:self.view.bounds];
+                view.dataSource = responseObject;
+               [[UIApplication sharedApplication].keyWindow addSubview:view];
+                __weak typeof(view) weakView = view;
+                view.cancleBlock = ^(){
+                    [weakView removeFromSuperview];
+                };
+                view.buyVipBlock = ^(NSNumber *year){
+                    
+                };
+            } failure:^(NSError *error) {
+                
+            }];
+            
+           
+        }else{//开通
+            [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:self.view.bounds];
+                view.dataSource = responseObject;
+                [[UIApplication sharedApplication].keyWindow addSubview:view];
+                __weak typeof(view) weakView = view;
+                view.cancleBlock = ^(){
+                    [weakView removeFromSuperview];
+                };
+
+            } failure:^(NSError *error) {
+                
+            }];
+            
+        }
     };
     self.tableView.tableHeaderView = header;
 }
