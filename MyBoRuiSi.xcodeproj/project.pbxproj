@@ -123,6 +123,7 @@
 		6E8395641D55F2AE00E11087 /* WLOrderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8395621D55F2AE00E11087 /* WLOrderDetailsViewController.xib */; };
 		6E83956D1D56271D00E11087 /* WLAddOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */; };
 		6E83956E1D56271D00E11087 /* WLAddOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */; };
+		8E9F395B1DBE628D0067E685 /* WLVipDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F395A1DBE628D0067E685 /* WLVipDateView.m */; };
 		CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2190981D53791700F13FEE /* WLTestViewController.m */; };
 		CD2190A61D53791700F13FEE /* WLTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2190991D53791700F13FEE /* WLTestViewController.xib */; };
 		CD2190A71D53791700F13FEE /* WLexaminationpaperOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD21909D1D53791700F13FEE /* WLexaminationpaperOneCell.m */; };
@@ -814,6 +815,8 @@
 		6E83956A1D56271D00E11087 /* WLAddOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAddOrderViewController.h; sourceTree = "<group>"; };
 		6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAddOrderViewController.m; sourceTree = "<group>"; };
 		6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLAddOrderViewController.xib; sourceTree = "<group>"; };
+		8E9F39591DBE628D0067E685 /* WLVipDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipDateView.h; sourceTree = "<group>"; };
+		8E9F395A1DBE628D0067E685 /* WLVipDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipDateView.m; sourceTree = "<group>"; };
 		CD2190971D53791700F13FEE /* WLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestViewController.h; sourceTree = "<group>"; };
 		CD2190981D53791700F13FEE /* WLTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTestViewController.m; sourceTree = "<group>"; };
 		CD2190991D53791700F13FEE /* WLTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTestViewController.xib; sourceTree = "<group>"; };
@@ -3926,6 +3929,8 @@
 				F14EEA321D5621F700BBD158 /* WLreplTableViewCell.xib */,
 				550D1CD31DBE040C00FBAF47 /* WLVipPriceListView.h */,
 				550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */,
+				8E9F39591DBE628D0067E685 /* WLVipDateView.h */,
+				8E9F395A1DBE628D0067E685 /* WLVipDateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4859,6 +4864,7 @@
 				F183065C1DB473990073F413 /* UIScreen+Frame.m in Sources */,
 				F7EC17721DB36B680057D7D6 /* SDWebImageManager.m in Sources */,
 				F183069D1DB47EBB0073F413 /* JFAssetHelper.m in Sources */,
+				8E9F395B1DBE628D0067E685 /* WLVipDateView.m in Sources */,
 				F183067A1DB473990073F413 /* UIViewController+MJPopupViewController.m in Sources */,
 				F18306821DB473990073F413 /* UIWebView+Style.m in Sources */,
 				550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */,
