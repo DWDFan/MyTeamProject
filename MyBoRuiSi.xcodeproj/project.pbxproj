@@ -34,6 +34,8 @@
 		550A22B11DB0C6140025A2B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550A22A31DB0C6140025A2B5 /* libswscale.a */; };
 		550D1CC91DB7623E00FBAF47 /* WLInputBagPwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */; };
 		550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */; };
+		550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */; };
+		550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -665,6 +667,10 @@
 		550D1CC71DB7623E00FBAF47 /* WLInputBagPwdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLInputBagPwdView.h; sourceTree = "<group>"; };
 		550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLInputBagPwdView.m; sourceTree = "<group>"; };
 		550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInputBagPwdView.xib; sourceTree = "<group>"; };
+		550D1CD31DBE040C00FBAF47 /* WLVipPriceListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipPriceListView.h; sourceTree = "<group>"; };
+		550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipPriceListView.m; sourceTree = "<group>"; };
+		550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLVipFeeModel.h; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.h"; sourceTree = SOURCE_ROOT; };
+		550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLVipFeeModel.m; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.m"; sourceTree = SOURCE_ROOT; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -3900,6 +3906,8 @@
 		F1C597A61D4CF9C700529553 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */,
+				550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3916,6 +3924,8 @@
 				F14EEA301D5621F700BBD158 /* WLreplTableViewCell.h */,
 				F14EEA311D5621F700BBD158 /* WLreplTableViewCell.m */,
 				F14EEA321D5621F700BBD158 /* WLreplTableViewCell.xib */,
+				550D1CD31DBE040C00FBAF47 /* WLVipPriceListView.h */,
+				550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4852,7 +4862,9 @@
 				F18306821DB473990073F413 /* UIWebView+Style.m in Sources */,
 				550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */,
 				F18306711DB473990073F413 /* UIView+Nib.m in Sources */,
+				550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */,
 				F18306831DB473990073F413 /* WebView+Debug.m in Sources */,
+				550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */,
 				6E8395631D55F2AE00E11087 /* WLOrderDetailsViewController.m in Sources */,
 				F192449A1D5F0CB100F0FF5B /* MOHTTP.m in Sources */,
 				F1FB86021D5374AC005AAED3 /* SDWebImageManager+MJ.m in Sources */,

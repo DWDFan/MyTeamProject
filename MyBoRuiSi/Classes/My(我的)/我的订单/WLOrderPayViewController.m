@@ -80,7 +80,7 @@
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.amountStr success:^(id responseObject) {
+        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.needMoney success:^(id responseObject) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MOProgressHUD dismiss];
                 [Pingpp createPayment:responseObject
@@ -88,9 +88,13 @@
                          appURLScheme:kUrlScheme
                        withCompletion:^(NSString *result, PingppError *error) {
                            if ([result isEqualToString:@"success"]) {
-                               // 支付成功 调用dopay接口。 充值不需要调用dopay
+                               // 支付成功 调用dopay接口。
                                if (self.type == orderPayType) {
                                     [self dopay];
+                               }else if (self.type == rechargeType){
+                                   //充值不需要调用dopay
+                                   WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+                                   [self.navigationController pushViewController:vc animated:YES];
                                }
                                
                            } else if ([result isEqualToString:@"cancel"]){

@@ -61,6 +61,7 @@
     
     if ([WLUserInfo share].isVip) {
         _vip_Imv.image = [UIImage imageNamed:@"icon-is会员"];
+        [_vip_btn setTitle:@"续费" forState:UIControlStateNormal];
     }else{
         _vip_Imv.image = [UIImage imageNamed:@"icon-会员"];
     }
@@ -76,6 +77,11 @@
         self.colletionActionBlock();
     }
 }
+
+- (IBAction)OpenVipAction:(UIButton *)sender {
+    !self.openVipBlock ?: self.openVipBlock();
+}
+
 
 #pragma mark - Public Method
 - (void)reloadData{
