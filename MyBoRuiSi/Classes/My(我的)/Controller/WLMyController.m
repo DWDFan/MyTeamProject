@@ -26,6 +26,7 @@
 #import "WLDetectionTableViewCell.h"
 #import "WLMyTableViewCell.h"
 #import "WLVipPriceListView.h"
+#import "WLVipDateView.h"
 
 #import "WLMyDataHandle.h"
 
@@ -126,16 +127,14 @@
     header.openVipBlock = ^(){
         if([WLUserInfo share].vip){//续费
             [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:self.view.bounds];
-                view.dataSource = responseObject;
+                WLVipDateView *view = [[WLVipDateView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+                view.date = @"1";
                [[UIApplication sharedApplication].keyWindow addSubview:view];
                 __weak typeof(view) weakView = view;
                 view.cancleBlock = ^(){
                     [weakView removeFromSuperview];
                 };
-                view.buyVipBlock = ^(NSNumber *year){
-                    
-                };
+                
             } failure:^(NSError *error) {
                 
             }];
@@ -143,14 +142,16 @@
            
         }else{//开通
             [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:self.view.bounds];
+                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
                 view.dataSource = responseObject;
                 [[UIApplication sharedApplication].keyWindow addSubview:view];
                 __weak typeof(view) weakView = view;
                 view.cancleBlock = ^(){
                     [weakView removeFromSuperview];
                 };
-
+                view.buyVipBlock = ^(NSNumber *year){
+                    
+                };
             } failure:^(NSError *error) {
                 
             }];
