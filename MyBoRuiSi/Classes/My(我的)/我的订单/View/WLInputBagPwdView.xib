@@ -194,9 +194,7 @@
                         <constraint firstItem="bSt-Eh-ncA" firstAttribute="top" secondItem="Bvp-HJ-AuO" secondAttribute="bottom" constant="49" id="sqn-iB-q7n"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnM-dJ-qve">
-                    <frame key="frameInset" height="150" maxY="210"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnM-dJ-qve">
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIa-MP-l9c">
                             <frame key="frameInset" minX="48.35%" minY="12" width="78" height="21"/>
@@ -264,11 +262,17 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431606292725" green="0.96078431606292725" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="jlh-5J-dKe"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="H6P-Af-Jwm" firstAttribute="top" secondItem="vnM-dJ-qve" secondAttribute="bottom" id="8oV-NF-g1q"/>
+                <constraint firstAttribute="trailing" secondItem="vnM-dJ-qve" secondAttribute="trailing" id="ZM7-pZ-gZc"/>
                 <constraint firstItem="H6P-Af-Jwm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dzF-pD-tjJ"/>
+                <constraint firstItem="vnM-dJ-qve" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="edr-C6-pad"/>
                 <constraint firstAttribute="trailing" secondItem="H6P-Af-Jwm" secondAttribute="trailing" id="gge-xy-mYw"/>
                 <constraint firstAttribute="bottom" secondItem="H6P-Af-Jwm" secondAttribute="bottom" id="oCn-iU-KFu"/>
             </constraints>

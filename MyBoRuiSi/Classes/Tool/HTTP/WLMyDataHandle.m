@@ -45,7 +45,7 @@
             failure(nil);
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD dismiss];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 }
@@ -58,11 +58,27 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestGetVipFeeWithUid:(NSString *)uid
++ (void)requestBuyVipWithUid:(NSString *)uid
                            year:(NSNumber *)year
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure{
-    
+    NSDictionary *param = @{@"uid":uid,
+                            @"year": year};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=Vip&do=buyVip" parameters:param success:^(id responseObject) {
+        [MOProgressHUD dismiss];
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            success(responseObject[@"data"]);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+
 }
 
 /**
@@ -484,6 +500,7 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
                             @"pwd":pwd};
+    [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=UCenter&do=checkPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
             success(responseObject);
@@ -493,6 +510,7 @@
         }
         
     } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 

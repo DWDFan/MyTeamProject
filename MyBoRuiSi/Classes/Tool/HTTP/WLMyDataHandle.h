@@ -29,10 +29,10 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestGetVipFeeWithUid:(NSString *)uid
-                           year:(NSNumber *)year
-                        success:(void (^)(id responseObject))success
-                        failure:(void (^)(NSError *error))failure;
++ (void)requestBuyVipWithUid:(NSString *)uid
+                        year:(NSNumber *)year
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
 
 /**
  *  我的收入
