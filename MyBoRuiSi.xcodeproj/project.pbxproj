@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4126371DA9C0626584D6E916 /* libPods-MyBoRuiSi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBDFAF6478598D9E7B41A1D2 /* libPods-MyBoRuiSi.a */; };
 		550455DB1DAB323500F9A32C /* WLOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455DA1DAB323500F9A32C /* WLOrderModel.m */; };
 		550455E31DADD9EE00F9A32C /* WLOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550455E21DADD9EE00F9A32C /* WLOrderFooterView.m */; };
 		550455E51DADDA1700F9A32C /* WLOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550455E41DADDA1700F9A32C /* WLOrderFooterView.xib */; };
@@ -818,6 +819,7 @@
 		6E83956A1D56271D00E11087 /* WLAddOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAddOrderViewController.h; sourceTree = "<group>"; };
 		6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAddOrderViewController.m; sourceTree = "<group>"; };
 		6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLAddOrderViewController.xib; sourceTree = "<group>"; };
+		8CD4906FED7C20DEE9CF0165 /* Pods-MyBoRuiSi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBoRuiSi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyBoRuiSi/Pods-MyBoRuiSi.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9F39591DBE628D0067E685 /* WLVipDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipDateView.h; sourceTree = "<group>"; };
 		8E9F395A1DBE628D0067E685 /* WLVipDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipDateView.m; sourceTree = "<group>"; };
 		CD2190971D53791700F13FEE /* WLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestViewController.h; sourceTree = "<group>"; };
@@ -887,6 +889,8 @@
 		CDEB079D1D564485009A0011 /* WLPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLPayViewController.h; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.h"; sourceTree = SOURCE_ROOT; };
 		CDEB079E1D564485009A0011 /* WLPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLPayViewController.m; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.m"; sourceTree = SOURCE_ROOT; };
 		CDEB079F1D564485009A0011 /* WLPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WLPayViewController.xib; path = "MyBoRuiSi/Classes/My(我的)/Test(我的考试)/Controller/WLPayViewController.xib"; sourceTree = SOURCE_ROOT; };
+		D4D884AADC138110C9BC7999 /* Pods-MyBoRuiSi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBoRuiSi.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyBoRuiSi/Pods-MyBoRuiSi.release.xcconfig"; sourceTree = "<group>"; };
+		EBDFAF6478598D9E7B41A1D2 /* libPods-MyBoRuiSi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBoRuiSi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10E16C11DA9EB2600474ACE /* WLBBSAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLBBSAdModel.h; sourceTree = "<group>"; };
 		F10E16C21DA9EB2600474ACE /* WLBBSAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLBBSAdModel.m; sourceTree = "<group>"; };
 		F10E16CB1DA9F5F900474ACE /* WLArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLArticleDetailViewController.h; sourceTree = "<group>"; };
@@ -1669,6 +1673,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5595AD5B1DA8C307001758AA /* libc++.tbd in Frameworks */,
+				5595AD531DA8C2DA001758AA /* SystemConfiguration.framework in Frameworks */,
 				550A22AF1DB0C6140025A2B5 /* libssl.a in Frameworks */,
 				550A22AA1DB0C6140025A2B5 /* libfdk-aac.a in Frameworks */,
 				F11AB1791DAF8E530060A9B4 /* libiconv.tbd in Frameworks */,
@@ -1679,13 +1685,11 @@
 				550A22A81DB0C6140025A2B5 /* libavutil.a in Frameworks */,
 				550A22A41DB0C6140025A2B5 /* libavcodec.a in Frameworks */,
 				5595AD5D1DA8C311001758AA /* libz.tbd in Frameworks */,
-				5595AD5B1DA8C307001758AA /* libc++.tbd in Frameworks */,
 				5595AD591DA8C2F3001758AA /* CoreTelephony.framework in Frameworks */,
 				550A22B11DB0C6140025A2B5 /* libswscale.a in Frameworks */,
 				550A22A91DB0C6140025A2B5 /* libcrypto.a in Frameworks */,
 				5595AD571DA8C2EB001758AA /* QuartzCore.framework in Frameworks */,
 				5595AD551DA8C2E2001758AA /* Security.framework in Frameworks */,
-				5595AD531DA8C2DA001758AA /* SystemConfiguration.framework in Frameworks */,
 				5595AD511DA8C2D2001758AA /* CFNetwork.framework in Frameworks */,
 				550A22A71DB0C6140025A2B5 /* libavresample.a in Frameworks */,
 				550A22A61DB0C6140025A2B5 /* libavformat.a in Frameworks */,
@@ -1703,6 +1707,7 @@
 				5595AD4B1DA8C207001758AA /* libpingpp+webview.a in Frameworks */,
 				550A22B01DB0C6140025A2B5 /* libswresample.a in Frameworks */,
 				550A22AB1DB0C6140025A2B5 /* libNELivePlayer.a in Frameworks */,
+				4126371DA9C0626584D6E916 /* libPods-MyBoRuiSi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1835,6 +1840,7 @@
 				5595AD541DA8C2E2001758AA /* Security.framework */,
 				5595AD521DA8C2DA001758AA /* SystemConfiguration.framework */,
 				5595AD501DA8C2D2001758AA /* CFNetwork.framework */,
+				EBDFAF6478598D9E7B41A1D2 /* libPods-MyBoRuiSi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2060,6 +2066,15 @@
 				6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */,
 			);
 			path = "我的订单";
+			sourceTree = "<group>";
+		};
+		858751B00BEF1619EAFAAEC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CD4906FED7C20DEE9CF0165 /* Pods-MyBoRuiSi.debug.xcconfig */,
+				D4D884AADC138110C9BC7999 /* Pods-MyBoRuiSi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CD2190951D53791700F13FEE /* Test(我的考试) */ = {
@@ -3589,6 +3604,7 @@
 				F1A9459B1D4CF4270097FFEF /* MyBoRuiSiUITests */,
 				F1A945751D4CF4270097FFEF /* Products */,
 				5595AD4F1DA8C2D1001758AA /* Frameworks */,
+				858751B00BEF1619EAFAAEC6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4242,9 +4258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1A945A11D4CF4270097FFEF /* Build configuration list for PBXNativeTarget "MyBoRuiSi" */;
 			buildPhases = (
+				0098563160FADC2CB2B92513 /* [CP] Check Pods Manifest.lock */,
 				F1A945701D4CF4270097FFEF /* Sources */,
 				F1A945711D4CF4270097FFEF /* Frameworks */,
 				F1A945721D4CF4270097FFEF /* Resources */,
+				F91FC3D64758C5B567003A92 /* [CP] Embed Pods Frameworks */,
+				A2F697FE382AC7DF4516F471 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4303,8 +4322,8 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 87PV334UCV;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 7DHRY55F6V;
+						ProvisioningStyle = Automatic;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4512,6 +4531,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0098563160FADC2CB2B92513 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A2F697FE382AC7DF4516F471 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyBoRuiSi/Pods-MyBoRuiSi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F91FC3D64758C5B567003A92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyBoRuiSi/Pods-MyBoRuiSi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1A945701D4CF4270097FFEF /* Sources */ = {
@@ -5061,11 +5128,13 @@
 		};
 		F1A945A21D4CF4270097FFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CD4906FED7C20DEE9CF0165 /* Pods-MyBoRuiSi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 87PV334UCV;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Channels/Alipay",
@@ -5073,7 +5142,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyBoRuiSi/Classes/Other/MyBoRuiSi.pch;
 				INFOPLIST_FILE = MyBoRuiSi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5085,20 +5154,22 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi4;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "36d70d56-5f07-4559-91f2-723cc78a3d9d";
-				PROVISIONING_PROFILE_SPECIFIER = brsdistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		F1A945A31D4CF4270097FFEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4D884AADC138110C9BC7999 /* Pods-MyBoRuiSi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 87PV334UCV;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/Channels/Alipay",
@@ -5106,7 +5177,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyBoRuiSi/Classes/Other/MyBoRuiSi.pch;
 				INFOPLIST_FILE = MyBoRuiSi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5118,10 +5189,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi4;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "36d70d56-5f07-4559-91f2-723cc78a3d9d";
-				PROVISIONING_PROFILE_SPECIFIER = brsdistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

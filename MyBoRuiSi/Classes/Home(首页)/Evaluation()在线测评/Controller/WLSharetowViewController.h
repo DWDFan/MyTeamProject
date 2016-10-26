@@ -10,4 +10,10 @@
 
 @interface WLSharetowViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *wechatTimelineBtn;
+@property (weak, nonatomic) IBOutlet UIView *WechatSession;
+@property (weak, nonatomic) IBOutlet UIView *qqBtn;
+@property (weak, nonatomic) IBOutlet UIView *qZone;
+@property (weak, nonatomic) IBOutlet UIView *sinaBtn;
+
 @end

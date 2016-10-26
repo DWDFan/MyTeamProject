@@ -13,6 +13,7 @@
 #import "Pingpp.h"
 #import "AdvertiseHelper.h"
 #import "WLHomeDataHandle.h"
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface AppDelegate ()
 
@@ -36,6 +37,8 @@
     //加载用户信息
     [[WLUserInfo share] loadUserInfo];
     
+    //友盟分享及第三方登录初始化
+    [self initLoadUMSocial];
     return YES;
 }
 
@@ -53,14 +56,49 @@
     }];
 }
 
+#pragma mark 初始化友盟分享
+-(void)initLoadUMSocial
+{
+    //打开调试log的开关
+    //打开日志
+//    [[UMSocialManager defaultManager] openLog:YES];
+    //设置友盟appkey
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"57b432afe0f55a9832001a0a"];
+    
+    // 获取友盟social版本号
+    NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
+    
+    //各平台的详细配置
+    //设置微信的appId和appKey
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    
+    //设置分享到QQ互联的appId和appKey
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"100424468"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    //设置新浪的appId和appKey
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+}
+
+
 // iOS 8 及以下请用这个
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [Pingpp handleOpenURL:url withCompletion:nil];
+    
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+        [Pingpp handleOpenURL:url withCompletion:nil];
+    }
+    return result;
 }
 
 // iOS 9 以上请用这个
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
-    return [Pingpp handleOpenURL:url withCompletion:nil];
+   
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+        [Pingpp handleOpenURL:url withCompletion:nil];
+    }
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -78,7 +116,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

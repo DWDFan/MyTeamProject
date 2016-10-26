@@ -187,7 +187,6 @@
     _moreBtn.frame = _articleViewModel.moreBtnFrame;
     
     _praBtn.selected = _articleViewModel.article.selfZan;
-    
     if ([[WLUserInfo share].userId isEqualToString:_articleViewModel.article.uid]) {
         
         _readIcon.hidden = NO;
