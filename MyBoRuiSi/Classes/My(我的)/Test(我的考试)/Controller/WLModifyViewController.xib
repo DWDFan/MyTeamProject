@@ -21,13 +21,13 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-QJ-Jkd">
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入当前支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-C4-Dpd">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入当前支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-C4-Dpd" customClass="WLNoCopyTextField">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="08s-ue-0Tg"/>
                                 <constraint firstAttribute="width" constant="360" id="0eo-Jv-Hnb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="08s-ue-0Tg"/>
@@ -65,13 +65,13 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新的支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0t-9d-sLl">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新的支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0t-9d-sLl" customClass="WLNoCopyTextField">
                             <constraints>
                                 <constraint firstAttribute="width" constant="360" id="ZLQ-Mc-gxu"/>
                                 <constraint firstAttribute="height" constant="30" id="ZMx-fU-aSB"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="ZLQ-Mc-gxu"/>
@@ -109,13 +109,13 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新的支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10z-Ts-Bvv">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新的支付密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10z-Ts-Bvv" customClass="WLNoCopyTextField">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="UJG-3Y-hbJ"/>
                                 <constraint firstAttribute="width" constant="360" id="kH7-9t-L2K"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="UJG-3Y-hbJ"/>
@@ -186,14 +186,14 @@
                             <exclude reference="Lae-YM-LIo"/>
                             <exclude reference="KVc-nw-3bK"/>
                             <exclude reference="VRQ-XX-pJG"/>
-                            <exclude reference="nIR-Lz-NtB"/>
-                            <exclude reference="tEg-rB-Vow"/>
                             <exclude reference="MFC-jM-kVE"/>
                             <exclude reference="fHY-gT-SJW"/>
                             <exclude reference="SN6-IZ-22X"/>
                             <exclude reference="TWN-WK-WIY"/>
                             <exclude reference="cyv-7P-V2Z"/>
                             <exclude reference="w3u-K3-3tG"/>
+                            <exclude reference="nIR-Lz-NtB"/>
+                            <exclude reference="tEg-rB-Vow"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -212,14 +212,14 @@
                             <include reference="Lae-YM-LIo"/>
                             <include reference="KVc-nw-3bK"/>
                             <include reference="VRQ-XX-pJG"/>
-                            <include reference="nIR-Lz-NtB"/>
-                            <include reference="tEg-rB-Vow"/>
                             <include reference="MFC-jM-kVE"/>
                             <include reference="fHY-gT-SJW"/>
                             <include reference="SN6-IZ-22X"/>
                             <include reference="TWN-WK-WIY"/>
                             <include reference="cyv-7P-V2Z"/>
                             <include reference="w3u-K3-3tG"/>
+                            <include reference="nIR-Lz-NtB"/>
+                            <include reference="tEg-rB-Vow"/>
                         </mask>
                     </variation>
                 </view>

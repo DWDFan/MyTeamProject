@@ -429,7 +429,7 @@
     [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=User&do=updateInfo" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
-            [MOProgressHUD showImage:nil withStatus:@"修改成功"];
+            [MOProgressHUD showSuccessWithStatus:@"修改成功"];
             success(responseObject);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -454,7 +454,9 @@
                             @"pwd":pwd};
     [MOHTTP GET:@"API/index.php?action=UCenter&do=setPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
-            [MOProgressHUD showErrorWithStatus:responseObject[@"设置成功"]];
+            [MOProgressHUD showSuccessWithStatus:@"设置成功"];
+            [WLUserInfo share].bagPwd = @1;
+            [[WLUserInfo share] reArchivUserInfo];
             success(responseObject);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -462,6 +464,7 @@
         }
         
     } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 
@@ -486,6 +489,7 @@
         }
         
     } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 

@@ -211,10 +211,5 @@
              ] lowercaseString];
 }
 
-- (BOOL)isNumber{
-    if (self.length > 6) return NO;
-    NSString *str = @"^[0-9]{6}$";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES",str];
-    return [predicate evaluateWithObject:self];
-}
+
 @end

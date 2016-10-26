@@ -36,6 +36,7 @@
 		550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */; };
 		550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */; };
 		550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */; };
+		55894B2B1DC0BCF6008DE544 /* WLNoCopyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -672,6 +673,8 @@
 		550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipPriceListView.m; sourceTree = "<group>"; };
 		550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLVipFeeModel.h; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.h"; sourceTree = SOURCE_ROOT; };
 		550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLVipFeeModel.m; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.m"; sourceTree = SOURCE_ROOT; };
+		55894B291DC0BCF6008DE544 /* WLNoCopyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLNoCopyTextField.h; sourceTree = "<group>"; };
+		55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNoCopyTextField.m; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -3949,6 +3952,8 @@
 				F1C597BF1D4CFD2A00529553 /* UIImage+Image.m */,
 				F1C597BB1D4CFCEF00529553 /* UIBarButtonItem+Item.h */,
 				F1C597BC1D4CFCEF00529553 /* UIBarButtonItem+Item.m */,
+				55894B291DC0BCF6008DE544 /* WLNoCopyTextField.h */,
+				55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */,
 				F1C598241D4D96A400529553 /* MyBoRuiSi.pch */,
 				F1AA6F451D95178200769610 /* WLDisplayStarView.h */,
 				F1AA6F461D95178200769610 /* WLDisplayStarView.m */,
@@ -4562,6 +4567,7 @@
 				F14EEA291D55F91A00BBD158 /* WLnewsTableViewCell.m in Sources */,
 				F18306421DB473990073F413 /* UIImage+Color.m in Sources */,
 				F10E16E51DA9F6D800474ACE /* WLfather2ViewController.m in Sources */,
+				55894B2B1DC0BCF6008DE544 /* WLNoCopyTextField.m in Sources */,
 				F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */,
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
