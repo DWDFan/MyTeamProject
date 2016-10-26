@@ -30,6 +30,54 @@
 				<string>demoapp001</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxdc1e388c3822c80b</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb3921700954</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tencent</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent100424468</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>QQ</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ05fc5b14</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>qzoneScheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mqzone</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -63,5 +111,65 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>linkedin</string>
+        <string>linkedin-sdk2</string>
+        <string>linkedin-sdk</string>
+        <string>wechat</string>
+        <string>weixin</string>
+        <string>sinaweibohd</string>
+        <string>sinaweibo</string>
+        <string>sinaweibosso</string>
+        <string>weibosdk</string>
+        <string>weibosdk2.5</string>
+        <string>mqqapi</string>
+        <string>mqq</string>
+        <string>mqqOpensdkSSoLogin</string>
+        <string>mqqconnect</string>
+        <string>mqqopensdkdataline</string>
+        <string>mqqopensdkgrouptribeshare</string>
+        <string>mqqopensdkfriend</string>
+        <string>mqqopensdkapi</string>
+        <string>mqqopensdkapiV2</string>
+        <string>mqqopensdkapiV3</string>
+        <string>mqqopensdkapiV4</string>
+        <string>mqzoneopensdk</string>
+        <string>wtloginmqq</string>
+        <string>wtloginmqq2</string>
+        <string>mqqwpa</string>
+        <string>mqzone</string>
+        <string>mqzonev2</string>
+        <string>mqzoneshare</string>
+        <string>wtloginqzone</string>
+        <string>mqzonewx</string>
+        <string>mqzoneopensdkapiV2</string>
+        <string>mqzoneopensdkapi19</string>
+        <string>mqzoneopensdkapi</string>
+        <string>mqqbrowser</string>
+        <string>mttbrowser</string>
+        <string>TencentWeibo</string>
+        <string>tencentweiboSdkv2</string>
+        <string>alipay</string>
+        <string>alipayshare</string>
+        <string>renrenios</string>
+        <string>renrenapi</string>
+        <string>renren</string>
+        <string>renreniphone</string>
+        <string>laiwangsso</string>
+        <string>yixin</string>
+        <string>yixinopenapi</string>
+        <string>yixinoauth</string>
+        <string>yixinfav</string>
+        <string>laiwangsso</string>
+        <string>instagram</string>
+        <string>whatsapp</string>
+        <string>line</string>
+        <string>tumblr</string>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>

@@ -21,8 +21,10 @@
 @property (nonatomic, strong) ZGPlaceHolderTextView *contentTV;
 @property (nonatomic, strong) SZAddImage *addPhotoView;
 @property (nonatomic, strong) DWDMultiSelectImageView *multiSelectView;
-@property (nonatomic , strong) NSMutableArray *selectImages;
-@property (nonatomic , strong) NSMutableArray *imageNames;
+@property (nonatomic, strong) NSMutableArray *selectImages;
+@property (nonatomic, strong) NSMutableArray *imageNames;
+@property (nonatomic, strong) NSMutableArray *sourceImages;
+@property (nonatomic, strong) NSMutableArray *allImages;
 
 @end
 
@@ -44,7 +46,9 @@
         
         self.titleTF.text = self.articleViewModel.article.title;
         self.contentTV.text = self.articleViewModel.article.content;
-//        self.addPhotoView.images = self.articleViewModel.article.image;
+        [self.multiSelectView clearAllPhotos];
+        self.sourceImages = [NSMutableArray arrayWithArray:self.articleViewModel.article.image];
+        self.multiSelectView.arrImages = self.sourceImages;
         
         UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         sureBtn.frame = CGRectMake(0, WLScreenH - IOS7_TOP_Y - 49, WLScreenW, 49);
@@ -94,6 +98,7 @@
         [WLFindDataHandle requestUploatPhotoWithFiledata:fileData uid:[WLUserInfo share].userId success:^(id responseObject) {
             
             [self.imageNames addObject:responseObject[@"link"]];
+            WLLog(@"*******************************%@",responseObject[@"link"]);
             if (self.imageNames.count == self.selectImages.count) {
                 [self issueArticleData];
             }
@@ -106,11 +111,24 @@
 
 - (void)issueArticleData
 {
-    NSString *pics = self.imageNames.count > 0 ? self.imageNames[0] : [NSNull null];
-    for (int i = 1; i < self.imageNames.count; i ++) {
+    NSMutableString *pics = [NSMutableString string];
+    
+    for (int i = 0; i < self.sourceImages.count; i ++) {
         
-        pics = [pics stringByAppendingString:@"|"];
-        pics = [pics stringByAppendingString:self.imageNames[i]];
+        ZGImageModel *imageM = self.sourceImages[i];
+        NSString *imageName = imageM.image;
+        [pics appendString:imageName];
+        [pics appendString:@"|"];
+    }
+    
+    for (int i = 0; i < self.imageNames.count; i ++) {
+        
+        [pics appendString:self.imageNames[i]];
+        [pics appendString:@"|"];
+    }
+    
+    if (pics.length > 0) {
+        [pics deleteCharactersInRange:NSMakeRange(pics.length - 1, 1)];
     }
     
     if (_type == EditTypeEdit) {
@@ -131,7 +149,12 @@
         }];
     }else {
         
-        [WLFindDataHandle requestFindArticleIssueWithQid:_circleId uid:[WLUserInfo share].userId title:_titleTF.text content:_contentTV.text pics:pics success:^(id responseObject) {
+        [WLFindDataHandle requestFindArticleIssueWithQid:_circleId
+                                                     uid:[WLUserInfo share].userId
+                                                   title:_titleTF.text
+                                                 content:_contentTV.text
+                                                    pics:pics
+                                                 success:^(id responseObject) {
             
             [MOProgressHUD showSuccessWithStatus:@"发布成功"];
             [self.navigationController popViewControllerAnimated:YES];
@@ -166,6 +189,16 @@
     return _contentTV;
 }
 
+- (DWDMultiSelectImageView *)multiSelectView
+{
+    if (!_multiSelectView) {
+        _multiSelectView = [[DWDMultiSelectImageView alloc] init];
+        _multiSelectView.frame = CGRectMake(0, 120 + ZGPadding + ZGPaddingMax, WLScreenW, 200);
+        _multiSelectView.delegate = self;
+    }
+    return _multiSelectView;
+}
+
 - (NSMutableArray *)imageNames
 {
     if (!_imageNames) {
@@ -180,6 +213,22 @@
         _selectImages = [NSMutableArray arrayWithCapacity:0];
     }
     return _selectImages;
+}
+
+- (NSMutableArray *)sourceImages
+{
+    if (!_sourceImages) {
+        _sourceImages = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _sourceImages;
+}
+
+- (NSMutableArray *)allImages
+{
+    if (!_allImages) {
+        _allImages = [NSMutableArray arrayWithArray:self.sourceImages];
+    }
+    return _allImages;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -219,14 +268,8 @@
         [cell addSubview:self.titleTF];
     }else {
         [cell addSubview:self.contentTV];
-        
-//        _addPhotoView = [[SZAddImage alloc] initWithFrame:CGRectMake(0, self.contentTV.bottom + ZGPaddingMax, WLScreenW, 200)];
-//        [cell addSubview:_addPhotoView];
-        
-        _multiSelectView  = [[DWDMultiSelectImageView alloc] init];
-        _multiSelectView.frame = CGRectMake(0, self.contentTV.bottom + ZGPaddingMax, WLScreenW, 200);
-        _multiSelectView.delegate = self;
-        [cell addSubview:_multiSelectView];
+
+        [cell addSubview:self.multiSelectView];
     }
     return cell;
 }
@@ -258,9 +301,25 @@
         [self.selectImages addObject:thumbImage];
     }
     
-    self.multiSelectView.arrImages = temp;
+    _allImages = [NSMutableArray arrayWithArray:self.sourceImages];
+    [_allImages addObjectsFromArray:temp];
+    
+    [self.multiSelectView clearAllPhotos];
+    self.multiSelectView.arrImages = _allImages;
     self.multiSelectView.height = self.multiSelectView.frame.size.height;
     [picker dismissViewControllerAnimated:YES completion:nil];
+    [JFImagePickerController clear];
+}
+
+- (void)multiSelectImageViewDidDeleteImageAtIndex:(NSUInteger)index
+{
+    if (index <= self.sourceImages.count - 1 && self.sourceImages.count > 0) {
+        [self.allImages removeObjectAtIndex:index];
+        [self.sourceImages removeObjectAtIndex:index];
+    }else {
+        [self.allImages removeObjectAtIndex:index];
+    }
+    self.multiSelectView.arrImages = self.allImages;
 }
 
 - (void)imagePickerDidCancel:(JFImagePickerController *)picker {

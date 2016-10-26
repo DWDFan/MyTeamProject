@@ -9,6 +9,8 @@
 #import "WLOrderPayViewController.h"
 #import "WLOrderPayOKViewController.h"
 
+#import "WLInputBagPwdView.h"
+
 #import "WLOrderDataHandle.h"
 #import "WLMyDataHandle.h"
 
@@ -35,11 +37,17 @@
     NSString *orderName = [NSString stringWithFormat:@"订单编号:  %@",self.orderId];
     NSString *amountStr = [NSString stringWithFormat:@"订单总价:  ￥%@",self.amountStr];
     NSString *accountStr = [NSString stringWithFormat:@"账户余额:  ￥%@",[WLUserInfo share].money ? [WLUserInfo share].money : @"0"];
-    NSString *needMoneyStr = [NSString stringWithFormat:@"还需支付: ￥%@",self.needMoney];
+    NSString *needMoneyStr = [NSString stringWithFormat:@"还需支付: ￥%.2f",self.needMoney];
     if (self.type == orderPayType) {
-        self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
-                                                        @[needMoneyStr],
-                                                        @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+        //判断余额是否足够支付，不够显示第三方支付
+        if([[WLUserInfo share].money floatValue] > self.needMoney){
+            self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
+                                                            @[needMoneyStr]]];
+        }else{
+            self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
+                                                            @[needMoneyStr],
+                                                            @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+        }
     }else if (self.type == rechargeType){
         self.arr_str = [NSMutableArray arrayWithArray:@[@[@"",@"",@""],
                                                         @[needMoneyStr],
@@ -75,12 +83,25 @@
     if(!self.channel){
         [MOProgressHUD showErrorWithStatus:@"请选择支付方式"];
     }else if([self.channel isEqualToString:@"selfPay"]){
-        //request dapay
-        [self dopay];
+        //验证钱包密码
+        WLInputBagPwdView *pwdView = [WLInputBagPwdView inputBagPawdView];
+        pwdView.frame = [UIApplication sharedApplication].keyWindow.bounds;
+        [[UIApplication sharedApplication].keyWindow addSubview:pwdView];
+        
+        __weak typeof(pwdView) weakPwdView = pwdView;
+        __weak typeof(self) weakSelf = self;
+        pwdView.closeBlock = ^(){
+            [weakPwdView removeFromSuperview];
+        };
+        pwdView.completeBlock = ^(NSString *pwd){
+            [weakPwdView removeFromSuperview];
+            [weakSelf requestCheckoutPwd:pwd];
+        };
+        
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:self.amountStr success:^(id responseObject) {
+        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MOProgressHUD dismiss];
                 [Pingpp createPayment:responseObject
@@ -88,9 +109,13 @@
                          appURLScheme:kUrlScheme
                        withCompletion:^(NSString *result, PingppError *error) {
                            if ([result isEqualToString:@"success"]) {
-                               // 支付成功 调用dopay接口。 充值不需要调用dopay
+                               // 支付成功 调用dopay接口。
                                if (self.type == orderPayType) {
                                     [self dopay];
+                               }else if (self.type == rechargeType){
+                                   //充值不需要调用dopay
+                                   WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+                                   [self.navigationController pushViewController:vc animated:YES];
                                }
                                
                            } else if ([result isEqualToString:@"cancel"]){
@@ -248,9 +273,10 @@
 }
 
 
-- (void)requestCheckoutPwd{
-    [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:nil success:^(id responseObject) {
-        
+- (void)requestCheckoutPwd:(NSString *)pwd{
+    [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:pwd success:^(id responseObject) {
+        //支付
+        [self dopay];
     } failure:^(NSError *error) {
         
     }];

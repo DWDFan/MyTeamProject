@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WLAddOrderViewController : UIViewController
-@property (nonatomic, copy) NSString *money;
-@property (nonatomic, copy) NSString *cid; //购物车id
-@property (nonatomic, copy) NSString *type; //类型 kecheng , vip ,jifen 
+@property (nonatomic, assign) float money;//小计
+@property (nonatomic, copy) NSString *type; //类型 kecheng , vip ,jifen
+@property (nonatomic, strong) NSArray *dataSource;
 @end

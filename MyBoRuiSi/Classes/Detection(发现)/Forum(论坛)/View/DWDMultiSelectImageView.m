@@ -7,6 +7,7 @@
 //
 
 #import "DWDMultiSelectImageView.h"
+#import "ZGArticleModel.h"
 
 #define KColumn 5
 #define KButtonWidth  ((WLScreenW - 30 - 40)/5)
@@ -48,19 +49,12 @@
 - (void)setArrImages:(NSMutableArray *)arrImages
 {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-//    UILabel *lab = [[UILabel alloc]init];
-//    lab.text = @"添加图片";
-//    lab.textColor = COLOR_WORD_GRAY_1;
-//    lab.font = [UIFont systemFontOfSize:14];
-//    lab.frame = CGRectMake(10, 10, 100, 25);
-//    [self addSubview:lab];
 
+    _arrImages = arrImages.mutableCopy;
     
-    if (arrImages.count < 6) {
-        [arrImages addObject:[UIImage imageNamed:@"add_image"]];
+    if (_arrImages.count < 6) {
+        [_arrImages addObject:[UIImage imageNamed:@"add_image"]];
     }
-    _arrImages = arrImages;
     
     int col = 0;
     int row = 0;
@@ -70,7 +64,7 @@
     int btnX = 0;
     int btnY = 0;
     
-    for (int i = 0; i < arrImages.count; i ++) {
+    for (int i = 0; i < MIN(6, _arrImages.count); i ++) {
         
         col = i % KColumn;
         row = i / KColumn;
@@ -81,17 +75,35 @@
         UIButton *btn = [[UIButton alloc] init];
         btn.frame = CGRectMake(btnX, btnY, KImgSize.width, KImgSize.height);
         
-        [btn setBackgroundImage:arrImages[i] forState:UIControlStateNormal];
+        id imageObj = _arrImages[i];
+        if ([imageObj isKindOfClass:[ZGImageModel class]]) {
+            ZGImageModel *imageM = (ZGImageModel *)imageObj;
+            [btn sd_setImageWithURL:[NSURL URLWithString:imageM.image] forState:UIControlStateNormal];
+        }else {
+            [btn setBackgroundImage:_arrImages[i] forState:UIControlStateNormal];
+        }
+        
         [self addSubview:btn];
         
+        // 删除按钮
+        NSInteger count = arrImages.count == 6 ? 6 : _arrImages.count - 1;
+        if (i < count) {
+            UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            deleteBtn.frame = CGRectMake(btn.right - 13, btn.top - 8, 20, 20);
+            [deleteBtn setImage:[UIImage imageNamed:@"del_image"] forState:UIControlStateNormal];
+            [deleteBtn addTarget:self action:@selector(deleteBtnAcition:) forControlEvents:UIControlEventTouchUpInside];
+            [deleteBtn setTag:1000 + i];
+            [self addSubview:deleteBtn];
+        }
+        
         //if button is addButton
-        if ((i == arrImages.count-1) && (arrImages.count < 10)) {
+        if ((i == _arrImages.count-1) && (_arrImages.count < 7)) {
             [btn addTarget:self action:@selector(openPhoto) forControlEvents:UIControlEventTouchDown];
         }
     }
     
     //setup self frame
-    int num =  arrImages.count % KColumn == 0 ? arrImages.count / KColumn : arrImages.count / KColumn + 1;
+    int num =  _arrImages.count % KColumn == 0 ? _arrImages.count / KColumn : _arrImages.count / KColumn + 1;
     [self setHeight: paddingOY + num * (KImgSize.height) +  num * paddingY];
 
 }
@@ -115,4 +127,22 @@
     [self.delegate presentViewController:picker animated:YES completion:nil];
      */
 }
+
+- (void)clearAllPhotos
+{
+    for (UIView *view in self.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
+- (void)deleteBtnAcition:(UIButton *)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(multiSelectImageViewDidDeleteImageAtIndex:)]) {
+        
+        [self.delegate multiSelectImageViewDidDeleteImageAtIndex:sender.tag - 1000];
+    }
+}
+
 @end

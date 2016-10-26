@@ -12,13 +12,16 @@
 
 @required
 - (void)multiSelectImageViewDidSelectAddButton:(DWDMultiSelectImageView *)multiSelectImageView;
-
+- (void)multiSelectImageViewDidDeleteImageAtIndex:(NSUInteger)index;
 @end
 
 @interface DWDMultiSelectImageView : UIView
 
 + (instancetype)multiSelectImageView;
 
-@property (strong, nonatomic) NSMutableArray *arrImages;
+@property (copy, nonatomic) NSMutableArray *arrImages;
 @property (nonatomic,weak) id<DWDMultiSelectImageViewDelegate> delegate;
+
+- (void)clearAllPhotos;
+
 @end

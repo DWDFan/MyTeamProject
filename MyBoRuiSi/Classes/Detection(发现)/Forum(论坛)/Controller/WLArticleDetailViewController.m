@@ -67,8 +67,8 @@
     [self.bottomView addSubview:topLine];
     
     [self.tableView addFooterWithTarget:self action:@selector(requestCommentData)];
-    [self requestData];
 }
+
 
 - (void)requestData
 {
@@ -360,7 +360,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
-
+    [self requestData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

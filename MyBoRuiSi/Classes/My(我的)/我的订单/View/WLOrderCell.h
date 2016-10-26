@@ -21,7 +21,7 @@ typedef void(^ClickRecharge)();//充值
 
 @property (nonatomic,copy) ClickRecharge action_pay;
 @property (nonatomic, assign) WLOrderCellType cellType;
-@property (nonatomic, copy) void(^selectBalanceBlock)(NSInteger price,BOOL isSelect, NSString *cid);//购物车模块 的 结算按钮block
+@property (nonatomic, copy) void(^selectBalanceBlock)(NSInteger price,BOOL isSelect, WLShopCarModel *shopCarModel);//购物车模块 的 结算按钮block
 @property (nonatomic, copy) void(^selectDeleteBlock)(BOOL isSelect, NSString *oid);  //关闭订单模块 的 删除按钮block
 @property (nonatomic, copy) void(^payBlock)(NSInteger price);
 

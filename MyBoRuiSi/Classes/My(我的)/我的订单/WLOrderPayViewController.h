@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger) {
 @interface WLOrderPayViewController : UIViewController
 @property (nonatomic, copy) NSString *orderName;  //订单名称
 @property (nonatomic, strong) NSString *amountStr;
-@property (nonatomic, copy) NSString *needMoney;
+@property (nonatomic, assign) float needMoney;
 @property (nonatomic, copy) NSString *orderId; //订单id
 @property (nonatomic, assign) payType type;
 @end

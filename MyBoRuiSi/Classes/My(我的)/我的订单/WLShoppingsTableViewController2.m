@@ -104,7 +104,7 @@
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         vc.amountStr = amount;
         vc.orderId = oid;
-        vc.needMoney = amount;
+        vc.needMoney = [amount floatValue];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     footerView.detailBlock = ^(NSString *oid){

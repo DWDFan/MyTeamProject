@@ -69,7 +69,7 @@
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         vc.amountStr = self.orderDetailModel.realPay;
         vc.orderId = self.oid;
-        vc.needMoney = self.orderDetailModel.realPay;
+        vc.needMoney = [self.orderDetailModel.realPay floatValue];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

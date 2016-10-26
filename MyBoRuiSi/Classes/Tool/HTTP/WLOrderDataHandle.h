@@ -162,7 +162,7 @@
 + (void)requestCommitOrderWithUid:(NSString *)uid
                           cid:(NSString *)cid
                          type:(NSString *)type
-                        jifen:(NSString *)jifen
+                        jifen:(NSNumber *)jifen
                       success:(void (^)(id responseObject))success
                       failure:(void (^)(NSError *error))failure;
 

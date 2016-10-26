@@ -16,7 +16,71 @@
 #import "WLMyZhiBoCourseModel.h"
 #import "WLMyQiYeCourseModel.h"
 #import "WLMyAttentionModel.h"
+#import "WLVipFeeModel.h"
 @implementation WLMyDataHandle
+
+/**
+ *  获取vip价格表
+ *
+ *  @param uid     用户ID
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetVipFeeWithUid:(NSString *)uid
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=Vip&do=getVipFee" parameters:param success:^(id responseObject) {
+        [MOProgressHUD dismiss];
+        if ([responseObject[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            for (NSDictionary *dict in responseObject[@"data"]) {
+                WLVipFeeModel *model =  [WLVipFeeModel mj_objectWithKeyValues:dict];
+                [dataSource addObject:model];
+            }
+            success(dataSource);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+}
+
+/**
+ *  vip续费
+ *
+ *  @param uid     用户ID
+ *  @param year    几年
+ *  @param success
+ *  @param failure
+ */
++ (void)requestBuyVipWithUid:(NSString *)uid
+                           year:(NSNumber *)year
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"year": year};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=Vip&do=buyVip" parameters:param success:^(id responseObject) {
+        [MOProgressHUD dismiss];
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            success(responseObject[@"data"]);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+
+}
+
 /**
  *  我的收入
  */
@@ -436,6 +500,7 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
                             @"pwd":pwd};
+    [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=UCenter&do=checkPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
             success(responseObject);
@@ -445,6 +510,7 @@
         }
         
     } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 

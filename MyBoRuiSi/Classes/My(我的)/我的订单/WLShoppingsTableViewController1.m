@@ -29,7 +29,7 @@
 //@property (nonatomic, strong) WLShopCarModel *shopCarModel;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) NSMutableArray *arrayCid; //选中购物车ID 容器
+@property (nonatomic, strong) NSMutableArray *selectDataArray; //选中购物车数据
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger amount;//总额
 @property (nonatomic, assign) NSInteger sumSelect;//结算选中总数
@@ -60,20 +60,20 @@
     }
     return _dataSource;
 }
-- (NSMutableArray *)arrayCid{
-    if (!_arrayCid) {
-        _arrayCid = [[NSMutableArray array] init];
+- (NSMutableArray *)selectDataArray{
+    if (!_selectDataArray) {
+        _selectDataArray = [NSMutableArray arrayWithCapacity:1];
     }
-    return _arrayCid;
+    return _selectDataArray;
 }
+
 
 #pragma mark - Event Response
 - (IBAction)clickOK:(id)sender {
     if (self.sumSelect <= 0) return;
     WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
-    vc.money = [NSString stringWithFormat:@"%zd.00",self.amount];
-    vc.cid = [self.arrayCid componentsJoinedByString:@"|"];
-    
+    vc.dataSource = self.selectDataArray;
+    vc.money = (float)self.amount;
     vc.type = @"kecheng";
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -81,8 +81,8 @@
 - (IBAction)clickAll:(UIButton *)sender {
     if (!self.dataSource.count) return;
     
-    //clean arraycid all cid
-    [self.arrayCid removeAllObjects];
+    //clean selectDataArray all
+    [self.selectDataArray removeAllObjects];
     
     if (!sender.selected) {
         sender.selected = YES;
@@ -92,10 +92,14 @@
         
         for (WLShopCarModel *model in self.dataSource) {
             model.select = YES;
-            self.amount += model.disPrice ? [model.disPrice integerValue] : [model.price integerValue];
+            if ([model.vipFree isEqualToNumber:@1] && [WLUserInfo share].vip) {
+                 self.amount += 0;
+            }else{
+                self.amount += model.disPrice ? [model.disPrice integerValue] : [model.price integerValue];
+            }
             
-            //add all cid in arraycid
-            [self.arrayCid addObject:model.id];
+            //add all model in selectDataArray
+            [self.selectDataArray addObject:model];
         }
         self.amount_lab.text = [NSString stringWithFormat:@"%zd",self.amount];
         [self.balance_btn setTitle:[NSString stringWithFormat:@"结算(%zd)",self.sumSelect] forState:UIControlStateNormal];
@@ -144,7 +148,7 @@
     
     //选中事件回调
     __weak typeof(self) weakSelf = self;
-    cell.selectBalanceBlock = ^(NSInteger price,BOOL isSelect, NSString *cid){
+    cell.selectBalanceBlock = ^(NSInteger price,BOOL isSelect, WLShopCarModel *shopCarModel){
         if (isSelect) {
             weakSelf.amount += price;
             weakSelf.amount_lab.text = [NSString stringWithFormat:@"%zd",weakSelf.amount];
@@ -154,7 +158,7 @@
             weakSelf.balance_btn.backgroundColor = color_red;
             
             //购物id加入容器
-            [self.arrayCid addObject:cid];
+            [self.selectDataArray addObject:shopCarModel];
         }else{
             weakSelf.amount -= price;
             weakSelf.amount_lab.text = [NSString stringWithFormat:@"%zd",weakSelf.amount];
@@ -168,7 +172,7 @@
                 weakSelf.balance_btn.backgroundColor = color_red;
             }
             //购物id移除容器
-            [self.arrayCid removeObject:cid];
+            [self.selectDataArray removeObject:shopCarModel];
         }
     };
     
