@@ -85,7 +85,7 @@
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
     if (!result) {
         // 其他如支付等SDK的回调
-        [Pingpp handleOpenURL:url withCompletion:nil];
+        result = [Pingpp handleOpenURL:url withCompletion:nil];
     }
     return result;
 }
@@ -96,7 +96,7 @@
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
     if (!result) {
         // 其他如支付等SDK的回调
-        [Pingpp handleOpenURL:url withCompletion:nil];
+        result = [Pingpp handleOpenURL:url withCompletion:nil];
     }
     return result;
 }

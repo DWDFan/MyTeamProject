@@ -7,6 +7,7 @@
 //
 
 #import "WLRecomViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface WLRecomViewController ()
 
@@ -27,8 +28,7 @@
     
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-    
-    
+
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -44,14 +44,90 @@
     
     return theImage;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)qrScan:(id)sender {
+    
 }
-*/
+
+- (IBAction)shareSms:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_Sms];
+}
+
+- (IBAction)shareWechatTimeline:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_WechatTimeLine];
+}
+
+- (IBAction)shareWechatSession:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_WechatSession];
+}
+
+- (IBAction)shareQQ:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_QQ];
+}
+
+- (IBAction)shareQzone:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_Qzone];
+}
+
+- (IBAction)shareWeibo:(id)sender {
+    
+    [self shareToPlatformType:UMSocialPlatformType_Sina];
+}
+
+- (void)shareToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"分享标题" descr:@"分享内容描述" thumImage:[UIImage imageNamed:@"icon"]];
+    //设置网页地址
+    shareObject.webpageUrl =@"http://mobile.umeng.com/social";
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                //分享结果消息
+                NSLog(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                NSLog(@"response originalResponse data is %@",resp.originalResponse);
+                
+            }else{
+                NSLog(@"response data is %@",data);
+            }
+        }
+        [self alertWithError:error];
+    }];
+}
+
+- (void)alertWithError:(NSError *)error
+{
+    NSString *result = nil;
+    if (!error) {
+        result = [NSString stringWithFormat:@"分享成功!"];
+    }
+    else{
+        result = [NSString stringWithFormat:@"分享失败!"];
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享"
+                                                    message:result
+                                                   delegate:nil
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end
