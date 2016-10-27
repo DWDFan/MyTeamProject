@@ -26,16 +26,24 @@
 
 @implementation WLShoppingsTableViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        //监听
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadShopTalbeViewController:) name:@"kReloadShopTalbeViewController" object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 //    [self setTitleButtonWithString:@"编辑"];
-   
-    [self initSelf];
-    
-}
-- (void)initSelf{
-    
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
     btn.backgroundColor = [UIColor clearColor];
     [btn setBackgroundColor:[UIColor clearColor]];
@@ -43,8 +51,11 @@
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:@" 我的订单" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
+
+    [self initSelf];
     
-    self.arr_vc = [NSMutableArray array];
+}
+- (void)initSelf{
     [self.arr_vc addObject:[[WLShoppingsTableViewController1 alloc]init]];
     [self.arr_vc addObject:[[WLShoppingsTableViewController2 alloc]init]];
     [self.arr_vc addObject:[[WLShoppingsTableViewController3 alloc]init]];
@@ -81,6 +92,13 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage cleImage:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
 }
 
+#pragma mark - Getter
+- (NSMutableArray *)arr_vc{
+    if (!_arr_vc) {
+        _arr_vc = [NSMutableArray arrayWithCapacity:4];
+    }
+    return _arr_vc;
+}
 - (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
     return self.arr_vc.count;
 }
@@ -96,5 +114,20 @@
 //    self.vc_temp = vc;
 }
 
+
+#pragma mark - Implementaion Notification
+- (void)reloadShopTalbeViewController:(NSNotification *)noti{
+    [self.arr_vc removeAllObjects];
+    
+    
+    [self.arr_vc addObject:[[WLShoppingsTableViewController1 alloc]init]];
+    [self.arr_vc addObject:[[WLShoppingsTableViewController2 alloc]init]];
+    [self.arr_vc addObject:[[WLShoppingsTableViewController3 alloc]init]];
+    [self.arr_vc addObject:[[WLShoppingsTableViewController4 alloc]init]];
+    
+    NSNumber *index = noti.userInfo[@"selectIndex"];
+    self.tabedSlideView.selectedIndex = [index integerValue];
+    [self.tabedSlideView cleanCache];//清除缓存
+}
 
 @end

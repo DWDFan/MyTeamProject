@@ -102,7 +102,7 @@
             WLForgetViewController *Forget = [[WLForgetViewController alloc]init];
             [weakSelf.navigationController pushViewController:Forget animated:YES];
         };
-        
+      
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
@@ -269,6 +269,8 @@
         if ([dict[@"code"]integerValue] == 1) {
             WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

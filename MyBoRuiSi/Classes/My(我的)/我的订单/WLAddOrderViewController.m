@@ -173,6 +173,9 @@
             vc.orderId = dict[@"id"];
             vc.type = orderPayType;
             [self.navigationController pushViewController:vc animated:YES];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(0)}];
+            
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

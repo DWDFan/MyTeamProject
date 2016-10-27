@@ -11,9 +11,9 @@
 
 #import "WLXtnewsViewController.h"
 
-
+#import "WLMyDataHandle.h"
 @interface WLnewsViewController ()
-
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation WLnewsViewController
@@ -22,8 +22,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
+    _page = 1;
    
+    //request
+    [self requestGetMsg];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,5 +80,12 @@
 }
 
 
-
+#pragma mark - Request
+- (void)requestGetMsg{
+    [WLMyDataHandle requestGetMsgWithUid:[WLUserInfo share].userId page:@(self.page) type:@"system" success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

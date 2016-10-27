@@ -150,6 +150,47 @@
 
 }
 
+
+/**
+ *  获取我的系统消息
+ */
++ (void)requestGetMsgWithUid:(NSString *)uid
+                        page:(NSNumber *)page
+                        type:(NSString *)type
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"type":type,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMsg" parameters:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            if ([type isEqualToString:@"system"]) {
+                for (NSDictionary *dict in responseObject[@"data"]) {
+                   
+                    
+                }
+                success(dataSource);
+            }else{
+                for (NSDictionary *dict in responseObject[@"data"]) {
+                   
+                }
+                success(dataSource);
+            }
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        failure(error);
+    }];
+
+}
+
+
 /**
  *  我的收藏
  */
