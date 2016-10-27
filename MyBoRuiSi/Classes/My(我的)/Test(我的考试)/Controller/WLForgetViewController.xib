@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLForgetViewController">
             <connections>
+                <outlet property="phone" destination="Hr6-Xa-3ac" id="fNm-GH-TC7"/>
+                <outlet property="verifyCode_textField" destination="GPt-sK-g4o" id="rfA-Fv-EsA"/>
+                <outlet property="verify_btn" destination="kUs-kX-EWB" id="luU-rN-zj0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -118,6 +121,9 @@
                             <include reference="oC7-oF-HQQ"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="getVerifyCodeAction:" destination="-1" eventType="touchUpInside" id="2IV-IR-EfQ"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码:" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-sK-g4o">
                     <constraints>
@@ -166,19 +172,19 @@
                     <exclude reference="GPt-sK-g4o"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="8ck-cI-JtR"/>
+                    <exclude reference="pab-Os-KcR"/>
                     <exclude reference="0mG-PA-Z7K"/>
                     <exclude reference="ebt-gD-u8g"/>
                     <exclude reference="xBG-gk-GgC"/>
-                    <exclude reference="GgW-I3-hcT"/>
-                    <exclude reference="Zvp-Cs-vxi"/>
-                    <exclude reference="bme-ed-0e1"/>
-                    <exclude reference="8ck-cI-JtR"/>
-                    <exclude reference="pab-Os-KcR"/>
                     <exclude reference="dEf-Me-2Rx"/>
                     <exclude reference="mH1-xd-dkU"/>
                     <exclude reference="JId-vd-abH"/>
                     <exclude reference="O8Q-tf-uyf"/>
                     <exclude reference="zB7-wc-zKg"/>
+                    <exclude reference="GgW-I3-hcT"/>
+                    <exclude reference="Zvp-Cs-vxi"/>
+                    <exclude reference="bme-ed-0e1"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -191,19 +197,19 @@
                     <include reference="GPt-sK-g4o"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="8ck-cI-JtR"/>
+                    <include reference="pab-Os-KcR"/>
                     <include reference="0mG-PA-Z7K"/>
                     <include reference="ebt-gD-u8g"/>
                     <include reference="xBG-gk-GgC"/>
-                    <include reference="GgW-I3-hcT"/>
-                    <include reference="Zvp-Cs-vxi"/>
-                    <include reference="bme-ed-0e1"/>
-                    <include reference="8ck-cI-JtR"/>
-                    <include reference="pab-Os-KcR"/>
                     <include reference="dEf-Me-2Rx"/>
                     <include reference="mH1-xd-dkU"/>
                     <include reference="JId-vd-abH"/>
                     <include reference="O8Q-tf-uyf"/>
                     <include reference="zB7-wc-zKg"/>
+                    <include reference="GgW-I3-hcT"/>
+                    <include reference="Zvp-Cs-vxi"/>
+                    <include reference="bme-ed-0e1"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="245" y="137"/>

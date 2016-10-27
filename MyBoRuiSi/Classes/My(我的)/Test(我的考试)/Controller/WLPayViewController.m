@@ -88,10 +88,20 @@
 #pragma mark - Request
 - (void)requestSetPwd{
      [self.view endEditing:YES];
-    [WLMyDataHandle requestSetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] success:^(id responseObject) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } failure:^(NSError *error) {
-        
-    }];
+    
+    if (self.type == WLSetupPwpTypeSetup) {
+        [WLMyDataHandle requestSetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] success:^(id responseObject) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            
+        }];
+    }else if (self.type == WLSetupPwpTypeForget){
+        [WLMyDataHandle requestForgetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] telphone:self.phone code:self.code success:^(id responseObject) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+   
 }
 @end
