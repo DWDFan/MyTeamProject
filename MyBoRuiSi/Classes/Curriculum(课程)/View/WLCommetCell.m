@@ -38,7 +38,7 @@
     _nameLbl = nameLbl;
     
     UILabel *timeLbl = [[UILabel alloc] init];
-    timeLbl.frame = CGRectMake(WLScreenW - 135, 15, 120, 12);
+    timeLbl.frame = CGRectMake(WLScreenW - 145, 15, 130, 12);
     timeLbl.font = [UIFont systemFontOfSize:12];
     timeLbl.textColor = COLOR_WORD_GRAY_1;
     timeLbl.textAlignment = NSTextAlignmentRight;

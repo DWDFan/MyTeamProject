@@ -29,6 +29,7 @@
 #import "KxMenu.h"
 
 #import "WLSharetowViewController.h"
+#import "WLArticleDetailViewController.h"
 
 typedef NS_ENUM(NSUInteger, ZGSearchType) {
     ZGSearchTypeCourse,         // 课程
@@ -424,6 +425,7 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
             if (!cell) {
                 cell = [[ZGArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
             }
+            cell.type = ZGArticleCellTypeList;
             cell.articleViewModel = _dataSourceArray[indexPath.row];
             searchCell =  cell;
         }
@@ -568,7 +570,9 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
             break;
         case ZGSearchTypeArticle:
         {
-            
+            WLArticleDetailViewController *vc = [[WLArticleDetailViewController alloc] init];
+            vc.articleId = [[_dataSourceArray[indexPath.row] article] tid];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

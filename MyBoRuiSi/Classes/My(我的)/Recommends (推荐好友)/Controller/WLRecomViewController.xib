@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLRecomViewController">
@@ -12,11 +13,10 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="矢量智能对象1" translatesAutoresizingMaskIntoConstraints="NO" id="nFn-h3-Tj1">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="GuV-Zj-Cwq"/>
                     </constraints>
@@ -32,19 +32,16 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好东西要大家分享,赶紧分享给大家把" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLo-5U-ImO">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="1" green="0.38788066307638636" blue="0.18406047620539867" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="0.38788066307638636" blue="0.18406047620539867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----------------------------------------------------------------" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTb-W2-JYm">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saP-fW-F9C">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="dgv-lR-czs"/>
                     </constraints>
@@ -59,63 +56,64 @@
                             <include reference="dgv-lR-czs"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="qrScan:" destination="-1" eventType="touchUpInside" id="zca-aH-Wcf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4n-fv-wo2">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" image="icon-短信"/>
+                    <connections>
+                        <action selector="shareSms:" destination="-1" eventType="touchUpInside" id="px8-eX-Fln"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dg-8C-Sh6">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" image="icon-朋友圈"/>
+                    <connections>
+                        <action selector="shareWechatTimeline:" destination="-1" eventType="touchUpInside" id="rpv-qD-Neq"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJI-dl-e7K">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" image="icon-微信"/>
+                    <connections>
+                        <action selector="shareWechatSession:" destination="-1" eventType="touchUpInside" id="PZ7-cM-UUh"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面对面扫描" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWj-Pn-54G">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机短信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeI-lw-weB">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTm-i9-IoC">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-ax-IIh">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxa-ow-Zk6">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ空间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd1-Gs-PBo">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxu-an-8dm">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNY-Ia-bPT">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="kTi-j8-TdY"/>
                     </constraints>
@@ -130,17 +128,24 @@
                             <include reference="kTi-j8-TdY"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="shareQQ:" destination="-1" eventType="touchUpInside" id="jD4-dU-G7z"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS0-1w-hhO">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" image="icon-空间"/>
+                    <connections>
+                        <action selector="shareQzone:" destination="-1" eventType="touchUpInside" id="yyB-DA-yMp"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDl-NY-59O">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" image="icon-微博"/>
+                    <connections>
+                        <action selector="shareWeibo:" destination="-1" eventType="touchUpInside" id="3jz-vi-Jly"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="zDl-NY-59O" secondAttribute="trailing" constant="55" id="09x-Bv-SGT"/>
                 <constraint firstItem="DJI-dl-e7K" firstAttribute="height" secondItem="saP-fW-F9C" secondAttribute="height" id="1v7-xD-far"/>
@@ -211,53 +216,53 @@
                     <exclude reference="zDl-NY-59O"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="GW7-WJ-hKS"/>
-                    <exclude reference="Gl2-gF-I7F"/>
-                    <exclude reference="ixD-wr-jiR"/>
-                    <exclude reference="8XA-FZ-bfy"/>
-                    <exclude reference="c6s-UA-M8W"/>
-                    <exclude reference="5oQ-Sy-KcY"/>
-                    <exclude reference="Zzx-ai-PDh"/>
-                    <exclude reference="MTg-3R-xQ2"/>
-                    <exclude reference="YHo-yJ-42O"/>
-                    <exclude reference="52g-1T-alU"/>
-                    <exclude reference="Xag-72-1cG"/>
-                    <exclude reference="bi4-f3-bD6"/>
-                    <exclude reference="c21-kf-kbl"/>
-                    <exclude reference="dco-xe-pHr"/>
-                    <exclude reference="lal-Sv-nUL"/>
                     <exclude reference="2WK-sv-VRp"/>
                     <exclude reference="WVp-ok-ny5"/>
                     <exclude reference="afy-lE-tNM"/>
                     <exclude reference="eyD-qP-IMy"/>
-                    <exclude reference="92w-xm-VDs"/>
-                    <exclude reference="MUA-3A-hrV"/>
+                    <exclude reference="52g-1T-alU"/>
+                    <exclude reference="Xag-72-1cG"/>
+                    <exclude reference="bi4-f3-bD6"/>
+                    <exclude reference="c21-kf-kbl"/>
+                    <exclude reference="1v7-xD-far"/>
+                    <exclude reference="9cj-I3-Zqe"/>
+                    <exclude reference="F0H-He-h2r"/>
+                    <exclude reference="fDC-hk-hcN"/>
+                    <exclude reference="yv6-cc-B97"/>
                     <exclude reference="5MI-r8-dlW"/>
                     <exclude reference="kak-Lk-Snz"/>
                     <exclude reference="4DU-DJ-Qum"/>
                     <exclude reference="QoH-c6-HbN"/>
                     <exclude reference="dHr-tB-Npx"/>
                     <exclude reference="duF-vQ-Sue"/>
-                    <exclude reference="2d4-Fa-adg"/>
-                    <exclude reference="KiV-gi-UEm"/>
-                    <exclude reference="1v7-xD-far"/>
-                    <exclude reference="9cj-I3-Zqe"/>
-                    <exclude reference="F0H-He-h2r"/>
-                    <exclude reference="fDC-hk-hcN"/>
-                    <exclude reference="yv6-cc-B97"/>
-                    <exclude reference="WCn-Zv-LXW"/>
-                    <exclude reference="awp-nu-lFo"/>
+                    <exclude reference="MTg-3R-xQ2"/>
+                    <exclude reference="YHo-yJ-42O"/>
                     <exclude reference="09x-Bv-SGT"/>
                     <exclude reference="4hG-WW-CjL"/>
                     <exclude reference="Cze-gw-nKC"/>
                     <exclude reference="X5L-Um-cmb"/>
                     <exclude reference="xuJ-46-MxF"/>
-                    <exclude reference="ptS-im-Cvs"/>
-                    <exclude reference="wYw-hb-B5U"/>
+                    <exclude reference="5oQ-Sy-KcY"/>
+                    <exclude reference="Zzx-ai-PDh"/>
+                    <exclude reference="92w-xm-VDs"/>
+                    <exclude reference="MUA-3A-hrV"/>
                     <exclude reference="Bso-As-rxN"/>
                     <exclude reference="hOq-lf-94N"/>
+                    <exclude reference="WCn-Zv-LXW"/>
+                    <exclude reference="awp-nu-lFo"/>
+                    <exclude reference="ptS-im-Cvs"/>
+                    <exclude reference="wYw-hb-B5U"/>
                     <exclude reference="lSm-Et-O9F"/>
                     <exclude reference="rEI-4C-yMw"/>
+                    <exclude reference="2d4-Fa-adg"/>
+                    <exclude reference="KiV-gi-UEm"/>
+                    <exclude reference="dco-xe-pHr"/>
+                    <exclude reference="lal-Sv-nUL"/>
+                    <exclude reference="8XA-FZ-bfy"/>
+                    <exclude reference="c6s-UA-M8W"/>
+                    <exclude reference="GW7-WJ-hKS"/>
+                    <exclude reference="Gl2-gF-I7F"/>
+                    <exclude reference="ixD-wr-jiR"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -281,53 +286,53 @@
                     <include reference="zDl-NY-59O"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="GW7-WJ-hKS"/>
-                    <include reference="Gl2-gF-I7F"/>
-                    <include reference="ixD-wr-jiR"/>
-                    <include reference="8XA-FZ-bfy"/>
-                    <include reference="c6s-UA-M8W"/>
-                    <include reference="5oQ-Sy-KcY"/>
-                    <include reference="Zzx-ai-PDh"/>
-                    <include reference="MTg-3R-xQ2"/>
-                    <include reference="YHo-yJ-42O"/>
-                    <include reference="52g-1T-alU"/>
-                    <include reference="Xag-72-1cG"/>
-                    <include reference="bi4-f3-bD6"/>
-                    <include reference="c21-kf-kbl"/>
-                    <include reference="dco-xe-pHr"/>
-                    <include reference="lal-Sv-nUL"/>
                     <include reference="2WK-sv-VRp"/>
                     <include reference="WVp-ok-ny5"/>
                     <include reference="afy-lE-tNM"/>
                     <include reference="eyD-qP-IMy"/>
-                    <include reference="92w-xm-VDs"/>
-                    <include reference="MUA-3A-hrV"/>
+                    <include reference="52g-1T-alU"/>
+                    <include reference="Xag-72-1cG"/>
+                    <include reference="bi4-f3-bD6"/>
+                    <include reference="c21-kf-kbl"/>
+                    <include reference="1v7-xD-far"/>
+                    <include reference="9cj-I3-Zqe"/>
+                    <include reference="F0H-He-h2r"/>
+                    <include reference="fDC-hk-hcN"/>
+                    <include reference="yv6-cc-B97"/>
                     <include reference="5MI-r8-dlW"/>
                     <include reference="kak-Lk-Snz"/>
                     <include reference="4DU-DJ-Qum"/>
                     <include reference="QoH-c6-HbN"/>
                     <include reference="dHr-tB-Npx"/>
                     <include reference="duF-vQ-Sue"/>
-                    <include reference="2d4-Fa-adg"/>
-                    <include reference="KiV-gi-UEm"/>
-                    <include reference="1v7-xD-far"/>
-                    <include reference="9cj-I3-Zqe"/>
-                    <include reference="F0H-He-h2r"/>
-                    <include reference="fDC-hk-hcN"/>
-                    <include reference="yv6-cc-B97"/>
-                    <include reference="WCn-Zv-LXW"/>
-                    <include reference="awp-nu-lFo"/>
+                    <include reference="MTg-3R-xQ2"/>
+                    <include reference="YHo-yJ-42O"/>
                     <include reference="09x-Bv-SGT"/>
                     <include reference="4hG-WW-CjL"/>
                     <include reference="Cze-gw-nKC"/>
                     <include reference="X5L-Um-cmb"/>
                     <include reference="xuJ-46-MxF"/>
-                    <include reference="ptS-im-Cvs"/>
-                    <include reference="wYw-hb-B5U"/>
+                    <include reference="5oQ-Sy-KcY"/>
+                    <include reference="Zzx-ai-PDh"/>
+                    <include reference="92w-xm-VDs"/>
+                    <include reference="MUA-3A-hrV"/>
                     <include reference="Bso-As-rxN"/>
                     <include reference="hOq-lf-94N"/>
+                    <include reference="WCn-Zv-LXW"/>
+                    <include reference="awp-nu-lFo"/>
+                    <include reference="ptS-im-Cvs"/>
+                    <include reference="wYw-hb-B5U"/>
                     <include reference="lSm-Et-O9F"/>
                     <include reference="rEI-4C-yMw"/>
+                    <include reference="2d4-Fa-adg"/>
+                    <include reference="KiV-gi-UEm"/>
+                    <include reference="dco-xe-pHr"/>
+                    <include reference="lal-Sv-nUL"/>
+                    <include reference="8XA-FZ-bfy"/>
+                    <include reference="c6s-UA-M8W"/>
+                    <include reference="GW7-WJ-hKS"/>
+                    <include reference="Gl2-gF-I7F"/>
+                    <include reference="ixD-wr-jiR"/>
                 </mask>
             </variation>
         </view>

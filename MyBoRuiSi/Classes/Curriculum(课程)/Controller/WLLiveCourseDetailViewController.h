@@ -11,6 +11,7 @@
 
 @interface WLLiveCourseDetailViewController : BaseViewController
 
-@property(nonatomic, strong) NSString *courseId;
+@property (nonatomic, strong) NSString *courseId;
+@property (nonatomic, assign) BOOL isMine;
 
 @end

@@ -33,9 +33,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WLOtherCourseModel : NSObject
+@interface WLAuthorModel : NSObject
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *photo;
 @property (nonatomic, strong) NSNumber *star;
 @property (nonatomic, strong) NSString *id;
@@ -86,7 +86,8 @@
 @property (nonatomic, strong) NSNumber *bm;
 @property (nonatomic, strong) NSNumber *limit;
 @property (nonatomic, strong) NSNumber *type;
-@property (nonatomic, strong) NSArray<WLOtherCourseModel *> *other;
+@property (nonatomic, strong) NSString *video;
+@property (nonatomic, strong) WLAuthorModel *other;
 
 @end
 
