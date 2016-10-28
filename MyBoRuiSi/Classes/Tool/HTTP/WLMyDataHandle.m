@@ -17,6 +17,7 @@
 #import "WLMyQiYeCourseModel.h"
 #import "WLMyAttentionModel.h"
 #import "WLVipFeeModel.h"
+#import "WLSystemMsgModel.h"
 @implementation WLMyDataHandle
 
 /**
@@ -168,8 +169,8 @@
             NSMutableArray *dataSource = [NSMutableArray array];
             if ([type isEqualToString:@"system"]) {
                 for (NSDictionary *dict in responseObject[@"data"]) {
-                   
-                    
+                    WLSystemMsgModel *model =  [WLSystemMsgModel mj_objectWithKeyValues:dict];
+                    [dataSource addObject:model];
                 }
                 success(dataSource);
             }else{
@@ -188,8 +189,32 @@
         failure(error);
     }];
 
-}
+}/**
+  *  获取我的系统消息详情
+  */
++ (void)requestGetMsgInfoWithUid:(NSString *)uid
+                              id:(NSString *)infoId
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"id":infoId
+                            };
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMsgInfo" parameters:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"] integerValue] == 1) {
+            WLSystemMsgModel *model =  [WLSystemMsgModel mj_objectWithKeyValues:dict];
+            success(model);
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
 
+}
 
 /**
  *  我的收藏
@@ -215,10 +240,20 @@
                 }
                 success(dataSource);
             }else{
-                for (NSDictionary *dict in responseObject[@"data"]) {
+                NSMutableArray *dianbo_array = [NSMutableArray array];
+                for (NSDictionary *dict in responseObject[@"data"][@"dianbo"]) {
                     WLCourseFavModel *tzModel =  [WLCourseFavModel mj_objectWithKeyValues:dict];
-                    [dataSource addObject:tzModel];
+                    [dianbo_array addObject:tzModel];
                 }
+
+                NSMutableArray *zhibo_array = [NSMutableArray array];
+                for (NSDictionary *dict in responseObject[@"data"][@"zhibo"]) {
+                    WLCourseFavModel *tzModel =  [WLCourseFavModel mj_objectWithKeyValues:dict];
+                    [zhibo_array addObject:tzModel];
+                }
+                
+                [dataSource addObject:dianbo_array];
+                [dataSource addObject:zhibo_array];
                 success(dataSource);
             }
         }else {

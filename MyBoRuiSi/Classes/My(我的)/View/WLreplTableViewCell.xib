@@ -50,25 +50,14 @@
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkG-Ax-ELd">
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="Tof-Wk-rof"/>
-                            <constraint firstAttribute="height" constant="40" id="rI5-rY-f5e"/>
-                        </constraints>
-                        <state key="normal" title="回复">
-                            <color key="titleColor" red="0.21766158629999999" green="1" blue="0.18875978830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="nee-Wp-MJd" firstAttribute="centerY" secondItem="oIM-DE-W3u" secondAttribute="centerY" id="3Dz-TU-aMH"/>
-                    <constraint firstItem="ZkG-Ax-ELd" firstAttribute="trailing" secondItem="bIK-Yb-Shk" secondAttribute="trailing" id="920-Ck-pKT"/>
                     <constraint firstItem="1ff-uc-CAD" firstAttribute="top" secondItem="2lY-k9-fSc" secondAttribute="bottom" constant="10" id="Dtr-RR-9OB"/>
                     <constraint firstItem="2lY-k9-fSc" firstAttribute="top" secondItem="f9Y-xz-pLW" secondAttribute="bottom" constant="10" id="QBX-cI-Y8A"/>
                     <constraint firstItem="f9Y-xz-pLW" firstAttribute="top" secondItem="oIM-DE-W3u" secondAttribute="bottom" constant="10" id="S76-ml-wqE"/>
                     <constraint firstAttribute="trailing" secondItem="2lY-k9-fSc" secondAttribute="trailing" constant="60" id="YeP-ja-Vh5"/>
                     <constraint firstItem="oIM-DE-W3u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Yjc-v9-9hS"/>
-                    <constraint firstItem="ZkG-Ax-ELd" firstAttribute="centerY" secondItem="1ff-uc-CAD" secondAttribute="centerY" id="aL6-0a-osv"/>
                     <constraint firstItem="nee-Wp-MJd" firstAttribute="leading" secondItem="oIM-DE-W3u" secondAttribute="trailing" constant="5" id="bVk-RS-Gaf"/>
                     <constraint firstItem="f9Y-xz-pLW" firstAttribute="leading" secondItem="oIM-DE-W3u" secondAttribute="leading" id="dje-cP-wlw"/>
                     <constraint firstItem="2lY-k9-fSc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ihx-9p-rBz"/>

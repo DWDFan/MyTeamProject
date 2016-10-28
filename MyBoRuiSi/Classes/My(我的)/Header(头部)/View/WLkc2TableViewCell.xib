@@ -75,6 +75,15 @@
                     <constraint firstItem="LBi-36-77J" firstAttribute="centerY" secondItem="XjV-U2-rFM" secondAttribute="centerY" id="vFa-vG-L1q"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="date_lab" destination="wLZ-xG-Bct" id="Dvx-yi-wPt"/>
+                <outlet property="name_lab" destination="XjV-U2-rFM" id="X85-Th-BEG"/>
+                <outlet property="oneVSHow_btn" destination="fam-2C-esZ" id="WIY-XG-iPo"/>
+                <outlet property="photo_imv" destination="xzd-4Z-Xqg" id="4nD-aN-xqT"/>
+                <outlet property="price_lab" destination="LBi-36-77J" id="nHz-o9-NuO"/>
+                <outlet property="zhujiang_lab" destination="j2g-La-bn1" id="VLz-uF-rcK"/>
+            </connections>
+            <point key="canvasLocation" x="103" y="-74"/>
         </tableViewCell>
     </objects>
     <resources>

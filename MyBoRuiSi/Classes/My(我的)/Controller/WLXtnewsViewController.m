@@ -9,8 +9,12 @@
 #import "WLXtnewsViewController.h"
 #import "WLreplTableViewCell.h"
 
+#import "WLSystemMsgModel.h"
+#import "WLMyDataHandle.h"
 @interface WLXtnewsViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *content_lab;
+@property (weak, nonatomic) IBOutlet UILabel *date_lab;
+@property (nonatomic, strong) WLSystemMsgModel *model;
 @end
 
 @implementation WLXtnewsViewController
@@ -29,6 +33,8 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    //request
+    [self requestGetMsgInfo];
 }
 
 
@@ -47,19 +53,15 @@
     return theImage;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Request
+- (void)requestGetMsgInfo{
+    [WLMyDataHandle requestGetMsgInfoWithUid:[WLUserInfo share].userId id:self.infoId success:^(id responseObject) {
+        _model = responseObject;
+        _content_lab.text = self.model.content;
+        _content_lab.text = self.model.date;
+    } failure:^(NSError *error) {
+        
+    }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

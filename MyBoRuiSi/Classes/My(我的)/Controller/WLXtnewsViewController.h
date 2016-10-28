@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WLXtnewsViewController : UIViewController
-
+@property (nonatomic, copy) NSString *infoId;
 @end

@@ -89,6 +89,18 @@
                      failure:(void (^)(NSError *error))failure;
 
 /**
+ *  获取我的系统消息详情
+ *
+ *  @param uid     用户ID
+ *  @param id     消息id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMsgInfoWithUid:(NSString *)uid
+                              id:(NSString *)infoId
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
+/**
  *  我的收藏
  *
  *  @param uid     用户ID
