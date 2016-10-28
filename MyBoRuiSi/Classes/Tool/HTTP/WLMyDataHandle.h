@@ -71,6 +71,23 @@
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure;
 
+
+
+/**
+ *  获取我的系统消息
+ *
+ *  @param uid     用户ID
+ *  @param type     消息类型 system 系统消息 bbs 帖子消息
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMsgWithUid:(NSString *)uid
+                        page:(NSNumber *)page
+                        type:(NSString *)type
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
+
 /**
  *  我的收藏
  *

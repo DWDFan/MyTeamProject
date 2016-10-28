@@ -310,6 +310,7 @@
             [weakView removeFromSuperview];
         };
         view.buyVipBlock = ^(NSNumber *year){
+            //会员购买
             [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year success:^(id responseObject) {
                  [weakView removeFromSuperview];
             } failure:^(NSError *error) {

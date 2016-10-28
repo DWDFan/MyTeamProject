@@ -7,11 +7,13 @@
 //
 
 #import "WLTzViewController.h"
-#import "WLCardxqViewController.h"
+#import "WLArticleDetailViewController.h"
 
 #import "ZGArticleCell.h"
 
 #import "WLMyDataHandle.h"
+#import "ZGArticleModel.h"
+
 
 @interface WLTzViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -72,9 +74,12 @@
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    WLCardxqViewController *ca  = [[WLCardxqViewController alloc]init];
-    [self.navigationController pushViewController:ca animated:YES];
+    ZGArticleViewModel *articleViewModel = self.dataSource[indexPath.row];
+    WLArticleDetailViewController *vc  = [[WLArticleDetailViewController alloc]init];
+    vc.articleId = articleViewModel.article.id;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

@@ -160,5 +160,9 @@
     [tabbar_ setSelectedIndex:oldIndex];
 }
 
-
+//清除缓存
+- (void)cleanCache{
+    ctrlCache_ = nil;
+    ctrlCache_ = [[DLLRUCache alloc] initWithCount:4];
+}
 @end

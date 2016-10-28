@@ -7,6 +7,8 @@
 //
 
 #import "WLKcViewController.h"
+#import "WLCourseDetailViewController.h"
+
 #import "WLkc2TableViewCell.h"
 #import "WLke1TableViewCell.h"
 

@@ -45,14 +45,8 @@
     _sumSelect = 0;
     _page = 1;
     [self requestGetCarWithPage:@(self.page)];
-    
-    //监听
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
+}
 
-}
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
@@ -239,7 +233,7 @@
             [self.dataSource removeObjectAtIndex:indexPath.row];
             [self.tableView_main deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(0)}];
         }else {
            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
