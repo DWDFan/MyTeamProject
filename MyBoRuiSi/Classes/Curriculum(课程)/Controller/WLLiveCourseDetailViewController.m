@@ -112,7 +112,8 @@
     NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
     [decodeParm addObject:@"software"];
     [decodeParm addObject:@"livestream"];
-    NSURL *url = [NSURL URLWithString:@""];
+    NSString *urlStr = [MOTool getNULLString:_course.video];
+    NSURL *url = [NSURL URLWithString:urlStr];
     
     ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
     playerVC.courseId = _courseId;
@@ -244,14 +245,11 @@
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            if (_course.other.count > 0) {
-                WLOtherCourseModel *otherCourse = _course.other[0];
-                [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:otherCourse.photo] placeholderImage:PHOTO_PLACE];
-                cell.nameLbl.text = otherCourse.name;
-                cell.starView.showStar = [otherCourse.star floatValue] * 20;
-                cell.starLbl.text = [NSString stringWithFormat:@"%@分",otherCourse.star];
-                
-            }
+            WLAuthorModel *author = _course.other;
+            [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:author.photo] placeholderImage:PHOTO_PLACE];
+            cell.nameLbl.text = author.nickname;
+            cell.starView.showStar = [author.star floatValue] * 20;
+            cell.starLbl.text = [NSString stringWithFormat:@"%@分",author.star];
             return cell;
         }
         

@@ -43,9 +43,19 @@
     NSDictionary *param = @{@"telphone":telphone};
     
     [MOHTTP GET:@"API/index.php?action=Login&do=getTelCode" parameters:param success:^(id responseObject) {
+        NSDictionary *dic = responseObject ;
         
-        success(responseObject);
+        if ([dic[@"code"] integerValue]  == 1) {
+            
+            [MOProgressHUD showSuccessWithStatus:@"验证码已经发到你手机,请留意你的手机"];
+            success(dic[@"msg"][@"code"]);
+        }else{
+            [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
+            failure(nil);
+        }
+        
     } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 }

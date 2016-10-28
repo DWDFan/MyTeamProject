@@ -108,6 +108,12 @@
     
     //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"素彩网www.sc115.com-136"] style:UIBarButtonItemStyleDone target:self action:@selector(nav_w_add_prer)];
+    
+    if (_isMine) {
+        bottomView.hidden = YES;
+        self.tableView.frame = CGRectMake(0, 0, WLScreenW, WLScreenH - 64);
+    }
+    
 }
 
 - (void)requestData

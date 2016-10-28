@@ -10,8 +10,16 @@
 #import "WLForgetViewController.h"
 #import "WLPayViewController.h"
 
+#import "WLLoginDataHandle.h"
 @interface WLForgetViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *phone;
+@property (weak, nonatomic) IBOutlet UIButton *verify_btn;
+@property (weak, nonatomic) IBOutlet UITextField *verifyCode_textField;
 
+@property (strong, nonatomic) NSTimer *timer;//定时器
+@property (assign, nonatomic) int secondsCountDown;//计数标识
+
+@property (nonatomic, copy) NSString *verifyCode;//服务器的返回验证码
 @end
 
 @implementation WLForgetViewController
@@ -53,11 +61,70 @@
     return theImage;
 }
 
+#pragma mark - Private Method
+-(void)countDown
+{
+    self.verify_btn.enabled = NO;
+    [self.verifyCode_textField becomeFirstResponder];
+    
+    self.secondsCountDown = 60;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+}
+
+//secondsCountDown = 60;//60秒倒计时
+//定时器方法
+-(void)timeFireMethod
+{
+    self.secondsCountDown--;
+    
+    if(self.secondsCountDown <= 0){
+        [self.timer invalidate];
+        self.timer = nil;
+        
+        [self.verify_btn setEnabled:YES];
+        [self.verify_btn setTitle:@"重新获取" forState:UIControlStateNormal];
+        
+    }else{
+        [self.verify_btn setTitle:[NSString stringWithFormat:@"%2dS",self.secondsCountDown] forState:UIControlStateNormal];
+    }
+}
+#pragma mark - Event Response
+- (IBAction)getVerifyCodeAction:(UIButton *)sender {
+    if (self.phone.text.length == 0) {
+        
+        [MOProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        
+    }else if (self.phone.text.length > 11){
+        
+        [MOProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        
+    }else {
+        [self countDown];
+        [WLLoginDataHandle requestTelCodeWithTelphone:self.phone.text success:^(id responseObject) {
+            _verifyCode = [NSString stringWithFormat:@"%@",responseObject];
+        } failure:^(NSError *error) {
+            [self.timer invalidate];
+            self.timer = nil;
+            
+            [self.verify_btn setEnabled:YES];
+            [self.verify_btn setTitle:@"重新获取" forState:UIControlStateNormal];
+            
+        }];
+    }
+}
 
 - (void)Forget{
-    //跳转下一页面
-    WLPayViewController *Pay = [[WLPayViewController alloc]init];
-    [self.navigationController pushViewController:Pay animated:YES];
+    if ([self.verifyCode isEqualToString:self.verifyCode_textField.text] && self.verifyCode.length != 0) {
+        //跳转下一页面
+        WLPayViewController *Pay = [[WLPayViewController alloc]init];
+        Pay.phone = self.phone.text;
+        Pay.code = self.verifyCode_textField.text;
+        Pay.type = WLSetupPwpTypeForget;
+        [self.navigationController pushViewController:Pay animated:YES];
+    }else{
+         [MOProgressHUD showErrorWithStatus:@"输入验证码不正确"];
+    }
+    
 }
 
 

@@ -312,7 +312,6 @@
         }else {
             WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
             vc.courseId =  [_arr_curriculum[indexPath.row] id];
-            vc.isMine = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
         

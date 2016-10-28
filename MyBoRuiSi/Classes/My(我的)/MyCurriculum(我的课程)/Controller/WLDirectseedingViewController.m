@@ -8,6 +8,7 @@
 
 #import "WLDirectseedingViewController.h"
 #import "WLDirectseedingTableViewCell.h"
+#import "WLLiveCourseDetailViewController.h"
 
 #import "WLMyDataHandle.h"
 @interface WLDirectseedingViewController ()
@@ -92,15 +93,10 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-//    /// stroryboard 加载@@@@@@@@@@@@@@@@@@@
-//    //身份
-//    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLKXqViewController" bundle:nil];
-//    UIViewController *vc = [stroryboard instantiateInitialViewController];
-//    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    
+    WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+    vc.isMine = YES;
+//    vc.courseId = ?? 需要传一个课程id
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Request

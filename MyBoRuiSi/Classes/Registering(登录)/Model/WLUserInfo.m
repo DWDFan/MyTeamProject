@@ -36,7 +36,14 @@
     return self.userId ? YES : NO;
 }
 
-- (void)archivWithDict:(NSDictionary *)dict{    
+- (void)archivWithDict:(NSDictionary *)dict{
+    _address = dict[@"address"];
+    _bagPwd = dict[@"bagPwd"];
+    _birth = dict[@"birth"];
+    _company = dict[@"company"];
+    _job = dict[@"id"];
+    _photo = dict[@"photo"];
+    _sex = dict[@"sex"];
     _userId = dict[@"id"];
     _money = dict[@"money"];
     _nickname = dict[@"nickname"];
@@ -61,6 +68,13 @@
     WLUserInfo *userInfo = [unarchiv decodeObjectForKey:@"kUserInfo"];
     [unarchiv finishDecoding];
     
+    _address = userInfo.address;
+    _bagPwd = userInfo.bagPwd;
+    _birth = userInfo.birth;
+    _company = userInfo.company;
+    _job = userInfo.job;
+    _photo = userInfo.photo;
+    _sex = userInfo.sex;
     _userId = userInfo.userId;
     _money = userInfo.money;
     _nickname = userInfo.nickname;
@@ -95,6 +109,13 @@
 #pragma mark - NSCoding
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
+        _address = [aDecoder decodeObjectForKey:@"address"];
+        _bagPwd = [aDecoder decodeObjectForKey:@"bagPwd"];
+        _birth = [aDecoder decodeObjectForKey:@"birth"];
+        _company = [aDecoder decodeObjectForKey:@"company"];
+        _job = [aDecoder decodeObjectForKey:@"job"];
+        _photo = [aDecoder decodeObjectForKey:@"photo"];
+        _sex = [aDecoder decodeObjectForKey:@"sex"];
         _userId = [aDecoder decodeObjectForKey:@"id"];
         _money = [aDecoder decodeObjectForKey:@"money"];
         _nickname = [aDecoder decodeObjectForKey:@"nickname"];
@@ -108,13 +129,20 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:_address forKey:@"address"];
+    [aCoder encodeObject:_bagPwd forKey:@"bagPwd"];
+    [aCoder encodeObject:_birth forKey:@"birth"];
+    [aCoder encodeObject:_company forKey:@"company"];
+    [aCoder encodeObject:_favNum forKey:@"favNum"];
     [aCoder encodeObject:_userId forKey:@"id"];
+    [aCoder encodeObject:_job forKey:@"job"];
+    [aCoder encodeObject:_photo forKey:@"photo"];
+    [aCoder encodeObject:_sex forKey:@"sex"];
     [aCoder encodeObject:_money forKey:@"money"];
     [aCoder encodeObject:_nickname forKey:@"nickname"];
     [aCoder encodeObject:_vipEndtm forKey:@"vipEndtm"];
     [aCoder encodeBool:_vip forKey:@"vip"];
     [aCoder encodeObject:_telphone forKey:@"telphone"];
-    [aCoder encodeObject:_favNum forKey:@"favNum"];
     [aCoder encodeObject:_score forKey:@"score"];
 }
 

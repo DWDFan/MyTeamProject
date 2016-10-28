@@ -8,6 +8,7 @@
 
 #import "WLOrderPayViewController.h"
 #import "WLOrderPayOKViewController.h"
+#import "WLForgetViewController.h"
 
 #import "WLInputBagPwdView.h"
 
@@ -96,6 +97,10 @@
         pwdView.completeBlock = ^(NSString *pwd){
             [weakPwdView removeFromSuperview];
             [weakSelf requestCheckoutPwd:pwd];
+        };
+        pwdView.forgetPwdBlock = ^(){
+            WLForgetViewController *Forget = [[WLForgetViewController alloc]init];
+            [weakSelf.navigationController pushViewController:Forget animated:YES];
         };
         
     }else{

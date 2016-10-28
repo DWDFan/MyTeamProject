@@ -10,9 +10,10 @@
 
 #import "WLMyDataHandle.h"
 #import "NSString+Util.h"
+#import "WLNoCopyTextField.h"
 @interface WLPayViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *pwd_1_textField;
-@property (weak, nonatomic) IBOutlet UITextField *pwd_2_textField;
+@property (weak, nonatomic) IBOutlet WLNoCopyTextField *pwd_1_textField;
+@property (weak, nonatomic) IBOutlet WLNoCopyTextField *pwd_2_textField;
 
 @end
 
@@ -34,8 +35,6 @@
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
     
-    //request
-     [self requestSetPwd];
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -54,14 +53,12 @@
 
 #pragma mark - Private Method
 - (BOOL)checkoutPwd{
-    [self.view endEditing:YES];
+   
     if(![self.pwd_1_textField.text isEqualToString:self.pwd_2_textField.text]){
         [MOProgressHUD showErrorWithStatus:@"密码不一致"];
     }else if (self.pwd_1_textField.text.length != 6 || self.pwd_2_textField.text.length != 6) {
         [MOProgressHUD showErrorWithStatus:@"请输入6位数密码"];
-    } else if (![self.pwd_1_textField.text isNumber] && ![self.pwd_2_textField.text isNumber]){
-         [MOProgressHUD showErrorWithStatus:@"请输入6位纯数字密码"];
-    }else if (self.pwd_1_textField.text.length == 6 && self.pwd_2_textField.text.length == 6 && [self.pwd_1_textField.text isEqualToString:self.pwd_2_textField.text]){
+    } else if (self.pwd_1_textField.text.length == 6 && self.pwd_2_textField.text.length == 6 && [self.pwd_1_textField.text isEqualToString:self.pwd_2_textField.text]){
         return YES;
     }
     return NO;
@@ -86,12 +83,25 @@
     return YES;
 }
 
+
+
 #pragma mark - Request
 - (void)requestSetPwd{
-    [WLMyDataHandle requestSetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] success:^(id responseObject) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } failure:^(NSError *error) {
-        
-    }];
+     [self.view endEditing:YES];
+    
+    if (self.type == WLSetupPwpTypeSetup) {
+        [WLMyDataHandle requestSetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] success:^(id responseObject) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            
+        }];
+    }else if (self.type == WLSetupPwpTypeForget){
+        [WLMyDataHandle requestForgetPwdWithUid:[WLUserInfo share].userId pwd:[self.pwd_1_textField.text md532BitLower] telphone:self.phone code:self.code success:^(id responseObject) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+   
 }
 @end

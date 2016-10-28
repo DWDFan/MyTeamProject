@@ -247,4 +247,19 @@
                            pwd:(NSString *)pwd
                        success:(void (^)(id responseObject))success
                        failure:(void (^)(NSError *error))failure;
+
+/**
+ *  忘记密码
+ *
+ *  @param uid     用户ID
+ *  @param telphone     手机号
+ *  @param code     验证码
+ *  @param pwd      新密码
+ */
++ (void)requestForgetPwdWithUid:(NSString *)uid
+                            pwd:(NSString *)pwd
+                       telphone:(NSString *)telphone
+                           code:(NSString *)code
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
 @end

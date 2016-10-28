@@ -87,7 +87,7 @@
     right_lab.textAlignment = NSTextAlignmentRight;
     right_lab.textColor = color_red;
     right_lab.font = [UIFont systemFontOfSize:15];
-    right_lab.text = [NSString stringWithFormat:@"￥%@.00",model.price];
+    right_lab.text = [NSString stringWithFormat:@"-%@.00",model.price];
     cell.accessoryView = right_lab;
 
     return cell;

@@ -64,19 +64,15 @@
         [self countDown];
         [WLLoginDataHandle requestTelCodeWithTelphone:self.phone.text success:^(id responseObject) {
             
-            NSDictionary *dic = responseObject;
-            
-            WLLog(@"%@",dic);
-            if ([dic[@"code"]integerValue] == 1) {
-                
-                [MOProgressHUD showSuccessWithStatus:@"验证码已经发到你手机,请留意你的手机"];
-//                self.code.text = dic[@"json"];
-            }else{
-                [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
-            }
         } failure:^(NSError *error) {
+            [self.timer invalidate];
+            self.timer = nil;
+            
+            [self.verify_btn setEnabled:YES];
+            [self.verify_btn setTitle:@"重新获取" forState:UIControlStateNormal];
             
         }];
+
     }
 }
 

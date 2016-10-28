@@ -37,6 +37,7 @@
 		550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */; };
 		550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */; };
 		550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */; };
+		55894B2B1DC0BCF6008DE544 /* WLNoCopyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -673,6 +674,8 @@
 		550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipPriceListView.m; sourceTree = "<group>"; };
 		550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLVipFeeModel.h; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.h"; sourceTree = SOURCE_ROOT; };
 		550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLVipFeeModel.m; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.m"; sourceTree = SOURCE_ROOT; };
+		55894B291DC0BCF6008DE544 /* WLNoCopyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLNoCopyTextField.h; sourceTree = "<group>"; };
+		55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNoCopyTextField.m; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -3965,6 +3968,8 @@
 				F1C597BF1D4CFD2A00529553 /* UIImage+Image.m */,
 				F1C597BB1D4CFCEF00529553 /* UIBarButtonItem+Item.h */,
 				F1C597BC1D4CFCEF00529553 /* UIBarButtonItem+Item.m */,
+				55894B291DC0BCF6008DE544 /* WLNoCopyTextField.h */,
+				55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */,
 				F1C598241D4D96A400529553 /* MyBoRuiSi.pch */,
 				F1AA6F451D95178200769610 /* WLDisplayStarView.h */,
 				F1AA6F461D95178200769610 /* WLDisplayStarView.m */,
@@ -4317,8 +4322,8 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 7DHRY55F6V;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 323HX38M55;
+						ProvisioningStyle = Manual;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4629,6 +4634,7 @@
 				F14EEA291D55F91A00BBD158 /* WLnewsTableViewCell.m in Sources */,
 				F18306421DB473990073F413 /* UIImage+Color.m in Sources */,
 				F10E16E51DA9F6D800474ACE /* WLfather2ViewController.m in Sources */,
+				55894B2B1DC0BCF6008DE544 /* WLNoCopyTextField.m in Sources */,
 				F1EF40281D5C14A900B19315 /* WLq1ViewTableViewCell.m in Sources */,
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
@@ -5125,9 +5131,9 @@
 			baseConfigurationReference = 8CD4906FED7C20DEE9CF0165 /* Pods-MyBoRuiSi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7DHRY55F6V;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				DEVELOPMENT_TEAM = 323HX38M55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5148,10 +5154,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi99;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
+				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
 			};
 			name = Debug;
 		};
@@ -5160,9 +5166,9 @@
 			baseConfigurationReference = D4D884AADC138110C9BC7999 /* Pods-MyBoRuiSi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7DHRY55F6V;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				DEVELOPMENT_TEAM = 323HX38M55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5183,10 +5189,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi99;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
+				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
 			};
 			name = Release;
 		};
