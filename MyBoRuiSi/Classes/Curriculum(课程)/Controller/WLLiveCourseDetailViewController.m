@@ -7,6 +7,7 @@
 //
 
 #import "WLLiveCourseDetailViewController.h"
+#import "ZGLivePlayerViewController.h"
 #import "WLLookTableViewCell.h"
 #import "WLSharetowViewController.h"
 #import "WLorganVC.h"
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) UIImageView *headerImgV;
 @property (nonatomic, strong) WLCourceModel *course;
 @property (nonatomic, strong) WLPurchaseBottomView *purchaseView;
+@property (nonatomic, strong) UIButton *joinBtn;
 
 @end
 
@@ -66,6 +68,10 @@
     __weak typeof(self) weakSelf = self;
     
     [bottomView setBottomViewBLock:^(NSUInteger index) {
+        if (![WLUserInfo share].isLogin) {
+            [self alertLogin];
+            return ;
+        }
         switch (index) {
             case 0:
                 //request 加入购物车
@@ -81,10 +87,37 @@
     [self.view addSubview:bottomView];
     _purchaseView = bottomView;
     
+    if (_isMine) {
+        UIButton *joinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        joinBtn.frame = CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50);
+        [joinBtn setBackgroundColor:[UIColor lightGrayColor]];
+        [joinBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [joinBtn addTarget:self action:@selector(joinBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        joinBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+        joinBtn.enabled = NO;
+        [self.view addSubview:joinBtn];
+        _joinBtn = joinBtn;
+        _purchaseView.hidden = YES;
+    }
+    
     [self setNavigationBarStyleDefultWithTitle:@"课程详情"];
     
     //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"素彩网www.sc115.com-136"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnAction:)];
+}
+
+// 进入直播
+- (void)joinBtnAction:(UIButton *)button
+{
+    NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
+    [decodeParm addObject:@"software"];
+    [decodeParm addObject:@"livestream"];
+    NSString *urlStr = [MOTool getNULLString:_course.video];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    
+    ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
+    playerVC.courseId = _courseId;
+    [self.navigationController pushViewController:playerVC animated:YES];
 }
 
 - (void)requestData
@@ -94,6 +127,18 @@
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
         _purchaseView.canBuy = _course.canBuy;
+        
+        // 直播按钮
+        if ([_course.zbStatus integerValue] == 0) {
+            [_joinBtn setTitle:@"未开始" forState:UIControlStateNormal];
+        }else if([_course.zbStatus integerValue] == 1) {
+            [_joinBtn setTitle:@"进入直播" forState:UIControlStateNormal];
+            [_joinBtn setBackgroundColor:color_red];
+            _joinBtn.enabled = YES;
+        }else {
+            [_joinBtn setTitle:@"已结束" forState:UIControlStateNormal];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         
@@ -144,6 +189,19 @@
     }];
 }
 
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
@@ -187,14 +245,11 @@
                 cell = [[WLAuthorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:authorCellId];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            if (_course.other.count > 0) {
-                WLOtherCourseModel *otherCourse = _course.other[0];
-                [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:otherCourse.photo] placeholderImage:PHOTO_PLACE];
-                cell.nameLbl.text = otherCourse.name;
-                cell.starView.showStar = [otherCourse.star floatValue] * 20;
-                cell.starLbl.text = [NSString stringWithFormat:@"%@分",otherCourse.star];
-                
-            }
+            WLAuthorModel *author = _course.other;
+            [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:author.photo] placeholderImage:PHOTO_PLACE];
+            cell.nameLbl.text = author.nickname;
+            cell.starView.showStar = [author.star floatValue] * 20;
+            cell.starLbl.text = [NSString stringWithFormat:@"%@分",author.star];
             return cell;
         }
         

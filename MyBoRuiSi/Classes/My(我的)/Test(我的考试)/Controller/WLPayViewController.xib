@@ -41,13 +41,13 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-cj-fky">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-cj-fky" customClass="WLNoCopyTextField">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="eCc-W4-HLR"/>
                                 <constraint firstAttribute="width" constant="270" id="hm8-fp-5Sb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="eCc-W4-HLR"/>
@@ -85,13 +85,13 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次输入:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-cB-c7M">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次输入:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-cB-c7M" customClass="WLNoCopyTextField">
                             <constraints>
                                 <constraint firstAttribute="width" constant="270" id="acN-Lu-xhE"/>
                                 <constraint firstAttribute="height" constant="30" id="zf2-mC-wAQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="acN-Lu-xhE"/>

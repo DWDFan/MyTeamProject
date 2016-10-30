@@ -17,6 +17,7 @@
 #import "WLMyQiYeCourseModel.h"
 #import "WLMyAttentionModel.h"
 #import "WLVipFeeModel.h"
+#import "WLSystemMsgModel.h"
 @implementation WLMyDataHandle
 
 /**
@@ -45,7 +46,7 @@
             failure(nil);
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD dismiss];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 }
@@ -58,11 +59,27 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestGetVipFeeWithUid:(NSString *)uid
++ (void)requestBuyVipWithUid:(NSString *)uid
                            year:(NSNumber *)year
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure{
-    
+    NSDictionary *param = @{@"uid":uid,
+                            @"year": year};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=Vip&do=buyVip" parameters:param success:^(id responseObject) {
+        [MOProgressHUD dismiss];
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            success(responseObject[@"data"]);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+
 }
 
 /**
@@ -134,6 +151,71 @@
 
 }
 
+
+/**
+ *  获取我的系统消息
+ */
++ (void)requestGetMsgWithUid:(NSString *)uid
+                        page:(NSNumber *)page
+                        type:(NSString *)type
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"type":type,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMsg" parameters:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            if ([type isEqualToString:@"system"]) {
+                for (NSDictionary *dict in responseObject[@"data"]) {
+                    WLSystemMsgModel *model =  [WLSystemMsgModel mj_objectWithKeyValues:dict];
+                    [dataSource addObject:model];
+                }
+                success(dataSource);
+            }else{
+                for (NSDictionary *dict in responseObject[@"data"]) {
+                   
+                }
+                success(dataSource);
+            }
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        failure(error);
+    }];
+
+}/**
+  *  获取我的系统消息详情
+  */
++ (void)requestGetMsgInfoWithUid:(NSString *)uid
+                              id:(NSString *)infoId
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"id":infoId
+                            };
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getMsgInfo" parameters:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"] integerValue] == 1) {
+            WLSystemMsgModel *model =  [WLSystemMsgModel mj_objectWithKeyValues:dict];
+            success(model);
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+
+}
+
 /**
  *  我的收藏
  */
@@ -158,10 +240,20 @@
                 }
                 success(dataSource);
             }else{
-                for (NSDictionary *dict in responseObject[@"data"]) {
+                NSMutableArray *dianbo_array = [NSMutableArray array];
+                for (NSDictionary *dict in responseObject[@"data"][@"dianbo"]) {
                     WLCourseFavModel *tzModel =  [WLCourseFavModel mj_objectWithKeyValues:dict];
-                    [dataSource addObject:tzModel];
+                    [dianbo_array addObject:tzModel];
                 }
+
+                NSMutableArray *zhibo_array = [NSMutableArray array];
+                for (NSDictionary *dict in responseObject[@"data"][@"zhibo"]) {
+                    WLCourseFavModel *tzModel =  [WLCourseFavModel mj_objectWithKeyValues:dict];
+                    [zhibo_array addObject:tzModel];
+                }
+                
+                [dataSource addObject:dianbo_array];
+                [dataSource addObject:zhibo_array];
                 success(dataSource);
             }
         }else {
@@ -413,7 +505,7 @@
     [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=User&do=updateInfo" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
-            [MOProgressHUD showImage:nil withStatus:@"修改成功"];
+            [MOProgressHUD showSuccessWithStatus:@"修改成功"];
             success(responseObject);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -438,7 +530,9 @@
                             @"pwd":pwd};
     [MOHTTP GET:@"API/index.php?action=UCenter&do=setPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
-            [MOProgressHUD showErrorWithStatus:responseObject[@"设置成功"]];
+            [MOProgressHUD showSuccessWithStatus:@"设置成功"];
+            [WLUserInfo share].bagPwd = @1;
+            [[WLUserInfo share] reArchivUserInfo];
             success(responseObject);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -446,6 +540,7 @@
         }
         
     } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 
@@ -470,6 +565,7 @@
         }
         
     } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 
@@ -484,8 +580,10 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
                             @"pwd":pwd};
+    [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=UCenter&do=checkPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD dismiss];
             success(responseObject);
         }else {
             [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -493,6 +591,41 @@
         }
         
     } failure:^(NSError *error) {
+         [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+}
+
+/**
+ *  忘记密码
+ *
+ *  @param uid     用户ID
+ *  @param telphone     手机号
+ *  @param code     验证码
+ *  @param pwd      新密码
+ */
++ (void)requestForgetPwdWithUid:(NSString *)uid
+                            pwd:(NSString *)pwd
+                       telphone:(NSString *)telphone
+                           code:(NSString *)code
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"telphone":telphone,
+                            @"code":code,
+                            @"pwd":pwd};
+    [MOProgressHUD show];
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=forgetPwd" parameters:param success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 1) {
+            [MOProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            success(responseObject);
+        }else {
+            [MOProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 

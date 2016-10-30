@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLSystemMsgModel;
 @interface WLnewsTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLSystemMsgModel *model;
 @end

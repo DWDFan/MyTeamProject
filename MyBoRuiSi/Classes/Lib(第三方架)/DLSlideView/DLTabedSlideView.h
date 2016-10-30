@@ -53,4 +53,7 @@
 
 @property(nonatomic, weak)IBOutlet id<DLTabedSlideViewDelegate>delegate;
 
+//清除缓存
+- (void)cleanCache;
+
 @end

@@ -71,6 +71,11 @@
     __weak typeof(self) weakSelf = self;
     
     [bottomView setBottomViewBLock:^(NSUInteger index) {
+        
+        if (![WLUserInfo share].isLogin) {
+            [self alertLogin];
+            return ;
+        }
         switch (index) {
             case 0:
                 //request 加入购物车
@@ -103,6 +108,12 @@
     
     //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"素彩网www.sc115.com-136"] style:UIBarButtonItemStyleDone target:self action:@selector(nav_w_add_prer)];
+    
+    if (_isMine) {
+        bottomView.hidden = YES;
+        self.tableView.frame = CGRectMake(0, 0, WLScreenW, WLScreenH - 64);
+    }
+    
 }
 
 - (void)requestData
@@ -183,6 +194,19 @@
     WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
     VC.courseId = _courseId;
     [self.navigationController pushViewController:VC animated:YES];
+}
+
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
 }
 
 #pragma mark - tableView

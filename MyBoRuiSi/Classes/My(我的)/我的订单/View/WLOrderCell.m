@@ -53,9 +53,12 @@
     sender.selected = !self.shopCarModel.isSelect;
     self.shopCarModel.select = sender.selected;
     if (self.selectBalanceBlock) {
-        NSInteger price = self.shopCarModel.disPrice ? [self.shopCarModel.disPrice integerValue] : [self.shopCarModel.price integerValue];
-        NSString *cid = self.shopCarModel.id;
-        self.selectBalanceBlock(price, sender.selected,cid);
+        if ([self.shopCarModel.vipFree isEqualToNumber:@1] && [WLUserInfo share].vip) {
+            self.selectBalanceBlock(0, sender.selected,self.shopCarModel);
+        }else{
+            NSInteger price = self.shopCarModel.disPrice ? [self.shopCarModel.disPrice integerValue] : [self.shopCarModel.price integerValue];
+            self.selectBalanceBlock(price, sender.selected,self.shopCarModel);
+        }
     }
     if (self.selectDeleteBlock) {
         self.selectDeleteBlock(sender.selected,self.oid);

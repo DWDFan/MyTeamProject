@@ -49,7 +49,7 @@
         money_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
         [money_btn setTitle:[NSString stringWithFormat:@"￥%@",model.money] forState:UIControlStateNormal];
         [money_btn setTitleColor:color_red forState:UIControlStateNormal];
-        [money_btn addTarget:self action:@selector(buyVip:) forControlEvents:UIControlEventTouchCancel];
+        [money_btn addTarget:self action:@selector(buyVip:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:money_btn];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(20, i * 45, 280, 0.7)];
@@ -62,7 +62,7 @@
     [cancle_btn setTitle:@"取消" forState:UIControlStateNormal];
     [cancle_btn setTitleColor:color_red forState:UIControlStateNormal];
     cancle_btn.backgroundColor = KColorBackgroud;
-    [cancle_btn addTarget:self action:@selector(cancleAction) forControlEvents:UIControlEventTouchCancel];
+    [cancle_btn addTarget:self action:@selector(cancleAction) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:cancle_btn];
 }
 

@@ -29,10 +29,10 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestGetVipFeeWithUid:(NSString *)uid
-                           year:(NSNumber *)year
-                        success:(void (^)(id responseObject))success
-                        failure:(void (^)(NSError *error))failure;
++ (void)requestBuyVipWithUid:(NSString *)uid
+                        year:(NSNumber *)year
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
 
 /**
  *  我的收入
@@ -71,6 +71,35 @@
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure;
 
+
+
+/**
+ *  获取我的系统消息
+ *
+ *  @param uid     用户ID
+ *  @param type     消息类型 system 系统消息 bbs 帖子消息
+ *  @param page     页码
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMsgWithUid:(NSString *)uid
+                        page:(NSNumber *)page
+                        type:(NSString *)type
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure;
+
+/**
+ *  获取我的系统消息详情
+ *
+ *  @param uid     用户ID
+ *  @param id     消息id
+ *  @param success
+ *  @param failure
+ */
++ (void)requestGetMsgInfoWithUid:(NSString *)uid
+                              id:(NSString *)infoId
+                         success:(void (^)(id responseObject))success
+                         failure:(void (^)(NSError *error))failure;
 /**
  *  我的收藏
  *
@@ -247,4 +276,19 @@
                            pwd:(NSString *)pwd
                        success:(void (^)(id responseObject))success
                        failure:(void (^)(NSError *error))failure;
+
+/**
+ *  忘记密码
+ *
+ *  @param uid     用户ID
+ *  @param telphone     手机号
+ *  @param code     验证码
+ *  @param pwd      新密码
+ */
++ (void)requestForgetPwdWithUid:(NSString *)uid
+                            pwd:(NSString *)pwd
+                       telphone:(NSString *)telphone
+                           code:(NSString *)code
+                        success:(void (^)(id responseObject))success
+                        failure:(void (^)(NSError *error))failure;
 @end

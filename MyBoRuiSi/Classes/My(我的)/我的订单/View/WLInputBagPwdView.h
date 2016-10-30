@@ -13,5 +13,5 @@
 
 @property (nonatomic, copy) void(^closeBlock)();
 @property (nonatomic, copy) void(^forgetPwdBlock)();
-@property (nonatomic, copy) void(^completeBlock)();
+@property (nonatomic, copy) void(^completeBlock)(NSString *pwd);
 @end

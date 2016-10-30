@@ -10,7 +10,7 @@
 
 #import "WLSelectionTableViewCell.h"
 #import "WLxq2ViewController.h"
-
+#import "WLCourseDetailViewController.h"
 #import "WLMyDataHandle.h"
 @interface WLSelectionViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -90,14 +90,10 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    /// stroryboard 加载@@@@@@@@@@@@@@@@@@@
-    //身份
-//    UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLxq2ViewController" bundle:nil];
-//    UIViewController *vc = [stroryboard instantiateInitialViewController];
-//    // vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
-//    [self.navigationController pushViewController:vc animated:YES];
-    
+    WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+    vc.isMine = YES;
+//    vc.courseId = ?? 需要传一个课程id
+    [self.navigationController pushViewController:self animated:YES];
 }
 
 #pragma mark - Request

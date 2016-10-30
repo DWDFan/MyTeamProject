@@ -7,9 +7,11 @@
 //
 
 #import "WLInputBagPwdView.h"
+
+#import "NSString+Util.h"
 @interface WLInputBagPwdView ()
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
-@property (nonatomic, strong) NSMutableString *pwd;
+@property (nonatomic, copy) NSMutableString *pwd;
 @end
 
 @implementation WLInputBagPwdView
@@ -20,8 +22,10 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    self.backgroundColor = [UIColor clearColor];
-    
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
+    [self addGestureRecognizer:tap];
+
     _pwdView.layer.masksToBounds = YES;
     _pwdView.layer.cornerRadius = 3;
     
@@ -34,6 +38,10 @@
         _pwd = [[NSMutableString alloc] init];
     }
     return _pwd;
+}
+
+- (void)removeView{
+    !self.closeBlock ?: self.closeBlock();
 }
 
 - (IBAction)closeAction:(UIButton *)sender {
@@ -94,7 +102,8 @@
     }
     [self setupPwdViewWithPwd:self.pwd];
     if (self.pwd.length == 6) {
-        !self.completeBlock ?: self.completeBlock();
+        NSString *pwd = self.pwd.copy;
+        !self.completeBlock ?: self.completeBlock([pwd md532BitLower]);
     }
 }
 

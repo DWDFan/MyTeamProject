@@ -14,7 +14,9 @@
 {
     // 创建请求管理者
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
+    AFJSONResponseSerializer *response = [[AFJSONResponseSerializer alloc] init];
+    response.removesKeysWithNullValues = YES;
+    mgr.responseSerializer = response;
     //拼接URL
     NSString *URLStr = [NSString stringWithFormat:@"%@%@",PostUrl,URLString];
     NSLog(@"+++++++++++++++\n%@\n%@",URLStr,parameters);
@@ -56,6 +58,9 @@
     // 创建请求管理者
     
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    AFJSONResponseSerializer *response = [[AFJSONResponseSerializer alloc] init];
+    response.removesKeysWithNullValues = YES;
+    mgr.responseSerializer = response;
     //拼接URL
     NSString *URLStr = [NSString stringWithFormat:@"%@%@",PostUrl,URLString];
     NSLog(@"%@+++",URLStr);

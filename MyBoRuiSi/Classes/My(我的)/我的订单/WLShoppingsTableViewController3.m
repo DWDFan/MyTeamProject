@@ -29,16 +29,12 @@
     [super viewDidLoad];
     
     self.tableView_main.tableFooterView = [[UIView alloc] init];
-    //监听
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
     
     //request
     _page = 1;
     [self requestGePayedWithPage:@(self.page)];
 }
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
@@ -156,7 +152,7 @@
             _page = 1;
             [self requestGePayedWithPage:@(self.page)];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(2)}];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

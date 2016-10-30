@@ -126,36 +126,21 @@
     
     header.openVipBlock = ^(){
         if([WLUserInfo share].vip){//续费
-            [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-                WLVipDateView *view = [[WLVipDateView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-                view.date = @"1";
-               [[UIApplication sharedApplication].keyWindow addSubview:view];
-                __weak typeof(view) weakView = view;
-                view.cancleBlock = ^(){
-                    [weakView removeFromSuperview];
-                };
-                
-            } failure:^(NSError *error) {
-                
-            }];
             
-           
+            WLVipDateView *view = [[WLVipDateView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+            view.date = [WLUserInfo share].vipEndtm;
+            [[UIApplication sharedApplication].keyWindow addSubview:view];
+            __weak typeof(view) weakView = view;
+            view.cancleBlock = ^(){
+                [weakView removeFromSuperview];
+            };
+            view.keepBlock = ^(){
+                [weakView removeFromSuperview];
+                [weakSelf requestVipList];
+            };
+            
         }else{//开通
-            [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-                WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-                view.dataSource = responseObject;
-                [[UIApplication sharedApplication].keyWindow addSubview:view];
-                __weak typeof(view) weakView = view;
-                view.cancleBlock = ^(){
-                    [weakView removeFromSuperview];
-                };
-                view.buyVipBlock = ^(NSNumber *year){
-                    
-                };
-            } failure:^(NSError *error) {
-                
-            }];
-            
+            [self requestVipList];
         }
     };
     self.tableView.tableHeaderView = header;
@@ -312,4 +297,29 @@
     return 60;
 }
 
+
+#pragma mark - Request
+/** 会员列表 */
+- (void)requestVipList{
+    [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+        WLVipPriceListView *view = [[WLVipPriceListView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+        view.dataSource = responseObject;
+        [[UIApplication sharedApplication].keyWindow addSubview:view];
+        __weak typeof(view) weakView = view;
+        view.cancleBlock = ^(){
+            [weakView removeFromSuperview];
+        };
+        view.buyVipBlock = ^(NSNumber *year){
+            //会员购买
+            [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year success:^(id responseObject) {
+                 [weakView removeFromSuperview];
+            } failure:^(NSError *error) {
+                 [weakView removeFromSuperview];
+            }];
+        };
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 @end

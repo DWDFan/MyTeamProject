@@ -12,5 +12,5 @@
 @property (nonatomic, copy) NSString *date;
 
 @property (nonatomic, copy) void(^cancleBlock)();
-
+@property (nonatomic, copy) void(^keepBlock)();
 @end

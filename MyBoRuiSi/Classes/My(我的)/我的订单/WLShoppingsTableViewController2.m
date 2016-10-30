@@ -34,12 +34,6 @@
     _page = 1;
     [self requestGetWaitPayWithPage:@(self.page)];
     
-    //监听
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
-    
-}
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -104,7 +98,7 @@
         WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
         vc.amountStr = amount;
         vc.orderId = oid;
-        vc.needMoney = amount;
+        vc.needMoney = [amount floatValue];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     footerView.detailBlock = ^(NSString *oid){
@@ -167,7 +161,7 @@
             self.page = 1;
             [self requestGetWaitPayWithPage:@(self.page)];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

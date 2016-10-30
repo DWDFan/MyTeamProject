@@ -91,13 +91,14 @@
 
 /** 验证是否已经设置钱包密码 */
 - (BOOL)checkoutPwd{
-    if ([[WLUserInfo share].bagPwd isEqualToString:@""] || ![WLUserInfo share].bagPwd) {
+    if (![[WLUserInfo share].bagPwd isEqualToNumber:@1] ) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"需要设置钱包密码才可以使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alert show];
         return NO;
     }else{
         return YES;
     }
+    return NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{

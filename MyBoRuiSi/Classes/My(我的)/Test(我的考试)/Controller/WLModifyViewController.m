@@ -10,11 +10,12 @@
 
 #import "WLMyDataHandle.h"
 #import "NSString+Util.h"
+#import "WLNoCopyTextField.h"
 
 @interface WLModifyViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *old_TextField;
-@property (weak, nonatomic) IBOutlet UITextField *pwd_1_TextField;
-@property (weak, nonatomic) IBOutlet UITextField *pwd_2_TextField;
+@property (weak, nonatomic) IBOutlet WLNoCopyTextField *old_TextField;
+@property (weak, nonatomic) IBOutlet WLNoCopyTextField *pwd_1_TextField;
+@property (weak, nonatomic) IBOutlet WLNoCopyTextField *pwd_2_TextField;
 @end
 
 @implementation WLModifyViewController
@@ -37,8 +38,6 @@
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
 
-    //request
-     [self requestUpdatePwd];
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -57,14 +56,12 @@
 
 #pragma mark - Private Method
 - (BOOL)checkoutPwd{
-    [self.view endEditing:YES];
+    
     if(![self.pwd_1_TextField.text isEqualToString:self.pwd_2_TextField.text]){
         [MOProgressHUD showErrorWithStatus:@"密码不一致"];
     }else if (self.pwd_1_TextField.text.length != 6 || self.pwd_2_TextField.text.length != 6) {
         [MOProgressHUD showErrorWithStatus:@"请输入6位数密码"];
-    } else if (![self.pwd_1_TextField.text isNumber] && ![self.pwd_2_TextField.text isNumber]){
-        [MOProgressHUD showErrorWithStatus:@"请输入6位纯数字密码"];
-    }else if (self.pwd_1_TextField.text.length == 6 && self.pwd_2_TextField.text.length == 6 && [self.pwd_1_TextField.text isEqualToString:self.pwd_2_TextField.text]){
+    } else if (self.pwd_1_TextField.text.length == 6 && self.pwd_2_TextField.text.length == 6 && [self.pwd_1_TextField.text isEqualToString:self.pwd_2_TextField.text]){
         return YES;
     }
     return NO;
@@ -91,6 +88,7 @@
 
 #pragma mark - Request
 - (void)requestUpdatePwd{
+    [self.view endEditing:YES];
     [WLMyDataHandle requestUpdatePwdWithUid:[WLUserInfo share].userId oldpwd:[self.old_TextField.text md532BitLower] pwd:[self.pwd_1_TextField.text md532BitLower] success:^(id responseObject) {
         WLSuccessfulViewController *SuccessfulVC = [[WLSuccessfulViewController alloc]init];
         [self.navigationController pushViewController:SuccessfulVC animated:YES];

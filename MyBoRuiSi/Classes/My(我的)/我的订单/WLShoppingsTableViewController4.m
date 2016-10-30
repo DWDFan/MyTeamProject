@@ -32,15 +32,12 @@
     [super viewDidLoad];
     
     self.tableView_main.tableFooterView = [[UIView alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataShopTalbeView:) name:@"kReloadDataShopTableView" object:nil];
+   
     _page = 1;
     [self requestGetClosePayWithPage:@(self.page)];
     
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
@@ -177,7 +174,7 @@
             _page = 1;
             [self requestGetClosePayWithPage:@(self.page)];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadDataShopTableView" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(3)}];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

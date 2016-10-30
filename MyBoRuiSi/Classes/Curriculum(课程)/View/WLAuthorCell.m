@@ -31,7 +31,7 @@
     nameLbl.frame = CGRectMake(avatarImgV.right + 15, avatarImgV.centerY - 7, 60, 15);
     nameLbl.numberOfLines = 1;
     nameLbl.textColor = COLOR_BLACK;
-    nameLbl.font = [UIFont systemFontOfSize:15];
+    nameLbl.font = [UIFont systemFontOfSize:14];
     [self addSubview:nameLbl];
     _nameLbl = nameLbl;
 
