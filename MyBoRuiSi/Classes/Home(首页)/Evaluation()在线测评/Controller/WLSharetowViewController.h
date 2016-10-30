@@ -16,4 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIView *qZone;
 @property (weak, nonatomic) IBOutlet UIView *sinaBtn;
 
+@property (strong, nonatomic) NSString *shareTitle;
+@property (strong, nonatomic) NSString *descStr;
+@property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) NSString *webpageUrl;
+
 @end

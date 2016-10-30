@@ -48,5 +48,6 @@ extern NSInteger const kPageSize;
 #pragma mark 基本设置
 - (void)baseSettting;
 
+- (void)alertLogin;
 
 @end

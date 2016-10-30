@@ -86,7 +86,9 @@
 + (void)requestFindBBSHotsSuccess:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Bbs&do=getHots" parameters:nil success:^(id responseObject) {
+    NSDictionary *param = @{@"uid" : [MOTool getNULLString:[WLUserInfo share].userId]};
+    
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=getHots" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {

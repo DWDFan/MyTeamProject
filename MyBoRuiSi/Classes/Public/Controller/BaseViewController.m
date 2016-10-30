@@ -3,7 +3,7 @@
 NSInteger const kPageSize = 20;
 #import "BaseViewController.h"
 //#import "PersonalRequestClient.h"
-@interface BaseViewController()<UIGestureRecognizerDelegate>
+@interface BaseViewController()<UIGestureRecognizerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) UIButton *titleBtn;
 
@@ -219,7 +219,18 @@ NSInteger const kPageSize = 20;
 }
 
 
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
+}
 
 #pragma mark 基本设置
 - (void)baseSettting

@@ -30,6 +30,7 @@
 
 #import "WLSharetowViewController.h"
 #import "WLArticleDetailViewController.h"
+#import "MJRefresh.h"
 
 typedef NS_ENUM(NSUInteger, ZGSearchType) {
     ZGSearchTypeCourse,         // 课程
@@ -46,9 +47,11 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
 @property (nonatomic, strong) UIButton *typeBtn;
 @property (nonatomic, strong) UITextField *textFiled_main;
 @property (nonatomic, assign) ZGSearchType searchType;
-@property (nonatomic, strong) NSArray *dataSourceArray;
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
 @property (nonatomic, strong) NSMutableArray *historyArray;
 @property (nonatomic, assign) BOOL isSearch;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isHistoryData;
 
 @end
 
@@ -144,8 +147,12 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     
     _historyArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"searchCache"]];
     
-    _dataSourceArray = _historyArray;
+    _dataSourceArray = [NSMutableArray array];
+    [_dataSourceArray addObjectsFromArray:_historyArray];
     [self.tableView reloadData];
+
+    _page = 2;
+    _isHistoryData = YES;
 }
 
 
@@ -269,12 +276,21 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
 }
 
 /**
- *  点击搜索调到下一个界面
+ *  搜索
  */
 - (void)Transmission
 {
+    if (!_isSearch) {
+        _isSearch = YES;
+        __weak typeof(self) weakSelf = self;
+        [self.tableView addFooterWithCallback:^{
+            weakSelf.page ++;
+            [weakSelf loadMoreData];
+        }];
+    }
+    _page = 2;
+    [_dataSourceArray removeAllObjects];
     [self.view endEditing:YES];
-    _isSearch = YES;
     if (_textFiled_main.text.length > 0) {
         [_historyArray addObject:_textFiled_main.text];
         [[NSUserDefaults standardUserDefaults] setObject:_historyArray forKey:@"searchCache"];
@@ -282,7 +298,7 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     }
     
     [MOProgressHUD showWithStatus:@"正在搜索..."];
-    _dataSourceArray = @[];
+    
     switch (_searchType) {
             
         case ZGSearchTypeCourse:
@@ -344,6 +360,80 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
 
             } failure:^(NSError *error) {
                 [MOProgressHUD dismiss];
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)loadMoreData
+{
+    switch (_searchType) {
+            
+        case ZGSearchTypeCourse:
+        case ZGSearchTypeStandard: // 标准也调用课程
+        {
+            [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:_textFiled_main.text type:@0 ppid:@"" priceOrder:@"" zbstatus:@1 saleNum:@"asc" level:@0 success:^(id responseObject) {
+                
+                NSArray *array = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                [_dataSourceArray addObjectsFromArray:array];
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+                
+            } failure:^(NSError *error) {
+                [self.tableView footerEndRefreshing];
+            }];
+        }
+            break;
+        case ZGSearchTypeLecturer:
+        {
+            [WLHomeDataHandle requestSearchLecturerWithNum:@10 page:@(_page) key:_textFiled_main.text success:^(id responseObject) {
+                
+                NSArray *array = [WLLecturerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                [_dataSourceArray addObjectsFromArray:array];
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+                
+            } failure:^(NSError *error) {
+                [self.tableView footerEndRefreshing];
+            }];
+        }
+            break;
+        case ZGSearchTypeInstitution:
+        {
+            [WLHomeDataHandle requestSearchInstitutionWithNum:@10 page:@(_page) key:_textFiled_main.text success:^(id responseObject) {
+                
+                NSArray *array = [WLInstitutionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                [_dataSourceArray addObjectsFromArray:array];
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+                
+            } failure:^(NSError *error) {
+                [self.tableView footerEndRefreshing];
+            }];
+        }
+            break;
+        case ZGSearchTypeArticle:
+        {
+            [WLHomeDataHandle requestSearchArticleWithNum:@10 page:@(_page) key:_textFiled_main.text success:^(id responseObject) {
+                
+                NSMutableArray *mArray = [NSMutableArray array];
+                
+                for (NSDictionary *dic in responseObject[@"data"]) {
+                    
+                    ZGArticleModel *article = [ZGArticleModel mj_objectWithKeyValues:dic];
+                    ZGArticleViewModel *vModel = [[ZGArticleViewModel alloc] init];
+                    vModel.article = article;
+                    [mArray addObject:vModel];
+                }
+                [_dataSourceArray addObjectsFromArray:mArray];
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+                
+            } failure:^(NSError *error) {
+                [self.tableView footerEndRefreshing];
             }];
         }
             break;
