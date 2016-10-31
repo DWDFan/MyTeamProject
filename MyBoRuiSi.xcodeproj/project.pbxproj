@@ -36,8 +36,9 @@
 		550D1CC91DB7623E00FBAF47 /* WLInputBagPwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CC81DB7623E00FBAF47 /* WLInputBagPwdView.m */; };
 		550D1CCB1DB7625000FBAF47 /* WLInputBagPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */; };
 		550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */; };
-		550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */; };
 		55894B2B1DC0BCF6008DE544 /* WLNoCopyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */; };
+		55894B7C1DC3015C008DE544 /* WLVipFeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55894B7B1DC3015C008DE544 /* WLVipFeeModel.m */; };
+		55894B7F1DC3016F008DE544 /* WLSystemMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55894B7E1DC3016F008DE544 /* WLSystemMsgModel.m */; };
 		5595AD451DA8C207001758AA /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5595AD331DA8C207001758AA /* AlipaySDK.bundle */; };
 		5595AD461DA8C207001758AA /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD341DA8C207001758AA /* AlipaySDK.framework */; };
 		5595AD471DA8C207001758AA /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5595AD351DA8C207001758AA /* libpingpp+alipay.a */; };
@@ -672,10 +673,12 @@
 		550D1CCA1DB7625000FBAF47 /* WLInputBagPwdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLInputBagPwdView.xib; sourceTree = "<group>"; };
 		550D1CD31DBE040C00FBAF47 /* WLVipPriceListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipPriceListView.h; sourceTree = "<group>"; };
 		550D1CD41DBE040C00FBAF47 /* WLVipPriceListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipPriceListView.m; sourceTree = "<group>"; };
-		550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLVipFeeModel.h; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.h"; sourceTree = SOURCE_ROOT; };
-		550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLVipFeeModel.m; path = "MyBoRuiSi/Classes/My(我的)/View/WLVipFeeModel.m"; sourceTree = SOURCE_ROOT; };
 		55894B291DC0BCF6008DE544 /* WLNoCopyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLNoCopyTextField.h; sourceTree = "<group>"; };
 		55894B2A1DC0BCF6008DE544 /* WLNoCopyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLNoCopyTextField.m; sourceTree = "<group>"; };
+		55894B7A1DC3015C008DE544 /* WLVipFeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipFeeModel.h; sourceTree = "<group>"; };
+		55894B7B1DC3015C008DE544 /* WLVipFeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipFeeModel.m; sourceTree = "<group>"; };
+		55894B7D1DC3016F008DE544 /* WLSystemMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSystemMsgModel.h; sourceTree = "<group>"; };
+		55894B7E1DC3016F008DE544 /* WLSystemMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSystemMsgModel.m; sourceTree = "<group>"; };
 		5595AD331DA8C207001758AA /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		5595AD341DA8C207001758AA /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		5595AD351DA8C207001758AA /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -1747,6 +1750,17 @@
 				550A22A31DB0C6140025A2B5 /* libswscale.a */,
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		55894B791DC30132008DE544 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55894B7A1DC3015C008DE544 /* WLVipFeeModel.h */,
+				55894B7B1DC3015C008DE544 /* WLVipFeeModel.m */,
+				55894B7D1DC3016F008DE544 /* WLSystemMsgModel.h */,
+				55894B7E1DC3016F008DE544 /* WLSystemMsgModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5595AD301DA8C207001758AA /* ping++ */ = {
@@ -3897,7 +3911,7 @@
 				F12162BC1D51A8860003B5C1 /* Setting(设置) */,
 				F12162C41D51A8860003B5C1 /* Wallet(我的钱包) */,
 				F1C597A51D4CF9C700529553 /* Controller */,
-				F1C597A61D4CF9C700529553 /* Model */,
+				55894B791DC30132008DE544 /* Model */,
 				F1C597A71D4CF9C700529553 /* View */,
 			);
 			path = "My(我的)";
@@ -3923,15 +3937,6 @@
 				F14EEA2D1D5614D400BBD158 /* WLXtnewsViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		F1C597A61D4CF9C700529553 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				550D1CD81DBE0C5200FBAF47 /* WLVipFeeModel.h */,
-				550D1CD91DBE0C5200FBAF47 /* WLVipFeeModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F1C597A71D4CF9C700529553 /* View */ = {
@@ -4322,8 +4327,8 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 323HX38M55;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 7DHRY55F6V;
+						ProvisioningStyle = Automatic;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4781,6 +4786,7 @@
 				550455EB1DAF256800F9A32C /* WLCourseFavModel.m in Sources */,
 				F1A945791D4CF4270097FFEF /* main.m in Sources */,
 				CDEB07911D562085009A0011 /* WLModifyViewController.m in Sources */,
+				55894B7C1DC3015C008DE544 /* WLVipFeeModel.m in Sources */,
 				F18306321DB473980073F413 /* UIButton+Block.m in Sources */,
 				F1FB85C71D537365005AAED3 /* DLCustomSlideView.m in Sources */,
 				F14EEA041D55989B00BBD158 /* WLQuestionViewController.m in Sources */,
@@ -4944,12 +4950,12 @@
 				F18306711DB473990073F413 /* UIView+Nib.m in Sources */,
 				550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */,
 				F18306831DB473990073F413 /* WebView+Debug.m in Sources */,
-				550D1CDA1DBE0C5200FBAF47 /* WLVipFeeModel.m in Sources */,
 				6E8395631D55F2AE00E11087 /* WLOrderDetailsViewController.m in Sources */,
 				F192449A1D5F0CB100F0FF5B /* MOHTTP.m in Sources */,
 				F1FB86021D5374AC005AAED3 /* SDWebImageManager+MJ.m in Sources */,
 				F1C597BA1D4CFCA400529553 /* WLTabBarController.m in Sources */,
 				F19244CB1D5F0E0600F0FF5B /* SVIndefiniteAnimatedView.m in Sources */,
+				55894B7F1DC3016F008DE544 /* WLSystemMsgModel.m in Sources */,
 				F18306621DB473990073F413 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				F1D110A81D598FD800103536 /* WLkc2TableViewCell.m in Sources */,
 				F1AA6F411D94FB7D00769610 /* WLCourseDetailViewController.m in Sources */,
@@ -5132,8 +5138,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5154,10 +5160,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -5167,8 +5173,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5189,10 +5195,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

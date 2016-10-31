@@ -11,8 +11,11 @@
 
 #import "WLCardxqViewController.h"
 
+#import "WLMyDataHandle.h"
 @interface WLReplyViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation WLReplyViewController
@@ -20,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _page = 1;
+    
+    //request
+    [self requestGetMsg];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,5 +82,13 @@
     
 }
 
-
+#pragma mark - Request
+- (void)requestGetMsg{
+    [WLMyDataHandle requestGetMsgWithUid:[WLUserInfo share].userId page:@(self.page) type:@"bbs" success:^(id responseObject) {
+        self.dataSource = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

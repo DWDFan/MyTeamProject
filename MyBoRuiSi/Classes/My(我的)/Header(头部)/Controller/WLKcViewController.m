@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.tableFooterView = [[UIView alloc] init];
     _page = 1;
     [self requestGetFavListWithPage:_page];
     
@@ -43,14 +44,15 @@
     return _dataSource;
 }
 //返回多少组
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    //#warning Incomplete implementation, return the number of sections
-//    return 2;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    //#warning Incomplete implementation, return the number of sections
+    return self.dataSource.count;
+}
 //返回多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.dataSource.count;
+    NSArray *array = self.dataSource[section];
+    return array.count;
 }
 
 
@@ -60,10 +62,10 @@
 }
 
 //返回组头的高度
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    
-//    return 40 ;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 40 ;
+}
 //返回cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -72,24 +74,25 @@
     static NSString *ID = @"WLke1TableViewCell";
     static NSString *deteID = @"WLkc2TableViewCell";
     
-//    if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
     
         WLke1TableViewCell *cells = [tableView dequeueReusableCellWithIdentifier:ID];
         
         if (cells == nil) {
             cells = [[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:nil] lastObject];
         }
-       cells.model = self.dataSource[indexPath.row];
+       cells.model = self.dataSource[indexPath.section][indexPath.row];
         cell = cells;
         
 
-//    }else{
-//        WLkc2TableViewCell *cells = [tableView dequeueReusableCellWithIdentifier:deteID];
-//        if (cells == nil) {
-//            cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
-//        }
-//        cell = cells;
-//    }
+    }else{
+        WLkc2TableViewCell *cells = [tableView dequeueReusableCellWithIdentifier:deteID];
+        if (cells == nil) {
+            cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+        }
+         cells.model = self.dataSource[indexPath.section][indexPath.row];
+        cell = cells;
+    }
     
     
     return cell;
@@ -97,7 +100,7 @@
 
 
 //返回组头view
-/*
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [UIView new];
     view.backgroundColor = RGBA(237, 237, 237, 1);
@@ -117,7 +120,7 @@
     
     return view;
 }
-*/
+
 
 
 
