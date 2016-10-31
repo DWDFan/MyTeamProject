@@ -24,7 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _page = 1;
-    [self requestGetMyFollowJsWithPage:_page];
+ 
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [self requestGetMyFollowJsWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetMyFollowJsWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
     
 }
 
@@ -83,12 +97,23 @@
 #pragma mark - Request
 - (void)requestGetMyFollowJsWithPage:(NSInteger )page{
     [WLMyDataHandle requestGetMyFollowJsWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
-        self.dataSource = responseObject;
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
-    
 }
 
 @end

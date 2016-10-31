@@ -56,8 +56,10 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    //设置右边的按钮图片没有渲染
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    if ([WLUserInfo share].isLogin) {
+        //设置右边的按钮图片没有渲染
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    }
     
     //监听是否登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloaWLLoginStatus:) name:@"changeLoginStatus" object:nil];
@@ -107,6 +109,11 @@
 
 //登录状态
 - (void)userLoginStatusLogin{
+    
+    //设置右边的按钮图片没有渲染
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    
+    
     WLUserLoginstatusCell *header = [[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil][1];
     
     __weak typeof(self) weakSelf = self;
