@@ -171,6 +171,11 @@
 {
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
     
+    share.shareTitle = _course.name;
+    share.descStr = _course.desc;
+    share.imageUrl = _course.photo;
+
+    
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     
@@ -181,6 +186,11 @@
 
 - (void)collectBtnAction:(id)sender
 {
+    if (![WLUserInfo share].isLogin) {
+        [self alertLogin];
+        return ;
+    }
+
     [WLCourseDataHandle requestCollectCourseWithCourseId:_courseId uid:[WLUserInfo share].userId success:^(id responseObject) {
         
         [MOProgressHUD showSuccessWithStatus:@"收藏成功"];

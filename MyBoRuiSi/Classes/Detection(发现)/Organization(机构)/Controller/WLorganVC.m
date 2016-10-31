@@ -68,6 +68,11 @@
 #pragma mark加入机构
 -(void)Trestorg{
     
+    if (![WLUserInfo share].isLogin) {
+        [self alertLogin];
+        return ;
+    }
+
     WLJrViewController *joinVC = [[WLJrViewController alloc]init];
     joinVC.institutionId = _institutionId;
     joinVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -125,6 +130,11 @@
         infoCell.institution = _institution;
         [infoCell setBlock:^(UIButton *button) {
             
+            if (![WLUserInfo share].isLogin) {
+                
+                [self alertLogin];
+                return ;
+            }
             NSNumber *type = button.selected ? @0 : @1;
             [WLHomeDataHandle requestHomeFollowInstitutionWithUid:[WLUserInfo share].userId jid:_institutionId type:type Success:^(id responseObject) {
                 
@@ -156,6 +166,19 @@
         cell = cells;
     }
     return cell;
+}
+
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
 }
 //返回cell高
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

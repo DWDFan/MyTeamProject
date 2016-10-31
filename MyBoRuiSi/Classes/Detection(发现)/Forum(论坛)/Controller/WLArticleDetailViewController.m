@@ -187,6 +187,9 @@
 - (void)share
 {
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
+    share.shareTitle = _articleViewModel.article.title;
+    share.descStr = _articleViewModel.article.content;
+//    share.imageUrl = _articleViewModel.article.photo;
     
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
@@ -199,6 +202,12 @@
 
 - (void)collect
 {
+    if (![WLUserInfo share].isLogin) {
+        
+        [self alertLogin];
+        return ;
+    }
+
     [WLFindDataHandle requestFindArticleCollectWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
         [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
     } failure:^(NSError *error) {
@@ -208,6 +217,12 @@
 
 - (void)report
 {
+    if (![WLUserInfo share].isLogin) {
+        
+        [self alertLogin];
+        return ;
+    }
+
     WLReportViewController *reportVC = [[WLReportViewController alloc] init];
     [self.navigationController pushViewController:reportVC animated:YES];
 }
@@ -260,6 +275,12 @@
         __typeof(self) weakSelf = self;
         [cell setPraiseblock:^(UIButton *button) {
             
+            if (![WLUserInfo share].isLogin) {
+                
+                [self alertLogin];
+                return ;
+            }
+
             if (!button.selected) { // 未点赞
                 [WLFindDataHandle requestFindArticlePriseWithTid:_articleId uid:[WLUserInfo share].userId success:^(id responseObject) {
                     
@@ -280,6 +301,12 @@
         }];
         
         [cell setCommentBlock:^(UIButton *button) {
+
+            if (![WLUserInfo share].isLogin) {
+                
+                [self alertLogin];
+                return ;
+            }
 
             [self.replyTF becomeFirstResponder];
         }];

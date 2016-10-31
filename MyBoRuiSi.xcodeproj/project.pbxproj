@@ -4327,8 +4327,8 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 323HX38M55;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 7DHRY55F6V;
+						ProvisioningStyle = Automatic;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -5138,8 +5138,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5160,10 +5160,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -5173,8 +5173,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7DHRY55F6V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5195,10 +5195,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi011;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43a54b38-5ba1-4ecb-b4e8-78c02ca62499";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
