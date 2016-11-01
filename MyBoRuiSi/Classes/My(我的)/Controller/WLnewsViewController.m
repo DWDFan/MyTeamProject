@@ -13,6 +13,8 @@
 
 #import "WLSystemMsgModel.h"
 #import "WLMyDataHandle.h"
+
+#import "MJRefresh.h"
 @interface WLnewsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
@@ -27,8 +29,19 @@
     
     _page = 1;
    
-    //request
-    [self requestGetMsg];
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGetMsgWithPage:weakSelf.page];
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetMsgWithPage:weakSelf.page];
+
+    }];
+    
+    [self.tableView headerBeginRefreshing];
 }
 
 #pragma mark - Getter
@@ -90,12 +103,24 @@
 
 
 #pragma mark - Request
-- (void)requestGetMsg{
-    [WLMyDataHandle requestGetMsgWithUid:[WLUserInfo share].userId page:@(self.page) type:@"system" success:^(id responseObject) {
-        self.dataSource = responseObject;
+- (void)requestGetMsgWithPage:(NSInteger)page{
+    [WLMyDataHandle requestGetMsgWithUid:[WLUserInfo share].userId page:@(page) type:@"system" success:^(id responseObject) {
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
+
     }];
 }
 @end

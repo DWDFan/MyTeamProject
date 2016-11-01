@@ -44,7 +44,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SDE静电防技术交流圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-uc-CAD">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-uc-CAD">
                         <frame key="frameInset" minX="10" minY="102" width="129.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,6 +67,13 @@
                     <constraint firstAttribute="trailing" secondItem="bIK-Yb-Shk" secondAttribute="trailing" constant="15" id="zCk-0g-Z60"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="date_lab" destination="bIK-Yb-Shk" id="JYy-op-W0d"/>
+                <outlet property="name_lab" destination="nee-Wp-MJd" id="9YL-qW-zwr"/>
+                <outlet property="photo_imv" destination="oIM-DE-W3u" id="kbu-yW-qNh"/>
+                <outlet property="reply_lab" destination="f9Y-xz-pLW" id="dxp-iC-5zI"/>
+                <outlet property="title_lab" destination="2lY-k9-fSc" id="moN-sA-MLL"/>
+            </connections>
             <point key="canvasLocation" x="246" y="243.5"/>
         </tableViewCell>
     </objects>

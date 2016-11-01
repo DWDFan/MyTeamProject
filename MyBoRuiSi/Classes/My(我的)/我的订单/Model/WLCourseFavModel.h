@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSNumber *vipFree;
 @property (nonatomic, copy) NSString *zhujiang;
 @property (nonatomic, copy) NSString *studyNum;
+@property (nonatomic, copy) NSString *publicTime;
+@property (nonatomic, copy) NSString *limit;
 @property (nonatomic, copy) NSString *id;
 @end
 /*

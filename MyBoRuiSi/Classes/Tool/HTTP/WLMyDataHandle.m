@@ -18,6 +18,7 @@
 #import "WLMyAttentionModel.h"
 #import "WLVipFeeModel.h"
 #import "WLSystemMsgModel.h"
+#import "WLReplyModel.h"
 @implementation WLMyDataHandle
 
 /**
@@ -153,6 +154,38 @@
 
 
 /**
+ *  获取我的论坛回复
+ */
++ (void)requestGetReplyWithUid:(NSString *)uid
+                          page:(NSNumber *)page
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"page":page};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=getReply" parameters:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"code"] integerValue] == 1) {
+            NSMutableArray *dataSource = [NSMutableArray array];
+            for (NSDictionary *dict in responseObject[@"data"]) {
+                WLReplyModel *model =  [WLReplyModel mj_objectWithKeyValues:dict];
+                [dataSource addObject:model];
+            }
+             success(dataSource);
+            
+        }else {
+            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            failure(nil);
+        }
+        
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        failure(error);
+    }];
+
+    
+}
+
+/**
  *  获取我的系统消息
  */
 + (void)requestGetMsgWithUid:(NSString *)uid
@@ -173,11 +206,6 @@
                     [dataSource addObject:model];
                 }
                 success(dataSource);
-            }else{
-                for (NSDictionary *dict in responseObject[@"data"]) {
-                   
-                }
-                success(dataSource);
             }
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
@@ -185,7 +213,7 @@
         }
         
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         failure(error);
     }];
 

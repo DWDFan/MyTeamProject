@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WLReplyModel;
 @interface WLreplTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) WLReplyModel *model;
 @end

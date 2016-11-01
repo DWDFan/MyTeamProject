@@ -17,6 +17,8 @@
 #import "WLShopCarModel.h"
 
 #import "MJExtension.h"
+
+#import "MJRefresh.h"
 @interface WLShoppingsTableViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 
@@ -44,7 +46,21 @@
     _amount = 0;
     _sumSelect = 0;
     _page = 1;
-    [self requestGetCarWithPage:@(self.page)];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView_main addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGetCarWithPage:weakSelf.page];
+    }];
+    
+    [self.tableView_main addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetCarWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView_main headerBeginRefreshing];
+
 }
 
 #pragma mark - Getter
@@ -203,26 +219,47 @@
 }
 
 #pragma mark - Request
-- (void)requestGetCarWithPage:(NSNumber *)page{
-    //clean dataSource
-    [self.dataSource removeAllObjects];
-    [WLOrderDataHandle requestGetCartWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
+- (void)requestGetCarWithPage:(NSInteger)page{
+    [WLOrderDataHandle requestGetCartWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
             NSArray *arrayData = dict[@"data"];
+            NSMutableArray *model_array = [NSMutableArray array];
             [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSDictionary *dictData = arrayData[idx];
                 WLShopCarModel *shopCarModel = [WLShopCarModel mj_objectWithKeyValues:dictData];
-                [self.dataSource addObject:shopCarModel];
+                [model_array addObject:shopCarModel];
             }];
+            
+            if (page == 1) {
+                self.dataSource = model_array;
+                [self.tableView_main headerEndRefreshing];
+            }else{
+                [self.dataSource addObjectsFromArray:model_array];
+                [self.tableView_main footerEndRefreshing];
+            }
             [self.tableView_main reloadData];
             
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
             [MOProgressHUD dismissWithDelay:1];
+            
+            if (page == 1) {
+                [self.tableView_main headerEndRefreshing];
+            }else{
+                [self.tableView_main footerEndRefreshing];
+            }
+
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        
+        if (page == 1) {
+            [self.tableView_main headerEndRefreshing];
+        }else{
+            [self.tableView_main footerEndRefreshing];
+        }
+
     }];
 }
 

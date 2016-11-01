@@ -11,6 +11,7 @@
 #import "WLMyDataHandle.h"
 #import "WLCostModel.h"
 
+#import "MJRefresh.h"
 @interface WLIncomeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSUInteger page;
@@ -35,8 +36,19 @@
     
     _page = 1;
     
-    //获取支出数据
-    [self requestGetMyInComeData];
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGetMyInComeDataWithPage:weakSelf.page];
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetMyInComeDataWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
 }
 
 //颜色转图片
@@ -112,13 +124,24 @@
 
 
 #pragma mark - Request
-- (void)requestGetMyInComeData{
+- (void)requestGetMyInComeDataWithPage:(NSInteger)page{
     [WLMyDataHandle requestGetMyInComeWithUid:[WLUserInfo share].userId page:@(self.page) success:^(id responseObject) {
-        self.dataSource = responseObject;
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
 }
-
 @end
