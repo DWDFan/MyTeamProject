@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *jiangshi;
 @property (nonatomic, copy) NSString *star;
+@property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *dis_price;
 @property (nonatomic, strong) NSNumber *status;
 @property (nonatomic, copy) NSString *publictime;
@@ -25,6 +26,8 @@
  jiangshi 讲师
  star 几颗星
  dis_price 折扣价
+ price
  status 状态
  publictime 开始时间
 */
+
