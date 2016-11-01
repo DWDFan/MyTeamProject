@@ -197,6 +197,7 @@
 {
     WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
     VC.courseId = _courseId;
+    VC.isMine = YES;
     [self.navigationController pushViewController:VC animated:YES];
 }
 

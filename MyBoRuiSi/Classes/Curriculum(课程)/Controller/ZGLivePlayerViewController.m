@@ -97,7 +97,6 @@ bool ismute     = NO;
                                              selector:@selector(NELivePlayerVideoParseError:)
                                                  name:NELivePlayerVideoParseErrorNotification
                                                object:_liveplayer];
-
 }
 
 - (void)loadView
@@ -225,6 +224,15 @@ bool ismute     = NO;
     [self.view addSubview:self.bufferingIndicate];
     [self.view addSubview:self.bufferingReminder];
     self.mediaControl.delegatePlayer = self.liveplayer;
+    
+    UILabel *tipLbl = [[UILabel alloc] init];
+    tipLbl.frame = CGRectMake(ZGPaddingMax, 370, WLScreenW, 12);
+    tipLbl.textColor = color_red;
+    tipLbl.font = [UIFont systemFontOfSize:12];
+    tipLbl.text = @"温馨提示：您还未购买，只能试看5分钟哦！";
+    [self.view addSubview:tipLbl];
+    self.tipLbl = tipLbl;
+    self.tipLbl.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -285,14 +293,30 @@ bool ismute     = NO;
     [self.navigationController pushViewController:VC animated:YES];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
+////支持旋转
+//-(BOOL)shouldAutorotate{
+//    return YES;
+//}
+////
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    return UIInterfaceOrientationLandscapeRight;
+//}
+//
+//- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
+//{
+//    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+//        SEL selector             = NSSelectorFromString(@"setOrientation:");
+//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+//        [invocation setSelector:selector];
+//        [invocation setTarget:[UIDevice currentDevice]];
+//        int val                  = orientation;
+//        // 从2开始是因为0 1 两个参数已经被selector和target占用
+//        [invocation setArgument:&val atIndex:2];
+//        [invocation invoke];
+//    }
+//}
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationLandscapeRight;
-}
 
 #pragma mark - IBAction
 
@@ -379,19 +403,8 @@ bool ismute     = NO;
             self.scaleModeBtn.titleLabel.tag = 0;
             break;
     }
-//    //设置状态栏旋转
-//    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
-//    CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
-//    //设置旋转动画
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:duration];
-//    //设置导航栏旋转
-//    self.navigationController.navigationBar.frame = CGRectMake(-204, 224, 480, 32);
-//    self.navigationController.navigationBar.transform = CGAffineTransformMakeRotation(M_PI*1.5);
-//    //设置视图旋转
-//    self.view.bounds = CGRectMake(0, -54, self.view.frame.size.width, self.view.frame.size.height);
-//    self.view.transform = CGAffineTransformMakeRotation(M_PI*1.5);
-//    [UIView commitAnimations];
+//    [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
+
 }
 
 //截图

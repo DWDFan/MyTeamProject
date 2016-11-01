@@ -186,8 +186,10 @@
         NSURL *url = [NSURL URLWithString:_outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"]];
         
         ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
+        playerVC.tipLbl.hidden = self.isMine;
         playerVC.courseId = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"id"];
         [self.navigationController pushViewController:playerVC animated:YES];
+//        [self presentViewController:playerVC animated:YES completion:nil];
     }
 }
 
