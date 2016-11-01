@@ -90,7 +90,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "499579195.227966"
+                  timestampString = "499670567.001334"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
@@ -105,7 +105,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "499579195.229672"
+                  timestampString = "499670567.003447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
@@ -170,7 +170,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "499579195.239618"
+                  timestampString = "499670567.016018"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -185,7 +185,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLLoginDataHandle.m"
-                  timestampString = "499579195.241611"
+                  timestampString = "499670567.017752"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -208,70 +208,6 @@
             startingLineNumber = "241"
             endingLineNumber = "241"
             landmarkName = "+requestGetUserInfoWithUid:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLOrderDataHandle.m"
-            timestampString = "497949284.181915"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "+requestDopayWithUid:oid:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLOrderDataHandle.m"
-            timestampString = "497949284.181915"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "+requestDopayWithUid:oid:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLOrderPayViewController.m"
-            timestampString = "499228580.481019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-dopay"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLOrderPayViewController.m"
-            timestampString = "499228580.481019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "-dopay"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,7 +314,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-                  timestampString = "499579195.269548"
+                  timestampString = "499670567.031672"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "543"
@@ -393,7 +329,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-                  timestampString = "499579195.272881"
+                  timestampString = "499670567.033421"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "543"
@@ -408,7 +344,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-                  timestampString = "499579195.276179"
+                  timestampString = "499670567.03512"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "543"
@@ -423,7 +359,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-                  timestampString = "499579195.277958"
+                  timestampString = "499670567.036983"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "543"
@@ -438,7 +374,7 @@
                   moduleName = "MyBoRuiSi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-                  timestampString = "499579195.279635"
+                  timestampString = "499670567.038792"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "543"

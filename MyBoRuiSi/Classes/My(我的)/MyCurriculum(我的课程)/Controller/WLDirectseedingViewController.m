@@ -11,6 +11,7 @@
 #import "WLLiveCourseDetailViewController.h"
 
 #import "WLMyDataHandle.h"
+#import "WLMyZhiBoCourseModel.h"
 @interface WLDirectseedingViewController ()
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -28,7 +29,7 @@
     [btn setTitle:@"直播课程" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
+     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
@@ -37,7 +38,21 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"Timer"] style:UIBarButtonItemStyleDone target:self action:@selector(Timer)];
 
     _page = 1;
-    [self requestZhiBoCourseWithPage:_page];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestZhiBoCourseWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestZhiBoCourseWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
 
 }
 //颜色转图片
@@ -95,19 +110,30 @@
     
     WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
     vc.isMine = YES;
-//    vc.courseId = ?? 需要传一个课程id
+    WLMyZhiBoCourseModel *model = self.dataSource[indexPath.row];
+    vc.courseId =  model.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Request
 - (void)requestZhiBoCourseWithPage:(NSInteger )page{
-    [WLMyDataHandle requestGetMyCourseWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
-        self.dataSource = responseObject;
+    [WLMyDataHandle requestGetMyZhiBoWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
-    
 }
-
 @end
