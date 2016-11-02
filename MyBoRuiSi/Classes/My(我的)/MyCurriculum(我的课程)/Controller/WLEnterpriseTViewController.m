@@ -12,6 +12,7 @@
 #import "WLQykcxqViewController.h"
 
 #import "WLMyDataHandle.h"
+#import "WLMyQiYeCourseModel.h"
 @interface WLEnterpriseTViewController ()
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -49,7 +50,7 @@
     }];
     
     [self.tableView headerBeginRefreshing];
-
+  
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -117,8 +118,8 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //企业课程详情
-    WLQykcxqViewController *qy = [[WLQykcxqViewController alloc]init];
-    [self.navigationController pushViewController:qy animated:YES];
+//    WLQykcxqViewController *qy = [[WLQykcxqViewController alloc]init];
+//    [self.navigationController pushViewController:qy animated:YES];
     
 }
 

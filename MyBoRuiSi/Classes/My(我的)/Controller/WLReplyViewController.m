@@ -43,9 +43,12 @@
     [self.tableView headerBeginRefreshing];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
 //返回多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -56,7 +59,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 5;
+    return self.dataSource.count;
 }
 
 

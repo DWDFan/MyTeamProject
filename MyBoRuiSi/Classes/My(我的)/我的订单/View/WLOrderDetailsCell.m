@@ -26,7 +26,7 @@
     _orderSourceModel = orderSourceModel;
     
     _name_lab.text = orderSourceModel.name;
-    [_photo_imv sd_setImageWithURL:[NSURL URLWithString:orderSourceModel.photo] placeholderImage:nil];
+    [_photo_imv sd_setImageWithURL:[NSURL URLWithString:orderSourceModel.photo] placeholderImage:PHOTO_AVATAR];
     _money_lab.text = [NSString stringWithFormat:@"￥%@.00",orderSourceModel.price];
     _jianshi_lab.text = [NSString stringWithFormat:@"讲师：%@",orderSourceModel.jiangshi];
 }
