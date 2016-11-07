@@ -135,8 +135,9 @@
             if ([dic[@"code"]integerValue ] == 1) {
                 
                 [MOProgressHUD showSuccessWithStatus:@"注册成功"];
-                
-                [MOProgressHUD dismiss];
+                //归档
+                [[WLUserInfo share] archivWithDict:dic];
+
                 
                 UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"WLConsummationViewController" bundle:nil];
                 WLConsummationViewController *vc = [stroryboard instantiateInitialViewController];

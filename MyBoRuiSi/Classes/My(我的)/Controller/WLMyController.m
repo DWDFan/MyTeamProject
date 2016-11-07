@@ -66,6 +66,9 @@
     
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -157,8 +160,6 @@
 #pragma mark - Notification implementation
 /** 刷新用户登录状态 */
 - (void)reloaWLLoginStatus:(NSNotification *)noti{
-    //加载用户数据
-    [[WLUserInfo share] loadUserInfo];
     if ([WLUserInfo share].isLogin) {
         [self userLoginStatusLogin];
     }else{

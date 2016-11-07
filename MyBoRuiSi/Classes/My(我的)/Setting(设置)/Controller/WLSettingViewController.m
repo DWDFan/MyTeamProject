@@ -53,6 +53,9 @@
     //清除用户数据
     [[WLUserInfo share] cleanUserInfo];
     
+    //通知刷新登录状态
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginStatus" object:nil];
+    
     WLRegisteringViewController *reg = [[WLRegisteringViewController alloc]init];
     [self.navigationController pushViewController:reg animated:YES];
 
