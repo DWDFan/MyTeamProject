@@ -10,6 +10,8 @@
 #import "ZGLivePlayerViewController.h"
 #import "WLLookTableViewCell.h"
 #import "WLSharetowViewController.h"
+#import "WLOrderPayViewController.h"
+
 #import "WLorganVC.h"
 #import "WLAuthorCell.h"
 #import "WLCommetCell.h"
@@ -31,6 +33,8 @@
 @property (nonatomic, strong) WLCourceModel *course;
 @property (nonatomic, strong) WLPurchaseBottomView *purchaseView;
 @property (nonatomic, strong) UIButton *joinBtn;
+
+@property (nonatomic, assign) float amount;
 
 @end
 
@@ -79,6 +83,7 @@
                 break;
             case 2:
                 // 立即购买
+                [weakSelf requestBuyWithGoodId:weakSelf.courseId];
                 break;
             default:
                 break;
@@ -405,4 +410,48 @@
     }];
 }
 
+/** 立即购买 */
+- (void)requestBuyWithGoodId:(NSString *)goodId{
+    if (self.course.vipFree && [WLUserInfo share].vip) {
+        self.amount = 0;
+    }else{
+        self.amount = self.course.disPrice ? [self.course.disPrice integerValue] : [self.course.price integerValue];
+    }
+    
+    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId goodid:goodId success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        NSString *Gid = dict[@"data"];//data 字段是购物ID
+        if ([dict[@"code"]integerValue] == 1) {
+            //加入订单
+            [WLOrderDataHandle requestCommitOrderWithUid:[WLUserInfo share].userId cid:Gid type:@"kecheng" jifen:nil  success:^(id responseObject) {
+                NSDictionary *dict = responseObject;
+                if ([dict[@"code"]integerValue] == 1) {
+                    //支付界面
+                    NSDictionary *dict = responseObject;
+                    if ([dict[@"code"]integerValue] == 1) {
+                        WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+                        vc.amountStr = [NSString stringWithFormat:@"%.2f",self.amount];
+                        vc.needMoney = self.amount;
+                        vc.orderId = dict[@"id"];
+                        vc.type = orderPayType;
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    }else{
+                        [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+                    }
+                    
+                }else{
+                    [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+                }
+            } failure:^(NSError *error) {
+                [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+            }];
+            
+        }else{
+            [MOProgressHUD showErrorWithStatus:@"购买失败"];
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:@"购买失败"];
+    }];
+}
 @end

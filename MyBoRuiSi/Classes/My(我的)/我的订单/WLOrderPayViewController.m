@@ -106,7 +106,7 @@
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
+        [WLOrderDataHandle requestChannelWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MOProgressHUD dismiss];
                 [Pingpp createPayment:responseObject

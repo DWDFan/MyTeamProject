@@ -136,7 +136,7 @@
     _amount = 0;
     _sumSelect = 0;
     _page = 1;
-    [self requestGetCarWithPage:@(self.page)];
+    [self requestGetCarWithPage:self.page];
 }
 
 //MARK:tableView代理方法----------
