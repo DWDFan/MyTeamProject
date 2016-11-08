@@ -69,8 +69,12 @@
             self.channel = @"upacp";
             break;
         case 100:
-            if (![WLUserInfo share].money) return;  //余额为0 return
-            self.channel = @"selfPay";//selfPay 自定义 与Ping++支付渠道无关
+            if([[WLUserInfo share].money floatValue] > self.needMoney){
+                self.channel = @"selfPay";//selfPay 自定义 与Ping++支付渠道无关
+            }else{
+                button.userInteractionEnabled = NO;
+                return;
+            }
             break;
         
         default:
