@@ -94,7 +94,7 @@
         }else if (indexPath.row == 3) {
             
             cells.describeLabel.text = @"生日:";
-//            cells.contentLabel.text = [WLUserInfo share].nickname ? [WLUserInfo share].nickname : @"";
+            cells.contentLabel.text = [WLUserInfo share].birth ? [WLUserInfo share].birth : @"";
             
             
         }else if (indexPath.row == 4) {
@@ -186,7 +186,7 @@
             break;
         case 3:
         {
-            [self shouldAutorotate];
+            [self chooseBirthdayAction];
         }
             break;
         case 4:
