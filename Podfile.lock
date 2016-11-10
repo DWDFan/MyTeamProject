@@ -6,6 +6,8 @@ PODS:
     - UMengUShare/Core
   - UMengUShare/Social/Sina (6.0.1):
     - UMengUShare/Core
+  - UMengUShare/Social/SMS (6.0.1):
+    - UMengUShare/Core
   - UMengUShare/Social/WeChat (6.0.1):
     - UMengUShare/Core
   - UMengUShare/UI (6.0.1):
@@ -14,12 +16,13 @@ PODS:
 DEPENDENCIES:
   - UMengUShare/Social/QQ
   - UMengUShare/Social/Sina
+  - UMengUShare/Social/SMS
   - UMengUShare/Social/WeChat
   - UMengUShare/UI
 
 SPEC CHECKSUMS:
   UMengUShare: 418c2eaf7d8ba939916111d622bf5ea86c86285a
 
-PODFILE CHECKSUM: 458599c9f3d885dd10a48bd158c752fdce13e1ee
+PODFILE CHECKSUM: c60f9e2f6c8abf7763202084351ca1b298974e89
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0
