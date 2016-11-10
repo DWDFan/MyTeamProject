@@ -8,6 +8,7 @@
 
 #import "WLRecomViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "WLQRCodeViewController.h"
 
 @interface WLRecomViewController ()
 
@@ -46,7 +47,8 @@
 }
 
 - (IBAction)qrScan:(id)sender {
-    
+    WLQRCodeViewController *qrCodeVC = [[WLQRCodeViewController alloc] init];
+    [self.navigationController pushViewController:qrCodeVC animated:YES];
 }
 
 - (IBAction)shareSms:(id)sender {

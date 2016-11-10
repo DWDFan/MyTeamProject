@@ -17,6 +17,7 @@
 //"cmtNum": 81,
 //"viewNum": 9999
 #import <Foundation/Foundation.h>
+//#import "ZGArticleCell.h"
 
 @interface ZGImageModel : NSObject
 
@@ -69,5 +70,6 @@
 @property (nonatomic, assign) CGRect readFrame;
 @property (nonatomic, assign) CGRect moreBtnFrame;
 @property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, assign) ZGArticleCellType cellType;
 
 @end

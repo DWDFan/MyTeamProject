@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZGArticleModel.h"
 
-typedef NS_ENUM(NSUInteger, ZGArticleCellType) {
-    ZGArticleCellTypeDetail,
-    ZGArticleCellTypeList
-};
+
 
 @interface ZGArticleCell : UITableViewCell
 

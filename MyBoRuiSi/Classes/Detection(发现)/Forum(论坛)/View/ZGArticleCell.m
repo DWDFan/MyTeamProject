@@ -167,6 +167,10 @@
             ZGImageModel *imageModel = _articleViewModel.article.image[i];
             [imageV sd_setImageWithURL:[NSURL URLWithString:imageModel.image] placeholderImage:PHOTO_PLACE];
             imageV.hidden = NO;
+            
+            if (_articleViewModel.cellType == ZGArticleCellTypeList && i >= 3) {
+                imageV.hidden = YES;
+            }
         }else {
             imageV.hidden = YES;
         }
@@ -248,6 +252,7 @@
         _readLbl.alpha = 1;
         _moreBtn.alpha = 1;
     }
+
 }
 
 - (void)handlePhotoImgV:(id)recognizer{

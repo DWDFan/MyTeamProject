@@ -90,5 +90,9 @@
 #import "MOProgressHUD.h"
 #import "MOHTTP.h"
 
+typedef NS_ENUM(NSUInteger, ZGArticleCellType) {
+    ZGArticleCellTypeDetail,
+    ZGArticleCellTypeList
+};
 
 #endif /* MyBoRuiSi_pch */
