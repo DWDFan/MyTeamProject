@@ -22,6 +22,12 @@
     return instance;
 }
 
++(void)showAdvertiserViewWithLocalImage:(UIImage *)image
+{
+    AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:kAdMain_Screen_Bounds];
+    advertiseView.image = image;
+    [advertiseView show];
+}
 
 +(void)showAdvertiserView:(NSString *)image
 {

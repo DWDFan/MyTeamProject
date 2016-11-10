@@ -24,4 +24,6 @@ static NSString *const adImageName = @"adImageName";
 /** 图片路径*/
 @property (nonatomic, copy) NSString *filePath;
 
+@property (nonatomic, strong) UIImage *image; 
+
 @end
