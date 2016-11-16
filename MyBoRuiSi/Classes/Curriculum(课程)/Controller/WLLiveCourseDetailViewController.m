@@ -117,7 +117,7 @@
     NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
     [decodeParm addObject:@"software"];
     [decodeParm addObject:@"livestream"];
-    NSString *urlStr = [MOTool getNULLString:_course.video];
+    NSString *urlStr = [MOTool getNULLString:_course.v2];
     NSURL *url = [NSURL URLWithString:urlStr];
     
     ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
