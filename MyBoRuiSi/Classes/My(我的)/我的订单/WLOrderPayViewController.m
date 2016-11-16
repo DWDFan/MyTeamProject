@@ -14,6 +14,7 @@
 
 #import "WLOrderDataHandle.h"
 #import "WLMyDataHandle.h"
+#import "WLLoginDataHandle.h"
 
 #import "Pingpp.h"
 
@@ -123,8 +124,8 @@
                                     [self dopay];
                                }else if (self.type == rechargeType){
                                    //充值不需要调用dopay
-                                   WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
-                                   [self.navigationController pushViewController:vc animated:YES];
+                                   [self requestGetUserInfo];
+                                   
                                }
                                
                            } else if ([result isEqualToString:@"cancel"]){
@@ -288,6 +289,21 @@
     [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:pwd success:^(id responseObject) {
         //支付
         [self dopay];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+//刷新金额，接口未给金额一个单一的接口，只能调用个人信息接口
+- (void)requestGetUserInfo
+{
+    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+       
+        [WLUserInfo share].money = responseObject[@"money"];
+        [[WLUserInfo share] reArchivUserInfo];
+        
+        WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSError *error) {
         
     }];
