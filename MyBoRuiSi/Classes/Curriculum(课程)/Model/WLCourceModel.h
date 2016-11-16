@@ -88,6 +88,9 @@
 @property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSString *video;
 @property (nonatomic, strong) WLAuthorModel *other;
+@property (nonatomic, strong) NSString *v1;
+@property (nonatomic, strong) NSString *v2;
+@property (nonatomic, strong) NSString *v3;
 
 @end
 

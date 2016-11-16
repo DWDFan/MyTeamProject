@@ -268,6 +268,11 @@
                 }
                 success(dataSource);
             }else{
+                
+                if ([responseObject[@"data"] isKindOfClass:[NSArray class]]) {
+                    success(nil);
+                    return ;
+                }
                 NSMutableArray *dianbo_array = [NSMutableArray array];
                 for (NSDictionary *dict in responseObject[@"data"][@"dianbo"]) {
                     WLCourseFavModel *tzModel =  [WLCourseFavModel mj_objectWithKeyValues:dict];

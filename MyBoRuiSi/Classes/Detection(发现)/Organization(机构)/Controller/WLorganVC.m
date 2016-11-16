@@ -153,6 +153,11 @@
             cello = [[[NSBundle mainBundle] loadNibNamed:orgID owner:nil options:nil] lastObject];
         }
         cello.institution = _institution;
+        [cello setBlock:^(NSString *tid) {
+            WLDetailsViewController *lecturerVC = [[WLDetailsViewController alloc] init];
+            lecturerVC.teacherId = tid;
+            [self.navigationController pushViewController:lecturerVC animated:YES];
+        }];
         cell = cello;
 
     }else {
