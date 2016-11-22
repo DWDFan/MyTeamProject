@@ -17,6 +17,7 @@
 @property(nonatomic, strong) NSString *decodeType;
 @property(nonatomic, strong) NSString *mediaType;
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;
+@property(nonatomic, strong) UILabel *tipLbl;
 
 - (id)initWithURL:(NSURL *)url andDecodeParm:(NSMutableArray *)decodeParm;
 

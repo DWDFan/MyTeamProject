@@ -69,6 +69,7 @@
         NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         for (ZGArticleModel *art in articles) {
             ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
+            artVM.cellType = ZGArticleCellTypeList;
             artVM.article = art;
             [self.hotsArray addObject:artVM];
         }

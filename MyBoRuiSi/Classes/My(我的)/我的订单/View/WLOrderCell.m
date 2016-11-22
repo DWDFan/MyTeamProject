@@ -82,7 +82,7 @@
 - (void)setShopCarModel:(WLShopCarModel *)shopCarModel{
     _shopCarModel = shopCarModel;
     
-    [_photo sd_setImageWithURL:[NSURL URLWithString:_shopCarModel.photo] placeholderImage:nil];
+    [_photo sd_setImageWithURL:[NSURL URLWithString:_shopCarModel.photo] placeholderImage:PHOTO_AVATAR];
     _name.text = _shopCarModel.name;
     _jiangshi.text = [NSString stringWithFormat:@"讲师%@", _shopCarModel.jiangshi];
     _price.text = [NSString stringWithFormat:@"￥%@.00",  _shopCarModel.disPrice ? [_shopCarModel.disPrice stringValue] : [_shopCarModel.price stringValue]];

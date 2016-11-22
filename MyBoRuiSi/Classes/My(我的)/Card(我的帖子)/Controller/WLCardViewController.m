@@ -12,6 +12,7 @@
 #import "ZGArticleCell.h"
 
 #import "WLMyDataHandle.h"
+
 @interface WLCardViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
@@ -36,7 +37,8 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     _page = 1;
-    [self requestGetMyPost];
+    [self requestGetMyPostWithPage:self.page];
+  
     
 }
 //颜色转图片
@@ -119,7 +121,7 @@
 }
 
 #pragma mark - Request
-- (void)requestGetMyPost{
+- (void)requestGetMyPostWithPage:(NSInteger)page{
     [WLMyDataHandle requestGetMyPostWithUid:[WLUserInfo share].userId success:^(id responseObject) {
         self.dataSource = responseObject;
         [self.tableView reloadData];

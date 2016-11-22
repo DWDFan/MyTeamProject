@@ -11,7 +11,7 @@
 
 @interface WLGoodTeacherModel : NSObject
 
-@property (nonatomic, strong) NSNumber *id;
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *photo;
 

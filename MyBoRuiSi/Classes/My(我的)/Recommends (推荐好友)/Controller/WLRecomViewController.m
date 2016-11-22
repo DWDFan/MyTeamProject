@@ -8,6 +8,7 @@
 
 #import "WLRecomViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "WLQRCodeViewController.h"
 
 @interface WLRecomViewController ()
 
@@ -46,7 +47,8 @@
 }
 
 - (IBAction)qrScan:(id)sender {
-    
+    WLQRCodeViewController *qrCodeVC = [[WLQRCodeViewController alloc] init];
+    [self.navigationController pushViewController:qrCodeVC animated:YES];
 }
 
 - (IBAction)shareSms:(id)sender {
@@ -85,9 +87,9 @@
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
     //创建网页内容对象
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"分享标题" descr:@"分享内容描述" thumImage:[UIImage imageNamed:@"icon"]];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"博瑞思" descr:@"分享内容描述" thumImage:[UIImage imageNamed:@"icon"]];
     //设置网页地址
-    shareObject.webpageUrl =@"http://mobile.umeng.com/social";
+    shareObject.webpageUrl = @"http://www.esd-resource.com/";
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

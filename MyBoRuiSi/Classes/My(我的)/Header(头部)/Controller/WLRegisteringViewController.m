@@ -105,12 +105,10 @@
                 
             }else {
                 [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
-                 [MOProgressHUD dismissWithDelay:1];
             }
 
         } failure:^(NSError *error) {
             [MOProgressHUD showErrorWithStatus:@"登录失败"];
-            [MOProgressHUD dismissWithDelay:1];
         }];
     }
 }

@@ -12,6 +12,7 @@
 #import "WLQykcxqViewController.h"
 
 #import "WLMyDataHandle.h"
+#import "WLMyQiYeCourseModel.h"
 @interface WLEnterpriseTViewController ()
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -29,12 +30,27 @@
     [btn setTitle:@"企业内部课程" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
+     self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     _page = 1;
-    [self requestQiYeCourseWithPage:_page];
+
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestQiYeCourseWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestQiYeCourseWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
+  
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -102,18 +118,30 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //企业课程详情
-    WLQykcxqViewController *qy = [[WLQykcxqViewController alloc]init];
-    [self.navigationController pushViewController:qy animated:YES];
+//    WLQykcxqViewController *qy = [[WLQykcxqViewController alloc]init];
+//    [self.navigationController pushViewController:qy animated:YES];
     
 }
 
 
 #pragma mark - Request
 - (void)requestQiYeCourseWithPage:(NSInteger )page{
-    [WLMyDataHandle requestGetMyCourseWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
-        self.dataSource = responseObject;
+    [WLMyDataHandle requestGetMyQiyeKcWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
     

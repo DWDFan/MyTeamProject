@@ -8,10 +8,13 @@
 
 #import "WLReplyViewController.h"
 #import "WLreplTableViewCell.h"
+#import "WLArticleDetailViewController.h"
 
-#import "WLCardxqViewController.h"
 
 #import "WLMyDataHandle.h"
+#import "WLReplyModel.h"
+
+#import "MJRefresh.h"
 @interface WLReplyViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
@@ -25,13 +28,27 @@
     // Do any additional setup after loading the view from its nib.
     _page = 1;
     
-    //request
-    [self requestGetMsg];
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGetReplyWithPage:weakSelf.page];
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetReplyWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
 }
 //返回多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -42,7 +59,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return 5;
+    return self.dataSource.count;
 }
 
 
@@ -67,7 +84,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    
+    cell.model = self.dataSource[indexPath.row];
     
     return cell;
 }
@@ -76,18 +93,32 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //帖子详情
-    WLCardxqViewController *car = [[WLCardxqViewController alloc]init];
+    WLArticleDetailViewController *car = [[WLArticleDetailViewController alloc]init];
+    WLReplyModel *model = self.dataSource[indexPath.row];
+    car.articleId = model.id;
     [self.navigationController pushViewController:car animated:YES];
     
     
 }
 
 #pragma mark - Request
-- (void)requestGetMsg{
-    [WLMyDataHandle requestGetMsgWithUid:[WLUserInfo share].userId page:@(self.page) type:@"bbs" success:^(id responseObject) {
-        self.dataSource = responseObject;
+- (void)requestGetReplyWithPage:(NSInteger)page{
+    [WLMyDataHandle requestGetReplyWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
 }

@@ -8,6 +8,7 @@
 
 #import "WLKcViewController.h"
 #import "WLCourseDetailViewController.h"
+#import "WLLiveCourseDetailViewController.h"
 
 #import "WLkc2TableViewCell.h"
 #import "WLke1TableViewCell.h"
@@ -127,9 +128,18 @@
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //课程详情
-//    DirectViewController *dire = [[DirectViewController alloc]init];
-//    [self.navigationController pushViewController:dire animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    WLCourseFavModel *model = self.dataSource[indexPath.section][indexPath.row];
+    if (indexPath.section == 0) {
+        WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
+        vc.courseId = model.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.section==1){
+        WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+        vc.courseId = model.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "499319335.578102"
+            timestampString = "499578909.702324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "+requestGetMsgWithUid:page:type:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "499337622.692471"
+            timestampString = "499578909.702324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "+requestGetMsgInfoWithUid:id:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -86,16 +86,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "499338085.767667"
+            filePath = "MyBoRuiSi/Classes/My(&#x6211;&#x7684;)/&#x6211;&#x7684;&#x8ba2;&#x5355;/WLOrderPayViewController.m"
+            timestampString = "499579506.745399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "+requestGetMsgWithUid:page:type:success:failure:"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-dopay"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,13 +106,71 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
-            timestampString = "499338256.025245"
+            timestampString = "499670240.035002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
-            landmarkName = "+requestGetFavListWithUid:page:type:success:failure:"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "+requestGetMyQiyeKcWithUid:page:success:failure:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
+            timestampString = "499670496.672921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
+            landmarkName = "+requestGetMyQiyeKcWithUid:page:success:failure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[WLMyDataHandle requestGetMyQiyeKcWithUid:page:success:failure:]"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
+                  timestampString = "499748041.669796"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "399"
+                  endingLineNumber = "399"
+                  offsetFromSymbolStart = "297">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__65+[WLMyDataHandle requestGetMyQiyeKcWithUid:page:success:failure:]_block_invoke"
+                  moduleName = "MyBoRuiSi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gatlin/Desktop/MyTeamProject/MyBoRuiSi/Classes/Tool/HTTP/WLMyDataHandle.m"
+                  timestampString = "499748041.671548"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "400"
+                  endingLineNumber = "400"
+                  offsetFromSymbolStart = "86">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

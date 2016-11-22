@@ -55,7 +55,7 @@
     [self.navigationController popToViewController:self.navigationController.childViewControllers[1] animated:YES];
 }
 - (IBAction)clickCan:(id)sender {
-    [self.navigationController popToViewController:self.navigationController.childViewControllers[1] animated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -42,6 +42,12 @@
     _header = [[[NSBundle mainBundle]loadNibNamed:@"WLDetailsHeardTableViewCell" owner:nil options:nil] lastObject];
     [_header setBlock:^(UIButton *sender) {
         
+        if (![WLUserInfo share].isLogin) {
+            
+            [self alertLogin];
+            return ;
+        }
+        
         NSNumber *type = sender.selected ? @0 : @1;
         [WLHomeDataHandle requestHomeFollowLectureWithUid:[WLUserInfo share].userId tid:_teacherId type:type Success:^(id responseObject) {
             
@@ -68,6 +74,18 @@
     }];
 }
 
+- (void)alertLogin
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"您需要登陆后才能进行操作！" delegate:self cancelButtonTitle:@"暂不登录" otherButtonTitles:@"去登陆", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [MOTool pushLoginViewControllerWithController:self];
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     

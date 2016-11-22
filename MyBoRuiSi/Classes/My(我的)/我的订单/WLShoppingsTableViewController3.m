@@ -15,6 +15,8 @@
 #import "WLOrderDataHandle.h"
 #import "WLOrderModel.h"
 #import "WLShopCarModel.h"
+
+#import "MJRefresh.h"
 @interface WLShoppingsTableViewController3 ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 @property (nonatomic,assign) BOOL isOpen;
@@ -32,7 +34,20 @@
     
     //request
     _page = 1;
-    [self requestGePayedWithPage:@(self.page)];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView_main addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGePayedWithPage:weakSelf.page];
+    }];
+    
+    [self.tableView_main addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGePayedWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView_main headerBeginRefreshing];
 }
 
 
@@ -122,26 +137,44 @@
 
 
 #pragma mark - Request
-- (void)requestGePayedWithPage:(NSNumber *)page{
-    //clean dataSource
-    [self.dataSource removeAllObjects];
-
-    [WLOrderDataHandle requestGetPayedWithUid:[WLUserInfo share].userId page:page success:^(id responseObject) {
+- (void)requestGePayedWithPage:(NSInteger)page{
+    [WLOrderDataHandle requestGetPayedWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
             NSArray *arrayData = dict[@"data"];
+            NSMutableArray *model_array = [NSMutableArray array];
             [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSDictionary *dictData = arrayData[idx];
                 WLOrderModel *orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
-                [self.dataSource addObject:orderModel];
+                [model_array addObject:orderModel];
             }];
-            [self.tableView_main reloadData];
             
+            if (page == 1) {
+                self.dataSource = model_array;
+                [self.tableView_main headerEndRefreshing];
+            }else{
+                [self.dataSource addObjectsFromArray:model_array];
+                [self.tableView_main footerEndRefreshing];
+            }
+            [self.tableView_main reloadData];
         }else {
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+            
+            if (page == 1) {
+                [self.tableView_main headerEndRefreshing];
+            }else{
+                [self.tableView_main footerEndRefreshing];
+            }
+
         }
     } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         
+        if (page == 1) {
+            [self.tableView_main headerEndRefreshing];
+        }else{
+            [self.tableView_main footerEndRefreshing];
+        }
     }];
 }
 
@@ -150,7 +183,7 @@
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
             _page = 1;
-            [self requestGePayedWithPage:@(self.page)];
+            [self requestGePayedWithPage:self.page];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(2)}];
         }else {

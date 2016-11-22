@@ -14,6 +14,7 @@
 
 #import "WLOrderDataHandle.h"
 #import "WLMyDataHandle.h"
+#import "WLLoginDataHandle.h"
 
 #import "Pingpp.h"
 
@@ -69,8 +70,12 @@
             self.channel = @"upacp";
             break;
         case 100:
-            if (![WLUserInfo share].money) return;  //余额为0 return
-            self.channel = @"selfPay";//selfPay 自定义 与Ping++支付渠道无关
+            if([[WLUserInfo share].money floatValue] > self.needMoney){
+                self.channel = @"selfPay";//selfPay 自定义 与Ping++支付渠道无关
+            }else{
+                button.userInteractionEnabled = NO;
+                return;
+            }
             break;
         
         default:
@@ -106,7 +111,7 @@
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
+        [WLOrderDataHandle requestChannelWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MOProgressHUD dismiss];
                 [Pingpp createPayment:responseObject
@@ -119,8 +124,8 @@
                                     [self dopay];
                                }else if (self.type == rechargeType){
                                    //充值不需要调用dopay
-                                   WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
-                                   [self.navigationController pushViewController:vc animated:YES];
+                                   [self requestGetUserInfo];
+                                   
                                }
                                
                            } else if ([result isEqualToString:@"cancel"]){
@@ -284,6 +289,21 @@
     [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:pwd success:^(id responseObject) {
         //支付
         [self dopay];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+//刷新金额，接口未给金额一个单一的接口，只能调用个人信息接口
+- (void)requestGetUserInfo
+{
+    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+       
+        [WLUserInfo share].money = responseObject[@"money"];
+        [[WLUserInfo share] reArchivUserInfo];
+        
+        WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSError *error) {
         
     }];

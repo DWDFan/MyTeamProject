@@ -29,6 +29,19 @@
         }else {
             lectureView.hidden = YES;
         }
+        
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+        [tap addTarget:self action:@selector(avatarTap:)];
+        [lectureView addGestureRecognizer:tap];
+    }
+}
+
+- (void)avatarTap:(UITapGestureRecognizer *)tap
+{
+    NSInteger index = tap.view.tag - 1000;
+    if (self.block) {
+        self.block([[_institution.goodTeacher objectAtIndex:index] id]);
     }
 }
 

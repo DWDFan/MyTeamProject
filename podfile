@@ -13,4 +13,6 @@ pod ‘UMengUShare/Social/WeChat'
 # 集成QQ
 pod ‘UMengUShare/Social/QQ'
 
+# 集成短信
+pod ‘UMengUShare/Social/SMS'
 end

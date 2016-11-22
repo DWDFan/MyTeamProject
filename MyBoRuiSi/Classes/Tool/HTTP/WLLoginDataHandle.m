@@ -236,7 +236,7 @@
                           failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid};
     [MOHTTP GET:@"API/index.php?action=UCenter&do=getUserInfo" parameters:param success:^(id responseObject) {
-        success(responseObject);
+        success(responseObject[@"data"]);
     } failure:^(NSError *error) {
         failure(error);
     }];

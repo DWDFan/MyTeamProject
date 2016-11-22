@@ -65,6 +65,11 @@ static int const showtime = 3;
     _adView.image = [UIImage imageWithContentsOfFile:filePath];
 }
 
+- (void)setImage:(UIImage *)image
+{
+    _adView.image = image;
+}
+
 - (void)pushToAd{
     
     [self dismiss];

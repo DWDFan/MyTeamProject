@@ -11,5 +11,6 @@
 @interface WLCourceOutlineVIewController : UIViewController
 
 @property(nonatomic, strong) NSString *courseId;
+@property(nonatomic, assign) BOOL isMine;
 
 @end

@@ -12,6 +12,6 @@
 @interface WLorgTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) WLInstitutionModel *institution;
-
+@property (nonatomic, strong) void(^block)(NSString *lecturerId); 
 
 @end

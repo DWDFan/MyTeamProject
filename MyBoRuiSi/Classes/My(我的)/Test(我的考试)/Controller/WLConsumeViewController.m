@@ -34,8 +34,22 @@
     
     _page = 1;
     
-    //获取支出数据
-    [self requestGetMyCostData];
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        //获取支出数据
+        [weakSelf requestGetMyCostDataWithPage:weakSelf.page];
+
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetMyCostDataWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
+    
     
 }
 
@@ -112,11 +126,23 @@
 
 
 #pragma mark - Request
-- (void)requestGetMyCostData{
-   [WLMyDataHandle requestGetMyCostWithUid:[WLUserInfo share].userId page:@(self.page) success:^(id responseObject) {
-       self.dataSource = responseObject;
+- (void)requestGetMyCostDataWithPage:(NSInteger)page{
+   [WLMyDataHandle requestGetMyCostWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+       if (page == 1) {
+           self.dataSource = responseObject;
+           [self.tableView headerEndRefreshing];
+       }else{
+           [self.dataSource addObjectsFromArray:responseObject];
+           [self.tableView footerEndRefreshing];
+       }
+       
        [self.tableView reloadData];
    } failure:^(NSError *error) {
+       if (page == 1) {
+           [self.tableView headerEndRefreshing];
+       }else{
+           [self.tableView footerEndRefreshing];
+       }
        
    }];
 }

@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        NSString *home = NSHomeDirectory();
+         NSString *home = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject];
         _userInfoArchivPath = [home stringByAppendingPathComponent:@"userInfoArchiv"];
     }
     return self;
@@ -41,7 +41,7 @@
     _bagPwd = dict[@"bagPwd"];
     _birth = dict[@"birth"];
     _company = dict[@"company"];
-    _job = dict[@"id"];
+    _job = dict[@"job"];
     _photo = dict[@"photo"];
     _sex = dict[@"sex"];
     _userId = dict[@"id"];

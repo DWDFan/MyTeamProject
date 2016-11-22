@@ -27,8 +27,6 @@
     
     self.title = @"个人资料";
     
-    //获取用户信息
-    //[self requestGetUserInfo];
 }
 
 #pragma mark - Private Method
@@ -94,7 +92,7 @@
         }else if (indexPath.row == 3) {
             
             cells.describeLabel.text = @"生日:";
-//            cells.contentLabel.text = [WLUserInfo share].nickname ? [WLUserInfo share].nickname : @"";
+            cells.contentLabel.text = [WLUserInfo share].birth ? [WLUserInfo share].birth : @"";
             
             
         }else if (indexPath.row == 4) {
@@ -186,7 +184,7 @@
             break;
         case 3:
         {
-            [self shouldAutorotate];
+            [self chooseBirthdayAction];
         }
             break;
         case 4:
@@ -294,14 +292,6 @@
 }
 
 #pragma mark - Request
-//- (void)requestGetUserInfo
-//{
-//    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
-//}
 /** 上传头像 */
 -  (void)  requestCommitImageData:(NSData *)imageData{
     [WLLoginDataHandle requestUploadPhotoWithUid:[WLUserInfo share].userId filedata:imageData success:^(id responseObject) {

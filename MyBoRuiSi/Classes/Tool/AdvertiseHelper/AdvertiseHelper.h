@@ -15,5 +15,6 @@
 + (instancetype)sharedInstance;
 
 +(void)showAdvertiserView:(NSString *)image;
++(void)showAdvertiserViewWithLocalImage:(UIImage *)image;
 
 @end

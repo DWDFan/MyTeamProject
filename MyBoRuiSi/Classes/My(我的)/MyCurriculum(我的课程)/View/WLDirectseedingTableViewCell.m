@@ -35,14 +35,37 @@
     
     [_photo_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
     _name_lab.text = model.name;
-    _jiangshi_lab.text = [NSString stringWithFormat:@"讲师：%@", model.jiangshi];
-    _disprice_lab.text = [NSString stringWithFormat:@"￥%@", model.dis_price];
+    _jiangshi_lab.text = model.jiangshi;
+    _disprice_lab.text = model.dis_price ? [NSString stringWithFormat:@"￥%@", model.dis_price] : [NSString stringWithFormat:@"￥%@", model.price] ;
+
     _publictime_lab.text = [NSString stringWithFormat:@"讲课时间：%@",model.publictime];
 
     WLDisplayStarView *starView = [[WLDisplayStarView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
     starView.showStar = [model.star integerValue]* 20;
     [_star_view addSubview:starView];
     _star_lab.text = [NSString stringWithFormat:@"%@分",model.star];
+    
+    switch ([model.status intValue]) {
+        case 0:
+            [self.status_btn setTitle:@"直播未开始" forState:UIControlStateNormal];
+            [self.status_btn setImage:nil forState:UIControlStateNormal];
+            [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
+            break;
+        case 1:
+            [self.status_btn setImage:[UIImage imageNamed:@"icon-直播中"] forState:UIControlStateNormal];
+            [self.status_btn setTitle:@"直播中" forState:UIControlStateNormal];
+            [self.status_btn setTitleColor:color_red forState:UIControlStateNormal];
+            break;
+        case 2:
+            [self.status_btn setTitle:@"直播结束" forState:UIControlStateNormal];
+            [self.status_btn setImage:nil forState:UIControlStateNormal];
+            [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
+            break;
+        default:
+            self.status_btn.hidden = YES;
+            break;
+    }
+
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

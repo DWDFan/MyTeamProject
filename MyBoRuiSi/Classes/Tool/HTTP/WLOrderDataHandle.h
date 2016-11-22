@@ -138,7 +138,7 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestAddCartWithUid:(NSString *)uid
++ (void)requestChannelWithUid:(NSString *)uid
                        channel:(NSString *)channel
                        amount:(NSString *)amount
                       success:(void (^)(id responseObject))success

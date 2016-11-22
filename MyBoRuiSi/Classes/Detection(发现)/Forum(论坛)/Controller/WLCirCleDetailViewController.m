@@ -71,6 +71,7 @@
         NSArray *articles = [ZGArticleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         for (ZGArticleModel *art in articles) {
             ZGArticleViewModel *artVM = [[ZGArticleViewModel alloc] init];
+            artVM.cellType = ZGArticleCellTypeList;
             artVM.article = art;
             [self.dataSoureArray addObject:artVM];
         }
@@ -129,6 +130,13 @@
         __typeof (self)weakSelf = self;
         [cell setBlock:^(UIButton *sender) {
             
+            if (![WLUserInfo share].isLogin) {
+                
+                [self alertLogin];
+                return ;
+            }
+
+            
             NSNumber *type = sender.selected ? @2 : @1;
             [WLFindDataHandle requestFindCircleFollowWithQid:_circleId uid:[WLUserInfo share].userId type:type success:^(id responseObject) {
                 sender.selected = !sender.selected;
@@ -168,6 +176,7 @@
         WLArticleDetailViewController *detailVC = [[WLArticleDetailViewController alloc] init];
         ZGArticleViewModel *vModel = self.dataSoureArray[indexPath.row];
         detailVC.articleId = vModel.article.tid;
+        detailVC.articleViewModel = vModel;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }

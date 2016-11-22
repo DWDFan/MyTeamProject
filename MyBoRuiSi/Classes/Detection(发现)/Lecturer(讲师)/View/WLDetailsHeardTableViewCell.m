@@ -51,7 +51,6 @@
         }else {
             starView.hidden = NO;
         }
-        
     }
     
     _leverLbl.text = @"XX机构";

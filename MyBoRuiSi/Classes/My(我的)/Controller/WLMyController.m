@@ -29,6 +29,7 @@
 #import "WLVipDateView.h"
 
 #import "WLMyDataHandle.h"
+#import "WLLoginDataHandle.h"
 
 #import "UIImage+Image.h"
 @interface WLMyController ()
@@ -56,14 +57,19 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    //设置右边的按钮图片没有渲染
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    if ([WLUserInfo share].isLogin) {
+        //设置右边的按钮图片没有渲染
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    }
     
     //监听是否登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloaWLLoginStatus:) name:@"changeLoginStatus" object:nil];
     
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
@@ -107,6 +113,11 @@
 
 //登录状态
 - (void)userLoginStatusLogin{
+  
+    //设置右边的按钮图片没有渲染
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
+    
+    
     WLUserLoginstatusCell *header = [[NSBundle mainBundle]loadNibNamed:@"WLMyTableViewCell" owner:nil options:nil][1];
     
     __weak typeof(self) weakSelf = self;
@@ -150,10 +161,11 @@
 #pragma mark - Notification implementation
 /** 刷新用户登录状态 */
 - (void)reloaWLLoginStatus:(NSNotification *)noti{
-    //加载用户数据
-    [[WLUserInfo share] loadUserInfo];
     if ([WLUserInfo share].isLogin) {
-        [self userLoginStatusLogin];
+        //获取用户信息
+        [self requestGetUserInfo];
+        
+       
     }else{
         [self userLoginStatusNotLgoin];
     }
@@ -299,6 +311,19 @@
 
 
 #pragma mark - Request
+- (void)requestGetUserInfo
+{
+    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
+        //归档
+        [[WLUserInfo share] archivWithDict:responseObject];
+        //加载用户信息
+        [[WLUserInfo share] loadUserInfo];
+        
+         [self userLoginStatusLogin];
+    } failure:^(NSError *error) {
+         [self userLoginStatusLogin];
+    }];
+}
 /** 会员列表 */
 - (void)requestVipList{
     [WLMyDataHandle requestGetVipFeeWithUid:[WLUserInfo share].userId success:^(id responseObject) {
@@ -312,6 +337,8 @@
         view.buyVipBlock = ^(NSNumber *year){
             //会员购买
             [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year success:^(id responseObject) {
+                //刷新有效日期值
+                [self requestGetUserInfo];
                  [weakView removeFromSuperview];
             } failure:^(NSError *error) {
                  [weakView removeFromSuperview];
@@ -320,6 +347,5 @@
     } failure:^(NSError *error) {
         
     }];
-    
 }
 @end

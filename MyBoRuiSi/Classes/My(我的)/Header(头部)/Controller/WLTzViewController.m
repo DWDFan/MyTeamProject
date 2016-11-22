@@ -29,7 +29,21 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     _page = 1;
-    [self requestGetFavListWithPage:_page];
+  
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        weakSelf.page = 1;
+        [weakSelf requestGetFavListWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView addFooterWithCallback:^{
+        weakSelf.page += 1;
+        [weakSelf requestGetFavListWithPage:weakSelf.page];
+        
+    }];
+    
+    [self.tableView headerBeginRefreshing];
 
 }
 
@@ -87,9 +101,21 @@
 #pragma mark - Request
 - (void)requestGetFavListWithPage:(NSInteger )page{
     [WLMyDataHandle requestGetFavListWithUid:[WLUserInfo share].userId page:@(page) type:@(1) success:^(id responseObject) {
-        self.dataSource = responseObject;
+        if (page == 1) {
+            self.dataSource = responseObject;
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject];
+            [self.tableView footerEndRefreshing];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.tableView headerEndRefreshing];
+        }else{
+            [self.tableView footerEndRefreshing];
+        }
         
     }];
 }

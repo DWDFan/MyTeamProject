@@ -40,8 +40,15 @@
     CGFloat heihgt = [MOTool MOtextSizeH:article.content WithWidth:WLScreenW - ZGPaddingMax * 2 WithFount:[UIFont systemFontOfSize:12]];
     _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, heihgt);
     
+    // 列表显示3行
+    if (self.cellType == ZGArticleCellTypeList && heihgt > 12 * 3 + 5) {
+        _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, 12 * 3 + 7);
+    }
+
+    
+    NSInteger row = (self.cellType == ZGArticleCellTypeList) ?  1 : (_article.image.count - 1)/3 + 1;
+    
     CGFloat imageW = (WLScreenW - ZGPaddingMax * 2 - 2 * ZGPadding) / 3;
-    NSInteger row = (_article.image.count - 1)/3 + 1;
     CGFloat imageH = (imageW * 0.7) * row + (row - 1) * ZGPadding;
     _imageVFrame = CGRectMake(ZGPaddingMax, CGRectGetMaxY(_contentFrame) + ZGPaddingMax, WLScreenW - 2 * ZGPaddingMax, imageH + ZGPaddingMax);
     

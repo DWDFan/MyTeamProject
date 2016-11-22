@@ -27,11 +27,11 @@
 - (void)setModel:(WLMyDianBoCourseModel *)model{
     _model = model;
     
-    [_photo_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
+    [_photo_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:PHOTO_AVATAR];
     _name_lab.text = model.name;
     _jiangshi_lab.text = [NSString stringWithFormat:@"讲师：%@", model.jiangshi];
-    _period_lab.text = model.period;
-    _disprice_lab.text = [NSString stringWithFormat:@"￥%@", model.dis_price];
+    _period_lab.text = model.period ? [NSString stringWithFormat:@"观看截止时间：%@", model.period] : nil;
+    _disprice_lab.text = model.dis_price ? [NSString stringWithFormat:@"￥%@", model.dis_price] : [NSString stringWithFormat:@"￥%@", model.price] ;
     _peopletCount_lab.text = model.xx_num;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
