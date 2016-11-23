@@ -27,8 +27,6 @@
     
     self.title = @"个人资料";
     
-    //获取用户信息
-    //[self requestGetUserInfo];
 }
 
 #pragma mark - Private Method
@@ -294,14 +292,6 @@
 }
 
 #pragma mark - Request
-//- (void)requestGetUserInfo
-//{
-//    [WLLoginDataHandle requestGetUserInfoWithUid:[WLUserInfo share].userId success:^(id responseObject) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
-//}
 /** 上传头像 */
 -  (void)  requestCommitImageData:(NSData *)imageData{
     [WLLoginDataHandle requestUploadPhotoWithUid:[WLUserInfo share].userId filedata:imageData success:^(id responseObject) {

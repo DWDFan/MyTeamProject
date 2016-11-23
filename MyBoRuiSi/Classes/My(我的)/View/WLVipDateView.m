@@ -30,7 +30,7 @@
     view.layer.cornerRadius = 10;
     [self addSubview:view];
     
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 300, 50)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 70)];
     lab.numberOfLines = 0;
     lab.text = [NSString stringWithFormat:@"会员有效期：\n\n%@",date];
     lab.textAlignment = NSTextAlignmentCenter;
