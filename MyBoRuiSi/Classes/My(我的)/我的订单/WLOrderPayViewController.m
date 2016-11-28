@@ -280,7 +280,7 @@
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
     } failure:^(NSError *error) {
-        
+        [MOProgressHUD showErrorWithStatus:@"支付失败。"];
     }];
 }
 
