@@ -3875,7 +3875,6 @@
 		F1C597A01D4CF9C700529553 /* Main(主入口) */ = {
 			isa = PBXGroup;
 			children = (
-				F1C597A11D4CF9C700529553 /* Controller */,
 				F1C597A21D4CF9C700529553 /* Model */,
 				F1C597A31D4CF9C700529553 /* View */,
 			);
@@ -3890,7 +3889,8 @@
 				F1C597B51D4CFC3F00529553 /* WLNavigationController.h */,
 				F1C597B61D4CFC3F00529553 /* WLNavigationController.m */,
 			);
-			path = Controller;
+			name = Controller;
+			path = "../Main(主入口)/Controller";
 			sourceTree = "<group>";
 		};
 		F1C597A21D4CF9C700529553 /* Model */ = {
@@ -3914,6 +3914,7 @@
 		F1C597A41D4CF9C700529553 /* My(我的) */ = {
 			isa = PBXGroup;
 			children = (
+				F1C597A11D4CF9C700529553 /* Controller */,
 				CD2190951D53791700F13FEE /* Test(我的考试) */,
 				F1A7321B1D54AB5300EC755E /* MyCurriculum(我的课程) */,
 				6E13E0911D52EAF900616BEB /* 我的订单 */,

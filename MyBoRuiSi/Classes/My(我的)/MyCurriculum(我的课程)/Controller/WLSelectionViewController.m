@@ -99,13 +99,14 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 110;
 }
 
 
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
     vc.isMine = YES;
     WLMyDianBoCourseModel *model = self.dataSource[indexPath.row];

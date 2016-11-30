@@ -27,7 +27,7 @@
     [_photo_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:PHOTO_AVATAR];
     _name_lab.text = model.name;
     _jiangshi_lab.text = [NSString stringWithFormat:@"主讲：%@",model.jiangshi];
-    _time_lab.text = [NSString stringWithFormat:@"课程时长%@分钟",model.tmlong];
+    _time_lab.text = [NSString stringWithFormat:@"课程时长%@分钟",[MOTool getNULLString:model.tmlong]];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

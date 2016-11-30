@@ -188,7 +188,9 @@
 + (void)requestCourseLiveSuccess:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Zhibo&do=onRand" parameters:nil success:^(id responseObject) {
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:[WLUserInfo share].userId]};
+    
+    [MOHTTP GET:@"API/index.php?action=Zhibo&do=getZbIng" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {

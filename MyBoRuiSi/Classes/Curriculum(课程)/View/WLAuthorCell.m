@@ -8,6 +8,12 @@
 
 #import "WLAuthorCell.h"
 
+@interface WLAuthorCell ()
+
+@property (nonatomic, strong) WLDisplayStarView *starView;
+
+@end
+
 @implementation WLAuthorCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -35,8 +41,7 @@
     [self addSubview:nameLbl];
     _nameLbl = nameLbl;
 
-    WLDisplayStarView *starView = [[WLDisplayStarView alloc] init];
-    starView.frame = CGRectMake(nameLbl.right + 15, nameLbl.y, 55, 15);
+    WLDisplayStarView *starView = [[WLDisplayStarView alloc] initWithFrame:CGRectMake(nameLbl.right + 15, nameLbl.y, 55, 15)];
     [self addSubview:starView];
     _starView = starView;
     
@@ -48,6 +53,13 @@
     [self addSubview:starLbl];
     _starLbl = starLbl;
 
+}
+
+- (void)setStar:(CGFloat)star
+{
+    _star = star;
+    _starView.showStar = star;
+    [_starView setNeedsDisplay];
 }
 
 

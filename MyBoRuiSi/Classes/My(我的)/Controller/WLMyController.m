@@ -337,6 +337,8 @@
         view.buyVipBlock = ^(NSNumber *year){
             //会员购买
             [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year success:^(id responseObject) {
+                //刷新有效日期值
+                [self requestGetUserInfo];
                  [weakView removeFromSuperview];
             } failure:^(NSError *error) {
                  [weakView removeFromSuperview];

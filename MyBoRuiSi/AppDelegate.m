@@ -46,18 +46,19 @@
 -(void)setupAdveriseView
 {
     // TODO 请求广告接口 获取广告图片
-//    [WLHomeDataHandle requestLaunchAdvertiseWithType:@1 success:^(id responseObject) {
-//        
-//        NSString *image = responseObject[@"data"];
-//        [AdvertiseHelper showAdvertiserView:image];
-//
-//    } failure:^(NSError *error) {
-//        
-//    }];
+    [WLHomeDataHandle requestLaunchAdvertiseWithType:@1 success:^(id responseObject) {
+        
+        NSString *image = responseObject[@"data"];
+        NSString *imageUrl = [image stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [AdvertiseHelper showAdvertiserView:imageUrl];
+
+    } failure:^(NSError *error) {
+        
+    }];
     
-    NSArray *images = @[@"luanch1", @"luanch2", @"luanch3"];
-    NSInteger index = arc4random() % 3;
-    [AdvertiseHelper showAdvertiserViewWithLocalImage:[UIImage imageNamed:images[index]]];
+//    NSArray *images = @[@"luanch1", @"luanch2", @"luanch3"];
+//    NSInteger index = arc4random() % 3;
+//    [AdvertiseHelper showAdvertiserViewWithLocalImage:[UIImage imageNamed:images[index]]];
 }
 
 #pragma mark 初始化友盟分享

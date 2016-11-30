@@ -29,10 +29,11 @@
     _photoImgV = photoImgV;
     
     UILabel *nameLbl = [[UILabel alloc] init];
-    nameLbl.frame = CGRectMake(photoImgV.right + ZGPaddingMax, 10, WLScreenW - 3 * ZGPaddingMax - photoImgV.width, 40);
+    nameLbl.frame = CGRectMake(photoImgV.right + ZGPaddingMax, 10, 14 * 14, 40);
+//    nameLbl.width = 14 * 20;WLScreenW - 3 * ZGPaddingMax - photoImgV.width
     nameLbl.numberOfLines = 1;
     nameLbl.textColor = COLOR_BLACK;
-    nameLbl.font = [UIFont systemFontOfSize:15];
+    nameLbl.font = [UIFont systemFontOfSize:14];
     [self addSubview:nameLbl];
     _nameLbl = nameLbl;
     

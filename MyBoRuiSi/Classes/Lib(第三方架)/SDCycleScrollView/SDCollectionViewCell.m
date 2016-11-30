@@ -70,6 +70,8 @@
 - (void)setupImageView
 {
     UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.layer.masksToBounds = YES;
     _imageView = imageView;
     [self.contentView addSubview:imageView];
 }

@@ -70,7 +70,7 @@
 #pragma mark - Implementation Notification
 - (void)reloadDataShopTalbeView:(NSNotification *)noti{
     _page = 1;
-    [self requestGetClosePayWithPage:@(self.page)];
+    [self requestGetClosePayWithPage:self.page];
 }
 
 #pragma mark - Delegate AlertView

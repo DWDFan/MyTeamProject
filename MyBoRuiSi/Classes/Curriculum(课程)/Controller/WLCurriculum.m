@@ -16,7 +16,7 @@
 #import "WLVODCourseListViewController.h"
 #import "WLLiveCourseListViewController.h"
 #import "WLLiveCourseDetailViewController.h"
-
+#import "WLDirectseedingViewController.h"
 #import "WLCourceModel.h"
 #import "ZGCourseTypeModel.h"
 #import "WLLiveCourseTypeCell.h"
@@ -122,6 +122,9 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
+    if (_type == 1 && _liveCourseArray.count == 0) {
+        return 1;
+    }
     return 2;
 }
 
@@ -131,8 +134,8 @@
     NSInteger num = 2;
     if (_type == 1) {
         
-        if (section == 0) {
-            num = 3;
+        if (section == 0 && _liveCourseArray.count != 0) {
+            num = _liveCourseArray.count + 1;
         }else {
             num = 2;
         }
@@ -185,22 +188,48 @@
     
     
     UITableViewCell *cellSix = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cellSix.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cellSix.selectionStyle = UITableViewCellSelectionStyleNone;
 
     
     if (indexPath.section == 0) {
         
         if (_type == 1) {   // ************ 直播
-            if (indexPath.row == 0) {
-                
-                cellSix.textLabel.text = @"正在直播";
-                cell = cellSix;
-            }else{
-                
-                cellFour.course = _liveCourseArray[indexPath.row - 1];
-                cell = cellFour;
+            
+            if (_liveCourseArray.count != 0) {
+                if (indexPath.row == 0) {
+                    
+                    cellSix.textLabel.text = @"正在直播";
+                    cell = cellSix;
+                }else{
+                    
+                    cellFour.course = _liveCourseArray[indexPath.row - 1];
+                    cell = cellFour;
+                }
+            }else {
+                if (indexPath.row == 0) {
+                    
+                    cellTwo.label_main.text = @"热门课程";
+                    cellTwo.imageName.image = [UIImage imageNamed:@"矢量智能对象"];
+                    cell = cellTwo;
+                    
+                }else{
+                    
+                    cellFive.typeArray = _hotCourseArray;
+                    
+                    [cellFive setBlock:^(NSString *typeId) {
+                        WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                        vc.sortId = typeId;
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    }];
+                    cell = cellFive;
+                }
+
             }
-        }else{              // ============ 点播
+            
+        }
+        else{              // ============ 点播
             
             if (indexPath.row == 0) {
                 
@@ -326,13 +355,17 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (_type == 1 && indexPath.section == 0 && indexPath.row != 0) {
+    if (_type == 1 && indexPath.section == 0 && _liveCourseArray.count != 0) {
         
-        WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
-        vc.courseId = [_liveCourseArray[indexPath.row - 1] id];
-        [self.navigationController pushViewController:vc animated:YES];
+        if (indexPath.row == 0) {
+            WLDirectseedingViewController *vc = [[WLDirectseedingViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else {
+            WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
+            vc.courseId = [_liveCourseArray[indexPath.row - 1] id];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

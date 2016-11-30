@@ -269,6 +269,7 @@
 
 #pragma mark - Request
 - (void)dopay{
+     [MOProgressHUD show];
     [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {

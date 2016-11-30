@@ -56,6 +56,7 @@
         [item setTitleColor:COLOR_BLACK forState:UIControlStateNormal];
         item.titleLabel.font = [UIFont systemFontOfSize:12];
         item.titleLabel.textAlignment = NSTextAlignmentCenter;
+        item.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         item.imageView.layer.masksToBounds = YES;
         item.imageView.layer.cornerRadius = (WLScreenW/4 - 50)/2;
         [item sd_setImageWithURL:[NSURL URLWithString:typeModel.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"组-3@2x_41"]];
