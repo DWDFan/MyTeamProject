@@ -276,11 +276,12 @@
             [self.navigationController pushViewController:vc animated:YES];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
+            [MOProgressHUD showSuccessWithStatus:@"支付成功"];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
     } failure:^(NSError *error) {
-        
+         [MOProgressHUD showErrorWithStatus:@"支付失败"];
     }];
 }
 
