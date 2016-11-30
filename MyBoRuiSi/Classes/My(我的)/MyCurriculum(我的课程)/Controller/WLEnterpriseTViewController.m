@@ -13,6 +13,8 @@
 
 #import "WLMyDataHandle.h"
 #import "WLMyQiYeCourseModel.h"
+#import "WLCourseDetailViewController.h"
+
 @interface WLEnterpriseTViewController ()
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -118,8 +120,10 @@
 #pragma mark 点击cell
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //企业课程详情
-//    WLQykcxqViewController *qy = [[WLQykcxqViewController alloc]init];
-//    [self.navigationController pushViewController:qy animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
+    detail.courseId = [self.dataSource[indexPath.row] id];
+    [self.navigationController pushViewController:detail animated:YES];
     
 }
 

@@ -263,7 +263,7 @@
             WLAuthorModel *author = _course.other;
             [cell.avatarImgV sd_setImageWithURL:[NSURL URLWithString:author.photo] placeholderImage:PHOTO_PLACE];
             cell.nameLbl.text = author.nickname;
-            cell.starView.showStar = [author.star floatValue] * 20;
+            cell.star = [author.star floatValue] * 20;
             cell.starLbl.text = [NSString stringWithFormat:@"%@分",author.star];
             return cell;
         }

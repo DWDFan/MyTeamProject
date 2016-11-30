@@ -22,23 +22,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
-    btn.backgroundColor = [UIColor clearColor];
-    [btn setBackgroundColor:[UIColor clearColor]];
-    [btn setImage:[UIImage imageNamed:@"图层-47"] forState:UIControlStateNormal];
-    [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
-    [btn setTitle:_paperTypeName forState:UIControlStateNormal];
-    self.navigationItem.titleView = btn;
-    _titleView = btn;
+//    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
+//    btn.backgroundColor = [UIColor clearColor];
+//    [btn setBackgroundColor:[UIColor clearColor]];
+//    [btn setImage:[UIImage imageNamed:@"图层-47"] forState:UIControlStateNormal];
+//    [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
+//    [btn setTitle:_paperTypeName forState:UIControlStateNormal];
+//    self.navigationItem.titleView = btn;
     
+    UIView *titleView = [[UIView alloc] init];
+
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    icon.image = [UIImage imageNamed:@"图层-47"];
+    icon.contentMode = UIViewContentModeCenter;
+    [titleView addSubview:icon];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:17];
+    label.textColor = COLOR_WORD_BLACK;
+    label.text = self.paperTypeName;
+    CGFloat labelW = [MOTool sizeWithString:self.paperTypeName font:label.font].width;
+    labelW = labelW > 17 * 14 ? 17 * 14: labelW;
+    label.frame = CGRectMake(icon.width, 0, labelW, 30);
+    [titleView addSubview:label];
+    
+    titleView.frame = CGRectMake(0, 0, labelW + 30, 30);
+    
+    self.navigationItem.titleView = titleView;
     
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    
     UIView *view  = [UIView new];
-    
     self.tableviewtow.tableFooterView = view;
-    
     
     [self requestData];
 }
@@ -96,6 +111,7 @@
 #pragma mark 点击tableViewcell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //生理测评
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLPhysiologyViewController *cep  =[[WLPhysiologyViewController alloc]init];
     [self.navigationController pushViewController:cep animated:YES];
     

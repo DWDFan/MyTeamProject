@@ -14,6 +14,6 @@
 @property (nonatomic, strong) UIImageView *avatarImgV;
 @property (nonatomic, strong) UILabel *nameLbl;
 @property (nonatomic, strong) UILabel *starLbl;
-@property (nonatomic, strong) WLDisplayStarView *starView;
+@property (nonatomic, assign) CGFloat star;
 
 @end

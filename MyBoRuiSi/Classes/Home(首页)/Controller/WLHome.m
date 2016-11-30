@@ -345,6 +345,7 @@
         
         if (cells == nil) {
             cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
+            cells.selectionStyle = UITableViewCellSelectionStyleNone;
         }
                 //证书查询
                 cells.WLHomeTableViewCellBlock = ^(){
