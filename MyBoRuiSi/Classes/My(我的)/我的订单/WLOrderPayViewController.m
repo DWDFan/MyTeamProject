@@ -269,6 +269,7 @@
 
 #pragma mark - Request
 - (void)dopay{
+     [MOProgressHUD show];
     [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"code"]integerValue] == 1) {
@@ -276,11 +277,12 @@
             [self.navigationController pushViewController:vc animated:YES];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
+            [MOProgressHUD showSuccessWithStatus:@"支付成功"];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:@"支付失败。"];
+         [MOProgressHUD showErrorWithStatus:@"支付失败"];
     }];
 }
 

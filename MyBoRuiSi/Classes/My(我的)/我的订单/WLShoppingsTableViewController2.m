@@ -64,7 +64,7 @@
 #pragma mark - Implementation Notification
 - (void)reloadDataShopTalbeView:(NSNotification *)noti{
     _page = 1;
-    [self requestGetWaitPayWithPage:@(self.page)];
+    [self requestGetWaitPayWithPage:self.page];
 }
 
 

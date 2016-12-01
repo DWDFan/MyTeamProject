@@ -613,7 +613,6 @@
                        failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
                             @"pwd":pwd};
-    [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=UCenter&do=checkPwd" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
             [MOProgressHUD dismiss];

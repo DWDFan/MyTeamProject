@@ -84,7 +84,7 @@
         [_select_btn setImage:[UIImage imageNamed:@"tick"] forState:UIControlStateSelected];
         NSString *score = [NSString stringWithFormat:@"%@",[WLUserInfo share].score];
         [_select_btn addTarget:self action:@selector(userJiFen:) forControlEvents:UIControlEventTouchUpInside];
-        if([score isEqualToString:@"0"] || score.length == 0) _select_btn.userInteractionEnabled = NO;
+        if([score isEqualToString:@"0"] || score.length == 0 || self.amount == 0.00) _select_btn.userInteractionEnabled = NO;
     }
     return _select_btn;
 }

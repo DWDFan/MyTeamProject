@@ -52,7 +52,8 @@
 }
 
 - (IBAction)clickPopMyOrder:(id)sender {
-    [self.navigationController popToViewController:self.navigationController.childViewControllers[1] animated:YES];
+     [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:NO];        [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(2)}];
+    
 }
 - (IBAction)clickCan:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
