@@ -128,8 +128,17 @@
 		6E83956D1D56271D00E11087 /* WLAddOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E83956B1D56271D00E11087 /* WLAddOrderViewController.m */; };
 		6E83956E1D56271D00E11087 /* WLAddOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E83956C1D56271D00E11087 /* WLAddOrderViewController.xib */; };
 		8E9F395B1DBE628D0067E685 /* WLVipDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F395A1DBE628D0067E685 /* WLVipDateView.m */; };
+		9A14806A1E2264D9000D354A /* WLExaminationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1480691E2264D9000D354A /* WLExaminationHelper.m */; };
+		9A14806D1E22AA31000D354A /* WLSubmitSureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14806C1E22AA31000D354A /* WLSubmitSureView.m */; };
 		9A341C1A1DD419A700BF9D0C /* DWDQRImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A341C191DD419A700BF9D0C /* DWDQRImageView.m */; };
 		9A341C1D1DD419ED00BF9D0C /* WLQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A341C1C1DD419ED00BF9D0C /* WLQRCodeViewController.m */; };
+		9A5392611E2329A600002476 /* WLExamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392601E2329A600002476 /* WLExamBaseViewController.m */; };
+		9A5392641E23825D00002476 /* StarGradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392631E23825D00002476 /* StarGradeView.m */; };
+		9A5392671E2382D900002476 /* WLOrderCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392661E2382D900002476 /* WLOrderCommentViewController.m */; };
+		9A53926A1E23889A00002476 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392691E23889A00002476 /* UIPlaceHolderTextView.m */; };
+		9A6768A51E1F306B009E33F5 /* WLTestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6768A41E1F306B009E33F5 /* WLTestDetailViewController.m */; };
+		9A8C48B81E1F415500800CA1 /* WLQuetionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */; };
+		9AF430901E2257FA000157EC /* WLChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4308F1E2257FA000157EC /* WLChooseViewController.m */; };
 		CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2190981D53791700F13FEE /* WLTestViewController.m */; };
 		CD2190A61D53791700F13FEE /* WLTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2190991D53791700F13FEE /* WLTestViewController.xib */; };
 		CD2190A71D53791700F13FEE /* WLexaminationpaperOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD21909D1D53791700F13FEE /* WLexaminationpaperOneCell.m */; };
@@ -830,10 +839,28 @@
 		8CD4906FED7C20DEE9CF0165 /* Pods-MyBoRuiSi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBoRuiSi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyBoRuiSi/Pods-MyBoRuiSi.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9F39591DBE628D0067E685 /* WLVipDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVipDateView.h; sourceTree = "<group>"; };
 		8E9F395A1DBE628D0067E685 /* WLVipDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVipDateView.m; sourceTree = "<group>"; };
+		9A1480681E2264D9000D354A /* WLExaminationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLExaminationHelper.h; sourceTree = "<group>"; };
+		9A1480691E2264D9000D354A /* WLExaminationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLExaminationHelper.m; sourceTree = "<group>"; };
+		9A14806B1E22AA31000D354A /* WLSubmitSureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSubmitSureView.h; sourceTree = "<group>"; };
+		9A14806C1E22AA31000D354A /* WLSubmitSureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSubmitSureView.m; sourceTree = "<group>"; };
 		9A341C181DD419A700BF9D0C /* DWDQRImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWDQRImageView.h; sourceTree = "<group>"; };
 		9A341C191DD419A700BF9D0C /* DWDQRImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWDQRImageView.m; sourceTree = "<group>"; };
 		9A341C1B1DD419ED00BF9D0C /* WLQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQRCodeViewController.h; sourceTree = "<group>"; };
 		9A341C1C1DD419ED00BF9D0C /* WLQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQRCodeViewController.m; sourceTree = "<group>"; };
+		9A53925F1E2329A600002476 /* WLExamBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLExamBaseViewController.h; sourceTree = "<group>"; };
+		9A5392601E2329A600002476 /* WLExamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLExamBaseViewController.m; sourceTree = "<group>"; };
+		9A5392621E23825D00002476 /* StarGradeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarGradeView.h; sourceTree = "<group>"; };
+		9A5392631E23825D00002476 /* StarGradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarGradeView.m; sourceTree = "<group>"; };
+		9A5392651E2382D900002476 /* WLOrderCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLOrderCommentViewController.h; path = Model/WLOrderCommentViewController.h; sourceTree = "<group>"; };
+		9A5392661E2382D900002476 /* WLOrderCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLOrderCommentViewController.m; path = Model/WLOrderCommentViewController.m; sourceTree = "<group>"; };
+		9A5392681E23889A00002476 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		9A5392691E23889A00002476 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		9A6768A31E1F306B009E33F5 /* WLTestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestDetailViewController.h; sourceTree = "<group>"; };
+		9A6768A41E1F306B009E33F5 /* WLTestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTestDetailViewController.m; sourceTree = "<group>"; };
+		9A8C48B61E1F415500800CA1 /* WLQuetionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuetionModel.h; sourceTree = "<group>"; };
+		9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuetionModel.m; sourceTree = "<group>"; };
+		9AF4308E1E2257FA000157EC /* WLChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChooseViewController.h; sourceTree = "<group>"; };
+		9AF4308F1E2257FA000157EC /* WLChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLChooseViewController.m; sourceTree = "<group>"; };
 		CD2190971D53791700F13FEE /* WLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestViewController.h; sourceTree = "<group>"; };
 		CD2190981D53791700F13FEE /* WLTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTestViewController.m; sourceTree = "<group>"; };
 		CD2190991D53791700F13FEE /* WLTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTestViewController.xib; sourceTree = "<group>"; };
@@ -2062,6 +2089,8 @@
 				6E13E09E1D52EAF900616BEB /* WLShoppingsTableViewController1.h */,
 				6E13E09F1D52EAF900616BEB /* WLShoppingsTableViewController1.m */,
 				6E13E0A01D52EAF900616BEB /* WLShoppingsTableViewController1.xib */,
+				9A5392651E2382D900002476 /* WLOrderCommentViewController.h */,
+				9A5392661E2382D900002476 /* WLOrderCommentViewController.m */,
 				6E13E0A11D52EAF900616BEB /* WLShoppingsTableViewController2.h */,
 				6E13E0A21D52EAF900616BEB /* WLShoppingsTableViewController2.m */,
 				6E13E0A31D52EAF900616BEB /* WLShoppingsTableViewController2.xib */,
@@ -2320,6 +2349,8 @@
 				F155903B1D542C9C00EFD5F8 /* WLCepViewController.xib */,
 				F155903E1D5430A100EFD5F8 /* WLPhysiologyViewController.h */,
 				F155903F1D5430A100EFD5F8 /* WLPhysiologyViewController.m */,
+				9A6768A31E1F306B009E33F5 /* WLTestDetailViewController.h */,
+				9A6768A41E1F306B009E33F5 /* WLTestDetailViewController.m */,
 				F15590401D5430A100EFD5F8 /* WLPhysiologyViewController.xib */,
 				F15590431D54346400EFD5F8 /* WLZwViewController.h */,
 				F15590441D54346400EFD5F8 /* WLZwViewController.m */,
@@ -2349,6 +2380,8 @@
 				F15590361D54258000EFD5F8 /* WLRecordTableViewCell.xib */,
 				F70467181DA407E100F3B9E9 /* WLPaperTypeCell.h */,
 				F70467191DA407E100F3B9E9 /* WLPaperTypeCell.m */,
+				9A8C48B61E1F415500800CA1 /* WLQuetionModel.h */,
+				9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3519,7 +3552,11 @@
 				F14EEA031D55989B00BBD158 /* WLQuestionViewController.xib */,
 				F14EEA061D559A6500BBD158 /* WLChoiceViewController.h */,
 				F14EEA071D559A6500BBD158 /* WLChoiceViewController.m */,
+				9AF4308E1E2257FA000157EC /* WLChooseViewController.h */,
+				9AF4308F1E2257FA000157EC /* WLChooseViewController.m */,
 				F14EEA081D559A6500BBD158 /* WLChoiceViewController.xib */,
+				9A53925F1E2329A600002476 /* WLExamBaseViewController.h */,
+				9A5392601E2329A600002476 /* WLExamBaseViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3540,6 +3577,10 @@
 				F1A7320C1D54A1F300EC755E /* WLnameTableViewCell.h */,
 				F1A7320D1D54A1F300EC755E /* WLnameTableViewCell.m */,
 				F1A7320E1D54A1F300EC755E /* WLnameTableViewCell.xib */,
+				9A1480681E2264D9000D354A /* WLExaminationHelper.h */,
+				9A1480691E2264D9000D354A /* WLExaminationHelper.m */,
+				9A14806B1E22AA31000D354A /* WLSubmitSureView.h */,
+				9A14806C1E22AA31000D354A /* WLSubmitSureView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4263,10 +4304,14 @@
 		F7F304691DABC4EE00F3F3EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A5392621E23825D00002476 /* StarGradeView.h */,
+				9A5392631E23825D00002476 /* StarGradeView.m */,
 				F18306AE1DB4CC8D0073F413 /* DWDProgressHUD.h */,
 				F18306AF1DB4CC8D0073F413 /* DWDProgressHUD.m */,
 				F7F3046A1DABC54400F3F3EF /* ZGPlaceHolderTextView.h */,
 				F7F3046B1DABC54400F3F3EF /* ZGPlaceHolderTextView.m */,
+				9A5392681E23889A00002476 /* UIPlaceHolderTextView.h */,
+				9A5392691E23889A00002476 /* UIPlaceHolderTextView.m */,
 			);
 			name = View;
 			path = MyBoRuiSi/Classes/Public/View;
@@ -4279,7 +4324,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1A945A11D4CF4270097FFEF /* Build configuration list for PBXNativeTarget "MyBoRuiSi" */;
 			buildPhases = (
-				182DC82F0EC15D3EEF609647 /* 📦 Check Pods Manifest.lock */,
+				182DC82F0EC15D3EEF609647 /* [CP] Check Pods Manifest.lock */,
 				0098563160FADC2CB2B92513 /* [CP] Check Pods Manifest.lock */,
 				F1A945701D4CF4270097FFEF /* Sources */,
 				F1A945711D4CF4270097FFEF /* Frameworks */,
@@ -4572,19 +4617,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		182DC82F0EC15D3EEF609647 /* 📦 Check Pods Manifest.lock */ = {
+		182DC82F0EC15D3EEF609647 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A2F697FE382AC7DF4516F471 /* [CP] Copy Pods Resources */ = {
@@ -4708,10 +4753,12 @@
 				6C5919A31D4FA44900256363 /* MJPropertyType.m in Sources */,
 				F1FB85D11D537365005AAED3 /* TADotView.m in Sources */,
 				F18306B01DB4CC8D0073F413 /* DWDProgressHUD.m in Sources */,
+				9A14806D1E22AA31000D354A /* WLSubmitSureView.m in Sources */,
 				F18306AC1DB4A25E0073F413 /* AdvertiseHelper.m in Sources */,
 				6E13E0D11D53126A00616BEB /* MOTempViewController.m in Sources */,
 				F18306401DB473990073F413 /* UIImage+Blur.m in Sources */,
 				9A341C1A1DD419A700BF9D0C /* DWDQRImageView.m in Sources */,
+				9A53926A1E23889A00002476 /* UIPlaceHolderTextView.m in Sources */,
 				F18306291DB473980073F413 /* UIAlertView+Block.m in Sources */,
 				F7EC16151DB367ED0057D7D6 /* YYPhotoGroupView.m in Sources */,
 				F1A7322E1D54AB5300EC755E /* WLDirectseedingViewController.m in Sources */,
@@ -4765,6 +4812,7 @@
 				F18306391DB473980073F413 /* UIColor+Random.m in Sources */,
 				F18306301DB473980073F413 /* UIBezierPath+Symbol.m in Sources */,
 				F18545751D9A59D80008F471 /* WLFilterView.m in Sources */,
+				9A5392641E23825D00002476 /* StarGradeView.m in Sources */,
 				F1FB85FF1D5374AC005AAED3 /* MJPhotoProgressView.m in Sources */,
 				CD6413FD1D50473F002D31AC /* ThePersonalDataTableViewCell.m in Sources */,
 				55F36ACE1D9CEBB3006634CB /* WLMyController.m in Sources */,
@@ -4868,6 +4916,7 @@
 				F1AA6F441D95162900769610 /* WLCommetCell.m in Sources */,
 				F18306811DB473990073F413 /* UIWebView+Load.m in Sources */,
 				55F36AD11D9D0433006634CB /* WLOrderDataHandle.m in Sources */,
+				9A5392671E2382D900002476 /* WLOrderCommentViewController.m in Sources */,
 				F1FB85EA1D537365005AAED3 /* UIView+Frame.m in Sources */,
 				F14EEA3D1D562ECF00BBD158 /* WLEntTableViewCell.m in Sources */,
 				6C5919981D4FA44900256363 /* AFURLRequestSerialization.m in Sources */,
@@ -4894,6 +4943,7 @@
 				F183067F1DB473990073F413 /* UIWebView+Canvas.m in Sources */,
 				F181B2EE1D98C35200DE511D /* ZGArticleCell.m in Sources */,
 				F183062C1DB473980073F413 /* UIBarButtonItem+Action.m in Sources */,
+				9AF430901E2257FA000157EC /* WLChooseViewController.m in Sources */,
 				F1FB85CC1D537365005AAED3 /* DLUtility.m in Sources */,
 				F183069F1DB47EBB0073F413 /* JFImageGroupTableViewController.m in Sources */,
 				F1E517E31D5718F900F3A885 /* DirectTableViewCellThree.m in Sources */,
@@ -4901,6 +4951,7 @@
 				CDEB079B1D563D57009A0011 /* WLSuccessfulViewController.m in Sources */,
 				F18306381DB473980073F413 /* UIColor+Modify.m in Sources */,
 				6C5919951D4FA44900256363 /* AFNetworkReachabilityManager.m in Sources */,
+				9A8C48B81E1F415500800CA1 /* WLQuetionModel.m in Sources */,
 				F7B24D171D996992006E96E6 /* WLCourseTypeCell.m in Sources */,
 				F1C5982D1D4DAAD400529553 /* WLDetectionTableViewCell.m in Sources */,
 				CD39D3AE1D50990F00BB906D /* WLCurriculumTableViewThreeCell.m in Sources */,
@@ -5014,6 +5065,7 @@
 				F18306821DB473990073F413 /* UIWebView+Style.m in Sources */,
 				550A22911DAF87250025A2B5 /* WLMyQiYeCourseModel.m in Sources */,
 				F18306711DB473990073F413 /* UIView+Nib.m in Sources */,
+				9A6768A51E1F306B009E33F5 /* WLTestDetailViewController.m in Sources */,
 				550D1CD51DBE040C00FBAF47 /* WLVipPriceListView.m in Sources */,
 				F18306831DB473990073F413 /* WebView+Debug.m in Sources */,
 				6E8395631D55F2AE00E11087 /* WLOrderDetailsViewController.m in Sources */,
@@ -5047,6 +5099,7 @@
 				6C59199E1D4FA44900256363 /* MBProgressHUD.m in Sources */,
 				F18306591DB473990073F413 /* UINavigationItem+Lock.m in Sources */,
 				F18306841DB473990073F413 /* UIWindow+Hierarchy.m in Sources */,
+				9A14806A1E2264D9000D354A /* WLExaminationHelper.m in Sources */,
 				6C5919971D4FA44900256363 /* AFURLConnectionOperation.m in Sources */,
 				6C5919A81D4FA44900256363 /* NSString+MJExtension.m in Sources */,
 				F18306501DB473990073F413 /* UILabel+AutoSize.m in Sources */,
@@ -5055,6 +5108,7 @@
 				6C5919A11D4FA44900256363 /* MJProperty.m in Sources */,
 				F183064F1DB473990073F413 /* UILabel+AutomaticWriting.m in Sources */,
 				F183062E1DB473980073F413 /* UIBezierPath+BasicShapes.m in Sources */,
+				9A5392611E2329A600002476 /* WLExamBaseViewController.m in Sources */,
 				F1FB855A1D532B71005AAED3 /* WLTabulationViewController.m in Sources */,
 				F175A8ED1DAB939100279147 /* WLCircleInfoCell.m in Sources */,
 				CD22BF361D68221200BB5F47 /* RecommendationModelll.m in Sources */,
@@ -5205,7 +5259,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 323HX38M55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5229,8 +5283,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f9c1e281-8d78-4b34-984d-1fc21f4b3947";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "ab4fdba0-f2a1-44a6-8770-dbfdbe8964c3";
+				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
 			};
 			name = Debug;
 		};
@@ -5240,7 +5294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 323HX38M55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5264,8 +5318,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f9c1e281-8d78-4b34-984d-1fc21f4b3947";
-				PROVISIONING_PROFILE_SPECIFIER = myboruisiDis;
+				PROVISIONING_PROFILE = "ab4fdba0-f2a1-44a6-8770-dbfdbe8964c3";
+				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
 			};
 			name = Release;
 		};

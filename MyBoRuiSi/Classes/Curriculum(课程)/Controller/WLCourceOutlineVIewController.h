@@ -10,7 +10,8 @@
 
 @interface WLCourceOutlineVIewController : UIViewController
 
-@property(nonatomic, strong) NSString *courseId;
-@property(nonatomic, assign) BOOL isMine;
+@property (nonatomic, strong) NSString *courseId;
+@property (nonatomic, assign) BOOL isTaste;
+@property (nonatomic, strong) NSString *photo;
 
 @end

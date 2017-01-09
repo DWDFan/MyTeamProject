@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLExamBaseViewController.h"
 
-@interface WLJudgmentsViewController : UIViewController
+@interface WLJudgmentsViewController : WLExamBaseViewController
+
+@property (nonatomic, strong) NSString *kid;
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSArray *questionArray;
+
 
 @end

@@ -15,18 +15,26 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #define Swidth [UIScreen mainScreen].bounds.size.width
-
+// 不同屏幕尺寸/字体适配（效果图为IPHONE6 如果不是则根据实际情况修改）
+#define kScreenWidthRatio        (WLScreenW / 375.0)
+#define kScreenHeightRatio       (WLScreenH / 667.0)
+#define kAdaptedWidth(x)          ceilf((x) * kScreenWidthRatio)
+#define kAdaptedHeight(x)         ceilf((x) * kScreenHeightRatio)
+#define kAdaptedFontSize(R)       SYSTEMFONT(AdaptedWidth(R))
+#define kAdaptedGlobalFontSize(R) GLOBALFONT(AdaptedWidth(R))
 //颜色和透明度设置
 #define HEXCOLOR(hex)  [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
 #define RGBA(r,g,b,a)  [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
 #define RGB(r, g, b)   [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 #define color_red   [UIColor colorWithRed:139.0/255 green:23.0/255 blue:55.0/255 alpha:1]
 #define KColorBackgroud RGBA(245, 245, 245, 1)             //背景色
+#define kColor_backgroud RGB(243, 244, 246)
 #define KColorOrigin RGBA(244, 76, 38, 1)
 #define KColorPink RGBA(254, 218, 226, 1)
 #define KColorYellow RGBA(250, 205, 22, 1)
 #define COLOR_BLACK RGBA(38, 38, 38, 1)
 #define COLOR_BG_YELLOW  RGBA(248, 177, 43, 1)
+#define kColor_button_bg RGB(164, 30, 59)
 
 #define IOS6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) // 判断是否是IOS6的系统
 #define IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) // 判断是否是IOS7的系统
@@ -57,6 +65,8 @@
 #define WLLog(...)
 #define WLLogFunc
 #endif
+
+#define WEAKSELF __weak typeof(self) weakSelf = self
 
 //友盟分享SDK的key
 #define kUmengKey @"580f143e75ca354d62002dd5"

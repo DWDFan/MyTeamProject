@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLExamBaseViewController.h"
 
-@interface WLQuestionViewController : UIViewController
+@interface WLQuestionViewController : WLExamBaseViewController
 
 @end

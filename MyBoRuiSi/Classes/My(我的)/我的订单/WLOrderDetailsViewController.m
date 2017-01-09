@@ -8,7 +8,7 @@
 
 #import "WLOrderDetailsViewController.h"
 #import "WLOrderPayViewController.h"
-
+#import "WLOrderCommentViewController.h"
 #import "WLOrderDetailsCell.h"
 
 #import "WLOrderDataHandle.h"
@@ -36,7 +36,7 @@
         [self.button_click setTitle:@"立即付款" forState:UIControlStateNormal];
     }else if(self.orderDetailType == WLOrderDetailPayedType){
         self.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 未开始",@" 订单详情"]];
-        [self.button_click setTitle:@"写评论" forState:UIControlStateNormal];
+        [self.button_click setTitle:@"写评价" forState:UIControlStateNormal];
     }else{
         self.arr_title = [NSMutableArray arrayWithArray:@[@" 订单状态 : 已关闭",@" 订单详情"]];
         self.button_click.hidden = YES;
@@ -70,6 +70,10 @@
         vc.amountStr = self.orderDetailModel.realPay;
         vc.orderId = self.oid;
         vc.needMoney = [self.orderDetailModel.realPay floatValue];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (self.orderDetailType == WLOrderDetailPayedType) {
+        WLOrderCommentViewController *vc = [[WLOrderCommentViewController alloc] init];
+        vc.orderId = self.oid;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -168,6 +172,8 @@
             for (int i = 0; i < _orderDetailModel.source.count; i ++) {
                 [array addObject:@""];
             }
+            NSString *statusStr = [NSString stringWithFormat:@" 订单状态 : %@",_orderDetailModel.status];
+            [self.arr_title replaceObjectAtIndex:0 withObject:statusStr];
             [self.arr_data replaceObjectAtIndex:0 withObject:array];
             self.arr_details = @[_orderDetailModel.orderno,
                                  _orderDetailModel.addtime,

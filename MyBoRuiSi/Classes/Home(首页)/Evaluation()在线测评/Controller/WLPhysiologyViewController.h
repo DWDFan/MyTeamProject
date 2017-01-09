@@ -10,4 +10,6 @@
 
 @interface WLPhysiologyViewController : UIViewController
 
+@property (nonatomic, strong) NSString *testId; 
+
 @end

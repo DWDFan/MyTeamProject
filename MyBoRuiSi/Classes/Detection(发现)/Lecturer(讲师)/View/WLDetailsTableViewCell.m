@@ -33,7 +33,7 @@
     
     _priceLbl.text = [NSString stringWithFormat:@"￥%@",[MOTool getNULLString:course.disPrice ? course.disPrice : course.price]];
     
-    _followNum.text = [NSString stringWithFormat:@"%@人关注",[MOTool getNULLString:course.follow]];
+    _followNum.text = [NSString stringWithFormat:@"学习人数：%@",[MOTool getNULLString:course.xx_num]];
     
     // 有两个价格,显示原价
     if (course.disPrice && course.price) {

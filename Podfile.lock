@@ -1,19 +1,23 @@
 PODS:
-  - UMengUShare/Core (6.0.1):
+  - IQKeyboardManager (4.0.7)
+  - Masonry (1.0.2)
+  - UMengUShare/Core (6.0.3):
     - UMengUShare/Network
-  - UMengUShare/Network (6.0.1)
-  - UMengUShare/Social/QQ (6.0.1):
+  - UMengUShare/Network (6.0.3)
+  - UMengUShare/Social/QQ (6.0.3):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.0.1):
+  - UMengUShare/Social/Sina (6.0.3):
     - UMengUShare/Core
-  - UMengUShare/Social/SMS (6.0.1):
+  - UMengUShare/Social/SMS (6.0.3):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.0.1):
+  - UMengUShare/Social/WeChat (6.0.3):
     - UMengUShare/Core
-  - UMengUShare/UI (6.0.1):
+  - UMengUShare/UI (6.0.3):
     - UMengUShare/Core
 
 DEPENDENCIES:
+  - IQKeyboardManager
+  - Masonry
   - UMengUShare/Social/QQ
   - UMengUShare/Social/Sina
   - UMengUShare/Social/SMS
@@ -21,8 +25,10 @@ DEPENDENCIES:
   - UMengUShare/UI
 
 SPEC CHECKSUMS:
-  UMengUShare: 418c2eaf7d8ba939916111d622bf5ea86c86285a
+  IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  UMengUShare: f231fc086d789d4e560a5090dcc13a2db15c686d
 
-PODFILE CHECKSUM: c60f9e2f6c8abf7763202084351ca1b298974e89
+PODFILE CHECKSUM: ce8ac39da7234a3d197e07d7b0e858d92509a466
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1

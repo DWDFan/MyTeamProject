@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RecommendModell.h"
+#import "WLDisplayStarView.h"
 
 @interface WLHometwoTableViewCell : UITableViewCell
 
@@ -25,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *Follow;
 //会员数
 @property (weak, nonatomic) IBOutlet UILabel *Member;
+@property (weak, nonatomic) IBOutlet UIView *starContainView;
 
 @end

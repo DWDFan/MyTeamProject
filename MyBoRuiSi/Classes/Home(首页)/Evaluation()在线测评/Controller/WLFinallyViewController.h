@@ -10,4 +10,6 @@
 
 @interface WLFinallyViewController : UIViewController
 
+@property (nonatomic, strong) NSString *testId; 
+
 @end

@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,22 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-48_94" translatesAutoresizingMaskIntoConstraints="NO" id="0Gd-H8-HtX">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="89a-1w-1j9"/>
                             <constraint firstAttribute="height" constant="80" id="VUE-jI-9qE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="山东蓝翔挖掘机教育机构" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJJ-ag-NVj">
-                        <frame key="frameInset" minX="100" minY="10" width="165" height="18"/>
+                        <rect key="frame" x="100" y="10" width="165" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEU-1h-Xz2">
+                        <rect key="frame" x="280" y="4" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="7MD-Rv-ESJ"/>
                             <constraint firstAttribute="height" constant="30" id="CLt-J6-VVc"/>
@@ -37,12 +42,13 @@
                             <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="z6N-3U-WgR"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpL-w3-TIU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpL-w3-TIU">
+                        <rect key="frame" x="100" y="42" width="210" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="jTY-XO-QMa"/>
                         </constraints>
                         <string key="text">参与深圳互联网技术应用协会、佛山家具协会、长安机械设备展、深圳中小企业协会、深圳企业家协会等主题演讲，覆盖数千家协会会员；主讲了深圳第十三届高交会现场搜索引擎营销方面的主题演讲；负责深圳大学传播学院《搜索营销》课程授课工作；华南理工大学MBA小微企业论坛讲师</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,7 +60,7 @@
                     <constraint firstItem="wJJ-ag-NVj" firstAttribute="leading" secondItem="0Gd-H8-HtX" secondAttribute="trailing" constant="10" id="caC-XK-6xF"/>
                     <constraint firstAttribute="trailing" secondItem="oEU-1h-Xz2" secondAttribute="trailing" constant="10" id="fSP-f8-8q1"/>
                     <constraint firstAttribute="trailing" secondItem="OpL-w3-TIU" secondAttribute="trailing" constant="10" id="lVt-Zu-aVm"/>
-                    <constraint firstItem="OpL-w3-TIU" firstAttribute="top" secondItem="oEU-1h-Xz2" secondAttribute="bottom" constant="15" id="tEI-dH-XYa"/>
+                    <constraint firstItem="OpL-w3-TIU" firstAttribute="top" secondItem="oEU-1h-Xz2" secondAttribute="bottom" constant="8" id="tEI-dH-XYa"/>
                     <constraint firstItem="0Gd-H8-HtX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wEb-xD-aMo"/>
                     <constraint firstItem="wJJ-ag-NVj" firstAttribute="top" secondItem="0Gd-H8-HtX" secondAttribute="top" id="zGC-CZ-KhQ"/>
                 </constraints>

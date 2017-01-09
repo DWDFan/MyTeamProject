@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSUInteger, WLPurchaseViewStyle) {
     WLPurchaseViewStyleVOD,
     WLPurchaseViewStyleLive,
+    WLPurchaseViewStyleJoinCourse
 };
 
 @interface WLPurchaseBottomView : UIView
@@ -20,7 +21,7 @@ typedef NS_ENUM(NSUInteger, WLPurchaseViewStyle) {
 
 @property (nonatomic, copy) void(^bottomViewBLock)(NSUInteger index);
 
-@property (nonatomic, assign) BOOL canBuy;
+@property (nonatomic, assign) BOOL canplay;
 
 - (instancetype)initWithFrame:(CGRect)frame style:(WLPurchaseViewStyle)style;
 

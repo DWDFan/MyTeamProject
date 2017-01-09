@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLExamBaseViewController.h"
 
-@interface WLNameViewController : UIViewController
+@interface WLNameViewController : WLExamBaseViewController
 
 @property (nonatomic, strong) NSString  *paperId;
-
+@property (nonatomic, strong) NSString *kid; 
 @end

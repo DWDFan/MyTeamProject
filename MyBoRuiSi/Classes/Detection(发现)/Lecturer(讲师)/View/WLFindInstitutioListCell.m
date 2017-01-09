@@ -41,7 +41,7 @@
     [self addSubview:_photoImgV];
     
     _nameLbl = [[UILabel alloc] init];
-    _nameLbl.frame = CGRectMake(_photoImgV.right + ZGPaddingMax, _photoImgV.y, 60, 14);
+    _nameLbl.frame = CGRectMake(_photoImgV.right + ZGPaddingMax, _photoImgV.y, WLScreenW - 110 - 60., 14);
     _nameLbl.font = [UIFont systemFontOfSize:14];
     _nameLbl.textColor = COLOR_WORD_BLACK;
     [self addSubview:_nameLbl];
@@ -89,17 +89,23 @@
     
     _followNumLbl.text = [NSString stringWithFormat:@"%@人关注",institution.follow];
     
-    _typeLbl.text = institution.gsType ? institution.gsType : @"其他";
+//    _typeLbl.text = institution.gsType ? institution.gsType : @"其他";
     
     NSString *typeImage;
-    if ([institution.gsType isEqualToString:@"国企"]) {
+    NSString *typeName;
+    if ([institution.gsType isEqualToString:@"5"]) {
+        
         typeImage = @"ins_type_state";
-    }else if ([institution.gsType isEqualToString:@"私企"]) {
+        typeName = @"国企";
+    }else if ([institution.gsType isEqualToString:@"6"]) {
         typeImage = @"ins_type_personal";
+        typeName = @"私企";
     }else {
         typeImage = @"ins_type_other";
+        typeName = @"其他";
     }
     _typeIcon.image = [UIImage imageNamed:typeImage];
+    _typeLbl.text = typeName;
 }
 
 @end

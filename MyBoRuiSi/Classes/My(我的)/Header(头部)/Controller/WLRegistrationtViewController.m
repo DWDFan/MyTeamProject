@@ -152,7 +152,8 @@
             }
             
         } failure:^(NSError *error) {
-            
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+
         }];
 //          __weak typeof(self) weakSelf = self;
 //        [MOHTTP Post:@"API/index.php?action=Login&do=Reg" parameters:@{@"telphone":self.phone.text,@"code":self.message.text, @"yqcode":self.yaoqingma.text} success:^(id responseObject) {

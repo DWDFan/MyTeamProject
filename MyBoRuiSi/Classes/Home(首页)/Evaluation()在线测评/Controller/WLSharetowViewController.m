@@ -32,6 +32,9 @@
 
 - (void)shareAction:(UITapGestureRecognizer *)tap
 {
+    _descStr = [_descStr stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+    _descStr = [_descStr stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+    
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
@@ -105,7 +108,7 @@
         result = [NSString stringWithFormat:@"分享成功!"];
     }
     else{
-        result = [NSString stringWithFormat:@"分享失败!"];
+        result = [NSString stringWithFormat:@"已取消分享"];
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享"
                                                     message:result

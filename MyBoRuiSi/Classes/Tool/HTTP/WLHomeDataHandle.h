@@ -246,9 +246,9 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestPaperDetailWithId:(NSString *)paperId
-                         success:(void (^)(id responseObject))success
-                         failure:(void (^)(NSError *error))failure;
++ (void)requestPaperContentWithId:(NSString *)paperId
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
 
 /**
  *  根据题型获取题目列表
@@ -272,6 +272,8 @@
  */
 + (void)requestSubmitAnswerWithId:(NSString *)paperId
                               aid:(NSString *)aid
+                              tid:(NSString *)tid
+                              uid:(NSString *)uid
                            answer:(NSString *)answer
                          success:(void (^)(id responseObject))success
                          failure:(void (^)(NSError *error))failure;
@@ -280,5 +282,99 @@
 + (void)requestLaunchAdvertiseWithType:(NSNumber *)type
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure;
+
+
++ (void)requestInstitutionCourseListWithUid:(NSString *)uid
+                                        jid:(NSString *)jid
+                                       type:(NSNumber *)type
+                                    success:(void (^)(id responseObject))success
+                                    failure:(void (^)(NSError *error))failure;
+
++ (void)requestPaperStarTestWithUid:(NSString *)uid
+                                tid:(NSString *)tid
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure;
+
++ (void)requestPaperEndTestWithUid:(NSString *)uid
+                               tid:(NSString *)tid
+                           success:(void (^)(id responseObject))success
+                           failure:(void (^)(NSError *error))failure;
+
++ (void)requestPaperTestSubmitAnswerWithAid:(NSString *)aid
+                                        tid:(NSString *)tid
+                                         id:(NSString *)Id
+                                     answer:(NSString *)answer
+                                    success:(void (^)(id responseObject))success
+                                    failure:(void (^)(NSError *error))failure;
+
+
++ (void)requestExaminationWithUid:(NSString *)uid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure;
+
+//地址： API/index.php?action=Kaoshi&do=startMyKaoshi
+//参数： uid
+//kid tb_user_kaoshi中id
+//mid 考试题目id
++ (void)requestStartExaminationWithUid:(NSString *)uid
+                                   kid:(NSString *)kid
+                                   mid:(NSString *)mid
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure;
+
+//
+//地址： API/index.php?action=Kaoshi&do=getKaoshiType
+//参数： uid 用户id
+//kid 课程id
+//返回： {code:code , msg:msg , data:数据列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationTypeWithUid:(NSString *)uid
+                                  kid:(NSString *)kid
+                              success:(void (^)(id responseObject))success
+                              failure:(void (^)(NSError *error))failure;
+
+
+//地址： API/index.php?action=Kaoshi&do=getKaoshi
+//参数： uid 用户id
+//kid 考试id
+//type 考试类型
+//返回： {code:code , msg:msg , data:数据列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationContentWithUid:(NSString *)uid
+                                     kid:(NSString *)kid
+                                    type:(NSString *)type
+                                 success:(void (^)(id responseObject))success
+                                 failure:(void (^)(NSError *error))failure;
+
+//地址： API/index.php?action=Kaoshi&do=addUserDn
+//参数： uid 用户id
+//返回： {code:code , msg:msg , data:题库列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationSubmitWithUid:(NSString *)uid
+                                    kid:(NSString *)kid
+                                   data:(NSArray *)data
+                                 success:(void (^)(id responseObject))success
+                                 failure:(void (^)(NSError *error))failure;
+
+
+//地址： API/index.php?action=Kaoshi&do=getMyKaoshi
+//参数： uid
+//page
+//num 每一页多少条数
+//返回： {code:code , msg:msg ,data:data }
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestMyExaminationWithUid:(NSString *)uid
+                               page:(NSNumber *)page
+                                num:(NSNumber *)num
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure;
 
 @end

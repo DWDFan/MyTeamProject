@@ -14,6 +14,7 @@
 #import "AdvertiseHelper.h"
 #import "WLHomeDataHandle.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self configureBoardManager];
     //创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -45,15 +47,19 @@
 #pragma mark 启动广告
 -(void)setupAdveriseView
 {
+    UIView *luanchView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    luanchView.backgroundColor = [UIColor whiteColor];
+    [self.window addSubview:luanchView];
     // TODO 请求广告接口 获取广告图片
     [WLHomeDataHandle requestLaunchAdvertiseWithType:@1 success:^(id responseObject) {
         
+        [luanchView removeFromSuperview];
         NSString *image = responseObject[@"data"];
         NSString *imageUrl = [image stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [AdvertiseHelper showAdvertiserView:imageUrl];
 
     } failure:^(NSError *error) {
-        
+        [luanchView removeFromSuperview];
     }];
     
 //    NSArray *images = @[@"luanch1", @"luanch2", @"luanch3"];
@@ -105,6 +111,20 @@
     }
     return result;
 }
+
+#pragma mark - 键盘收回管理
+-(void)configureBoardManager
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    //    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.keyboardDistanceFromTextField=40;
+    
+    //    manager.enableAutoToolbar = NO;
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -139,7 +139,8 @@
                                    success:(void (^)(id responseObject))success
                                    failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Kecheng&do=classDetail" parameters:@{@"id":[MOTool getNULLString:courseId]}
+    [MOHTTP GET:@"API/index.php?action=Kecheng&do=classDetail" parameters:@{@"id":[MOTool getNULLString:courseId],
+                                                                            @"uid":[MOTool getNULLString:[WLUserInfo share].userId]}
      
     success:^(id responseObject) {
         
@@ -190,6 +191,24 @@
                             @"jid":[MOTool getNULLString:jid]};
     
     [MOHTTP GET:@"API/index.php?action=Jigou&do=getDetail" parameters:param success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)requestInstitutionCourseListWithUid:(NSString *)uid
+                                        jid:(NSString *)jid
+                                       type:(NSNumber *)type
+                                    success:(void (^)(id responseObject))success
+                                    failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"id":[MOTool getNULLString:jid],
+                            @"type":type ? type:[NSNull null]};
+    
+    [MOHTTP GET:@"API/index.php?action=Kecheng&do=getKcByAuthor" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {
@@ -275,7 +294,7 @@
                             @"type":type,
                             @"ppid":[MOTool getNULLString:ppid],
                             @"priceOrder":[MOTool getNULLString:priceOrder],
-                            @"zbstatus":zbstatus,
+                            @"zbstatus":zbstatus ? zbstatus : [NSNull null],
                             @"saleNum":[MOTool getNULLString:saleNum],
                             @"level":level};
 
@@ -460,13 +479,62 @@
  *  @param success
  *  @param failure
  */
-+ (void)requestPaperDetailWithId:(NSString *)paperId
-                         success:(void (^)(id responseObject))success
-                         failure:(void (^)(NSError *error))failure
++ (void)requestPaperContentWithId:(NSString *)paperId
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"paperId":[MOTool getNULLString:paperId]};
+    NSDictionary *param = @{@"id":[MOTool getNULLString:paperId]};
     
-    [MOHTTP GET:@"API/index.php?action=Test&do=getContentTypes" parameters:param success:^(id responseObject) {
+    [MOHTTP GET:@"API/index.php?action=Test&do=getContent" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)requestPaperStarTestWithUid:(NSString *)uid
+                                tid:(NSString *)tid
+                     success:(void (^)(id responseObject))success
+                     failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[WLUserInfo share].userId,
+                            @"tid":[MOTool getNULLString:tid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=startTest" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)requestPaperEndTestWithUid:(NSString *)uid
+                                tid:(NSString *)tid
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[WLUserInfo share].userId,
+                            @"tid":[MOTool getNULLString:tid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=endTest" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)requestPaperTestSubmitAnswerWithAid:(NSString *)aid
+                                        tid:(NSString *)tid
+                                         id:(NSString *)Id
+                                     answer:(NSString *)answer
+                                    success:(void (^)(id responseObject))success
+                                    failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"aid":[MOTool getNULLString:aid],
+                            @"tid":[MOTool getNULLString:tid],
+                            @"id":[MOTool getNULLString:Id],
+                            @"answer":[MOTool getNULLString:answer]};
+    
+    [MOHTTP GET:@"API/index.php?action=Test&do=submitAnswer" parameters:param success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
@@ -506,12 +574,16 @@
  */
 + (void)requestSubmitAnswerWithId:(NSString *)paperId
                               aid:(NSString *)aid
+                              tid:(NSString *)tid
+                              uid:(NSString *)uid
                            answer:(NSString *)answer
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"paperId":[MOTool getNULLString:paperId],
+    NSDictionary *param = @{@"id":[MOTool getNULLString:paperId],
                             @"aid":[MOTool getNULLString:aid],
+                            @"tid":[MOTool getNULLString:tid],
+                            @"uid":[MOTool getNULLString:uid],
                             @"answer":[MOTool getNULLString:answer]};
     
     [MOHTTP GET:@"API/index.php?action=Test&do=submitAnswer" parameters:param success:^(id responseObject) {
@@ -529,5 +601,114 @@
     
     [MOHTTP GET:@"API/index.php?action=Ad&do=start" parameters:param success:success failure:failure];
 }
+
+
++ (void)requestExaminationWithUid:(NSString *)uid
+                          success:(void (^)(id responseObject))success
+                          failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=getUserKs" parameters:param success:success failure:failure];
+}
+
+//地址： API/index.php?action=Kaoshi&do=startMyKaoshi
+//参数： uid
+//kid tb_user_kaoshi中id
+//mid 考试题目id
++ (void)requestStartExaminationWithUid:(NSString *)uid
+                                   kid:(NSString *)kid
+                                   mid:(NSString *)mid
+                               success:(void (^)(id responseObject))success
+                               failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"kid":[MOTool getNULLString:kid],
+                            @"mid":[MOTool getNULLString:mid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=startMyKaoshi" parameters:param success:success failure:failure];
+}
+
+//
+//地址： API/index.php?action=Kaoshi&do=getKaoshiType
+//参数： uid 用户id
+//kid 课程id
+//返回： {code:code , msg:msg , data:数据列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationTypeWithUid:(NSString *)uid
+                                  kid:(NSString *)kid
+                              success:(void (^)(id responseObject))success
+                              failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"kid":[MOTool getNULLString:kid]};
+    
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=getKaoshiType" parameters:param success:success failure:failure];
+}
+
+
+//地址： API/index.php?action=Kaoshi&do=getKaoshi
+//参数： uid 用户id
+//kid 考试id
+//type 考试类型
+//返回： {code:code , msg:msg , data:数据列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationContentWithUid:(NSString *)uid
+                                     kid:(NSString *)kid
+                                    type:(NSString *)type
+                                 success:(void (^)(id responseObject))success
+                                 failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"kid":[MOTool getNULLString:kid],
+                            @"type":[MOTool  getNULLString:type]};
+    
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=getKaoshi" parameters:param success:success failure:failure];
+}
+
+
+//地址： API/index.php?action=Kaoshi&do=addUserDn
+//参数： uid 用户id
+//返回： {code:code , msg:msg , data:题库列表}
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestExaminationSubmitWithUid:(NSString *)uid
+                                    kid:(NSString *)kid
+                                   data:(NSArray *)data
+                                success:(void (^)(id responseObject))success
+                                failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"kid":[MOTool getNULLString:kid],
+                            @"data":data};
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=addUserDn" parameters:param success:success failure:failure];
+}
+
+
+//地址： API/index.php?action=Kaoshi&do=getMyKaoshi
+//参数： uid
+//page
+//num 每一页多少条数
+//返回： {code:code , msg:msg ,data:data }
+//返回字段描述：
+//code: 1 接口调用成功，其他表示异常
+//msg: 消息提示
++ (void)requestMyExaminationWithUid:(NSString *)uid
+                               page:(NSNumber *)page
+                                num:(NSNumber *)num
+                            success:(void (^)(id responseObject))success
+                            failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *param = @{@"uid":[MOTool getNULLString:uid],
+                            @"page":page,
+                            @"num":num};
+    [MOHTTP GET:@"API/index.php?action=Kaoshi&do=getMyKaoshi" parameters:param success:success failure:failure];
+}
+
 
 @end

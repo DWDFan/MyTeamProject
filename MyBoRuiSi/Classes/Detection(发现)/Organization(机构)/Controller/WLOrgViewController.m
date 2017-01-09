@@ -46,8 +46,16 @@
     sortView.titlesArray = @[@"企业规模",@"企业性质",@"关注度"];
     sortView.delegate = self;
     [self.view addSubview:sortView];
-    _filtersArray = @[@"私企",@"国企",@"其他"];
+    _filtersArray = @[@"国企", @"私企", @"其他", @"全部"];
 
+    [self.tableView addHeaderWithCallback:^{
+        [self requestData];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -56,9 +64,10 @@
     [WLFindDataHandle requestFindInstitutionListWithSort:_sort gsType:_gsType success:^(id responseObject) {
         
         _institutionsArray = [RecommendationModelll mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView headerEndRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView headerEndRefreshing];
     }];
 }
 
@@ -107,11 +116,12 @@
 {
     _levelBtn.selected = NO;
     KxMenuItem *item = (KxMenuItem *)sender;
-    NSInteger index = item.tag;
-    _gsType = _filtersArray[index];
-//    if (index == 2) {
-//        _gsType = @"";
-//    }
+    NSInteger index = item.tag + 5;
+  
+    _gsType = [NSString stringWithFormat:@"%ld",index];
+    if (index == 8) {
+        _gsType = @"";
+    }
     [self requestData];
 }
 

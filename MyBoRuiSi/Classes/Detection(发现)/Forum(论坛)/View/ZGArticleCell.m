@@ -150,7 +150,10 @@
     
     _timeLbl.text = _articleViewModel.article.addtime;
     
-    _contentLbl.text = _articleViewModel.article.content;
+//    _contentLbl.text = _articleViewModel.article.content;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithData:[_articleViewModel.article.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    [attributedString addAttributes:@{NSForegroundColorAttributeName:COLOR_WORD_GRAY_1, NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, attributedString.length)];
+    _contentLbl.attributedText = attributedString;
     
     _praLbl.text = [NSString stringWithFormat:@"%@",_articleViewModel.article.zanNum];
     

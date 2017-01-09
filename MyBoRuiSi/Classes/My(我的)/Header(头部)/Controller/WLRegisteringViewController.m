@@ -108,7 +108,7 @@
             }
 
         } failure:^(NSError *error) {
-            [MOProgressHUD showErrorWithStatus:@"登录失败"];
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }];
     }
 }

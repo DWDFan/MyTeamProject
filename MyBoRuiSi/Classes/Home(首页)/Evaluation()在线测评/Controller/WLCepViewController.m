@@ -10,6 +10,8 @@
 #import "WLPaperTypeCell.h"
 #import "WLHomeDataHandle.h"
 #import "WLPhysiologyViewController.h"
+#import "WLTestDetailViewController.h"
+#import "WLQuetionModel.h"
 
 @interface WLCepViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableviewtow;
@@ -110,10 +112,36 @@
 }
 #pragma mark 点击tableViewcell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //生理测评
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    WLPhysiologyViewController *cep  =[[WLPhysiologyViewController alloc]init];
-    [self.navigationController pushViewController:cep animated:YES];
     
+    [WLHomeDataHandle requestPaperContentWithId:_paperArray[indexPath.row][@"id"] success:^(id responseObject) {
+        
+        NSArray *questionsArray = [WLQuetionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+
+        WLQuetionModel *questionModel = questionsArray[0];
+        
+        [WLHomeDataHandle requestPaperStarTestWithUid:[WLUserInfo share].userId tid:questionModel.tid success:^(id responseObject) {
+            
+            WLTestDetailViewController *testVC = [[WLTestDetailViewController alloc] init];
+            testVC.title = _paperArray[indexPath.row][@"name"];
+            testVC.questionsArray = questionsArray;
+            testVC.questionId= [questionsArray[0] id];
+            testVC.testId = responseObject[@"id"];
+            testVC.testPaperId = questionModel.tid;
+            testVC.questionIndex = 0;
+            [self.navigationController pushViewController:testVC animated:YES];
+
+        } failure:^(NSError *error) {
+            
+        }];
+        
+    } failure:^(NSError *error) {
+        
+        WLTestDetailViewController *testVC = [[WLTestDetailViewController alloc] init];
+        testVC.title = _paperArray[indexPath.row][@"name"];
+//        testVC.Id = _paperArray[indexPath.row][@"id"];
+        [self.navigationController pushViewController:testVC animated:YES];
+    }];
 }
 @end

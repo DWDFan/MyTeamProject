@@ -277,4 +277,22 @@
         failure(error);
     }];
 }
+
++ (void)requestOrderComment:(NSString *)uid
+                        oid:(NSString *)oid
+                        msg:(NSString *)msg
+                       star:(NSString *)star
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError *error))failure{
+    NSDictionary *param = @{@"uid":uid,
+                            @"oid":oid,
+                            @"msg":msg,
+                            @"star":star};
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=orderCmt" parameters:param success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

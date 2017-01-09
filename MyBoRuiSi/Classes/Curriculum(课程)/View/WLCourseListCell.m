@@ -55,7 +55,7 @@
     _priceLbl = priceLbl;
     
     UILabel *authLbl = [[UILabel alloc] init];
-    authLbl.frame = CGRectMake(_nameLbl.left, _photoImgV.bottom - 12, 70, 12);
+    authLbl.frame = CGRectMake(_nameLbl.left, _photoImgV.bottom - 12, 140, 12);
     authLbl.numberOfLines = 1;
     authLbl.textColor = COLOR_BLACK;
     authLbl.font = [UIFont systemFontOfSize:12];

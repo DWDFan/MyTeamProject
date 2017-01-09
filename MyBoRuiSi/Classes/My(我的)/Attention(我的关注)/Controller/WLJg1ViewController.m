@@ -38,9 +38,20 @@
         
     }];
     
-    [self.tableView headerBeginRefreshing];
+//    [self.tableView headerBeginRefreshing];
+    weakSelf.page = 1;
+    [self requestGetMyFollowJsWithPage:weakSelf.page];
+
     
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.page = 1;
+    [self requestGetMyFollowJsWithPage:self.page];
+}
+
 
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{
@@ -96,7 +107,7 @@
 
 #pragma mark - Request
 - (void)requestGetMyFollowJsWithPage:(NSInteger )page{
-    [WLMyDataHandle requestGetMyFollowJsWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+    [WLMyDataHandle requestGetMyFollowJgWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
         if (page == 1) {
             self.dataSource = responseObject;
             [self.tableView headerEndRefreshing];

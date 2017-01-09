@@ -31,7 +31,7 @@
 
 +(void)showAdvertiserView:(NSString *)image
 {
-    // 1.判断沙盒中是否存在广告图片，如果存在，直接显示
+//     1.判断沙盒中是否存在广告图片，如果存在，直接显示
     NSString *filePath = [[AdvertiseHelper sharedInstance] getFilePathWithImageName:[kAdUserDefaults valueForKey:adImageName]];
     
     BOOL isExist = [[AdvertiseHelper sharedInstance] isFileExistWithFilePath:filePath];

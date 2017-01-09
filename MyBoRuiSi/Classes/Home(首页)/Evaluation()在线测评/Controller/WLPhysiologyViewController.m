@@ -8,8 +8,15 @@
 
 #import "WLPhysiologyViewController.h"
 #import "WLZwViewController.h"
+#import "WLHomeDataHandle.h"
 
 @interface WLPhysiologyViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *questionLbl;
+@property (weak, nonatomic) IBOutlet UIButton *optionA;
+@property (weak, nonatomic) IBOutlet UIButton *optionB;
+@property (weak, nonatomic) IBOutlet UIButton *optionC;
+@property (weak, nonatomic) IBOutlet UIButton *optionD;
 
 @end
 
@@ -29,8 +36,20 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
  
+    [self requestData];
     
 }
+
+- (void)requestData
+{
+    [WLHomeDataHandle requestPaperContentWithId:_testId success:^(id responseObject) {
+        
+        WLLog(@"%@",responseObject);
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
 {

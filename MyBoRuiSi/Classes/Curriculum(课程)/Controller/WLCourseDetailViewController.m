@@ -81,17 +81,21 @@
             return ;
         }
         switch (index) {
-            case 0:
-                //request 加入购物车
+            case 1000:
+                // 加入购物车
                 [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
                 break;
-            case 1:
+            case 1001:
                 // 体验学习
                 [weakSelf pushToOutLineViewController];
                 break;
-            case 2:
-                //立即购买
+            case 1002:
+                // 立即购买
                 [weakSelf requestBuyWithGoodId:weakSelf.courseId];
+                break;
+            case 1003:
+                // 进入课程
+                [weakSelf pushToOutLineViewController];
                 break;
             default:
                 break;
@@ -127,7 +131,7 @@
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
-        _bottomView.canBuy = _course.canBuy;
+        _bottomView.canplay = _course.canPlay;
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
@@ -194,7 +198,7 @@
         
         [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.localizedDescription];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 
@@ -202,7 +206,8 @@
 {
     WLCourceOutlineVIewController *VC = [[WLCourceOutlineVIewController alloc] init];
     VC.courseId = _courseId;
-    VC.isMine = YES;
+    VC.isTaste = !_course.canPlay;
+    VC.photo = _course.photo;
     [self.navigationController pushViewController:VC animated:YES];
 }
 
@@ -212,10 +217,23 @@
     [alertView show];
 }
 
+- (void)alertBuy
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"需要购买后才能查看哦！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立即购买", nil];
+    alertView.tag = 999;
+    [alertView show];
+}
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        [MOTool pushLoginViewControllerWithController:self];
+        if (alertView.tag == 999) {
+            // 购买
+            [self requestBuyWithGoodId:self.courseId];
+        }else {
+            // 去登陆
+            [MOTool pushLoginViewControllerWithController:self];
+        }
     }
 }
 
@@ -242,7 +260,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        return [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:14]] + 15 * 3 + 14;
+//        return [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:12]] + 15 * 3 + 14;
+        
+        NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+        
+        [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+        
+        CGSize textSize = [htmlString boundingRectWithSize:(CGSize){WLScreenW - 30, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+        
+        return textSize.height + 15 * 3 + 14;
+        
     }else if (indexPath.section == 3 && indexPath.row != 0) {
         return [MOTool MOtextSizeH:[_course.comment[indexPath.row - 1] msg] WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:12]] + 15 * 3 + 12;
     }
@@ -356,9 +383,18 @@
                 [cell addSubview:introLbl];
                 _introLbl = introLbl;
             }
-            CGFloat height = [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:_introLbl.font];
-            _introLbl.height = height;
-            _introLbl.text = _course.desc;
+
+            NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+            
+        
+            NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+            
+            [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+            
+            CGSize textSize = [htmlString boundingRectWithSize:(CGSize){WLScreenW - 30, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            
+            _introLbl.height = textSize.height;
+            _introLbl.attributedText = attributedString;
             
         }else {
             
@@ -388,13 +424,25 @@
 {
     if (indexPath.section == 2) {
         
+        if (![WLUserInfo share].isLogin) {
+            [self alertLogin];
+            return;
+        }
         if (indexPath.row == 0) {   // 课程大纲
             
-            [self pushToOutLineViewController];
+            if (_course.canPlay) {
+                [self pushToOutLineViewController];
+            }else {
+                [self alertBuy];
+            }
         }else {                     // 相关课件
-            WLCoursewareViewController *VC = [[WLCoursewareViewController alloc] init];
-            VC.courseId = _courseId;
-            [self.navigationController pushViewController:VC animated:YES];
+            if (_course.canPlay) {
+                WLCoursewareViewController *VC = [[WLCoursewareViewController alloc] init];
+                VC.courseId = _courseId;
+                [self.navigationController pushViewController:VC animated:YES];
+            }else {
+                [self alertBuy];
+            }
         }
     }else if (indexPath.row == 3) { // 机构详情
         WLorganVC *vc = [[WLorganVC alloc]init];
@@ -460,7 +508,12 @@
             [MOProgressHUD showErrorWithStatus:@"购买失败"];
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:@"购买失败"];
+        NSString *msg = error.userInfo[@"msg"];
+        //你已经加入购物车了
+//        if ([msg isEqualToString:@"你已经加入购物车了"]) {
+//            msg = [msg stringByAppendingString:@"结算后即可观看。"];
+//        }
+        [MOProgressHUD showErrorWithStatus:msg];
     }];
 }
 @end

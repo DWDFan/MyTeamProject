@@ -14,6 +14,7 @@
 
 #import "WLNameViewController.h"
 #import "WLHomeDataHandle.h"
+#import "WLExaminationHelper.h"
 
 @interface WLTestTableViewController ()
 
@@ -23,11 +24,12 @@
 @property (nonatomic,strong)UIView *view_main;
 
 @property (nonatomic,strong)UIView *backgroundView;
-
+@property (nonatomic, strong) UILabel *tipLbl;
 @property (nonatomic, strong) NSArray *paperArray;
 
 @property (nonatomic, strong) NSString *paperId;
-
+@property (nonatomic, strong) NSString *paperName;
+@property (nonatomic, assign) NSInteger index;
 @end
 
 @implementation WLTestTableViewController
@@ -56,14 +58,16 @@
     [self requestData];
 }
 
+
+
 - (void)requestData
 {
-    [WLHomeDataHandle requestPaperListWithType:@"" page:@1 success:^(id responseObject) {
+    [WLHomeDataHandle requestExaminationWithUid:[WLUserInfo share].userId success:^(id responseObject) {
         
-        self.paperArray = responseObject[@"data"];
+        _paperArray = responseObject[@"data"];
         [self.tableView reloadData];
-    } failure:^(NSError *error) {
         
+    } failure:^(NSError *error) {
     }];
 }
 
@@ -91,10 +95,10 @@
     
     
     UILabel *lableTwo = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 260, 60)];
-    lableTwo.text = @"考试时间为1小时,考试过程中不得退出程序,将视为放弃,请把握考试时间!";
     lableTwo.font = [UIFont systemFontOfSize:14.0];
     lableTwo.textColor = [UIColor colorWithRed:82 / 250.0 green:82 / 250.0  blue:82 / 250.0  alpha:1];
     lableTwo.numberOfLines = 0;
+    _tipLbl = lableTwo;
     [_view_main addSubview:lableTwo];
     
     
@@ -145,48 +149,48 @@
     self.navigationItem.titleView = btn;
 
     
-    
+    self.tableView.tableFooterView = [UIView new];
     
 }
 
-- (void)buttonOne:(UIButton *)button{
-  
-    
-    
+- (void)buttonOne:(UIButton *)button{    
     [UIView animateWithDuration:0.32  animations:^{
         
         _view_main.hidden = YES;
         _backgroundView.frame = CGRectMake(0, 0, 0, 0);
-        
- 
-
-        
-        
     } completion:^(BOOL finished) {
         
           _backgroundView.hidden = YES;
         
         _backgroundView.frame = CGRectMake((WLScreenW - 50)/ 2, ([UIScreen mainScreen].bounds.size.height - 50) / 2, 50, 50);
         _view_main.frame = CGRectMake((WLScreenW - 50)/ 2, ([UIScreen mainScreen].bounds.size.height - 50) / 2, 50, 50);
-        
-        
     }];
-    
-    
-
-
-    
 }
 
-//开始考试按钮
+// 开始考试
 - (void)buttonTwo:(UIButton *)button{
     
-   // _backgroundView.hidden = YES;
+    _backgroundView.hidden = YES;
     
-    //试卷名称
-    WLNameViewController *name = [[WLNameViewController alloc]init];
-    [self.navigationController pushViewController:name animated:YES];
+    NSString *kid = self.paperArray[self.index][@"kid"];
+    NSString *cid = self.paperArray[self.index][@"cid"];
     
+    [WLHomeDataHandle requestStartExaminationWithUid:[WLUserInfo share].userId kid:kid mid:cid success:^(id responseObject) {
+        
+        NSString *timeLongStr = self.paperArray[self.index][@"timelong"];
+        NSInteger timelong = [timeLongStr integerValue] * 60;
+        [WLExaminationHelper sharedInstance].timelong = timelong;
+        [WLExaminationHelper sharedInstance].kid = kid;
+        
+        WLNameViewController *name = [[WLNameViewController alloc]init];
+        name.title = _paperName;
+        name.paperId = _paperId;
+        name.kid = kid;
+        [self.navigationController pushViewController:name animated:YES];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //颜色转图片
@@ -228,8 +232,11 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
     }
-    cell.nameLbl.text = [MOTool getNULLString:_paperArray[indexPath.row][@"name"]];
-    cell.timeLbl.text = [MOTool getNULLString:_paperArray[indexPath.row][@"desc"]];
+    NSDictionary *dic = _paperArray[indexPath.row];
+    cell.nameLbl.text = [MOTool getNULLString:dic[@"name"]];
+    cell.timeLbl.text = [NSString stringWithFormat:@"考试时长:%@分钟",[MOTool getNULLString:dic[@"timelong"]]];
+    cell.testNumLbl.text = [NSString stringWithFormat:@"剩余考试次数:%@",[MOTool getNULLString:dic[@"times"]]];
+    [cell.photoImgV sd_setImageWithURL:[NSURL URLWithString:dic[@"photo"]] placeholderImage:nil];
     return cell;
 }
 
@@ -245,6 +252,13 @@
     _view_main.hidden = NO;
     _backgroundView.hidden = NO;
     _paperId = _paperArray[indexPath.row][@"id"];
+    _paperName = _paperArray[indexPath.row][@"name"];
+    _index = indexPath.row;
+    
+    NSString *tipStr = [NSString stringWithFormat:@"考试时间为%@分钟,考试过程中不得退出程序,将视为放弃,请把握考试时间!",_paperArray[_index][@"timelong"]];
+    _tipLbl.text = tipStr;
+    
+
     [UIView animateWithDuration:0.32 animations:^{
         
       CGRect  frame =  CGRectMake((WLScreenW - 300) / 2, ([UIScreen mainScreen].bounds.size.height - 170) / 2 - 64, 300, 170);

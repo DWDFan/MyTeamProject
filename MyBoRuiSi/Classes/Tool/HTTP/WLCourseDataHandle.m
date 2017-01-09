@@ -209,7 +209,7 @@
                               success:(void (^)(id responseObject))success
                               failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Zhibo&do=classDetail" parameters:@{@"id":cid} success:^(id responseObject) {
+    [MOHTTP GET:@"API/index.php?action=Zhibo&do=classDetail" parameters:@{@"id":cid, @"uid":[MOTool getNULLString:[WLUserInfo share].userId]} success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {
@@ -228,10 +228,10 @@
                                  success:(void (^)(id responseObject))success
                                  failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *param = @{@"id" : cid,
+    NSDictionary *param = @{@"kid" : cid,
                             @"uid" : uid};
     
-    [MOHTTP GET:@"API/index.php?action=Zhibo&do=classDetail" parameters:param success:^(id responseObject) {
+    [MOHTTP GET:@"API/index.php?action=Kecheng&do=favKecheng" parameters:param success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {

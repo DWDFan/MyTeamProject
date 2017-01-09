@@ -40,6 +40,9 @@
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
     self.tableView.tableFooterView = [UIView new];
+    [self.tableView addHeaderWithCallback:^{
+        [self requestData];
+    }];
     
     WLSortSelectView *sortView = [[WLSortSelectView alloc] initWithFrame:CGRectMake(0, 0, WLScreenW, 40)];
     sortView.titlesArray = @[@"好评度",@"讲师等级",@"关注度"];
@@ -48,6 +51,12 @@
     _sortView = sortView;
     
     _sort = @"";
+//    [self requestData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -56,9 +65,10 @@
     [WLFindDataHandle requestFindLectureListWithSort:_sort level:_level success:^(id responseObject) {
         
         _lecturesArray = [RecommendModell mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView headerEndRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView headerEndRefreshing];
     }];
 }
 
@@ -136,9 +146,7 @@
     if (cell == nil) {
         cell = [[WLFindLecturerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:deteID];
     }
-    if (indexPath.row < _lecturesArray.count- 1) {
-        cell.lecturer = _lecturesArray[indexPath.row];
-    }
+    cell.lecturer = _lecturesArray[indexPath.row];
     return cell;
 }
 

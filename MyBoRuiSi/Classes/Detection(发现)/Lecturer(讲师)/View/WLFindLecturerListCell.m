@@ -87,7 +87,7 @@
     
     _followNumLbl.text = [NSString stringWithFormat:@"%@人关注",lecturer.follow];
     
-    _levelLbl.text = _levelArray[[lecturer.level integerValue] - 1];
+    _levelLbl.text = lecturer.level;
     
     _starView.showStar = [lecturer.star floatValue] * 20;
     

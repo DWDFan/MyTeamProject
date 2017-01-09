@@ -294,50 +294,22 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    int a = 50;
+    
+    if (indexPath.row == 0) return 50;
     
     if (_type == 1) {
         if (indexPath.section == 0) {
-            
-            if (indexPath.row == 0) {
-                
-                
-            }else{
-                
-                a = 100;
-            }
-            
-        }else{
-            
-            if (indexPath.row == 0) {
-                
-                
-            }else{
+            if (_liveCourseArray.count == 0) {
                 return [WLLiveCourseTypeCell heightWithCount:_hotCourseArray.count];
+            }else {
+                return 100;
             }
+        }else {
+            return [WLLiveCourseTypeCell heightWithCount:_hotCourseArray.count];
         }
-    }else{
-        
-        if (indexPath.section == 0) {
-            
-            if (indexPath.row == 0) {
-                
-            }else{
-                
-                return [WLCourseTypeCell heightWithCount:_hotCourseArray.count];
-            }
-        }else{
-            
-            if (indexPath.row == 0) {
-                
-            }else{
-                
-                return [WLCourseTypeCell heightWithCount:_recommendArray.count];
-            }
-        }
+    }else {
+        return [WLCourseTypeCell heightWithCount:_hotCourseArray.count];
     }
-    return a;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -33,6 +33,16 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView addHeaderWithCallback:^{
+        [self requestData];
+    }];
+//    [self requestData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -41,9 +51,10 @@
     [WLHomeDataHandle requestHomeRecommendInstitutionWithNum:@10 Success:^(id responseObject) {
         
         self.institutionsArray = [RecommendationModelll mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView headerEndRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView headerEndRefreshing];
     }];
 }
 

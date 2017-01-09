@@ -9,6 +9,7 @@
 #import "WLCourceOutlineVIewController.h"
 #import "ZGLivePlayerViewController.h"
 #import "WLCourseDataHandle.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface WLCourceOutlineVIewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -67,14 +68,19 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger section = _outLineArray.count;
+    if (_isTaste && section > 1) {
+        return 1;
+    }
     return section;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger row = [_outLineArray[section][@"kc"] count] + 1;
+    if (_isTaste && row > 2) {
+        return 2;
+    }
 
-    
     return row;
 }
 
@@ -158,9 +164,9 @@
         id kc = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1];
         if (![kc isKindOfClass:[NSNull class]]) {
             titleLbl.text = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"name"];
-            NSString *photo = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"photo"];
-            [imgV sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
-
+//            NSString *video = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"];
+//            imgV.image = [MOTool getThumbnailImage:video];
+            [imgV sd_setImageWithURL:[NSURL URLWithString:_photo] placeholderImage:nil];
         }
         return cell;
     }
@@ -186,10 +192,9 @@
         NSURL *url = [NSURL URLWithString:_outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"video"]];
         
         ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
-        playerVC.tipLbl.hidden = self.isMine;
+        playerVC.tipLbl.hidden = YES;
         playerVC.courseId = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"id"];
         [self.navigationController pushViewController:playerVC animated:YES];
-//        [self presentViewController:playerVC animated:YES completion:nil];
     }
 }
 

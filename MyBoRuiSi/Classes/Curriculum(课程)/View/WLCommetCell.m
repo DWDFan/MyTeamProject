@@ -66,7 +66,7 @@
     
     _timeLbl.text = comment.date ? comment.date : comment.addtime;
     
-    _commentLbl.text = comment.msg ? comment.msg : comment.content;
+//    _commentLbl.text = comment.msg ? comment.msg : comment.content;
     
     _starView.showStar = [comment.star floatValue] * 20;
 
@@ -76,9 +76,24 @@
     
     _starView.x = CGRectGetMaxX(_nameLbl.frame) + 15;
     
-    CGFloat height = [MOTool MOtextSizeH:_commentLbl.text WithWidth:_commentLbl.width WithFount:_commentLbl.font];
+//    CGFloat height = [MOTool MOtextSizeH:_commentLbl.text WithWidth:_commentLbl.width WithFount:_commentLbl.font];
     
-    _commentLbl.height = height;
+//    _commentLbl.height = height;
+    
+    NSString *commetStr = comment.msg ? comment.msg : comment.content;
+
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithData:[commetStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    [attributedString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12], NSForegroundColorAttributeName:COLOR_WORD_GRAY_2} range:NSMakeRange(0, attributedString.length)];
+    _commentLbl.attributedText = attributedString;
+
+    
+//    NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[commetStr dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+//    
+//    [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+    
+    CGSize textSize = [attributedString boundingRectWithSize:(CGSize){WLScreenW - 30, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    
+    _commentLbl.height = textSize.height;
 }
 
 @end

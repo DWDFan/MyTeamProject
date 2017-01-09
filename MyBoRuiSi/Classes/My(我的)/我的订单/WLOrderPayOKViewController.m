@@ -7,6 +7,7 @@
 //
 
 #import "WLOrderPayOKViewController.h"
+#import "WLShoppingsTableViewController.h"
 #import "UIImage+Image.h"
 
 @interface WLOrderPayOKViewController ()
@@ -52,7 +53,12 @@
 }
 
 - (IBAction)clickPopMyOrder:(id)sender {
-     [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:NO];        [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(2)}];
+//     [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:NO];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(2)}];
+    
+    WLShoppingsTableViewController *myOderVC = [[WLShoppingsTableViewController alloc] init];
+    [self.navigationController pushViewController:myOderVC animated:YES];
     
 }
 - (IBAction)clickCan:(id)sender {

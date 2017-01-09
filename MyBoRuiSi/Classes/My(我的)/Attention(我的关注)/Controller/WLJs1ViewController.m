@@ -38,8 +38,18 @@
         
     }];
     
-    [self.tableView headerBeginRefreshing];
+//    [self.tableView headerBeginRefreshing];
+    weakSelf.page = 1;
+    [self requestGetMyFollowJsWithPage:weakSelf.page];
 
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.page = 1;
+    [self requestGetMyFollowJsWithPage:self.page];
 }
 
 #pragma mark - Getter

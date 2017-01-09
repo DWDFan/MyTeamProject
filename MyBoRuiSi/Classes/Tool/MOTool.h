@@ -106,4 +106,9 @@
 
 + (void)pushLoginViewControllerWithController:(UIViewController *)controller;
 
++(UIImage *)getThumbnailImage:(NSString *)videoURL;
+
++ (NSMutableAttributedString *)getAttributeStringByHtmlString:(NSString *)htmlString;
+
+
 @end

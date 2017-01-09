@@ -10,7 +10,9 @@
 #import "WLExamsTableViewCell.h"
 #import "WLAnswerTableViewController.h"
 
+#import "WLHomeDataHandle.h"
 #import "WLMyDataHandle.h"
+#import "WLMyTestModel.h"
 
 @interface WLTestViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *TestTabble;
@@ -45,6 +47,12 @@
     self.TestTabble.dataSource = self;
     
     self.TestTabble.rowHeight =100;
+    
+    WEAKSELF;
+    [self.TestTabble addFooterWithCallback:^{
+        weakSelf.page ++;
+        [weakSelf requestGetMyTestWithPage:weakSelf.page];
+    }];
     
     _page = 1;
     [self requestGetMyTestWithPage:self.page];
@@ -113,12 +121,17 @@
 
 
 #pragma mark - Request
-- (void)requestGetMyTestWithPage:(NSUInteger)page{
-    [WLMyDataHandle requestGetMyTestWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
-        self.dataSource = responseObject;
+- (void)requestGetMyTestWithPage:(NSUInteger)page
+{    
+    [WLHomeDataHandle  requestMyExaminationWithUid:[WLUserInfo share].userId page:@(page) num:@10 success:^(id responseObject) {
+        NSArray *dataArray = [WLMyTestModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.dataSource addObjectsFromArray:dataArray];
+        
+        [self.TestTabble footerEndRefreshing];
         [self.TestTabble reloadData];
     } failure:^(NSError *error) {
-        
+        [self.TestTabble footerEndRefreshing];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 

@@ -1,2151 +1,1254 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>05A169DC959AD6547F20EB1F67C4D323</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libSocialSMS.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/SMS/libSocialSMS.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05FAB21828CC620A2E32308205FB6163</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>085DFE54C30E1551A0DE75A61974A151</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>903BA90FE66C5DC6CA9E42008B0FB9DB</string>
-				<string>35AE27758E6B081A7B6F7DE31E47F190</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>0D8300B37D2B076B8DA818E4EE8F285A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBHttpRequest+WeiboToken.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboToken.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>12C3F0C0050E666818AAE624ECCA1961</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05A169DC959AD6547F20EB1F67C4D323</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>13068454A9C0FF4676E218442F88BC0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0D8300B37D2B076B8DA818E4EE8F285A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>14B8B9B15ECBE87983FF987239AB2D7B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9652D7D02081EC848283F070A4930287</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>14CC8718E8EF2C5A87F85852F8BC0278</key>
-		<dict>
-			<key>fileRef</key>
-			<string>736D0B98A06A08AF57C4FED146116CC4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>1588B7E707EE1D7F7B0FF85403EEBF3B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBSDKRelationshipButton.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBSDKRelationshipButton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>16A621277A2DB445FB71A137F26F2C7B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FDC8294FBD096585AAEC809C6C80C8A2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1711FAA0596FEB1B647F75B54E4D8DC6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A72E7DAD6F8F3054F09540174DAF4296</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>172E2EC40F18AEB32B7CD09D9BD93348</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DF191F40825F212B60BC38740F6D71E3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>18601592B4FC663D81D4536A6613A925</key>
-		<dict>
-			<key>fileRef</key>
-			<string>71628A6C1FCB2F6BD6CC3EF16C0E56E8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>18962C64F3D1807A3D3FE240CF6F447D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMShareMenuSelectionView.h</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMShareMenuSelectionView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1F3F5D43C1CE7B504FB212CAD939592D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>79537E27465227CF3A5FE2CCD75DEED2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>21758EB8C1D5E30E2B38E4C296C69C52</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BA8A6F1FC55DA43258B6AAA1655B59DE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>23B6BEC8F979CC1728A6F6212A0C04D2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E8F5AA9D16E24F90B4F26FD3B1A5A4EA</string>
-				<string>9FE07C57926BBF83764F86816A91C126</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25157EB5234F05D66FB48BF911263551</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>UMSocialSDKResources.bundle</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/Resource/UMSocialSDKResources.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2776737D85A9D9D37CF67766DCE83D07</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9D43BC1B3E7CAADFB1A5614673464D5A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>2B2670EA08CE5CA44EB0CA16AC2E343E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>736D0B98A06A08AF57C4FED146116CC4</string>
-				<string>12C3F0C0050E666818AAE624ECCA1961</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SMS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>47BEF9D903506B003EA5C2B249729489</string>
-				<string>AAF678CED40D3499169D10F63CA0719E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2E7834D3F8C2B4BD7AE32383906C1147</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>34921170EC310C38F84B553BE06D08A1</string>
-				<string>3FF4D6C82B6812007420DAA33C001519</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2E810DE43D0969A7E4EB80F174437550</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UMShareMenuItem.m</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMShareMenuItem.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2EF8FC60403808722E84EE2967A1B9C4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>UMengUShare</string>
-			<key>target</key>
-			<string>4EF35FBB5F0D0F6EA9022E911719B9AB</string>
-			<key>targetProxy</key>
-			<string>DDC3E105DDADE3D78A4F8589A8954DDF</string>
-		</dict>
-		<key>321A140AFB0EEA976B50734F8D30B999</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BDD0C8BB122FCFC499603BA16901AE38</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3320E2E278F71B81D7EAC190E3A33D2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libSocialQQ.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/QQ/libSocialQQ.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>34921170EC310C38F84B553BE06D08A1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libSocialSina.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/libSocialSina.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>35AE27758E6B081A7B6F7DE31E47F190</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>58D3F3CAAA724E5B53E21593F861FCB9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/UMengUShare/UMengUShare-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string></string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>3B0290F1EA1F5DE6A84431A385FD1C49</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4606D89EC854132487C3FADD69AE15D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3B6B6021D7EF6306E22CDFF5ECDAEB52</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMShareMenuItem.h</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMShareMenuItem.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3E182AEDD09735D027497CC56D3228F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>40FD723E87444D0672ECCFEC7121EC04</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3E5E855981959C61C6C9B2E5FB7B37E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FDC8294FBD096585AAEC809C6C80C8A2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3FF4D6C82B6812007420DAA33C001519</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libWeiboSDK.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/libWeiboSDK.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>405EC8D311905640C17FE558F8B84394</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E6410FD83779CD7471791939CFC45C86</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>40FD723E87444D0672ECCFEC7121EC04</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBHttpRequest+WeiboUser.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboUser.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>41E9EB90D69B88D39DFB577C593FA068</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A28336F13008C9700F7C11856F1E4DDE</string>
-				<string>C763F438F6379AD8ABF90C709C305B3B</string>
-				<string>8749D028F563F56E687D41282A3DD8BE</string>
-				<string>4CA4943E4F1137530215D23E6748F393</string>
-				<string>616A63E331B19F41927445733D4DF5BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4606D89EC854132487C3FADD69AE15D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WeiboSDK+Statistics.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WeiboSDK+Statistics.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>47A2659340C057DB41AD08D517B50AAB</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F7C23E92B815792304DA136E7302EDB6</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>47BEF9D903506B003EA5C2B249729489</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>POD_CONFIGURATION_DEBUG=1</string>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>497359C6C6E78AC3D96CACE3C432C637</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UMengUShare-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>497EFA5FDA4507B063810DDE4FB7642C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>TencentOpenAPI.framework</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/QQ/TencentOpenAPI.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4A7E72B20F20561EB375E4B900CC9D00</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18962C64F3D1807A3D3FE240CF6F447D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>4C264445A8CA82BC4B430AA4F0536AF4</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5E473D3DB542AAACF2443D70DAEC619F</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D7F339DC0131DD79ED157530D7B758E5</string>
-				<string>FC1D34099A81A7AF52E478B255D1FE41</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>2EF8FC60403808722E84EE2967A1B9C4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-MyBoRuiSi</string>
-			<key>productName</key>
-			<string>Pods-MyBoRuiSi</string>
-			<key>productReference</key>
-			<string>E8F5AA9D16E24F90B4F26FD3B1A5A4EA</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>4CA4943E4F1137530215D23E6748F393</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FCE6C7748975339B3FFBF25296B5BE25</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EF35FBB5F0D0F6EA9022E911719B9AB</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>085DFE54C30E1551A0DE75A61974A151</string>
-			<key>buildPhases</key>
-			<array>
-				<string>41E9EB90D69B88D39DFB577C593FA068</string>
-				<string>536424B2F0BF238E64A804BFD613022F</string>
-				<string>FA170E651A69F7A8401A917DBA28CB23</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>UMengUShare</string>
-			<key>productName</key>
-			<string>UMengUShare</string>
-			<key>productReference</key>
-			<string>9FE07C57926BBF83764F86816A91C126</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>506636683879C9152F35A17CAADD8344</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UMSocialCore.framework</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialSDK/UMSocialCore.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>51CCA06594F12C552F127F82ECF47BCA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6473D3EBC59F3BE4AD53BA9D1FE4D367</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>536424B2F0BF238E64A804BFD613022F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1F3F5D43C1CE7B504FB212CAD939592D</string>
-				<string>16A621277A2DB445FB71A137F26F2C7B</string>
-				<string>6F1902DFE6ABB76752E67F7CE1BD7B12</string>
-				<string>172E2EC40F18AEB32B7CD09D9BD93348</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>53F8DC33E70C0135FA4EA8F8B80E12A0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WXApiObject.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/WXApiObject.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>54F5CB88F056C4F138259B4247824D1D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>58D3F3CAAA724E5B53E21593F861FCB9</string>
-				<string>497359C6C6E78AC3D96CACE3C432C637</string>
-				<string>EC875B28568334C65B5B5DDD5379A62E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/UMengUShare</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>558A35D32EA145A457036E577A71287B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UMSocialUIManager.m</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMSocialUIManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5656CEAA3127C7B523AC9F0A75EFD991</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D6ABDF642F68176811F79734D29713D1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>58D3F3CAAA724E5B53E21593F861FCB9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>UMengUShare.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5A9BA8227428C2820309F1890D1456FC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>53F8DC33E70C0135FA4EA8F8B80E12A0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5E473D3DB542AAACF2443D70DAEC619F</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>47A2659340C057DB41AD08D517B50AAB</string>
-				<string>AA3A2C3A2F5ACD0EC63A5AB76D955C73</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>616A63E331B19F41927445733D4DF5BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>558A35D32EA145A457036E577A71287B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6473D3EBC59F3BE4AD53BA9D1FE4D367</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>TencentOpenApi_IOS_Bundle.bundle</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/QQ/TencentOpenApi_IOS_Bundle.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>650C26BD41ED37D1D952789E5FDD530A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE124D81450B70A2F4DB9B810DF2DA82</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>6739F106EC5CB762BEF5BA70F952EF31</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3320E2E278F71B81D7EAC190E3A33D2A</string>
-				<string>497EFA5FDA4507B063810DDE4FB7642C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>689365D15AE105F72E20C8ACD6BF1038</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WeiboUser.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WeiboUser.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F1902DFE6ABB76752E67F7CE1BD7B12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7843427A3A80FBC8EFE5FA424D5F95B6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>71628A6C1FCB2F6BD6CC3EF16C0E56E8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WXApi.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/WXApi.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>71DDBFC9510B56C55F6617B1EB38ECB6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E54EC68067A7B582E4228C5D6F1A93B8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Core</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>71F30403A1AF69F484C9CB08C3582529</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA5000AD429138636D59BE5228F5AB44</string>
-				<string>6739F106EC5CB762BEF5BA70F952EF31</string>
-				<string>51CCA06594F12C552F127F82ECF47BCA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>QQ</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>736D0B98A06A08AF57C4FED146116CC4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialSmsHandler.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/SMS/UMSocialSmsHandler.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>76C7C8D386E5795CC55F8ED3E72F739D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>WeiboSDK.bundle</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WeiboSDK.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7843427A3A80FBC8EFE5FA424D5F95B6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>ImageIO.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>79537E27465227CF3A5FE2CCD75DEED2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreTelephony.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreTelephony.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>7B65ECD834FF03EBED2D611D7F6752F1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E30CF4EA4B98AB7581FEAAC77440B4E9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>93A4A3777CF96A4AAC1D13BA6DCCEA73</string>
-				<string>14B8B9B15ECBE87983FF987239AB2D7B</string>
-				<string>405EC8D311905640C17FE558F8B84394</string>
-				<string>23B6BEC8F979CC1728A6F6212A0C04D2</string>
-				<string>C6D8DB476AC02FB18CF56879005FB983</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7FCE115CEE3C9B80327DCFA4669A0B46</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialUIManager.h</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMSocialUIManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>800F3EA58865E3BB880E1004FCE87559</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>76C7C8D386E5795CC55F8ED3E72F739D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86A445D143EDEEECA759AC1BC830F3B8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FFEC18B5DFF7E45735EE8DF3E888AEBC</string>
-				<string>ACF7FB14BA360953673861321901D388</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>86AA4B988E24A45D0AC10E0C39CDC7B1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1711FAA0596FEB1B647F75B54E4D8DC6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Network</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8749D028F563F56E687D41282A3DD8BE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AB6CA7FE4B0BA5BD2BAF5673732ED50D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>898DC37297226745B4CCB55F288CAAD8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BA5000AD429138636D59BE5228F5AB44</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>903BA90FE66C5DC6CA9E42008B0FB9DB</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>58D3F3CAAA724E5B53E21593F861FCB9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/UMengUShare/UMengUShare-prefix.pch</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string></string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>93A4A3777CF96A4AAC1D13BA6DCCEA73</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>text.script.ruby</string>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>9652D7D02081EC848283F070A4930287</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>79537E27465227CF3A5FE2CCD75DEED2</string>
-				<string>FDC8294FBD096585AAEC809C6C80C8A2</string>
-				<string>7843427A3A80FBC8EFE5FA424D5F95B6</string>
-				<string>DF191F40825F212B60BC38740F6D71E3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9D43BC1B3E7CAADFB1A5614673464D5A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBHttpRequest+WeiboShare.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboShare.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9E48A90AD8A90F3049E91ACD933CE1F9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE124D81450B70A2F4DB9B810DF2DA82</string>
-				<string>BA8A6F1FC55DA43258B6AAA1655B59DE</string>
-				<string>D6ABDF642F68176811F79734D29713D1</string>
-				<string>9D43BC1B3E7CAADFB1A5614673464D5A</string>
-				<string>0D8300B37D2B076B8DA818E4EE8F285A</string>
-				<string>40FD723E87444D0672ECCFEC7121EC04</string>
-				<string>BDD0C8BB122FCFC499603BA16901AE38</string>
-				<string>D18F4B84001CD0F6DB278FF79D83E20A</string>
-				<string>1588B7E707EE1D7F7B0FF85403EEBF3B</string>
-				<string>F3E833D73472B28D2DBEFF65E876B7CA</string>
-				<string>4606D89EC854132487C3FADD69AE15D9</string>
-				<string>689365D15AE105F72E20C8ACD6BF1038</string>
-				<string>2E7834D3F8C2B4BD7AE32383906C1147</string>
-				<string>800F3EA58865E3BB880E1004FCE87559</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Sina</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9FC794FF565D570CB996C5A979432207</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9FE07C57926BBF83764F86816A91C126</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libUMengUShare.a</string>
-			<key>path</key>
-			<string>libUMengUShare.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A28336F13008C9700F7C11856F1E4DDE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>497359C6C6E78AC3D96CACE3C432C637</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A72E7DAD6F8F3054F09540174DAF4296</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UMSocialNetwork.framework</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialSDK/UMSocialNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A8BA9023918808FEF9C101FD7C297D83</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F3E833D73472B28D2DBEFF65E876B7CA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>A90D4F787C8D131E3871FE2E22D29FA8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>71F30403A1AF69F484C9CB08C3582529</string>
-				<string>9E48A90AD8A90F3049E91ACD933CE1F9</string>
-				<string>2B2670EA08CE5CA44EB0CA16AC2E343E</string>
-				<string>DDEF5B5EB101580C551EE648504CD01E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Social</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AA3A2C3A2F5ACD0EC63A5AB76D955C73</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F1B4DE30CE50209C0BEA16D5232F5A36</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AAF678CED40D3499169D10F63CA0719E</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>POD_CONFIGURATION_RELEASE=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AB6CA7FE4B0BA5BD2BAF5673732ED50D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UMShareMenuSelectionView.m</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMShareMenuSelectionView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ACF7FB14BA360953673861321901D388</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libWeChatSDK.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/libWeChatSDK.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AFA99428E09013272ED279F7C44A13A8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1588B7E707EE1D7F7B0FF85403EEBF3B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BA5000AD429138636D59BE5228F5AB44</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialQQHandler.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/QQ/UMSocialQQHandler.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA8A6F1FC55DA43258B6AAA1655B59DE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBHttpRequest.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBHttpRequest.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BBB51E68D95C7F00115D4FBD1F78D6F6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3B6B6021D7EF6306E22CDFF5ECDAEB52</string>
-				<string>2E810DE43D0969A7E4EB80F174437550</string>
-				<string>18962C64F3D1807A3D3FE240CF6F447D</string>
-				<string>AB6CA7FE4B0BA5BD2BAF5673732ED50D</string>
-				<string>E5B1AB62F33B6A7F052E2BF667993243</string>
-				<string>FCE6C7748975339B3FFBF25296B5BE25</string>
-				<string>7FCE115CEE3C9B80327DCFA4669A0B46</string>
-				<string>558A35D32EA145A457036E577A71287B</string>
-				<string>F6EB113ED6FD038B3CD14285A677A8FA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UI</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BDD0C8BB122FCFC499603BA16901AE38</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBSDKBasicButton.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBSDKBasicButton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE124D81450B70A2F4DB9B810DF2DA82</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialSinaHandler.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/UMSocialSinaHandler.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C6D8DB476AC02FB18CF56879005FB983</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EE5996F02E3775735A257A096D2B34AF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C763F438F6379AD8ABF90C709C305B3B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2E810DE43D0969A7E4EB80F174437550</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB6422544DBB461A44270D34B7C0E890</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CCE0E01BA504CFC9F890573753EF8393</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialWechatHandler.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/UMSocialWechatHandler.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D18F4B84001CD0F6DB278FF79D83E20A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBSDKCommentButton.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBSDKCommentButton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>23B6BEC8F979CC1728A6F6212A0C04D2</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>4C264445A8CA82BC4B430AA4F0536AF4</string>
-				<string>4EF35FBB5F0D0F6EA9022E911719B9AB</string>
-			</array>
-		</dict>
-		<key>D6ABDF642F68176811F79734D29713D1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WBHttpRequest+WeiboGame.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboGame.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D7F339DC0131DD79ED157530D7B758E5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F02C8990D3D4F454996D36DA5D4710A3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DBDB9A2DEF5FC7ED98DF7591810421DF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DDC3E105DDADE3D78A4F8589A8954DDF</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>4EF35FBB5F0D0F6EA9022E911719B9AB</string>
-			<key>remoteInfo</key>
-			<string>UMengUShare</string>
-		</dict>
-		<key>DDEF5B5EB101580C551EE648504CD01E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CCE0E01BA504CFC9F890573753EF8393</string>
-				<string>E30CF4EA4B98AB7581FEAAC77440B4E9</string>
-				<string>71628A6C1FCB2F6BD6CC3EF16C0E56E8</string>
-				<string>53F8DC33E70C0135FA4EA8F8B80E12A0</string>
-				<string>86A445D143EDEEECA759AC1BC830F3B8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>WeChat</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF191F40825F212B60BC38740F6D71E3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>E21DFB73DAE1DE26D9E349697DDAE8E8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D18F4B84001CD0F6DB278FF79D83E20A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>E30CF4EA4B98AB7581FEAAC77440B4E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WechatAuthSDK.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/WechatAuthSDK.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E35CC7DBE9E64B6229AB788D4CD51B46</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CCE0E01BA504CFC9F890573753EF8393</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>E54EC68067A7B582E4228C5D6F1A93B8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>506636683879C9152F35A17CAADD8344</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E5B1AB62F33B6A7F052E2BF667993243</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UMSocialShareScrollView.h</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMSocialShareScrollView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E6410FD83779CD7471791939CFC45C86</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>71DDBFC9510B56C55F6617B1EB38ECB6</string>
-				<string>86AA4B988E24A45D0AC10E0C39CDC7B1</string>
-				<string>A90D4F787C8D131E3871FE2E22D29FA8</string>
-				<string>54F5CB88F056C4F138259B4247824D1D</string>
-				<string>BBB51E68D95C7F00115D4FBD1F78D6F6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UMengUShare</string>
-			<key>path</key>
-			<string>UMengUShare</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E8F5AA9D16E24F90B4F26FD3B1A5A4EA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-MyBoRuiSi.a</string>
-			<key>path</key>
-			<string>libPods-MyBoRuiSi.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>EC875B28568334C65B5B5DDD5379A62E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UMengUShare-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EE5996F02E3775735A257A096D2B34AF</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05FAB21828CC620A2E32308205FB6163</string>
-				<string>FA3B79B15AA1F2292E47A46DB51F0893</string>
-				<string>CB6422544DBB461A44270D34B7C0E890</string>
-				<string>DBDB9A2DEF5FC7ED98DF7591810421DF</string>
-				<string>9FC794FF565D570CB996C5A979432207</string>
-				<string>F7C23E92B815792304DA136E7302EDB6</string>
-				<string>F1B4DE30CE50209C0BEA16D5232F5A36</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-MyBoRuiSi</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-MyBoRuiSi</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F02C8990D3D4F454996D36DA5D4710A3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB6422544DBB461A44270D34B7C0E890</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F11AE095D771D2F90A38517E27FFF469</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7FCE115CEE3C9B80327DCFA4669A0B46</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>F1B4DE30CE50209C0BEA16D5232F5A36</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F3E833D73472B28D2DBEFF65E876B7CA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WeiboSDK.h</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/Sina/WeiboSDK.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F6D5148E80C59A6AEE702A2E202B800D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3B6B6021D7EF6306E22CDFF5ECDAEB52</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>F6EB113ED6FD038B3CD14285A677A8FA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>25157EB5234F05D66FB48BF911263551</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F7C23E92B815792304DA136E7302EDB6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA170E651A69F7A8401A917DBA28CB23</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F6D5148E80C59A6AEE702A2E202B800D</string>
-				<string>4A7E72B20F20561EB375E4B900CC9D00</string>
-				<string>898DC37297226745B4CCB55F288CAAD8</string>
-				<string>FBBC813109A2742C4803BEE6C71E13A0</string>
-				<string>650C26BD41ED37D1D952789E5FDD530A</string>
-				<string>14CC8718E8EF2C5A87F85852F8BC0278</string>
-				<string>F11AE095D771D2F90A38517E27FFF469</string>
-				<string>E35CC7DBE9E64B6229AB788D4CD51B46</string>
-				<string>5656CEAA3127C7B523AC9F0A75EFD991</string>
-				<string>2776737D85A9D9D37CF67766DCE83D07</string>
-				<string>13068454A9C0FF4676E218442F88BC0B</string>
-				<string>3E182AEDD09735D027497CC56D3228F2</string>
-				<string>21758EB8C1D5E30E2B38E4C296C69C52</string>
-				<string>321A140AFB0EEA976B50734F8D30B999</string>
-				<string>E21DFB73DAE1DE26D9E349697DDAE8E8</string>
-				<string>AFA99428E09013272ED279F7C44A13A8</string>
-				<string>7B65ECD834FF03EBED2D611D7F6752F1</string>
-				<string>3B0290F1EA1F5DE6A84431A385FD1C49</string>
-				<string>A8BA9023918808FEF9C101FD7C297D83</string>
-				<string>FE4C62E37EFD5D3269203819EAF59E75</string>
-				<string>18601592B4FC663D81D4536A6613A925</string>
-				<string>5A9BA8227428C2820309F1890D1456FC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA3B79B15AA1F2292E47A46DB51F0893</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-MyBoRuiSi-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBBC813109A2742C4803BEE6C71E13A0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E5B1AB62F33B6A7F052E2BF667993243</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>FC1D34099A81A7AF52E478B255D1FE41</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>3E5E855981959C61C6C9B2E5FB7B37E2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FCE6C7748975339B3FFBF25296B5BE25</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UMSocialShareScrollView.m</string>
-			<key>path</key>
-			<string>UShareSDK/UMSocialUI/UMSocialShareScrollView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FDC8294FBD096585AAEC809C6C80C8A2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>FE4C62E37EFD5D3269203819EAF59E75</key>
-		<dict>
-			<key>fileRef</key>
-			<string>689365D15AE105F72E20C8ACD6BF1038</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>FFEC18B5DFF7E45735EE8DF3E888AEBC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libSocialWeChat.a</string>
-			<key>path</key>
-			<string>UShareSDK/SocialLibraries/WeChat/libSocialWeChat.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B5EEDD253C0B01BD7B72D3C9EE4206 /* IQUIView+IQKeyboardToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B1BA4CBF0BFCAE9A80CF6568DD08AE /* IQUIView+IQKeyboardToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01B0E614721F858385014DD57CE3CB27 /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEC9B8BF24F3D710D2D331195F46825 /* WXApiObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01E09711F001C49F92A97060414E262B /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BF70876F8086538D09B1096B8FD2BBA /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02497B4D2B4B8E85D9E0CB8C19DEC5F9 /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DCA2D09E040CD4079F72A2B0C87139 /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02CE80C872C85D50519C89A3E93DF158 /* UMSocialSinaHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = C11270BB12E7D81944D0D090852FFBC2 /* UMSocialSinaHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05925630D8F4C3B45165B7632C7432C0 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E5574BAFBB23BA6362D9DE9256501F73 /* IQKeyboardReturnKeyHandler.m */; };
+		0D7A3F2AF6180CB5F9070F1D1BE1C86B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6646BAD703CE9E78A244511460B59224 /* Foundation.framework */; };
+		134FC60FAFF13893D34FCC2CDE67126F /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F80333C05732876A42CECB43499EF9 /* IQPreviousNextView.m */; };
+		13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3AF8E639CFB420C96363E8825670D /* MASViewAttribute.m */; };
+		15BF4C4C4C8C514DE2C2881629B1C801 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 089E661AE599D979DFDD4DE9B3D5C264 /* IQUIView+Hierarchy.m */; };
+		16FEF4DF88110E5145A4C7D954C91BB3 /* IQKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ED9CE1D46B8F67D13F453E00D05E20B /* IQKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D4879B92EA825397EDCF3A5B09C5EF2 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CEADAE9650E459209B24F086487802 /* IQTextView.m */; };
+		1EC363D6911160B063DB6CC87F595A5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFAD35B5762B9BBBD206D8012F1249 /* UIKit.framework */; };
+		1F3BD3BC28432BB5E2F73501E06E4579 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D216AD09ED8D6815BBF33B89E1972C /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		204B7BB25F37C3BAA4F2E6AE8CF4579B /* WeiboUser.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4143F3717941E9668A15DC6A368DC4 /* WeiboUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2096CD6E3FA4BFF26DB9085F6A0EF44D /* IQUITextFieldView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 92249E0E7DCCA4AF4A5A225519C9F511 /* IQUITextFieldView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		216E6D7ADF0FFF3318DB30C2CC565C5D /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 0949B00B890137391809717E104A8CF1 /* IQNSArray+Sort.m */; };
+		231F8E21B389D7F294D8231F016AC11A /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9346B9F886A802DB7DC3A5C48FCFEA /* IQUIViewController+Additions.m */; };
+		2A6CB71E84A5D3922D34D4F830D6EB2F /* UMShareMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4691E699E9C2DD26ABAEB56D73FFD03B /* UMShareMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C79AB9B88308F987A7400E635E5BB /* MASViewConstraint.m */; };
+		3284B4F54AAD22766C0F8796748C35D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6646BAD703CE9E78A244511460B59224 /* Foundation.framework */; };
+		350FC8816020C01265290B8484E96E28 /* Pods-MyBoRuiSi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6422544DBB461A44270D34B7C0E890 /* Pods-MyBoRuiSi-dummy.m */; };
+		355C20BFAC671D98BF8D335DE538BE4C /* WeiboSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 44C77AF740C19D46BFF19F1D7627944B /* WeiboSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35B6C81A96EE5DAB333CDCF6C2174DF1 /* WBHttpRequest+WeiboUser.h in Headers */ = {isa = PBXBuildFile; fileRef = B933EB5F7AA393AB959F690C730679F3 /* WBHttpRequest+WeiboUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3739678A623296EA5D934E6F8E28A91E /* UMShareMenuSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 353A7D29C14BC1A43E35DD02CF44691A /* UMShareMenuSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39A508CB9BEFAFD0CF396E6A8D20EF5C /* IQKeyboardManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 025425EDC8E3A47E7BD7051F3643A31D /* IQKeyboardManager-dummy.m */; };
+		39F5F6C87C17B76A8665D9C88FB7EC30 /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = E2177B3A0658C3B83334C34C2C75F031 /* IQTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B3EE2E111912CA5999175CF4A5ED43 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		40EDE0FCE5C311580FD5B7E4E041351D /* IQUIWindow+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4271B7F4081C8ABEE261B0F752408DFD /* IQUIWindow+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		490CA524521F7D444EA58FA915D7E99C /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0294808CFF39D62DCFB3CB9A90954BAA /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49B903D576E09560C52AA92FDCC31A68 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0053743EF8A9C2E29CFAEF473D8DD331 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BDFE5C95C247590174B3F769B9AB969 /* UMSocialQQHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DFCF29792F801E23E0F94C450CAD70 /* UMSocialQQHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C7336D0708904ADC728C09491C8D8E7 /* UMengUShare-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4366BDCDC7823A67FECE77B09CFFE24 /* UMengUShare-dummy.m */; };
+		4CBE1B46550A3FB90FDD1CB9CBA7B7FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B3E04BD1F46B1D1C0ADA6969408731BF /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F6F9DADFF4748897F78453EFED37FC7 /* WXApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B965BD5E1EE054AFD0493C3E21BFBB /* WXApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51A3FDD8311D1037A5F596ACC8CAFFCF /* WBSDKCommentButton.h in Headers */ = {isa = PBXBuildFile; fileRef = E900541F2760637B5E2A3800E22D84A0 /* WBSDKCommentButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		566EA65277D377CE9AF9BC125521965B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6646BAD703CE9E78A244511460B59224 /* Foundation.framework */; };
+		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C351AA955495515A893EEA5DC0EB319 /* MASCompositeConstraint.m */; };
+		6249770A7D163B0F3001D5A76C5FA01C /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = B7FAAD3C4961B78D31F9F47297563964 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63D3C8904D575511B8E5E56551A83838 /* IQUIViewController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 57010AF43666EC5D7DC2F9C9F2FD42FB /* IQUIViewController+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2BB7333DEBD11434A977F6ABA7DE9E /* Masonry-dummy.m */; };
+		6A7504B1615A2F9906B9D87C4C2EA5BD /* IQUIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9929273196D486B163F1008A4FC20455 /* IQUIView+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B2AC8617EDACC42FC9A15D666339518 /* WBSDKBasicButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 51C46213A506A548B9BB64C00D4B3455 /* WBSDKBasicButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C1FD42CEF2935417299AB9C85C85322 /* WBHttpRequest+WeiboGame.h in Headers */ = {isa = PBXBuildFile; fileRef = B1613D1CE60F28CE0CA1AC834C60701E /* WBHttpRequest+WeiboGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7252475F8CCE5FA24C8EC97C7B7DD9B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC08E540238B79E79D41CBD5C848C161 /* CoreTelephony.framework */; };
+		76C317C9B5B686310BCA55D3F354F7C8 /* UMSocialUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC248C74605E082010BC02FE99BA58 /* UMSocialUIManager.m */; };
+		78C5700E07D002A99CAB0CB22497BDE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFAD35B5762B9BBBD206D8012F1249 /* UIKit.framework */; };
+		7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C2E2D7A5A28A9E67FE4AC3178DE5C /* NSArray+MASAdditions.m */; };
+		86EE1CB5473A4A07081D8DE3A2C45924 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 249441DB77628660F10DD8F51F53214E /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7C3E796540BC14C3773E09240000D1 /* MASConstraint.m */; };
+		8A690DB805C1EA973F6B076001828DF9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D03AE8DDD39A4D3AFB6BACAFB37591 /* SystemConfiguration.framework */; };
+		8DDD9AE2B9EDFE9E587127E6ECDFA44E /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 760718A285173787FF69E3D652A4EDC4 /* IQUIView+IQKeyboardToolbar.m */; };
+		8F786F0B037B0B7F9F358F3144EAFD63 /* WBHttpRequest+WeiboShare.h in Headers */ = {isa = PBXBuildFile; fileRef = D4251AEDCEC2EC9E2373B90AC45BBCAA /* WBHttpRequest+WeiboShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BEDB7026FCDCB3D41C45AE2076413C /* MASLayoutConstraint.m */; };
+		983CB852CBBFBC04C2A6BA407E34F59B /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 92D251FC5162734114842B45122DA052 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9934AEA2C891C201D8ED5746FF42FE1B /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A361D7C0CFB733192C73E69A8A265CC /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AC4546D7D76789BE4580172B3ED50D8 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6165702DE6178F8BD9BE628950A10A /* IQToolbar.m */; };
+		9EFB9B3B5141C2405FED2F7D47923AA6 /* WBSDKRelationshipButton.h in Headers */ = {isa = PBXBuildFile; fileRef = FBBB94F278F948D7280DA8C7D1DD8C5C /* WBSDKRelationshipButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F30CF3623BE9CF4C8E7BAD708DDD0F6 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 87812CE9ADE28D88B4443C687131E717 /* IQUITextFieldView+Additions.m */; };
+		A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C03C8C1C20CAE574AC038634C5A9D26 /* View+MASAdditions.m */; };
+		A6436E3CFFCBFE591E2D2A68ED90CAC6 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = AF092C2DDA124396977B60D2E84EC789 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A838E16CC83CB17C1544E99ACBFBDA79 /* IQToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 31DE939826C865CEA8118A2BF4B8B8C9 /* IQToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A83991D7C1373DF66020C2FDFC5D7564 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 713D24E8CBD8A91DE16C1836D69EC804 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8939E6116FBA9F4912FCC3CB29F549C /* IQKeyboardReturnKeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 41894ED3C1626EE93F011E9AD521EC09 /* IQKeyboardReturnKeyHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD83BC52A06A03CBFF043BF3B315BDC2 /* UMSocialUIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 36BE1F83BA2A9E995ACDDA606C961801 /* UMSocialUIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF45E51794891FF141A6FC4F54CA8D0D /* IQPreviousNextView.h in Headers */ = {isa = PBXBuildFile; fileRef = F18E340EF990388BF967A7CED6EE5A2F /* IQPreviousNextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFB419EFE60E91BEDE5927FE8BF36DB4 /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 50B79F1E4E4DE2B723D53640058852B4 /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0BABAA6B64AEBF1E420D6D885EBF8A7 /* UMSocialSmsHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E32420BB8874F97CA618DE377F08FF7D /* UMSocialSmsHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC12241B094390F0F3D5EA4911EA4DF1 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5872E520B63D7DD624603F960330D2 /* IQUIScrollView+Additions.m */; };
+		C1AEB5FFBE0981AD65A8D95573688F54 /* UMSocialShareScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 577213989346040AAB625774B440EAC8 /* UMSocialShareScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4BB53EA5D7C40FF3A597C2A56DD714B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488921955EF199C6778A289C5B605CE5 /* CoreGraphics.framework */; };
+		C88F85D3200060BD98FC13EA58121706 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E086C661F422B1B3FC267F6F7221BD /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC2CD09EE911BD531C3A044F2ABCDC3E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1132F31A48B8452C2025D257FC442742 /* ImageIO.framework */; };
+		CF0E7F0BB66A225C73E9D0E5EE148769 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D3BC2FD2FFEFC3EF55C738D50C48F6 /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D43444F9273BC242437DE518EE99F85D /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662CE1BB954BA5BCDCE670F590B15C3 /* IQBarButtonItem.m */; };
+		D5D6A7444AE888DB6F7F91F4D8967C5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6646BAD703CE9E78A244511460B59224 /* Foundation.framework */; };
+		D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 116588677690320474F23D8F98EA4D12 /* ViewController+MASAdditions.m */; };
+		DAC0C61327E88B151CAEE99E50A43F71 /* UMShareMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A8224FC7759BEE18EDCA77C2BF814C /* UMShareMenuItem.m */; };
+		DC6C9B16AE9216324C74F143576E9580 /* WBHttpRequest+WeiboToken.h in Headers */ = {isa = PBXBuildFile; fileRef = C512C23FBF2DDE95D2CE5E7984CAE30F /* WBHttpRequest+WeiboToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF2FCF6E1C61ED1C24D3E9245B1338EE /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F506450C9EB6B0547BF1BD289E5B87 /* IQKeyboardManager.m */; };
+		DF777C9C89EC416FC43CD2114B8BAC35 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FE3C11A8787428C58D784EC040E0E9 /* IQUIWindow+Hierarchy.m */; };
+		DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 67577DAFCB8D226A26A666EF78C5CA9C /* MASConstraintMaker.m */; };
+		DFB9D2674D9840C87946D76E336773C6 /* UMShareMenuSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A93244BAF42CE6BC9E0729F1D8A65C /* UMShareMenuSelectionView.m */; };
+		E072DA57403C4BFF9B10467BE05604C5 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0652BABFA9C758459964DF58D950EF83 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1E771349813022263F549BDF33CB4BB /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 115201F546C421F5664FC4F95D673A0D /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E233D55B93DF621BCE52AB8A0856E6C7 /* UMSocialShareScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B9659B30B53B624783E98D5860870 /* UMSocialShareScrollView.m */; };
+		E4EF420CD43C3F081D49C037296B0DC1 /* IQTitleBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B222BB68D97811A9901101C571852A0F /* IQTitleBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9FC7825DA8381AD3FF55F0F57A2AEC8 /* WechatAuthSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE2BF09EDD6626602223720AFC91E13 /* WechatAuthSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA3BFDB32E6DEA9B0E162E09E9293352 /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 09995054E23CBEED50D7A83916176FEC /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA73394A1F93D67EB80BD16F44D2753A /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 055176A39ACAA462B8EEAD4529537B5C /* IQTitleBarButtonItem.m */; };
+		EC48DE078CA5E55922CCE02354D475CD /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 655DAFAC73D5B6FDEFE9F02AFE23CCE6 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE4A6994DFCA99BEE91F4114B54CA92A /* WeiboSDK+Statistics.h in Headers */ = {isa = PBXBuildFile; fileRef = CC96A1EAA72C32AD945311B72B498021 /* WeiboSDK+Statistics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F40C9EEE2A398DF830D52893B3AF35B0 /* WBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 77935364EA29F2679AE3A606033E2A7C /* WBHttpRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9CE54098A2452FD14D27607572AA1C1 /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F9248C3B2C026093E2ADC767FB0C0F /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF3105C31BD9212B1CE07AAEE673264B /* UMSocialWechatHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = C0CB40807E7C683C389DE7F662876238 /* UMSocialWechatHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C1567464A3109B173530E05C28170DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 405D852F161DE5CA03133D8583B0971F;
+			remoteInfo = UMengUShare;
+		};
+		AED68A1D7CAC03449CFA421404362DEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9650B5ADCE86F1A055FAFC635284BDB5;
+			remoteInfo = IQKeyboardManager;
+		};
+		BD25BD0787E50EAA4DDA15CD019E8FC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DC8D9E02903E93BD0B2FEC9D846EA20;
+			remoteInfo = Masonry;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0053743EF8A9C2E29CFAEF473D8DD331 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		025425EDC8E3A47E7BD7051F3643A31D /* IQKeyboardManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManager-dummy.m"; sourceTree = "<group>"; };
+		0294808CFF39D62DCFB3CB9A90954BAA /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		04D03AE8DDD39A4D3AFB6BACAFB37591 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		055176A39ACAA462B8EEAD4529537B5C /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		05FAB21828CC620A2E32308205FB6163 /* Pods-MyBoRuiSi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyBoRuiSi-acknowledgements.markdown"; sourceTree = "<group>"; };
+		062E4BB769148AF2EC08A83F843813D4 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		064B8A70783B2CC92424F9081598E28E /* libSocialSMS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialSMS.a; path = UShareSDK/SocialLibraries/SMS/libSocialSMS.a; sourceTree = "<group>"; };
+		0652BABFA9C758459964DF58D950EF83 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		07DFCF29792F801E23E0F94C450CAD70 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialQQHandler.h; path = UShareSDK/SocialLibraries/QQ/UMSocialQQHandler.h; sourceTree = "<group>"; };
+		089E661AE599D979DFDD4DE9B3D5C264 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		0949B00B890137391809717E104A8CF1 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQNSArray+Sort.m"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.m"; sourceTree = "<group>"; };
+		09995054E23CBEED50D7A83916176FEC /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstantsInternal.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		0E3B9659B30B53B624783E98D5860870 /* UMSocialShareScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UMSocialShareScrollView.m; path = UShareSDK/UMSocialUI/UMSocialShareScrollView.m; sourceTree = "<group>"; };
+		0E7C3E796540BC14C3773E09240000D1 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		1132F31A48B8452C2025D257FC442742 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		115201F546C421F5664FC4F95D673A0D /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		116588677690320474F23D8F98EA4D12 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		16A8224FC7759BEE18EDCA77C2BF814C /* UMShareMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UMShareMenuItem.m; path = UShareSDK/UMSocialUI/UMShareMenuItem.m; sourceTree = "<group>"; };
+		16D216AD09ED8D6815BBF33B89E1972C /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		17DC248C74605E082010BC02FE99BA58 /* UMSocialUIManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UMSocialUIManager.m; path = UShareSDK/UMSocialUI/UMSocialUIManager.m; sourceTree = "<group>"; };
+		1BF70876F8086538D09B1096B8FD2BBA /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		1EAFAD35B5762B9BBBD206D8012F1249 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		20B1BA4CBF0BFCAE9A80CF6568DD08AE /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+IQKeyboardToolbar.h"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		249441DB77628660F10DD8F51F53214E /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		267313043C15C977D630EA27E2AC5A5D /* WeiboSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = UShareSDK/SocialLibraries/Sina/WeiboSDK.bundle; sourceTree = "<group>"; };
+		2A1C2E2D7A5A28A9E67FE4AC3178DE5C /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		2A361D7C0CFB733192C73E69A8A265CC /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		2A5872E520B63D7DD624603F960330D2 /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
+		31DE939826C865CEA8118A2BF4B8B8C9 /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
+		353A7D29C14BC1A43E35DD02CF44691A /* UMShareMenuSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMShareMenuSelectionView.h; path = UShareSDK/UMSocialUI/UMShareMenuSelectionView.h; sourceTree = "<group>"; };
+		35CEADAE9650E459209B24F086487802 /* IQTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTextView.m; path = IQKeyboardManager/IQTextView/IQTextView.m; sourceTree = "<group>"; };
+		36BE1F83BA2A9E995ACDDA606C961801 /* UMSocialUIManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialUIManager.h; path = UShareSDK/UMSocialUI/UMSocialUIManager.h; sourceTree = "<group>"; };
+		3910AB6058669597ED54BF780E2C37E8 /* libSocialSina.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialSina.a; path = UShareSDK/SocialLibraries/Sina/libSocialSina.a; sourceTree = "<group>"; };
+		3EB0B56737C0278D1734D08B66EB5FBB /* libPods-MyBoRuiSi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-MyBoRuiSi.a"; path = "libPods-MyBoRuiSi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41894ED3C1626EE93F011E9AD521EC09 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
+		4271B7F4081C8ABEE261B0F752408DFD /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIWindow+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		44C77AF740C19D46BFF19F1D7627944B /* WeiboSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = UShareSDK/SocialLibraries/Sina/WeiboSDK.h; sourceTree = "<group>"; };
+		4691E699E9C2DD26ABAEB56D73FFD03B /* UMShareMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMShareMenuItem.h; path = UShareSDK/UMSocialUI/UMShareMenuItem.h; sourceTree = "<group>"; };
+		488921955EF199C6778A289C5B605CE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		4D69A4565F98E63D6EE2692FF0F6CABC /* IQKeyboardManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManager.xcconfig; sourceTree = "<group>"; };
+		50B79F1E4E4DE2B723D53640058852B4 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIScrollView+Additions.h"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
+		51C46213A506A548B9BB64C00D4B3455 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKBasicButton.h; path = UShareSDK/SocialLibraries/Sina/WBSDKBasicButton.h; sourceTree = "<group>"; };
+		52FE3C11A8787428C58D784EC040E0E9 /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIWindow+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		57010AF43666EC5D7DC2F9C9F2FD42FB /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIViewController+Additions.h"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		577213989346040AAB625774B440EAC8 /* UMSocialShareScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialShareScrollView.h; path = UShareSDK/UMSocialUI/UMSocialShareScrollView.h; sourceTree = "<group>"; };
+		5C03C8C1C20CAE574AC038634C5A9D26 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		5CEC9B8BF24F3D710D2D331195F46825 /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = UShareSDK/SocialLibraries/WeChat/WXApiObject.h; sourceTree = "<group>"; };
+		63F80333C05732876A42CECB43499EF9 /* IQPreviousNextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPreviousNextView.m; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.m; sourceTree = "<group>"; };
+		655DAFAC73D5B6FDEFE9F02AFE23CCE6 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		6646BAD703CE9E78A244511460B59224 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6662CE1BB954BA5BCDCE670F590B15C3 /* IQBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.m; sourceTree = "<group>"; };
+		67577DAFCB8D226A26A666EF78C5CA9C /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		713D24E8CBD8A91DE16C1836D69EC804 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		760718A285173787FF69E3D652A4EDC4 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+IQKeyboardToolbar.m"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		76D8E598AD53E56F877CBC82430C981B /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMSocialCore.framework; path = UShareSDK/UMSocialSDK/UMSocialCore.framework; sourceTree = "<group>"; };
+		77935364EA29F2679AE3A606033E2A7C /* WBHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBHttpRequest.h; path = UShareSDK/SocialLibraries/Sina/WBHttpRequest.h; sourceTree = "<group>"; };
+		79F506450C9EB6B0547BF1BD289E5B87 /* IQKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardManager.m; path = IQKeyboardManager/IQKeyboardManager.m; sourceTree = "<group>"; };
+		7EE2BF09EDD6626602223720AFC91E13 /* WechatAuthSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = UShareSDK/SocialLibraries/WeChat/WechatAuthSDK.h; sourceTree = "<group>"; };
+		82A93244BAF42CE6BC9E0729F1D8A65C /* UMShareMenuSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UMShareMenuSelectionView.m; path = UShareSDK/UMSocialUI/UMShareMenuSelectionView.m; sourceTree = "<group>"; };
+		84B965BD5E1EE054AFD0493C3E21BFBB /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = UShareSDK/SocialLibraries/WeChat/WXApi.h; sourceTree = "<group>"; };
+		84F9248C3B2C026093E2ADC767FB0C0F /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstants.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		85F33D0360216DB33E7AFE5B2E78EA0F /* libUMengUShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libUMengUShare.a; path = libUMengUShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		87812CE9ADE28D88B4443C687131E717 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
+		8CC0D092F2417D03FD09651060FE61DE /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		92249E0E7DCCA4AF4A5A225519C9F511 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUITextFieldView+Additions.h"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		92D251FC5162734114842B45122DA052 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94B89E8EE7E96FFECD5791FDCC4381B8 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = UShareSDK/SocialLibraries/QQ/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		9929273196D486B163F1008A4FC20455 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		9C351AA955495515A893EEA5DC0EB319 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		9ED9CE1D46B8F67D13F453E00D05E20B /* IQKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManager.h; path = IQKeyboardManager/IQKeyboardManager.h; sourceTree = "<group>"; };
+		9FC794FF565D570CB996C5A979432207 /* Pods-MyBoRuiSi-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyBoRuiSi-resources.sh"; sourceTree = "<group>"; };
+		A04409B1E564684ED1443AEB9603F9D8 /* IQKeyboardManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManager-prefix.pch"; sourceTree = "<group>"; };
+		A0D056F0499874D4198547EDFF581156 /* UMengUShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UMengUShare.xcconfig; sourceTree = "<group>"; };
+		A1ED81AE0D83D1C24F08E0411AD3D310 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		A2BEDB7026FCDCB3D41C45AE2076413C /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		A54C79AB9B88308F987A7400E635E5BB /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		AA68BE455865B697222C7781EB03421D /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libIQKeyboardManager.a; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF092C2DDA124396977B60D2E84EC789 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		AF6A594CC7621102E890B655D161FD7A /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = UShareSDK/SocialLibraries/QQ/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		B1613D1CE60F28CE0CA1AC834C60701E /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboGame.h"; path = "UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		B222BB68D97811A9901101C571852A0F /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTitleBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		B3E04BD1F46B1D1C0ADA6969408731BF /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		B7FAAD3C4961B78D31F9F47297563964 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		B8DCA2D09E040CD4079F72A2B0C87139 /* IQBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.h; sourceTree = "<group>"; };
+		B933EB5F7AA393AB959F690C730679F3 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboUser.h"; path = "UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		BB9346B9F886A802DB7DC3A5C48FCFEA /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIViewController+Additions.m"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.m"; sourceTree = "<group>"; };
+		C0CB40807E7C683C389DE7F662876238 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialWechatHandler.h; path = UShareSDK/SocialLibraries/WeChat/UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		C11270BB12E7D81944D0D090852FFBC2 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialSinaHandler.h; path = UShareSDK/SocialLibraries/Sina/UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		C512C23FBF2DDE95D2CE5E7984CAE30F /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboToken.h"; path = "UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		CB6422544DBB461A44270D34B7C0E890 /* Pods-MyBoRuiSi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyBoRuiSi-dummy.m"; sourceTree = "<group>"; };
+		CC08E540238B79E79D41CBD5C848C161 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		CC96A1EAA72C32AD945311B72B498021 /* WeiboSDK+Statistics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WeiboSDK+Statistics.h"; path = "UShareSDK/SocialLibraries/Sina/WeiboSDK+Statistics.h"; sourceTree = "<group>"; };
+		D3CA0C1A48B823F8BC7F9813E202B34C /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManager/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		D4251AEDCEC2EC9E2373B90AC45BBCAA /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboShare.h"; path = "UShareSDK/SocialLibraries/Sina/WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		D4E086C661F422B1B3FC267F6F7221BD /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		D4E3B50A5FC6E03DF053A210309B5A3F /* libSocialQQ.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialQQ.a; path = UShareSDK/SocialLibraries/QQ/libSocialQQ.a; sourceTree = "<group>"; };
+		D7B3EE2E111912CA5999175CF4A5ED43 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		D9379D2DB7D56F6EB8442E4454EECD0F /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = UMSocialSDKResources.bundle; path = UShareSDK/UMSocialUI/Resource/UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		DBDB9A2DEF5FC7ED98DF7591810421DF /* Pods-MyBoRuiSi-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyBoRuiSi-frameworks.sh"; sourceTree = "<group>"; };
+		DC4143F3717941E9668A15DC6A368DC4 /* WeiboUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WeiboUser.h; path = UShareSDK/SocialLibraries/Sina/WeiboUser.h; sourceTree = "<group>"; };
+		DF465CF6DB417EA8F5B3ADFFB4DE7FAE /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = UShareSDK/SocialLibraries/WeChat/libWeChatSDK.a; sourceTree = "<group>"; };
+		DF6165702DE6178F8BD9BE628950A10A /* IQToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQToolbar.m; path = IQKeyboardManager/IQToolbar/IQToolbar.m; sourceTree = "<group>"; };
+		E2177B3A0658C3B83334C34C2C75F031 /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
+		E32420BB8874F97CA618DE377F08FF7D /* UMSocialSmsHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialSmsHandler.h; path = UShareSDK/SocialLibraries/SMS/UMSocialSmsHandler.h; sourceTree = "<group>"; };
+		E4366BDCDC7823A67FECE77B09CFFE24 /* UMengUShare-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UMengUShare-dummy.m"; sourceTree = "<group>"; };
+		E5574BAFBB23BA6362D9DE9256501F73 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		E74133322B1C0785224786E4E4758B0A /* libWeiboSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = UShareSDK/SocialLibraries/Sina/libWeiboSDK.a; sourceTree = "<group>"; };
+		E7468B24ABDF96E1F1927836C8A29D8D /* UMengUShare-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UMengUShare-prefix.pch"; sourceTree = "<group>"; };
+		E900541F2760637B5E2A3800E22D84A0 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKCommentButton.h; path = UShareSDK/SocialLibraries/Sina/WBSDKCommentButton.h; sourceTree = "<group>"; };
+		EA0CD2E6FB4E33FBF5DC169DF2CA6C05 /* libSocialWeChat.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialWeChat.a; path = UShareSDK/SocialLibraries/WeChat/libSocialWeChat.a; sourceTree = "<group>"; };
+		F18E340EF990388BF967A7CED6EE5A2F /* IQPreviousNextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPreviousNextView.h; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.h; sourceTree = "<group>"; };
+		F1B4DE30CE50209C0BEA16D5232F5A36 /* Pods-MyBoRuiSi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyBoRuiSi.release.xcconfig"; sourceTree = "<group>"; };
+		F6B3AF8E639CFB420C96363E8825670D /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		F7C23E92B815792304DA136E7302EDB6 /* Pods-MyBoRuiSi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyBoRuiSi.debug.xcconfig"; sourceTree = "<group>"; };
+		F8CD5E172962BB426AA4410A9EDEE60F /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMSocialNetwork.framework; path = UShareSDK/UMSocialSDK/UMSocialNetwork.framework; sourceTree = "<group>"; };
+		F9D3BC2FD2FFEFC3EF55C738D50C48F6 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		FA3B79B15AA1F2292E47A46DB51F0893 /* Pods-MyBoRuiSi-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyBoRuiSi-acknowledgements.plist"; sourceTree = "<group>"; };
+		FBBB94F278F948D7280DA8C7D1DD8C5C /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKRelationshipButton.h; path = UShareSDK/SocialLibraries/Sina/WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		FF2BB7333DEBD11434A977F6ABA7DE9E /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0067BE1B2B549552004CA091F96B4A41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D7A3F2AF6180CB5F9070F1D1BE1C86B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F27DEBA4611E9AE6E3805AD3AF29C62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4BB53EA5D7C40FF3A597C2A56DD714B /* CoreGraphics.framework in Frameworks */,
+				3284B4F54AAD22766C0F8796748C35D2 /* Foundation.framework in Frameworks */,
+				78C5700E07D002A99CAB0CB22497BDE7 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FAB604845E9D888617B4A2BCE8C2D93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7252475F8CCE5FA24C8EC97C7B7DD9B7 /* CoreTelephony.framework in Frameworks */,
+				D5D6A7444AE888DB6F7F91F4D8967C5A /* Foundation.framework in Frameworks */,
+				CC2CD09EE911BD531C3A044F2ABCDC3E /* ImageIO.framework in Frameworks */,
+				8A690DB805C1EA973F6B076001828DF9 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD8312A1AEB348F49A81C438DB25115 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				566EA65277D377CE9AF9BC125521965B /* Foundation.framework in Frameworks */,
+				1EC363D6911160B063DB6CC87F595A5B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0258EE8FDF9F5EFC4B9550FD8D4C45E5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				690AEEBDD8AB1C7AD950D6A500280119 /* Frameworks */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D82D964D6B29414AD7A9062B2058EFE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19F78BCE3D3C5600EE78EEE9CEBDB0EA /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				65B030F4225148FE1E0778AB296E2822 /* QQ */,
+				CC20CF96D5A1F22017EA5BA57DE1E35D /* Sina */,
+				F89FB2CF87FD0EDF09A4FDD925B1E0E8 /* SMS */,
+				418968101DD07958592F0FF601F00DA8 /* WeChat */,
+			);
+			name = Social;
+			sourceTree = "<group>";
+		};
+		1B86A9BD0AF29825D4B834E04EBBC964 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D9379D2DB7D56F6EB8442E4454EECD0F /* UMSocialSDKResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		350E420B5E6F5B40A8B1C1220D0BD96D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76D8E598AD53E56F877CBC82430C981B /* UMSocialCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		36FA04EBBB05F24B746064BE71CF30C4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0D056F0499874D4198547EDFF581156 /* UMengUShare.xcconfig */,
+				E4366BDCDC7823A67FECE77B09CFFE24 /* UMengUShare-dummy.m */,
+				E7468B24ABDF96E1F1927836C8A29D8D /* UMengUShare-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UMengUShare";
+			sourceTree = "<group>";
+		};
+		37A01CC3CE3057ED22739B20AFDB0073 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4691E699E9C2DD26ABAEB56D73FFD03B /* UMShareMenuItem.h */,
+				16A8224FC7759BEE18EDCA77C2BF814C /* UMShareMenuItem.m */,
+				353A7D29C14BC1A43E35DD02CF44691A /* UMShareMenuSelectionView.h */,
+				82A93244BAF42CE6BC9E0729F1D8A65C /* UMShareMenuSelectionView.m */,
+				577213989346040AAB625774B440EAC8 /* UMSocialShareScrollView.h */,
+				0E3B9659B30B53B624783E98D5860870 /* UMSocialShareScrollView.m */,
+				36BE1F83BA2A9E995ACDDA606C961801 /* UMSocialUIManager.h */,
+				17DC248C74605E082010BC02FE99BA58 /* UMSocialUIManager.m */,
+				1B86A9BD0AF29825D4B834E04EBBC964 /* Resources */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		418968101DD07958592F0FF601F00DA8 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				C0CB40807E7C683C389DE7F662876238 /* UMSocialWechatHandler.h */,
+				7EE2BF09EDD6626602223720AFC91E13 /* WechatAuthSDK.h */,
+				84B965BD5E1EE054AFD0493C3E21BFBB /* WXApi.h */,
+				5CEC9B8BF24F3D710D2D331195F46825 /* WXApiObject.h */,
+				B9F1F0E46E9A936B9450DD5880889B7F /* Frameworks */,
+			);
+			name = WeChat;
+			sourceTree = "<group>";
+		};
+		4D965640D7B25E211330CDEBFE06D318 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3910AB6058669597ED54BF780E2C37E8 /* libSocialSina.a */,
+				E74133322B1C0785224786E4E4758B0A /* libWeiboSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		504ACA2AE6D8A67CFC10B68CD5FF9E71 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				267313043C15C977D630EA27E2AC5A5D /* WeiboSDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		59666F463653ABA29B2C864245FFE79F /* UMengUShare */ = {
+			isa = PBXGroup;
+			children = (
+				B4F35E2F53A1F794BDAEA33992E097A1 /* Core */,
+				0258EE8FDF9F5EFC4B9550FD8D4C45E5 /* Network */,
+				19F78BCE3D3C5600EE78EEE9CEBDB0EA /* Social */,
+				36FA04EBBB05F24B746064BE71CF30C4 /* Support Files */,
+				37A01CC3CE3057ED22739B20AFDB0073 /* UI */,
+			);
+			name = UMengUShare;
+			path = UMengUShare;
+			sourceTree = "<group>";
+		};
+		5CC3AAAE219E99A1FBAD1E7E6C8E3796 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF6A594CC7621102E890B655D161FD7A /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		65B030F4225148FE1E0778AB296E2822 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				07DFCF29792F801E23E0F94C450CAD70 /* UMSocialQQHandler.h */,
+				8071303BB72BE37E5BFD96A674D8577D /* Frameworks */,
+				5CC3AAAE219E99A1FBAD1E7E6C8E3796 /* Resources */,
+			);
+			name = QQ;
+			sourceTree = "<group>";
+		};
+		690AEEBDD8AB1C7AD950D6A500280119 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8CD5E172962BB426AA4410A9EDEE60F /* UMSocialNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
+				9A1FA7CBFFE93C744A5C0C8AC89D5C72 /* Pods */,
+				C141399D849FEB7591DCDEDE7B4195EB /* Products */,
+				C6D8DB476AC02FB18CF56879005FB983 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8071303BB72BE37E5BFD96A674D8577D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3B50A5FC6E03DF053A210309B5A3F /* libSocialQQ.a */,
+				94B89E8EE7E96FFECD5791FDCC4381B8 /* TencentOpenAPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A1FA7CBFFE93C744A5C0C8AC89D5C72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8245798637E527F21A5454A4F25D3A0 /* IQKeyboardManager */,
+				E6F3503F414177D94FE264ECA6F51547 /* Masonry */,
+				59666F463653ABA29B2C864245FFE79F /* UMengUShare */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D82D964D6B29414AD7A9062B2058EFE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				488921955EF199C6778A289C5B605CE5 /* CoreGraphics.framework */,
+				CC08E540238B79E79D41CBD5C848C161 /* CoreTelephony.framework */,
+				6646BAD703CE9E78A244511460B59224 /* Foundation.framework */,
+				1132F31A48B8452C2025D257FC442742 /* ImageIO.framework */,
+				04D03AE8DDD39A4D3AFB6BACAFB37591 /* SystemConfiguration.framework */,
+				1EAFAD35B5762B9BBBD206D8012F1249 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9EBBC4A053DF3CD64BBC9E9367E476EB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D69A4565F98E63D6EE2692FF0F6CABC /* IQKeyboardManager.xcconfig */,
+				025425EDC8E3A47E7BD7051F3643A31D /* IQKeyboardManager-dummy.m */,
+				A04409B1E564684ED1443AEB9603F9D8 /* IQKeyboardManager-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQKeyboardManager";
+			sourceTree = "<group>";
+		};
+		B4F35E2F53A1F794BDAEA33992E097A1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				350E420B5E6F5B40A8B1C1220D0BD96D /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B9F1F0E46E9A936B9450DD5880889B7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA0CD2E6FB4E33FBF5DC169DF2CA6C05 /* libSocialWeChat.a */,
+				DF465CF6DB417EA8F5B3ADFFB4DE7FAE /* libWeChatSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C141399D849FEB7591DCDEDE7B4195EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA68BE455865B697222C7781EB03421D /* libIQKeyboardManager.a */,
+				8CC0D092F2417D03FD09651060FE61DE /* libMasonry.a */,
+				3EB0B56737C0278D1734D08B66EB5FBB /* libPods-MyBoRuiSi.a */,
+				85F33D0360216DB33E7AFE5B2E78EA0F /* libUMengUShare.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C49E3CEED3397F4D8186D3A75131FA7F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				062E4BB769148AF2EC08A83F843813D4 /* Masonry.xcconfig */,
+				FF2BB7333DEBD11434A977F6ABA7DE9E /* Masonry-dummy.m */,
+				A1ED81AE0D83D1C24F08E0411AD3D310 /* Masonry-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
+		C6D8DB476AC02FB18CF56879005FB983 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE5996F02E3775735A257A096D2B34AF /* Pods-MyBoRuiSi */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C8245798637E527F21A5454A4F25D3A0 /* IQKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				B8DCA2D09E040CD4079F72A2B0C87139 /* IQBarButtonItem.h */,
+				6662CE1BB954BA5BCDCE670F590B15C3 /* IQBarButtonItem.m */,
+				9ED9CE1D46B8F67D13F453E00D05E20B /* IQKeyboardManager.h */,
+				79F506450C9EB6B0547BF1BD289E5B87 /* IQKeyboardManager.m */,
+				84F9248C3B2C026093E2ADC767FB0C0F /* IQKeyboardManagerConstants.h */,
+				09995054E23CBEED50D7A83916176FEC /* IQKeyboardManagerConstantsInternal.h */,
+				41894ED3C1626EE93F011E9AD521EC09 /* IQKeyboardReturnKeyHandler.h */,
+				E5574BAFBB23BA6362D9DE9256501F73 /* IQKeyboardReturnKeyHandler.m */,
+				F9D3BC2FD2FFEFC3EF55C738D50C48F6 /* IQNSArray+Sort.h */,
+				0949B00B890137391809717E104A8CF1 /* IQNSArray+Sort.m */,
+				F18E340EF990388BF967A7CED6EE5A2F /* IQPreviousNextView.h */,
+				63F80333C05732876A42CECB43499EF9 /* IQPreviousNextView.m */,
+				E2177B3A0658C3B83334C34C2C75F031 /* IQTextView.h */,
+				35CEADAE9650E459209B24F086487802 /* IQTextView.m */,
+				B222BB68D97811A9901101C571852A0F /* IQTitleBarButtonItem.h */,
+				055176A39ACAA462B8EEAD4529537B5C /* IQTitleBarButtonItem.m */,
+				31DE939826C865CEA8118A2BF4B8B8C9 /* IQToolbar.h */,
+				DF6165702DE6178F8BD9BE628950A10A /* IQToolbar.m */,
+				50B79F1E4E4DE2B723D53640058852B4 /* IQUIScrollView+Additions.h */,
+				2A5872E520B63D7DD624603F960330D2 /* IQUIScrollView+Additions.m */,
+				92249E0E7DCCA4AF4A5A225519C9F511 /* IQUITextFieldView+Additions.h */,
+				87812CE9ADE28D88B4443C687131E717 /* IQUITextFieldView+Additions.m */,
+				9929273196D486B163F1008A4FC20455 /* IQUIView+Hierarchy.h */,
+				089E661AE599D979DFDD4DE9B3D5C264 /* IQUIView+Hierarchy.m */,
+				20B1BA4CBF0BFCAE9A80CF6568DD08AE /* IQUIView+IQKeyboardToolbar.h */,
+				760718A285173787FF69E3D652A4EDC4 /* IQUIView+IQKeyboardToolbar.m */,
+				57010AF43666EC5D7DC2F9C9F2FD42FB /* IQUIViewController+Additions.h */,
+				BB9346B9F886A802DB7DC3A5C48FCFEA /* IQUIViewController+Additions.m */,
+				4271B7F4081C8ABEE261B0F752408DFD /* IQUIWindow+Hierarchy.h */,
+				52FE3C11A8787428C58D784EC040E0E9 /* IQUIWindow+Hierarchy.m */,
+				F3A7F82CAD89AC673BEE26A20076DF32 /* Resources */,
+				9EBBC4A053DF3CD64BBC9E9367E476EB /* Support Files */,
+			);
+			name = IQKeyboardManager;
+			path = IQKeyboardManager;
+			sourceTree = "<group>";
+		};
+		CC20CF96D5A1F22017EA5BA57DE1E35D /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				C11270BB12E7D81944D0D090852FFBC2 /* UMSocialSinaHandler.h */,
+				77935364EA29F2679AE3A606033E2A7C /* WBHttpRequest.h */,
+				B1613D1CE60F28CE0CA1AC834C60701E /* WBHttpRequest+WeiboGame.h */,
+				D4251AEDCEC2EC9E2373B90AC45BBCAA /* WBHttpRequest+WeiboShare.h */,
+				C512C23FBF2DDE95D2CE5E7984CAE30F /* WBHttpRequest+WeiboToken.h */,
+				B933EB5F7AA393AB959F690C730679F3 /* WBHttpRequest+WeiboUser.h */,
+				51C46213A506A548B9BB64C00D4B3455 /* WBSDKBasicButton.h */,
+				E900541F2760637B5E2A3800E22D84A0 /* WBSDKCommentButton.h */,
+				FBBB94F278F948D7280DA8C7D1DD8C5C /* WBSDKRelationshipButton.h */,
+				44C77AF740C19D46BFF19F1D7627944B /* WeiboSDK.h */,
+				CC96A1EAA72C32AD945311B72B498021 /* WeiboSDK+Statistics.h */,
+				DC4143F3717941E9668A15DC6A368DC4 /* WeiboUser.h */,
+				4D965640D7B25E211330CDEBFE06D318 /* Frameworks */,
+				504ACA2AE6D8A67CFC10B68CD5FF9E71 /* Resources */,
+			);
+			name = Sina;
+			sourceTree = "<group>";
+		};
+		DAF294ADD33DC1EC90181CE8FBE0C0EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				064B8A70783B2CC92424F9081598E28E /* libSocialSMS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6F3503F414177D94FE264ECA6F51547 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				1BF70876F8086538D09B1096B8FD2BBA /* MASCompositeConstraint.h */,
+				9C351AA955495515A893EEA5DC0EB319 /* MASCompositeConstraint.m */,
+				B7FAAD3C4961B78D31F9F47297563964 /* MASConstraint.h */,
+				0E7C3E796540BC14C3773E09240000D1 /* MASConstraint.m */,
+				B3E04BD1F46B1D1C0ADA6969408731BF /* MASConstraint+Private.h */,
+				655DAFAC73D5B6FDEFE9F02AFE23CCE6 /* MASConstraintMaker.h */,
+				67577DAFCB8D226A26A666EF78C5CA9C /* MASConstraintMaker.m */,
+				AF092C2DDA124396977B60D2E84EC789 /* MASLayoutConstraint.h */,
+				A2BEDB7026FCDCB3D41C45AE2076413C /* MASLayoutConstraint.m */,
+				0053743EF8A9C2E29CFAEF473D8DD331 /* Masonry.h */,
+				16D216AD09ED8D6815BBF33B89E1972C /* MASUtilities.h */,
+				115201F546C421F5664FC4F95D673A0D /* MASViewAttribute.h */,
+				F6B3AF8E639CFB420C96363E8825670D /* MASViewAttribute.m */,
+				713D24E8CBD8A91DE16C1836D69EC804 /* MASViewConstraint.h */,
+				A54C79AB9B88308F987A7400E635E5BB /* MASViewConstraint.m */,
+				0294808CFF39D62DCFB3CB9A90954BAA /* NSArray+MASAdditions.h */,
+				2A1C2E2D7A5A28A9E67FE4AC3178DE5C /* NSArray+MASAdditions.m */,
+				0652BABFA9C758459964DF58D950EF83 /* NSArray+MASShorthandAdditions.h */,
+				2A361D7C0CFB733192C73E69A8A265CC /* NSLayoutConstraint+MASDebugAdditions.h */,
+				D7B3EE2E111912CA5999175CF4A5ED43 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				249441DB77628660F10DD8F51F53214E /* View+MASAdditions.h */,
+				5C03C8C1C20CAE574AC038634C5A9D26 /* View+MASAdditions.m */,
+				92D251FC5162734114842B45122DA052 /* View+MASShorthandAdditions.h */,
+				D4E086C661F422B1B3FC267F6F7221BD /* ViewController+MASAdditions.h */,
+				116588677690320474F23D8F98EA4D12 /* ViewController+MASAdditions.m */,
+				C49E3CEED3397F4D8186D3A75131FA7F /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		EE5996F02E3775735A257A096D2B34AF /* Pods-MyBoRuiSi */ = {
+			isa = PBXGroup;
+			children = (
+				05FAB21828CC620A2E32308205FB6163 /* Pods-MyBoRuiSi-acknowledgements.markdown */,
+				FA3B79B15AA1F2292E47A46DB51F0893 /* Pods-MyBoRuiSi-acknowledgements.plist */,
+				CB6422544DBB461A44270D34B7C0E890 /* Pods-MyBoRuiSi-dummy.m */,
+				DBDB9A2DEF5FC7ED98DF7591810421DF /* Pods-MyBoRuiSi-frameworks.sh */,
+				9FC794FF565D570CB996C5A979432207 /* Pods-MyBoRuiSi-resources.sh */,
+				F7C23E92B815792304DA136E7302EDB6 /* Pods-MyBoRuiSi.debug.xcconfig */,
+				F1B4DE30CE50209C0BEA16D5232F5A36 /* Pods-MyBoRuiSi.release.xcconfig */,
+			);
+			name = "Pods-MyBoRuiSi";
+			path = "Target Support Files/Pods-MyBoRuiSi";
+			sourceTree = "<group>";
+		};
+		F3A7F82CAD89AC673BEE26A20076DF32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3CA0C1A48B823F8BC7F9813E202B34C /* IQKeyboardManager.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F89FB2CF87FD0EDF09A4FDD925B1E0E8 /* SMS */ = {
+			isa = PBXGroup;
+			children = (
+				E32420BB8874F97CA618DE377F08FF7D /* UMSocialSmsHandler.h */,
+				DAF294ADD33DC1EC90181CE8FBE0C0EB /* Frameworks */,
+			);
+			name = SMS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		29AAB4BCE0845BB840E7A3ADDC0BC6A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02497B4D2B4B8E85D9E0CB8C19DEC5F9 /* IQBarButtonItem.h in Headers */,
+				16FEF4DF88110E5145A4C7D954C91BB3 /* IQKeyboardManager.h in Headers */,
+				F9CE54098A2452FD14D27607572AA1C1 /* IQKeyboardManagerConstants.h in Headers */,
+				EA3BFDB32E6DEA9B0E162E09E9293352 /* IQKeyboardManagerConstantsInternal.h in Headers */,
+				A8939E6116FBA9F4912FCC3CB29F549C /* IQKeyboardReturnKeyHandler.h in Headers */,
+				CF0E7F0BB66A225C73E9D0E5EE148769 /* IQNSArray+Sort.h in Headers */,
+				AF45E51794891FF141A6FC4F54CA8D0D /* IQPreviousNextView.h in Headers */,
+				39F5F6C87C17B76A8665D9C88FB7EC30 /* IQTextView.h in Headers */,
+				E4EF420CD43C3F081D49C037296B0DC1 /* IQTitleBarButtonItem.h in Headers */,
+				A838E16CC83CB17C1544E99ACBFBDA79 /* IQToolbar.h in Headers */,
+				AFB419EFE60E91BEDE5927FE8BF36DB4 /* IQUIScrollView+Additions.h in Headers */,
+				2096CD6E3FA4BFF26DB9085F6A0EF44D /* IQUITextFieldView+Additions.h in Headers */,
+				6A7504B1615A2F9906B9D87C4C2EA5BD /* IQUIView+Hierarchy.h in Headers */,
+				00B5EEDD253C0B01BD7B72D3C9EE4206 /* IQUIView+IQKeyboardToolbar.h in Headers */,
+				63D3C8904D575511B8E5E56551A83838 /* IQUIViewController+Additions.h in Headers */,
+				40EDE0FCE5C311580FD5B7E4E041351D /* IQUIWindow+Hierarchy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D51C52CB91AEE509455EED66D5D92FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6CB71E84A5D3922D34D4F830D6EB2F /* UMShareMenuItem.h in Headers */,
+				3739678A623296EA5D934E6F8E28A91E /* UMShareMenuSelectionView.h in Headers */,
+				4BDFE5C95C247590174B3F769B9AB969 /* UMSocialQQHandler.h in Headers */,
+				C1AEB5FFBE0981AD65A8D95573688F54 /* UMSocialShareScrollView.h in Headers */,
+				02CE80C872C85D50519C89A3E93DF158 /* UMSocialSinaHandler.h in Headers */,
+				B0BABAA6B64AEBF1E420D6D885EBF8A7 /* UMSocialSmsHandler.h in Headers */,
+				AD83BC52A06A03CBFF043BF3B315BDC2 /* UMSocialUIManager.h in Headers */,
+				FF3105C31BD9212B1CE07AAEE673264B /* UMSocialWechatHandler.h in Headers */,
+				6C1FD42CEF2935417299AB9C85C85322 /* WBHttpRequest+WeiboGame.h in Headers */,
+				8F786F0B037B0B7F9F358F3144EAFD63 /* WBHttpRequest+WeiboShare.h in Headers */,
+				DC6C9B16AE9216324C74F143576E9580 /* WBHttpRequest+WeiboToken.h in Headers */,
+				35B6C81A96EE5DAB333CDCF6C2174DF1 /* WBHttpRequest+WeiboUser.h in Headers */,
+				F40C9EEE2A398DF830D52893B3AF35B0 /* WBHttpRequest.h in Headers */,
+				6B2AC8617EDACC42FC9A15D666339518 /* WBSDKBasicButton.h in Headers */,
+				51A3FDD8311D1037A5F596ACC8CAFFCF /* WBSDKCommentButton.h in Headers */,
+				9EFB9B3B5141C2405FED2F7D47923AA6 /* WBSDKRelationshipButton.h in Headers */,
+				E9FC7825DA8381AD3FF55F0F57A2AEC8 /* WechatAuthSDK.h in Headers */,
+				EE4A6994DFCA99BEE91F4114B54CA92A /* WeiboSDK+Statistics.h in Headers */,
+				355C20BFAC671D98BF8D335DE538BE4C /* WeiboSDK.h in Headers */,
+				204B7BB25F37C3BAA4F2E6AE8CF4579B /* WeiboUser.h in Headers */,
+				4F6F9DADFF4748897F78453EFED37FC7 /* WXApi.h in Headers */,
+				01B0E614721F858385014DD57CE3CB27 /* WXApiObject.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF73468622762862D2FB76ED4AC0D8E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E09711F001C49F92A97060414E262B /* MASCompositeConstraint.h in Headers */,
+				4CBE1B46550A3FB90FDD1CB9CBA7B7FE /* MASConstraint+Private.h in Headers */,
+				6249770A7D163B0F3001D5A76C5FA01C /* MASConstraint.h in Headers */,
+				EC48DE078CA5E55922CCE02354D475CD /* MASConstraintMaker.h in Headers */,
+				A6436E3CFFCBFE591E2D2A68ED90CAC6 /* MASLayoutConstraint.h in Headers */,
+				49B903D576E09560C52AA92FDCC31A68 /* Masonry.h in Headers */,
+				1F3BD3BC28432BB5E2F73501E06E4579 /* MASUtilities.h in Headers */,
+				E1E771349813022263F549BDF33CB4BB /* MASViewAttribute.h in Headers */,
+				A83991D7C1373DF66020C2FDFC5D7564 /* MASViewConstraint.h in Headers */,
+				490CA524521F7D444EA58FA915D7E99C /* NSArray+MASAdditions.h in Headers */,
+				E072DA57403C4BFF9B10467BE05604C5 /* NSArray+MASShorthandAdditions.h in Headers */,
+				9934AEA2C891C201D8ED5746FF42FE1B /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
+				86EE1CB5473A4A07081D8DE3A2C45924 /* View+MASAdditions.h in Headers */,
+				983CB852CBBFBC04C2A6BA407E34F59B /* View+MASShorthandAdditions.h in Headers */,
+				C88F85D3200060BD98FC13EA58121706 /* ViewController+MASAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		405D852F161DE5CA03133D8583B0971F /* UMengUShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BEF4A9674D88578F63B5F42E5BCA18E /* Build configuration list for PBXNativeTarget "UMengUShare" */;
+			buildPhases = (
+				9DBCE13FB38F64FA45F82E637A2B22EB /* Sources */,
+				5FAB604845E9D888617B4A2BCE8C2D93 /* Frameworks */,
+				7D51C52CB91AEE509455EED66D5D92FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UMengUShare;
+			productName = UMengUShare;
+			productReference = 85F33D0360216DB33E7AFE5B2E78EA0F /* libUMengUShare.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7541B338C29A841F18C894A4BC467CAC /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */;
+			buildPhases = (
+				3748F1E26AD1E44AB999B3F3C0A44526 /* Sources */,
+				4F27DEBA4611E9AE6E3805AD3AF29C62 /* Frameworks */,
+				29AAB4BCE0845BB840E7A3ADDC0BC6A2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IQKeyboardManager;
+			productName = IQKeyboardManager;
+			productReference = AA68BE455865B697222C7781EB03421D /* libIQKeyboardManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34CAE1CB89EDBF2E53735CC5D4E5E69F /* Build configuration list for PBXNativeTarget "Masonry" */;
+			buildPhases = (
+				C4BE2DC1E815E7367562323223772531 /* Sources */,
+				6FD8312A1AEB348F49A81C438DB25115 /* Frameworks */,
+				BDF73468622762862D2FB76ED4AC0D8E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Masonry;
+			productName = Masonry;
+			productReference = 8CC0D092F2417D03FD09651060FE61DE /* libMasonry.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B8AC14E9508B8F83201D3CA7979EAB89 /* Pods-MyBoRuiSi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F4CFA67E4C1DE0699B56618EE3FC5C /* Build configuration list for PBXNativeTarget "Pods-MyBoRuiSi" */;
+			buildPhases = (
+				6804CCFEF98F6901C488550BE599E881 /* Sources */,
+				0067BE1B2B549552004CA091F96B4A41 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF7FDEA0A9692DA00C7EE46FCAFB9431 /* PBXTargetDependency */,
+				6D08AF590ADD633EBDD493CB27B3A80B /* PBXTargetDependency */,
+				5995A83B980871851CE7A831FDCD83A3 /* PBXTargetDependency */,
+			);
+			name = "Pods-MyBoRuiSi";
+			productName = "Pods-MyBoRuiSi";
+			productReference = 3EB0B56737C0278D1734D08B66EB5FBB /* libPods-MyBoRuiSi.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C141399D849FEB7591DCDEDE7B4195EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */,
+				9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */,
+				B8AC14E9508B8F83201D3CA7979EAB89 /* Pods-MyBoRuiSi */,
+				405D852F161DE5CA03133D8583B0971F /* UMengUShare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3748F1E26AD1E44AB999B3F3C0A44526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D43444F9273BC242437DE518EE99F85D /* IQBarButtonItem.m in Sources */,
+				39A508CB9BEFAFD0CF396E6A8D20EF5C /* IQKeyboardManager-dummy.m in Sources */,
+				DF2FCF6E1C61ED1C24D3E9245B1338EE /* IQKeyboardManager.m in Sources */,
+				05925630D8F4C3B45165B7632C7432C0 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				216E6D7ADF0FFF3318DB30C2CC565C5D /* IQNSArray+Sort.m in Sources */,
+				134FC60FAFF13893D34FCC2CDE67126F /* IQPreviousNextView.m in Sources */,
+				1D4879B92EA825397EDCF3A5B09C5EF2 /* IQTextView.m in Sources */,
+				EA73394A1F93D67EB80BD16F44D2753A /* IQTitleBarButtonItem.m in Sources */,
+				9AC4546D7D76789BE4580172B3ED50D8 /* IQToolbar.m in Sources */,
+				BC12241B094390F0F3D5EA4911EA4DF1 /* IQUIScrollView+Additions.m in Sources */,
+				9F30CF3623BE9CF4C8E7BAD708DDD0F6 /* IQUITextFieldView+Additions.m in Sources */,
+				15BF4C4C4C8C514DE2C2881629B1C801 /* IQUIView+Hierarchy.m in Sources */,
+				8DDD9AE2B9EDFE9E587127E6ECDFA44E /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				231F8E21B389D7F294D8231F016AC11A /* IQUIViewController+Additions.m in Sources */,
+				DF777C9C89EC416FC43CD2114B8BAC35 /* IQUIWindow+Hierarchy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6804CCFEF98F6901C488550BE599E881 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350FC8816020C01265290B8484E96E28 /* Pods-MyBoRuiSi-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DBCE13FB38F64FA45F82E637A2B22EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C7336D0708904ADC728C09491C8D8E7 /* UMengUShare-dummy.m in Sources */,
+				DAC0C61327E88B151CAEE99E50A43F71 /* UMShareMenuItem.m in Sources */,
+				DFB9D2674D9840C87946D76E336773C6 /* UMShareMenuSelectionView.m in Sources */,
+				E233D55B93DF621BCE52AB8A0856E6C7 /* UMSocialShareScrollView.m in Sources */,
+				76C317C9B5B686310BCA55D3F354F7C8 /* UMSocialUIManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4BE2DC1E815E7367562323223772531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */,
+				89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */,
+				DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */,
+				955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */,
+				68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */,
+				13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */,
+				2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */,
+				7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */,
+				3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */,
+				D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5995A83B980871851CE7A831FDCD83A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UMengUShare;
+			target = 405D852F161DE5CA03133D8583B0971F /* UMengUShare */;
+			targetProxy = 2C1567464A3109B173530E05C28170DB /* PBXContainerItemProxy */;
+		};
+		6D08AF590ADD633EBDD493CB27B3A80B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Masonry;
+			target = 9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */;
+			targetProxy = BD25BD0787E50EAA4DDA15CD019E8FC7 /* PBXContainerItemProxy */;
+		};
+		CF7FDEA0A9692DA00C7EE46FCAFB9431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManager;
+			target = 9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */;
+			targetProxy = AED68A1D7CAC03449CFA421404362DEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2170BB516961A37C16289374E6DB4442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1B4DE30CE50209C0BEA16D5232F5A36 /* Pods-MyBoRuiSi.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		30FC3B84FEF45D5B84F3EE7DF471BF51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D69A4565F98E63D6EE2692FF0F6CABC /* IQKeyboardManager.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A6ACE61C4D128598EA7472C87982601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 062E4BB769148AF2EC08A83F843813D4 /* Masonry.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6CA42F62CE0652819ED46936FE31E065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 062E4BB769148AF2EC08A83F843813D4 /* Masonry.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8B0C81A7B48684C9C337353859E7CEC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D056F0499874D4198547EDFF581156 /* UMengUShare.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UMengUShare/UMengUShare-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A472EF725EE2A392F5F564FC75D5C47B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D056F0499874D4198547EDFF581156 /* UMengUShare.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UMengUShare/UMengUShare-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BE3FBF9D5A1AEB74C142CB9ED4BFEAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7C23E92B815792304DA136E7302EDB6 /* Pods-MyBoRuiSi.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECBD7A1951E90E7778AFD17E1B0C0C3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D69A4565F98E63D6EE2692FF0F6CABC /* IQKeyboardManager.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BEF4A9674D88578F63B5F42E5BCA18E /* Build configuration list for PBXNativeTarget "UMengUShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A472EF725EE2A392F5F564FC75D5C47B /* Debug */,
+				8B0C81A7B48684C9C337353859E7CEC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
+				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34CAE1CB89EDBF2E53735CC5D4E5E69F /* Build configuration list for PBXNativeTarget "Masonry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A6ACE61C4D128598EA7472C87982601 /* Debug */,
+				6CA42F62CE0652819ED46936FE31E065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7541B338C29A841F18C894A4BC467CAC /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FC3B84FEF45D5B84F3EE7DF471BF51 /* Debug */,
+				ECBD7A1951E90E7778AFD17E1B0C0C3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F4CFA67E4C1DE0699B56618EE3FC5C /* Build configuration list for PBXNativeTarget "Pods-MyBoRuiSi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE3FBF9D5A1AEB74C142CB9ED4BFEAC4 /* Debug */,
+				2170BB516961A37C16289374E6DB4442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

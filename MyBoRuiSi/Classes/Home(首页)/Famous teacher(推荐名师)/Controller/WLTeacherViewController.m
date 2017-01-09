@@ -36,6 +36,17 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView addHeaderWithCallback:^{
+        [self requestData];
+    }];
+    
+//    [self requestData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -44,14 +55,11 @@
     [WLHomeDataHandle requestHomeRecommendLectureWithNum:@10 Success:^(id responseObject) {
         
         self.lecturesArray = [RecommendModell mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView headerEndRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView headerEndRefreshing];
     }];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

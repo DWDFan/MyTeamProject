@@ -90,8 +90,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLOrderCell" owner:nil options:nil] lastObject];
     }
        
-    WLOrderModel *payModel = self.dataSource[indexPath.row];
-    cell.shopCarModel = payModel.info[indexPath.row];;
+    WLOrderModel *payModel = self.dataSource[indexPath.section];
+    cell.shopCarModel = payModel.info[indexPath.row];
     return cell;
 }
 
@@ -143,11 +143,12 @@
         if ([dict[@"code"]integerValue] == 1) {
             NSArray *arrayData = dict[@"data"];
             NSMutableArray *model_array = [NSMutableArray array];
-            [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSDictionary *dictData = arrayData[idx];
-                WLOrderModel *orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
-                [model_array addObject:orderModel];
-            }];
+//            [arrayData enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                NSDictionary *dictData = arrayData[idx];
+//                WLOrderModel *orderModel = [WLOrderModel mj_objectWithKeyValues:dictData];
+//                [model_array addObject:orderModel];
+//            }];
+            model_array = [WLOrderModel mj_objectArrayWithKeyValuesArray:arrayData];
             
             if (page == 1) {
                 self.dataSource = model_array;

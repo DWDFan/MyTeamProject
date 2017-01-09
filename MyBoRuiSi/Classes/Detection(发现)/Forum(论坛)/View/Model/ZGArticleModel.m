@@ -37,11 +37,19 @@
     
     _titleFrame = CGRectMake(15, CGRectGetMaxY(_avatarFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, 14);
     
-    CGFloat heihgt = [MOTool MOtextSizeH:article.content WithWidth:WLScreenW - ZGPaddingMax * 2 WithFount:[UIFont systemFontOfSize:12]];
-    _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, heihgt);
+//    CGFloat heihgt = [MOTool MOtextSizeH:article.content WithWidth:WLScreenW - ZGPaddingMax * 2 WithFount:[UIFont systemFontOfSize:12]];
+//    _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, heihgt);
+    
+    //计算html字符串高度
+    NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[article.content dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+    [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+    
+    CGFloat height = [htmlString boundingRectWithSize:(CGSize){WLScreenW - - ZGPaddingMax * 2, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size.height;
+    _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, height);
+
     
     // 列表显示3行
-    if (self.cellType == ZGArticleCellTypeList && heihgt > 12 * 3 + 5) {
+    if (self.cellType == ZGArticleCellTypeList && height > 12 * 3 + 5) {
         _contentFrame = CGRectMake(15, CGRectGetMaxY(_titleFrame) + ZGPaddingMax, WLScreenW - ZGPaddingMax * 2, 12 * 3 + 7);
     }
 

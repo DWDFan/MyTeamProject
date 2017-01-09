@@ -32,7 +32,7 @@
     
     [_photo_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
     _jiangshi_lab.text =  model.name;
-    _des_lab.text = model.desc;
+    _des_lab.attributedText = [MOTool getAttributeStringByHtmlString:model.desc];
     
 //   _starView.showStar = [model.star integerValue] *20;
     WLDisplayStarView *starView = [[WLDisplayStarView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];

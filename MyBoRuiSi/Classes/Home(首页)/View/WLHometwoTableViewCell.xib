@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,28 +16,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="261.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="261"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2i-Wf-A6W">
                         <rect key="frame" x="0.0" y="188" width="320" height="73"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="大哥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6p-0I-2Sf">
-                                <rect key="frame" x="30" y="15" width="63" height="21"/>
+                                <rect key="frame" x="30" y="15" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关注 : 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-3B-SMK">
                                 <rect key="frame" x="47" y="41" width="46" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市 : 广州" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-qR-mLe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="城市 : 广州" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-qR-mLe">
                                 <rect key="frame" x="133" y="51" width="54" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Heart-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-DI-3yQ">
@@ -44,7 +48,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="智慧城市" translatesAutoresizingMaskIntoConstraints="NO" id="4qU-v0-E3A">
-                                <rect key="frame" x="116" y="51" width="12" height="12"/>
+                                <rect key="frame" x="115.5" y="51" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="L3h-Yf-Kgb"/>
                                     <constraint firstAttribute="width" constant="12" id="T7v-Ut-Wj2"/>
@@ -60,11 +64,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="高级讲师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-6I-HKs">
                                 <rect key="frame" x="239" y="15.5" width="60" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="素彩网www.sc115.com-221" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-nA-Bux">
-                                <rect key="frame" x="227" y="52" width="12" height="12"/>
+                                <rect key="frame" x="226" y="52" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="Gqe-1H-CIi"/>
                                     <constraint firstAttribute="height" constant="12" id="LCb-dM-HyX"/>
@@ -73,28 +77,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学员 : 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCn-5z-B2E">
-                                <rect key="frame" x="244" y="51" width="46" height="14"/>
+                                <rect key="frame" x="243" y="51" width="47" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="rl5-Rd-Hf0">
-                                <rect key="frame" x="101" y="19" width="10" height="10"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="Ckd-ll-Anc">
-                                <rect key="frame" x="114" y="19" width="10" height="10"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="U5z-DD-E4c">
-                                <rect key="frame" x="124" y="19" width="10" height="10"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="PgA-Kj-VQI">
-                                <rect key="frame" x="134" y="19" width="10" height="10"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="素彩网www.sc115.com-102" translatesAutoresizingMaskIntoConstraints="NO" id="8Co-tT-7K0">
-                                <rect key="frame" x="144" y="19" width="10" height="10"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHV-Ds-boT">
+                                <rect key="frame" x="125" y="22" width="70" height="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="9xg-A2-KbH"/>
+                                    <constraint firstAttribute="height" constant="20" id="GR3-R5-Sq4"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a6p-0I-2Sf" firstAttribute="top" secondItem="J2i-Wf-A6W" secondAttribute="top" constant="15" id="03b-fl-t17"/>
                             <constraint firstItem="HKi-z8-egn" firstAttribute="centerY" secondItem="a6p-0I-2Sf" secondAttribute="centerY" id="ACF-Wf-Hri"/>
@@ -102,6 +99,7 @@
                             <constraint firstItem="MCn-5z-B2E" firstAttribute="centerY" secondItem="EDf-qR-mLe" secondAttribute="centerY" id="Cs1-Ru-fTA"/>
                             <constraint firstItem="vkg-DI-3yQ" firstAttribute="leading" secondItem="a6p-0I-2Sf" secondAttribute="leading" id="GcF-TX-QHg"/>
                             <constraint firstItem="ozi-6I-HKs" firstAttribute="centerY" secondItem="HKi-z8-egn" secondAttribute="centerY" id="MqN-l6-rs2"/>
+                            <constraint firstItem="HKi-z8-egn" firstAttribute="leading" secondItem="zHV-Ds-boT" secondAttribute="trailing" constant="16" id="OrT-x8-3yl"/>
                             <constraint firstItem="MCn-5z-B2E" firstAttribute="centerY" secondItem="5I2-nA-Bux" secondAttribute="centerY" id="RBB-Gm-Ycv"/>
                             <constraint firstItem="jQ2-3B-SMK" firstAttribute="leading" secondItem="vkg-DI-3yQ" secondAttribute="trailing" constant="5" id="X8U-M8-rGF"/>
                             <constraint firstItem="4qU-v0-E3A" firstAttribute="leading" secondItem="jQ2-3B-SMK" secondAttribute="trailing" constant="20" id="Xe7-xg-ptc"/>
@@ -117,6 +115,7 @@
                             <constraint firstItem="jQ2-3B-SMK" firstAttribute="top" secondItem="vkg-DI-3yQ" secondAttribute="top" id="va2-r3-jdE"/>
                             <constraint firstAttribute="bottom" secondItem="EDf-qR-mLe" secondAttribute="bottom" constant="8" id="xPv-AF-Uqm"/>
                             <constraint firstItem="vkg-DI-3yQ" firstAttribute="top" secondItem="a6p-0I-2Sf" secondAttribute="bottom" constant="6" id="xiA-YE-RvA"/>
+                            <constraint firstItem="zHV-Ds-boT" firstAttribute="centerY" secondItem="a6p-0I-2Sf" secondAttribute="centerY" id="yqC-M0-M96"/>
                             <constraint firstAttribute="bottom" secondItem="4qU-v0-E3A" secondAttribute="bottom" constant="10" id="zM5-Qm-kwM"/>
                             <constraint firstItem="EDf-qR-mLe" firstAttribute="leading" secondItem="4qU-v0-E3A" secondAttribute="trailing" constant="5" id="zjP-45-REM"/>
                         </constraints>
@@ -145,16 +144,16 @@
                 <outlet property="Member" destination="MCn-5z-B2E" id="u6l-2f-uGS"/>
                 <outlet property="Phopot" destination="s6L-Ym-BYt" id="m6w-K8-ExJ"/>
                 <outlet property="name" destination="a6p-0I-2Sf" id="WgM-I9-ICr"/>
+                <outlet property="starContainView" destination="zHV-Ds-boT" id="Xwr-Se-olm"/>
             </connections>
             <point key="canvasLocation" x="387" y="269"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="37bcfc4a6e8fa9767e165195685daa41" width="1280" height="800"/>
-        <image name="Heart-拷贝" width="11" height="9"/>
+        <image name="Heart-拷贝" width="10" height="9"/>
         <image name="智慧城市" width="11" height="9"/>
-        <image name="素彩网www.sc115.com-102" width="11" height="11"/>
-        <image name="素彩网www.sc115.com-221" width="11" height="11"/>
+        <image name="素彩网www.sc115.com-221" width="10" height="10"/>
         <image name="组-6" width="20" height="17"/>
     </resources>
 </document>

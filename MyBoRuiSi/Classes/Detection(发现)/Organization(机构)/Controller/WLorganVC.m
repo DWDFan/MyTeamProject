@@ -22,11 +22,14 @@
 #import "WLHomeDataHandle.h"
 #import "WLInstitutionModel.h"
 #import "WLHomeDataHandle.h"
+#import "MJRefresh.h"
 
 @interface WLorganVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 @property (nonatomic, strong) WLInstitutionModel *institution;
+@property (nonatomic, strong) NSArray *courseArray;
+
 
 @end
 
@@ -50,16 +53,23 @@
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];
     
+    self.tableView_main.showsVerticalScrollIndicator = NO;
     [self requestData];
 }
 
 - (void)requestData
 {
-    [WLHomeDataHandle requestInstitutionDetailWithUid:@"15" jid:_institutionId success:^(id responseObject) {
+    [WLHomeDataHandle requestInstitutionDetailWithUid:[WLUserInfo share].userId jid:_institutionId success:^(id responseObject) {
         
         _institution = [WLInstitutionModel mj_objectWithKeyValues:responseObject[@"data"]];
         [self.tableView_main reloadData];
-        WLLog(@"*******%@",responseObject);
+    } failure:^(NSError *error) {
+    }];
+    
+    [WLHomeDataHandle requestInstitutionCourseListWithUid:[WLUserInfo share].userId jid:_institutionId type:nil success:^(id responseObject) {
+        
+        _courseArray = [WLCourseListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.tableView_main reloadData];
     } failure:^(NSError *error) {
         
     }];
@@ -72,7 +82,6 @@
         [self alertLogin];
         return ;
     }
-
     WLJrViewController *joinVC = [[WLJrViewController alloc]init];
     joinVC.institutionId = _institutionId;
     joinVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -104,7 +113,7 @@
     NSInteger i = 1;
     
     if (section == 2) {
-        i = _institution.list.count;
+        i = _courseArray.count;
     }
     return i;
 }
@@ -167,7 +176,7 @@
         if (cells == nil) {
             cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
         }
-        cells.course = _institution.list[indexPath.row];
+        cells.course = _courseArray[indexPath.row];
         cell = cells;
     }
     return cell;
@@ -270,8 +279,9 @@
 //        vc.courseId = [_institution.list[indexPath.row] id];
 //        [self.navigationController pushViewController:vc animated:YES];
         
-        WLCourseListModel *model = _institution.list[indexPath.row];
-        if ([model.type isEqualToNumber:@1]) {
+        WLCourseListModel *model = _courseArray[indexPath.row];
+        if ([model.type integerValue] == 1) {
+            // 点播
             WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
             detail.courseId = model.id;
             [self.navigationController pushViewController:detail animated:YES];

@@ -32,7 +32,7 @@
 {
     self.page = 1;
 
-    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@2 ppid:self.sortId priceOrder:self.priceOrder zbstatus:@1 saleNum:self.saleNumOrder level:@0 success:^(id responseObject) {
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@1 key:@"" type:@2 ppid:self.sortId priceOrder:self.priceOrder zbstatus:nil saleNum:self.saleNumOrder level:@0 success:^(id responseObject) {
         
         self.page == 1 ? [self.courses removeAllObjects] : nil;
         

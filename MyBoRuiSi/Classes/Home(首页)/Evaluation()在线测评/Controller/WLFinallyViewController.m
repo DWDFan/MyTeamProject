@@ -13,8 +13,11 @@
 #import "WLHome.h"
 
 #import "UIImage+Image.h"
+#import "WLHomeDataHandle.h"
 
 @interface WLFinallyViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *scoreLbl;
+@property (weak, nonatomic) IBOutlet UIButton *adviceBtn;
 
 @end
 
@@ -38,8 +41,18 @@
     //    //设置右边的按钮图片没有渲染
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"图层-49"] style:UIBarButtonItemStyleDone target:self action:@selector(nadprerClik)];
 
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIButton alloc] init]];
     
-    
+    [WLHomeDataHandle requestPaperEndTestWithUid:[WLUserInfo share].userId tid:_testId success:^(id responseObject) {
+        
+        NSString *score = responseObject[@"data"][@"score"];
+        NSString *advice = responseObject[@"data"][@"other"];
+        self.scoreLbl.text = [NSString stringWithFormat:@"您的成绩为%@分",score];
+        [self.adviceBtn setTitle:advice forState:UIControlStateNormal];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)awakeFromNib{
@@ -67,10 +80,9 @@
     
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
     
-    //
-    //    [share dismissViewControllerAnimated:YES completion:^{
-    //
-    //    }];
+    share.shareTitle = self.title;
+    share.descStr = self.scoreLbl.text;
+//    share.imageUrl = _course.photo;
     
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
@@ -80,28 +92,19 @@
     }];
     
     
-   // [self dismissViewControllerAnimated:YES completion:^{
-        
-        // NSLog(@"222");
-        
-  //  }];
-
-    
-    
 }
 //重新测评
 - (IBAction)AgainClik:(id)sender {
     
-    WLCepViewController *cep = [[WLCepViewController alloc]init];
-    [self.navigationController pushViewController:cep animated:YES];
+//    WLCepViewController *cep = [[WLCepViewController alloc]init];
+//    [self.navigationController pushViewController:cep animated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToViewController:self.navigationController.childViewControllers[2] animated:YES];
 }
 //返回首页
 - (IBAction)HomeClik:(id)sender {
     
     [self.navigationController popToRootViewControllerAnimated:YES];
-
-
-    
 }
 
 @end

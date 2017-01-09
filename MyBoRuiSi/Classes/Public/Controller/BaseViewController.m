@@ -80,11 +80,11 @@ NSInteger const kPageSize = 20;
 - (UIButton *)leftBtn{
     if(!_leftBtn){
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _leftBtn.frame = CGRectMake(0, 0,25, 25);
+        _leftBtn.frame = CGRectMake(0, 0,40, 40);
         _leftBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         _leftBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-        [_leftBtn setImage:[UIImage imageNamed:@"nav_back_white"] forState:0];
+        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+        [_leftBtn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-139"] forState:0];
         [_leftBtn addTarget:self
                     action:@selector(leftBtnAction:)
           forControlEvents:UIControlEventTouchUpInside];

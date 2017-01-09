@@ -9,6 +9,7 @@
 #import "MOTool.h"
 #import "NSDate+MJ.h"
 #import "WLRegisteringViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation MOTool
 
@@ -485,6 +486,38 @@
     
     return sizeToFit;
     
+}
+
++(UIImage *)getThumbnailImage:(NSString *)videoURL
+
+{
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:videoURL] options:nil];
+    
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    gen.appliesPreferredTrackTransform = YES;//按正确方向对视频进行截图,关键点是将AVAssetImageGrnerator对象的appliesPreferredTrackTransform属性设置为YES。
+    
+    CMTime time = CMTimeMakeWithSeconds(3, 600);
+    
+    NSError *error = nil;
+    
+    CMTime actualTime;
+    
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    
+    UIImage *thumb = [[UIImage alloc] initWithCGImage:image];
+    
+    CGImageRelease(image);
+    
+    return thumb;  
+}
+
++ (NSMutableAttributedString *)getAttributeStringByHtmlString:(NSString *)htmlString
+{
+    NSMutableAttributedString *attrString =[[NSMutableAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+    [attrString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:COLOR_WORD_GRAY_1} range:NSMakeRange(0, attrString.length)];
+    return attrString;
 }
 
 @end

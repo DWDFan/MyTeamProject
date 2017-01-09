@@ -51,7 +51,7 @@
 {
     _page = 1;
 
-    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:nil saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
         
         _page == 1 ? [self.courses removeAllObjects] : nil;
         
@@ -75,7 +75,7 @@
 - (void)requestListData
 {
     _page ++;
-    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:@1 saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
+    [WLHomeDataHandle requestSearchCourseWithNum:@10 page:@(_page) key:@"" type:@1 ppid:_sortId priceOrder:_priceOrder zbstatus:nil saleNum:_saleNumOrder level:@0 success:^(id responseObject) {
         
         NSArray *mArray = [WLCourceModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.courses addObjectsFromArray:mArray];
@@ -124,6 +124,7 @@
         
     }else {
         
+        if (_filterArray.count == 0) return;
         NSMutableArray *menus = [NSMutableArray arrayWithCapacity:0];
         for (NSInteger i = 0; i < _filterArray.count; i ++) {
             

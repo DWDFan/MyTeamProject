@@ -1,39 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLJudgmentsViewController">
             <connections>
+                <outlet property="faultBtn" destination="3QC-Tm-ROM" id="vv7-GQ-qD5"/>
+                <outlet property="indexBtn" destination="RVu-XY-6hS" id="vpX-0C-bnU"/>
+                <outlet property="nextBtn" destination="ABG-FO-WhP" id="b2e-Kk-cbb"/>
+                <outlet property="preBtn" destination="MYM-Ci-ufs" id="vea-cs-qOU"/>
+                <outlet property="questionLbl" destination="Nf4-BW-OqR" id="R5J-7W-3z1"/>
+                <outlet property="tureBtn" destination="400-LV-sOP" id="Ffq-1H-zdc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.ESD审核必须由具有资格的人员执行" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf4-BW-OqR">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="60" y="35" width="256" height="93"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="93" id="KQ2-sh-PiE"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-Fa-A6Q">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYM-Ci-ufs">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="9Og-9i-jTf"/>
                             </constraints>
                             <state key="normal" title="上一题">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="disabled">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -45,23 +61,27 @@
                                     <include reference="9Og-9i-jTf"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <action selector="preBtnAction:" destination="-1" eventType="touchUpInside" id="XSm-CT-YCB"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVu-XY-6hS">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="176" y="12" width="24" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.5450980392" green="0.1333333333" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.5450980392" green="0.1333333333" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-FO-WhP">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <rect key="frame" x="275" y="0.0" width="100" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="8v5-y9-RY4"/>
                             </constraints>
                             <state key="normal" title="下一题">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <state key="selected" title="完成"/>
                             <state key="highlighted">
-                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -73,9 +93,12 @@
                                     <include reference="8v5-y9-RY4"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="e71-8x-mGn"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="RVu-XY-6hS" firstAttribute="centerY" secondItem="MYM-Ci-ufs" secondAttribute="centerY" id="7Zk-Ww-DyC"/>
                         <constraint firstItem="MYM-Ci-ufs" firstAttribute="leading" secondItem="HWH-Fa-A6Q" secondAttribute="leading" id="LcM-zN-X7d"/>
@@ -124,56 +147,16 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-LV-sOP">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-LV-sOP">
+                    <rect key="frame" x="48" y="502" width="280" height="50"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="HR4-8f-WaZ"/>
-                        <constraint firstAttribute="height" constant="50" id="MiQ-1o-Kzs"/>
-                        <constraint firstAttribute="width" constant="280" id="gjJ-l3-3Zx"/>
-                        <constraint firstAttribute="width" constant="300" id="h2c-h0-PVJ"/>
+                        <constraint firstAttribute="height" constant="50" id="4kv-OE-JoJ"/>
                     </constraints>
                     <state key="normal" title="是">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="HR4-8f-WaZ"/>
-                            <exclude reference="MiQ-1o-Kzs"/>
-                            <exclude reference="gjJ-l3-3Zx"/>
-                            <exclude reference="h2c-h0-PVJ"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="MiQ-1o-Kzs"/>
-                            <include reference="h2c-h0-PVJ"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="HR4-8f-WaZ"/>
-                            <include reference="gjJ-l3-3Zx"/>
-                        </mask>
-                    </variation>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-Tm-ROM">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <color key="backgroundColor" red="0.64313725489999995" green="0.1176470588" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="6Pc-Cl-qvM"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="6we-9i-5Qr"/>
-                        <constraint firstAttribute="height" constant="45" id="QPC-pC-l0p"/>
-                        <constraint firstAttribute="height" constant="50" id="QZe-Qb-FZi"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="XDX-sq-uZu"/>
-                        <constraint firstAttribute="width" constant="280" id="mDg-Tw-JMr"/>
-                    </constraints>
-                    <state key="normal" title="否">
+                    <state key="selected">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -181,43 +164,45 @@
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="6Pc-Cl-qvM"/>
-                            <exclude reference="6we-9i-5Qr"/>
-                            <exclude reference="QPC-pC-l0p"/>
-                            <exclude reference="QZe-Qb-FZi"/>
-                            <exclude reference="XDX-sq-uZu"/>
-                            <exclude reference="mDg-Tw-JMr"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="6Pc-Cl-qvM"/>
-                            <include reference="6we-9i-5Qr"/>
-                            <include reference="QZe-Qb-FZi"/>
-                            <include reference="XDX-sq-uZu"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="QPC-pC-l0p"/>
-                            <include reference="mDg-Tw-JMr"/>
-                        </mask>
-                    </variation>
+                    <connections>
+                        <action selector="tureBtnAction:" destination="-1" eventType="touchUpInside" id="Jzr-Ii-CTd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-Tm-ROM">
+                    <rect key="frame" x="48" y="415" width="280" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="否">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="faultBtnAction:" destination="-1" eventType="touchUpInside" id="XCb-CA-bCV"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.93099832214765099" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93099832534790039" green="0.93099832534790039" blue="0.93099832534790039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="HWH-Fa-A6Q" secondAttribute="trailing" id="06G-Ym-tjH"/>
                 <constraint firstAttribute="bottom" secondItem="HWH-Fa-A6Q" secondAttribute="bottom" id="3RF-mg-N7l"/>
-                <constraint firstItem="3QC-Tm-ROM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="C70-VL-6jZ"/>
-                <constraint firstItem="400-LV-sOP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ep8-eh-lhi"/>
-                <constraint firstItem="400-LV-sOP" firstAttribute="top" secondItem="3QC-Tm-ROM" secondAttribute="bottom" constant="10" id="IcV-01-hzT"/>
-                <constraint firstItem="HWH-Fa-A6Q" firstAttribute="top" secondItem="400-LV-sOP" secondAttribute="bottom" constant="70" id="P5k-RB-fYJ"/>
+                <constraint firstItem="3QC-Tm-ROM" firstAttribute="centerX" secondItem="400-LV-sOP" secondAttribute="centerX" id="BHG-Mz-o97"/>
                 <constraint firstItem="Nf4-BW-OqR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="QWg-Ac-tAd"/>
                 <constraint firstItem="HWH-Fa-A6Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QsW-e2-gyd"/>
+                <constraint firstItem="400-LV-sOP" firstAttribute="top" secondItem="3QC-Tm-ROM" secondAttribute="bottom" constant="37" id="VED-Sn-qGY"/>
+                <constraint firstItem="Nf4-BW-OqR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="VgY-l7-XSe"/>
                 <constraint firstItem="Nf4-BW-OqR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a3N-NG-jLb"/>
+                <constraint firstItem="3QC-Tm-ROM" firstAttribute="height" secondItem="400-LV-sOP" secondAttribute="height" id="bi5-7x-TVB"/>
+                <constraint firstItem="3QC-Tm-ROM" firstAttribute="width" secondItem="400-LV-sOP" secondAttribute="width" id="ev5-se-egi"/>
+                <constraint firstItem="HWH-Fa-A6Q" firstAttribute="top" secondItem="400-LV-sOP" secondAttribute="bottom" constant="70" id="fve-Qs-f73"/>
+                <constraint firstAttribute="trailing" secondItem="400-LV-sOP" secondAttribute="trailing" constant="47" id="hMf-jt-BAb"/>
+                <constraint firstItem="400-LV-sOP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="wJM-w9-LR6"/>
+                <constraint firstAttribute="trailing" secondItem="Nf4-BW-OqR" secondAttribute="trailing" constant="59" id="ysY-BX-8iL"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
@@ -227,14 +212,10 @@
                     <exclude reference="3QC-Tm-ROM"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="C70-VL-6jZ"/>
-                    <exclude reference="Ep8-eh-lhi"/>
-                    <exclude reference="IcV-01-hzT"/>
                     <exclude reference="QWg-Ac-tAd"/>
                     <exclude reference="a3N-NG-jLb"/>
                     <exclude reference="06G-Ym-tjH"/>
                     <exclude reference="3RF-mg-N7l"/>
-                    <exclude reference="P5k-RB-fYJ"/>
                     <exclude reference="QsW-e2-gyd"/>
                 </mask>
             </variation>
@@ -246,17 +227,14 @@
                     <include reference="3QC-Tm-ROM"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="C70-VL-6jZ"/>
-                    <include reference="Ep8-eh-lhi"/>
-                    <include reference="IcV-01-hzT"/>
                     <include reference="QWg-Ac-tAd"/>
                     <include reference="a3N-NG-jLb"/>
                     <include reference="06G-Ym-tjH"/>
                     <include reference="3RF-mg-N7l"/>
-                    <include reference="P5k-RB-fYJ"/>
                     <include reference="QsW-e2-gyd"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="34.5" y="71.5"/>
         </view>
     </objects>
 </document>

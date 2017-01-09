@@ -7,8 +7,16 @@
 //
 
 #import "WLfillingViewController.h"
+#import "WLHomeDataHandle.h"
+#import "WLExaminationHelper.h"
 
 @interface WLfillingViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *questionLbl;
+@property (weak, nonatomic) IBOutlet UILabel *indexLbl;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (weak, nonatomic) IBOutlet UIButton *preBtn;
 
 @end
 
@@ -25,13 +33,45 @@
     [btn setTitle:@"填空题" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
     
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
     
-    
-    
+    //
+    [self loadData];
 }
+
+- (void)loadData
+{
+    NSDictionary *dict = self.questionArray[self.index];
+    NSString *question = dict[@"title"];
+    question = [NSString stringWithFormat:@"%ld.%@", self.index + 1, question];
+    self.questionLbl.text = question;
+    
+    self.indexLbl.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
+    
+    if (self.index == self.questionArray.count - 1) {
+        self.nextBtn.selected = YES;
+    }
+    if (self.index == 0) {
+        self.preBtn.enabled = NO;
+    }
+    
+    NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
+    NSArray *anserArray = [answer componentsSeparatedByString:@"|"];
+
+    NSArray *array = [question componentsSeparatedByString:@"填空处"];
+    NSInteger blankCount = array.count - 1;
+    for (NSInteger i = 0; i < 6; i ++) {
+        UITextField *textField = (UITextField *)[self.view viewWithTag:1000 + i];
+        
+        if (i < anserArray.count) {
+            textField.text = anserArray[i];
+        }
+        if (i > blankCount - 1) {
+            textField.hidden = YES;
+        }
+    }
+}
+
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
 {
@@ -42,11 +82,41 @@
     CGContextFillRect(context, rect);
     UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    
     return theImage;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+- (IBAction)preBtnAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)nextBtnAction:(id)sender {
+    
+    
+    NSString *answerStr = @"";
+    for (NSInteger i = 0; i < 6; i ++) {
+        UITextField *textField = (UITextField *)[self.view viewWithTag:1000 + i];
+        if (textField.hidden == NO) {
+            answerStr = [answerStr stringByAppendingString:textField.text];
+            answerStr = [answerStr stringByAppendingString:@"|"];
+        }
+    }
+    answerStr = [answerStr substringToIndex:answerStr.length - 1];
+    [self.examHelper addAnswer:answerStr questionId:self.questionArray[self.index][@"id"] type:@"填空题"];
+    
+    UIButton *button = (UIButton *)sender;
+    if (button.selected) {
+        [self.navigationController popToViewController:self.navigationController.childViewControllers[2] animated:YES];
+        return;
+    }
+    WLfillingViewController *fillVC = [[WLfillingViewController alloc] init];
+    fillVC.questionArray = self.questionArray;
+    fillVC.kid = self.kid;
+    fillVC.index = self.index + 1;
+    [self.navigationController pushViewController:fillVC animated:YES];
+}
 
 /*
 #pragma mark - Navigation

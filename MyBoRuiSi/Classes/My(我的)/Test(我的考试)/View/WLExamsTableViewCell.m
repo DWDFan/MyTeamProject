@@ -26,10 +26,10 @@
 - (void)setModel:(WLMyTestModel *)model{
     _model = model;
     
-    _title_lab.text = model.title;
-    _score_lab.text = model.score;
-    _addtime_lab.text = model.addtime;
-    
+    _title_lab.text = model.name;
+    _score_lab.text = [NSString stringWithFormat:@"%@分",[MOTool getNULLString:model.score]];
+    _addtime_lab.text = [NSString stringWithFormat:@"考试时间:%@",[MOTool getNULLString:model.starttime]];
+    [_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
 }
 - (IBAction)lookAnswerAction:(UIButton *)sender {
     !self.lookAnswerBlock ?: self.lookAnswerBlock();
@@ -42,8 +42,15 @@
 
 @end
 /*
- title 标题
- tid 测试id
- addtime 测试时间
- score 测试分数
+ {
+	starttime = 2017-01-08 17:39:59;
+	uid = 15;
+	ksid = 1;
+	id = 10;
+	score = 0;
+	status = 0;
+	photo = http://brs.yerhu.com/admin/img/avatar.jpg;
+	kid = 16;
+	name = 考试名字;
+ }
  */

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLExamBaseViewController.h"
 
-@interface WLfillingViewController : UIViewController
+@interface WLfillingViewController : WLExamBaseViewController
+
+@property (nonatomic, strong) NSString *kid; 
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSArray *questionArray;
 
 @end

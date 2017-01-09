@@ -191,4 +191,12 @@
                               oid:(NSString *)oid
                           success:(void (^)(id responseObject))success
                           failure:(void (^)(NSError *error))failure;
+
+
++ (void)requestOrderComment:(NSString *)uid
+                        oid:(NSString *)oid
+                        msg:(NSString *)msg
+                       star:(NSString *)star
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError *error))failure;
 @end

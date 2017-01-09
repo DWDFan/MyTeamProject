@@ -77,13 +77,16 @@
             return ;
         }
         switch (index) {
-            case 0:
+            case 1000:
                 //request 加入购物车
                 [weakSelf requestJoinShopCarWithGoodId:weakSelf.courseId];
                 break;
-            case 2:
+            case 1002:
                 // 立即购买
                 [weakSelf requestBuyWithGoodId:weakSelf.courseId];
+                break;
+            case 1003:
+                [weakSelf joinCourse];
                 break;
             default:
                 break;
@@ -92,18 +95,18 @@
     [self.view addSubview:bottomView];
     _purchaseView = bottomView;
     
-    if (_isMine) {
-        UIButton *joinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        joinBtn.frame = CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50);
-        [joinBtn setBackgroundColor:[UIColor lightGrayColor]];
-        [joinBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [joinBtn addTarget:self action:@selector(joinBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        joinBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        joinBtn.enabled = NO;
-        [self.view addSubview:joinBtn];
-        _joinBtn = joinBtn;
-        _purchaseView.hidden = YES;
-    }
+//    if (_isMine) {
+//        UIButton *joinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        joinBtn.frame = CGRectMake(0, WLScreenH - 64 - 50, WLScreenW, 50);
+//        [joinBtn setBackgroundColor:[UIColor lightGrayColor]];
+//        [joinBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        [joinBtn addTarget:self action:@selector(joinBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+//        joinBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+//        joinBtn.enabled = NO;
+//        [self.view addSubview:joinBtn];
+//        _joinBtn = joinBtn;
+//        _purchaseView.hidden = YES;
+//    }
     
     [self setNavigationBarStyleDefultWithTitle:@"课程详情"];
     
@@ -112,7 +115,7 @@
 }
 
 // 进入直播
-- (void)joinBtnAction:(UIButton *)button
+- (void)joinCourse
 {
     NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
     [decodeParm addObject:@"software"];
@@ -131,18 +134,18 @@
         
         _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
         [_headerImgV sd_setImageWithURL:[NSURL URLWithString:_course.photo] placeholderImage:[UIImage imageNamed:@"photo_defult"]];
-        _purchaseView.canBuy = _course.canBuy;
+        _purchaseView.canplay = _course.canBuy;
         
-        // 直播按钮
-        if ([_course.zbStatus integerValue] == 0) {
-            [_joinBtn setTitle:@"未开始" forState:UIControlStateNormal];
-        }else if([_course.zbStatus integerValue] == 1) {
-            [_joinBtn setTitle:@"进入直播" forState:UIControlStateNormal];
-            [_joinBtn setBackgroundColor:color_red];
-            _joinBtn.enabled = YES;
-        }else {
-            [_joinBtn setTitle:@"已结束" forState:UIControlStateNormal];
-        }
+//        // 直播按钮
+//        if ([_course.zbStatus integerValue] == 0) {
+//            [_joinBtn setTitle:@"未开始" forState:UIControlStateNormal];
+//        }else if([_course.zbStatus integerValue] == 1) {
+//            [_joinBtn setTitle:@"进入直播" forState:UIControlStateNormal];
+//            [_joinBtn setBackgroundColor:color_red];
+//            _joinBtn.enabled = YES;
+//        }else {
+//            [_joinBtn setTitle:@"已结束" forState:UIControlStateNormal];
+//        }
         
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -200,7 +203,7 @@
         
         [MOProgressHUD showSuccessWithStatus:@"收藏成功"];
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.localizedDescription];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 
@@ -236,7 +239,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        return [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:14]] + 15 * 3 + 14;
+//        return [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:14]] + 15 * 3 + 14;
+        NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+        
+        [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+        
+        CGSize textSize = [htmlString boundingRectWithSize:(CGSize){WLScreenW - 30, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+        
+        return textSize.height + 15 * 3 + 14;
+        
     }else if (indexPath.section == 2 && indexPath.row != 0) {
         return [MOTool MOtextSizeH:[_course.comment[indexPath.row - 1] msg] WithWidth:WLScreenW - 30 WithFount:[UIFont systemFontOfSize:12]] + 15 * 3 + 12;
     }else if (indexPath.section == 0 && indexPath.row == 6) {
@@ -345,9 +356,18 @@
             [cell addSubview:introLbl];
             _introLbl = introLbl;
         }
-        CGFloat height = [MOTool MOtextSizeH:_course.desc WithWidth:WLScreenW - 30 WithFount:_introLbl.font];
-        _introLbl.height = height;
-        _introLbl.text = _course.desc;
+        
+        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        
+        
+        NSMutableAttributedString *htmlString =[[NSMutableAttributedString alloc] initWithData:[_course.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+        
+        [htmlString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, htmlString.length)];
+        
+        CGSize textSize = [htmlString boundingRectWithSize:(CGSize){WLScreenW - 30, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+        
+        _introLbl.height = textSize.height;
+        _introLbl.attributedText = attributedString;
         return cell;
         
     }else {
@@ -451,7 +471,7 @@
             [MOProgressHUD showErrorWithStatus:@"购买失败"];
         }
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:@"购买失败"];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 @end
