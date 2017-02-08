@@ -110,5 +110,6 @@
 
 + (NSMutableAttributedString *)getAttributeStringByHtmlString:(NSString *)htmlString;
 
++ (NSMutableAttributedString *)getAttributeStringByHtmlString:(NSString *)htmlString fontSize:(CGFloat)fontSize textColor:(UIColor *)textColor;
 
 @end

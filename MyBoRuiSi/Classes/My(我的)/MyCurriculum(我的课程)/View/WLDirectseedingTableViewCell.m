@@ -27,6 +27,8 @@
     [super awakeFromNib];
    
     _star_view.backgroundColor = [UIColor whiteColor];
+    _photo_imv.contentMode = UIViewContentModeScaleAspectFill;
+    _photo_imv.layer.masksToBounds = YES;
     
 }
 
@@ -45,11 +47,11 @@
     [_star_view addSubview:starView];
     _star_lab.text = [NSString stringWithFormat:@"%@分",model.star];
     
-    switch ([model.status intValue]) {
+    switch ([model.zbStatus intValue]) {
         case 0:
-            [self.status_btn setTitle:@"直播未开始" forState:UIControlStateNormal];
-            [self.status_btn setImage:nil forState:UIControlStateNormal];
-            [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
+            [self.status_btn setTitle:@"未开始" forState:UIControlStateNormal];
+            [self.status_btn setImage:[UIImage imageNamed:@"直播未开始"] forState:UIControlStateNormal];
+            [self.status_btn setTitleColor:COLOR_WORD_GRAY_1 forState:UIControlStateNormal];
             break;
         case 1:
             [self.status_btn setImage:[UIImage imageNamed:@"icon-直播中"] forState:UIControlStateNormal];
@@ -57,9 +59,9 @@
             [self.status_btn setTitleColor:color_red forState:UIControlStateNormal];
             break;
         case 2:
-            [self.status_btn setTitle:@"直播结束" forState:UIControlStateNormal];
-            [self.status_btn setImage:nil forState:UIControlStateNormal];
-            [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
+            [self.status_btn setTitle:@"已结束" forState:UIControlStateNormal];
+            [self.status_btn setImage:[UIImage imageNamed:@"直播未开始"] forState:UIControlStateNormal];
+            [self.status_btn setTitleColor:COLOR_WORD_GRAY_1 forState:UIControlStateNormal];
             break;
         default:
             self.status_btn.hidden = YES;

@@ -31,6 +31,7 @@
  */
 + (void)requestBuyVipWithUid:(NSString *)uid
                         year:(NSNumber *)year
+                         pwd:(NSString *)pwd
                      success:(void (^)(id responseObject))success
                      failure:(void (^)(NSError *error))failure;
 

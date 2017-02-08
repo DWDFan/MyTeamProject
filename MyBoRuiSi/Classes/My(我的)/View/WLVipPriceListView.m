@@ -17,8 +17,8 @@
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:.5];
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
-        [self addGestureRecognizer:tap];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
+//        [self addGestureRecognizer:tap];
     }
     return self;
 }

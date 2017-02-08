@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *jiangshi;
 @property (nonatomic, copy) NSString *tmlong;
+@property (nonatomic, copy) NSString *desc;
 @end
 
 /*

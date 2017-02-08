@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *jianshi_lab;
 
 @end
+
 @implementation WLOrderDetailsCell
 
 - (void)awakeFromNib {
@@ -22,9 +23,9 @@
     // Initialization code
 }
 
-- (void)setOrderSourceModel:(WLOrderSourceModel *)orderSourceModel{
+- (void)setOrderSourceModel:(WLOrderSourceModel *)orderSourceModel
+{
     _orderSourceModel = orderSourceModel;
-    
     _name_lab.text = orderSourceModel.name;
     [_photo_imv sd_setImageWithURL:[NSURL URLWithString:orderSourceModel.photo] placeholderImage:PHOTO_AVATAR];
     _money_lab.text = [NSString stringWithFormat:@"￥%@.00",orderSourceModel.price];
@@ -32,8 +33,6 @@
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

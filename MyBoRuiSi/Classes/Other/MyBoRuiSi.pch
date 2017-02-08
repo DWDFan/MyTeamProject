@@ -35,6 +35,7 @@
 #define COLOR_BLACK RGBA(38, 38, 38, 1)
 #define COLOR_BG_YELLOW  RGBA(248, 177, 43, 1)
 #define kColor_button_bg RGB(164, 30, 59)
+#define kColor_green RGB(75, 189, 31)
 
 #define IOS6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) // 判断是否是IOS6的系统
 #define IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) // 判断是否是IOS7的系统

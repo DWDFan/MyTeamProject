@@ -38,7 +38,6 @@
     self.tableview_main.tableFooterView = view;
     
     //导航栏右边按钮
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"测评记录" style:UIBarButtonItemStyleDone target:self action:@selector(Test)];
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:164 /255.0 green:30/255.0 blue:59/255.0 alpha:1];

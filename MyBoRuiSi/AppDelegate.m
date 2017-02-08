@@ -25,13 +25,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // 键盘管理
     [self configureBoardManager];
+    
     //创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [WLRoot chooseRootViewController:self.window];
     [self.window makeKeyAndVisible];
-    
+
+    // 加载广告
     [self setupAdveriseView];
 
     [Pingpp setDebugMode:YES];
@@ -41,30 +44,23 @@
     
     //友盟分享及第三方登录初始化
     [self initLoadUMSocial];
+    
     return YES;
 }
 
 #pragma mark 启动广告
 -(void)setupAdveriseView
 {
-    UIView *luanchView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    luanchView.backgroundColor = [UIColor whiteColor];
-    [self.window addSubview:luanchView];
     // TODO 请求广告接口 获取广告图片
     [WLHomeDataHandle requestLaunchAdvertiseWithType:@1 success:^(id responseObject) {
         
-        [luanchView removeFromSuperview];
         NSString *image = responseObject[@"data"];
         NSString *imageUrl = [image stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [AdvertiseHelper showAdvertiserView:imageUrl];
 
     } failure:^(NSError *error) {
-        [luanchView removeFromSuperview];
+        
     }];
-    
-//    NSArray *images = @[@"luanch1", @"luanch2", @"luanch3"];
-//    NSInteger index = arc4random() % 3;
-//    [AdvertiseHelper showAdvertiserViewWithLocalImage:[UIImage imageNamed:images[index]]];
 }
 
 #pragma mark 初始化友盟分享

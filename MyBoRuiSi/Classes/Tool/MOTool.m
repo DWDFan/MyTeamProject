@@ -520,4 +520,12 @@
     return attrString;
 }
 
++ (NSMutableAttributedString *)getAttributeStringByHtmlString:(NSString *)htmlString fontSize:(CGFloat)fontSize textColor:(UIColor *)textColor
+{
+    NSMutableAttributedString *attrString =[[NSMutableAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:NULL error:nil];
+    [attrString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSForegroundColorAttributeName:textColor} range:NSMakeRange(0, attrString.length)];
+    return attrString;
+}
+
+
 @end

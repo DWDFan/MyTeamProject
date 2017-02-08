@@ -118,14 +118,14 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="ZYd-fV-yec"/>
-                            <exclude reference="kB6-LN-F53"/>
-                            <exclude reference="qdS-dy-vu9"/>
-                            <exclude reference="sq9-Lm-eVn"/>
                             <exclude reference="LcM-zN-X7d"/>
                             <exclude reference="QBi-eZ-OZv"/>
                             <exclude reference="UCO-a7-BWs"/>
                             <exclude reference="7Zk-Ww-DyC"/>
                             <exclude reference="cvG-7U-sjx"/>
+                            <exclude reference="kB6-LN-F53"/>
+                            <exclude reference="qdS-dy-vu9"/>
+                            <exclude reference="sq9-Lm-eVn"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -136,14 +136,14 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="ZYd-fV-yec"/>
-                            <include reference="kB6-LN-F53"/>
-                            <include reference="qdS-dy-vu9"/>
-                            <include reference="sq9-Lm-eVn"/>
                             <include reference="LcM-zN-X7d"/>
                             <include reference="QBi-eZ-OZv"/>
                             <include reference="UCO-a7-BWs"/>
                             <include reference="7Zk-Ww-DyC"/>
                             <include reference="cvG-7U-sjx"/>
+                            <include reference="kB6-LN-F53"/>
+                            <include reference="qdS-dy-vu9"/>
+                            <include reference="sq9-Lm-eVn"/>
                         </mask>
                     </variation>
                 </view>
@@ -154,6 +154,9 @@
                         <constraint firstAttribute="height" constant="50" id="4kv-OE-JoJ"/>
                     </constraints>
                     <state key="normal" title="是">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="selected">
@@ -172,6 +175,9 @@
                     <rect key="frame" x="48" y="415" width="280" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="否">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="selected">

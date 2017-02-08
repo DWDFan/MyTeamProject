@@ -57,27 +57,36 @@
     }
     cell.indexPath = indexPath;
     cell.coursewareDic = self.dataSoureArray[indexPath.row];
+    BOOL hadDownload = [ZGDownLoadUtil hadDownloadFile:cell.coursewareDic[@"kjUrl"]];
+    if (hadDownload) {  // 已下载
+        cell.downloadBtn.enabled = NO;
+        [cell.downloadBtn setImage:nil forState:UIControlStateNormal];
+    }
     
+    __weak typeof(cell) weakCell = cell;
     [cell setBlock:^(NSInteger type, NSInteger row) {
         
         if (type == 0) {
             
             WLCourseWarePreViewController *VC = [[WLCourseWarePreViewController alloc] init];
             VC.courseWareId = self.dataSoureArray[indexPath.row][@"kid"];
+            VC.fileUrl = self.dataSoureArray[indexPath.row][@"kjUrl"];
             [self.navigationController pushViewController:VC animated:YES];
         }else {
-#warning testData -- fzg
+
             DWDProgressHUD *hud = [DWDProgressHUD showHUDAddedTo:self.view animated:YES];
             [hud showText:@"正在下载课件..."];
             NSURL *url = [NSURL URLWithString:self.dataSoureArray[indexPath.row][@"kjUrl"]];
             ZGDownLoadUtil *downloadUtil = [[ZGDownLoadUtil alloc] init];
             [downloadUtil downLoadFileWithUrl:url completion:^(BOOL isComplete) {
                 [hud showText:@"下载完成" afterDelay:0.3];
+                weakCell.downloadBtn.enabled = NO;
             }];
         }
     }];
     return cell;
 }
+
 
 
 @end

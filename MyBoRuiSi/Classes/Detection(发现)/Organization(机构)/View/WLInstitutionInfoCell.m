@@ -45,7 +45,8 @@
     
     _comNumLbl.text = [NSString stringWithFormat:@"公司规模：%@人",[MOTool getNULLString:institution.gs_num]];
     
-    _descLbl.text = [NSString stringWithFormat:@"%@",[MOTool getNULLString:institution.desc]];
+//    _descLbl.text = [NSString stringWithFormat:@"%@",[MOTool getNULLString:institution.desc]];
+    _descLbl.attributedText = institution.descAttrString;
     
     _followBtn.selected = institution.isfollow;
 }

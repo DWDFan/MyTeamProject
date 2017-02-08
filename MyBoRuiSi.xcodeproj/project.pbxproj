@@ -137,6 +137,8 @@
 		9A5392671E2382D900002476 /* WLOrderCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392661E2382D900002476 /* WLOrderCommentViewController.m */; };
 		9A53926A1E23889A00002476 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5392691E23889A00002476 /* UIPlaceHolderTextView.m */; };
 		9A6768A51E1F306B009E33F5 /* WLTestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6768A41E1F306B009E33F5 /* WLTestDetailViewController.m */; };
+		9A7058EF1E24B799009289D7 /* WLEssayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7058EE1E24B799009289D7 /* WLEssayViewController.m */; };
+		9A7058F21E24DAED009289D7 /* WLAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7058F11E24DAED009289D7 /* WLAnswerViewController.m */; };
 		9A8C48B81E1F415500800CA1 /* WLQuetionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */; };
 		9AF430901E2257FA000157EC /* WLChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4308F1E2257FA000157EC /* WLChooseViewController.m */; };
 		CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2190981D53791700F13FEE /* WLTestViewController.m */; };
@@ -857,6 +859,10 @@
 		9A5392691E23889A00002476 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		9A6768A31E1F306B009E33F5 /* WLTestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestDetailViewController.h; sourceTree = "<group>"; };
 		9A6768A41E1F306B009E33F5 /* WLTestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTestDetailViewController.m; sourceTree = "<group>"; };
+		9A7058ED1E24B799009289D7 /* WLEssayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLEssayViewController.h; sourceTree = "<group>"; };
+		9A7058EE1E24B799009289D7 /* WLEssayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLEssayViewController.m; sourceTree = "<group>"; };
+		9A7058F01E24DAED009289D7 /* WLAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAnswerViewController.h; sourceTree = "<group>"; };
+		9A7058F11E24DAED009289D7 /* WLAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAnswerViewController.m; sourceTree = "<group>"; };
 		9A8C48B61E1F415500800CA1 /* WLQuetionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuetionModel.h; sourceTree = "<group>"; };
 		9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuetionModel.m; sourceTree = "<group>"; };
 		9AF4308E1E2257FA000157EC /* WLChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChooseViewController.h; sourceTree = "<group>"; };
@@ -2180,6 +2186,8 @@
 				CD2190C91D54472200F13FEE /* WLAnswerTableViewController.h */,
 				CD2190CA1D54472200F13FEE /* WLAnswerTableViewController.m */,
 				CD2190CB1D54472200F13FEE /* WLAnswerTableViewController.xib */,
+				9A7058F01E24DAED009289D7 /* WLAnswerViewController.h */,
+				9A7058F11E24DAED009289D7 /* WLAnswerViewController.m */,
 			);
 			name = "Controller(答案)";
 			sourceTree = "<group>";
@@ -2325,13 +2333,14 @@
 			path = NELivePlayer;
 			sourceTree = "<group>";
 		};
-		F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */ = {
+		F11BEE251D4EE35200AA3F3A /* Evaluation(在线测评) */ = {
 			isa = PBXGroup;
 			children = (
 				F11BEE261D4EE35200AA3F3A /* Controller */,
 				F11BEE271D4EE35200AA3F3A /* Model */,
 				F11BEE281D4EE35200AA3F3A /* View */,
 			);
+			name = "Evaluation(在线测评)";
 			path = "Evaluation()在线测评";
 			sourceTree = "<group>";
 		};
@@ -3550,10 +3559,12 @@
 				F14EEA011D55989B00BBD158 /* WLQuestionViewController.h */,
 				F14EEA021D55989B00BBD158 /* WLQuestionViewController.m */,
 				F14EEA031D55989B00BBD158 /* WLQuestionViewController.xib */,
-				F14EEA061D559A6500BBD158 /* WLChoiceViewController.h */,
 				F14EEA071D559A6500BBD158 /* WLChoiceViewController.m */,
+				F14EEA061D559A6500BBD158 /* WLChoiceViewController.h */,
 				9AF4308E1E2257FA000157EC /* WLChooseViewController.h */,
 				9AF4308F1E2257FA000157EC /* WLChooseViewController.m */,
+				9A7058ED1E24B799009289D7 /* WLEssayViewController.h */,
+				9A7058EE1E24B799009289D7 /* WLEssayViewController.m */,
 				F14EEA081D559A6500BBD158 /* WLChoiceViewController.xib */,
 				9A53925F1E2329A600002476 /* WLExamBaseViewController.h */,
 				9A5392601E2329A600002476 /* WLExamBaseViewController.m */,
@@ -3860,7 +3871,7 @@
 			isa = PBXGroup;
 			children = (
 				CD22BF2D1D66E09000BB5F47 /* Model */,
-				F11BEE251D4EE35200AA3F3A /* Evaluation()在线测评 */,
+				F11BEE251D4EE35200AA3F3A /* Evaluation(在线测评) */,
 				F11BEE291D4EE35200AA3F3A /* Famous teacher(推荐名师) */,
 				F11BEE2D1D4EE35200AA3F3A /* Inquiry(证书查询) */,
 				F11BEE311D4EE35200AA3F3A /* Organization(推荐机构) */,
@@ -4391,8 +4402,8 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 323HX38M55;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 34E23TKRTF;
+						ProvisioningStyle = Automatic;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4728,6 +4739,7 @@
 				F1A84BA41D50A17100394214 /* WLDetection.m in Sources */,
 				F14EEA1D1D55C1C700BBD158 /* WLReplyViewController.m in Sources */,
 				6C5919991D4FA44900256363 /* AFURLResponseSerialization.m in Sources */,
+				9A7058F21E24DAED009289D7 /* WLAnswerViewController.m in Sources */,
 				F183067E1DB473990073F413 /* UIWebView+Blocks.m in Sources */,
 				F14EE9F31D557CAB00BBD158 /* WLFinallysViewController.m in Sources */,
 				F19244CA1D5F0E0600F0FF5B /* README.md in Sources */,
@@ -4893,6 +4905,7 @@
 				6C5919A61D4FA44900256363 /* NSObject+MJKeyValue.m in Sources */,
 				F7EC176E1DB36B680057D7D6 /* SDWebImageCompat.m in Sources */,
 				F1A732301D54AB5300EC755E /* WLMyCurriculumViewController.m in Sources */,
+				9A7058EF1E24B799009289D7 /* WLEssayViewController.m in Sources */,
 				F149193B1DA8EBD00098CC29 /* WLSortSelectView.m in Sources */,
 				F18306431DB473990073F413 /* UIImage+FileName.m in Sources */,
 				F12162D01D51A9DF0003B5C1 /* WLCardViewController.m in Sources */,
@@ -5259,8 +5272,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 34E23TKRTF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5281,10 +5294,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi010;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab4fdba0-f2a1-44a6-8770-dbfdbe8964c3";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -5294,8 +5307,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 34E23TKRTF;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5316,10 +5329,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi010;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab4fdba0-f2a1-44a6-8770-dbfdbe8964c3";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

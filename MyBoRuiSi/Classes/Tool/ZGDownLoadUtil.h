@@ -16,4 +16,6 @@
 
 - (void)downLoadFileWithUrl:(NSURL *)url completion:(void(^)(BOOL isComplete))completion;
 
++ (BOOL)hadDownloadFile:(NSString *)fileUrlStr;
++ (NSString *)get_filename:(NSString *)name;
 @end

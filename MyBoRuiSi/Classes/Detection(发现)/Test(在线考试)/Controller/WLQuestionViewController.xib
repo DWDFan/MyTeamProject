@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLQuestionViewController">
@@ -12,23 +16,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O47-6F-TuB">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="691" width="400" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJX-bU-4bJ">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="102" height="43"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="QUx-yv-gsN"/>
                                 <constraint firstAttribute="width" constant="102" id="fN3-pk-AWB"/>
                             </constraints>
                             <state key="normal" title="上一题">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -44,14 +48,14 @@
                             </variation>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-aJ-vos">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="188" y="12" width="24" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="JoQ-h6-RuU"/>
                                 <constraint firstAttribute="height" constant="21" id="i4O-5V-jkY"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="highlightedColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="JoQ-h6-RuU"/>
@@ -66,16 +70,16 @@
                             </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bon-wW-PH0">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <rect key="frame" x="298" y="0.0" width="102" height="43"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="102" id="9Kn-Ij-IYz"/>
                                 <constraint firstAttribute="height" constant="43" id="k3U-Aq-acV"/>
                             </constraints>
                             <state key="normal" title="完成">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="highlighted">
-                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -91,7 +95,7 @@
                             </variation>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="tJX-bU-4bJ" firstAttribute="top" secondItem="O47-6F-TuB" secondAttribute="top" id="8GA-oS-xoh"/>
                         <constraint firstAttribute="height" constant="45" id="8cG-OU-ItZ"/>
@@ -111,12 +115,12 @@
                         <mask key="constraints">
                             <exclude reference="8cG-OU-ItZ"/>
                             <exclude reference="nLS-C7-oB5"/>
+                            <exclude reference="eM7-mf-UGy"/>
+                            <exclude reference="uvE-UK-L9Z"/>
                             <exclude reference="8GA-oS-xoh"/>
                             <exclude reference="gG7-ll-4Z7"/>
                             <exclude reference="TdI-xg-4Ee"/>
                             <exclude reference="rh4-cG-cgR"/>
-                            <exclude reference="eM7-mf-UGy"/>
-                            <exclude reference="uvE-UK-L9Z"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -128,17 +132,17 @@
                         <mask key="constraints">
                             <include reference="8cG-OU-ItZ"/>
                             <include reference="nLS-C7-oB5"/>
+                            <include reference="eM7-mf-UGy"/>
+                            <include reference="uvE-UK-L9Z"/>
                             <include reference="8GA-oS-xoh"/>
                             <include reference="gG7-ll-4Z7"/>
                             <include reference="TdI-xg-4Ee"/>
                             <include reference="rh4-cG-cgR"/>
-                            <include reference="eM7-mf-UGy"/>
-                            <include reference="uvE-UK-L9Z"/>
                         </mask>
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.针对EPA,阐述审核项目和项目对应的技术要求." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-5L-f5b">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="35" y="45" width="320" height="160"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="LjS-BV-9t3"/>
                         <constraint firstAttribute="height" constant="160" id="jic-Zz-KQ3"/>
@@ -160,7 +164,7 @@
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ESD(Electro-Static discharge)的意思是&quot;静电释放&quot;.ESD是20世纪中期以来形成的以研究静电的产生,危害及静电防护等的学科.因此,国际上习惯于将用于静电防护的器材统称为ESD,中文名称为静电阻抗器." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVi-2W-spw">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="29.666666666666657" y="200" width="355" height="250"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="355" id="72m-Nz-W65"/>
                         <constraint firstAttribute="height" constant="250" id="G65-HW-nFO"/>
@@ -182,7 +186,7 @@
                     </variation>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FXj-5L-f5b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="08Z-OU-lgK"/>
                 <constraint firstItem="O47-6F-TuB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2wH-jD-F7m"/>

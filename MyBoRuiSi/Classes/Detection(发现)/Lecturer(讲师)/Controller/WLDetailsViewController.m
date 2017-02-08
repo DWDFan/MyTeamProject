@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 @property (nonatomic, weak) WLDetailsHeardTableViewCell *header;
 @property (nonatomic, strong) WLLecturerModel *lecturer;
+@property (nonatomic, strong) UIView *emptyView;
 
 @end
 
@@ -67,11 +68,31 @@
         
         _lecturer = [WLLecturerModel mj_objectWithKeyValues:responseObject[@"data"]];
         _header.lecturer = _lecturer;
+        if (_lecturer.list.count == 0) {
+            self.tableView_main.tableFooterView = self.emptyView;
+        }
         [self.tableView_main reloadData];
         
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (UIView *)emptyView
+{
+    if (!_emptyView) {
+        _emptyView = [[UIView alloc] init];
+        _emptyView.frame = CGRectMake(0, 0, WLScreenW, 150);
+        
+        UILabel *emptyLbl = [[UILabel alloc] init];
+        emptyLbl.frame = CGRectMake(0, 0, _emptyView.width, _emptyView.height);
+        emptyLbl.font = [UIFont systemFontOfSize:17];
+        emptyLbl.textAlignment = NSTextAlignmentCenter;
+        emptyLbl.textColor = COLOR_WORD_GRAY_2;
+        emptyLbl.text = @"暂无数据";
+        [_emptyView addSubview:emptyLbl];
+    }
+    return _emptyView;
 }
 
 - (void)alertLogin
@@ -111,7 +132,10 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    if (indexPath.section == 0) {
+        return 100;
+    }
+    return 0.00001;
     
 }
 

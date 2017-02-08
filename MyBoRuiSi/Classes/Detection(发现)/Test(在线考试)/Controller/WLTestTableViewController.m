@@ -172,10 +172,11 @@
     
     _backgroundView.hidden = YES;
     
+    NSString *iid = self.paperArray[self.index][@"id"];
     NSString *kid = self.paperArray[self.index][@"kid"];
-    NSString *cid = self.paperArray[self.index][@"cid"];
+//    NSString *cid = self.paperArray[self.index][@"cid"];
     
-    [WLHomeDataHandle requestStartExaminationWithUid:[WLUserInfo share].userId kid:kid mid:cid success:^(id responseObject) {
+    [WLHomeDataHandle requestStartExaminationWithUid:[WLUserInfo share].userId kid:iid mid:kid success:^(id responseObject) {
         
         NSString *timeLongStr = self.paperArray[self.index][@"timelong"];
         NSInteger timelong = [timeLongStr integerValue] * 60;
@@ -207,10 +208,7 @@
     
     return theImage;
 }
-//
-//- (void)titleButtonClick:(WLTitlebutton *)titleButton{
-//    
-//}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

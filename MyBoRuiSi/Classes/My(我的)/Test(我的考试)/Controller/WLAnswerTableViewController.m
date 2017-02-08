@@ -11,6 +11,7 @@
 #import "WLChoiceViewController.h"
 #import "WLJudgmentsViewController.h"
 #import "WLQuestionViewController.h"
+#import "WLEssayViewController.h"
 
 
 @interface WLAnswerTableViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -110,7 +111,7 @@
             [self.navigationController pushViewController:JudgeVC animated:YES];
         }
         if (indexPath.row == 3) {
-            WLQuestionViewController *EssayVC = [[WLQuestionViewController alloc]init];
+            WLEssayViewController *EssayVC = [[WLEssayViewController alloc]init];
             [self.navigationController pushViewController:EssayVC animated:YES];
         }
 

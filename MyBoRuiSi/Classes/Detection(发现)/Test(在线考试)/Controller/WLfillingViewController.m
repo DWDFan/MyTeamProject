@@ -43,32 +43,50 @@
 {
     NSDictionary *dict = self.questionArray[self.index];
     NSString *question = dict[@"title"];
+    NSArray *tureAnser = dict[@"ok_answer"];
     question = [NSString stringWithFormat:@"%ld.%@", self.index + 1, question];
     self.questionLbl.text = question;
     
-    self.indexLbl.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
+    NSArray *array = [question componentsSeparatedByString:@"填空处"];
+    NSInteger blankCount = array.count - 1;
     
+    if (self.isShowAnswer) {
+        
+//        NSArray *tureAnserArray = [tureAnser componentsSeparatedByString:@"|"];
+        for (NSInteger i = 0; i < 6; i ++) {
+            UITextField *textField = (UITextField *)[self.view viewWithTag:1000 + i];
+            
+            if (i < tureAnser.count) {
+                textField.text = tureAnser[i];
+                textField.textColor = kColor_green;
+                textField.userInteractionEnabled = NO;
+            }
+            if (i > blankCount - 1) {
+                textField.hidden = YES;
+            }
+        }
+    }else {
+        NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
+        NSArray *anserArray = [answer componentsSeparatedByString:@"|"];
+        
+        for (NSInteger i = 0; i < 6; i ++) {
+            UITextField *textField = (UITextField *)[self.view viewWithTag:1000 + i];
+            
+            if (i < anserArray.count) {
+                textField.text = anserArray[i];
+            }
+            if (i > blankCount - 1) {
+                textField.hidden = YES;
+            }
+        }
+    }
+    
+    self.indexLbl.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
     if (self.index == self.questionArray.count - 1) {
         self.nextBtn.selected = YES;
     }
     if (self.index == 0) {
         self.preBtn.enabled = NO;
-    }
-    
-    NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
-    NSArray *anserArray = [answer componentsSeparatedByString:@"|"];
-
-    NSArray *array = [question componentsSeparatedByString:@"填空处"];
-    NSInteger blankCount = array.count - 1;
-    for (NSInteger i = 0; i < 6; i ++) {
-        UITextField *textField = (UITextField *)[self.view viewWithTag:1000 + i];
-        
-        if (i < anserArray.count) {
-            textField.text = anserArray[i];
-        }
-        if (i > blankCount - 1) {
-            textField.hidden = YES;
-        }
     }
 }
 
@@ -115,6 +133,7 @@
     fillVC.questionArray = self.questionArray;
     fillVC.kid = self.kid;
     fillVC.index = self.index + 1;
+    fillVC.isShowAnswer = YES;
     [self.navigationController pushViewController:fillVC animated:YES];
 }
 

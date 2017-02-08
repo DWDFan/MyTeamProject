@@ -27,7 +27,13 @@
     _model = model;
     
     _title_lab.text = model.name;
-    _score_lab.text = [NSString stringWithFormat:@"%@分",[MOTool getNULLString:model.score]];
+    if (model.status == 0) {
+        _score_lab.textColor = COLOR_WORD_GRAY_1;
+        _score_lab.text = @"审批中...";
+    }else {
+        _score_lab.text = [NSString stringWithFormat:@"%@分",[MOTool getNULLString:model.score]];
+        _score_lab.textColor = kColor_button_bg;
+    }
     _addtime_lab.text = [NSString stringWithFormat:@"考试时间:%@",[MOTool getNULLString:model.starttime]];
     [_imv sd_setImageWithURL:[NSURL URLWithString:model.photo] placeholderImage:nil];
 }

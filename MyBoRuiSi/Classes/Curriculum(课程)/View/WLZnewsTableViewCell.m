@@ -20,8 +20,10 @@
     
     _authorLbl.text = [NSString stringWithFormat:@"讲师：%@",_course.author];
     
-    [_joinNumLbl setTitle:[NSString stringWithFormat:@"%@/%@",_course.num,@20] forState:UIControlStateNormal];
-    [_joinNumLbl setTitleEdgeInsets:UIEdgeInsetsMake(0, -ZGPadding, 0, ZGPadding)];
+//    [_joinNumLbl setTitle:[NSString stringWithFormat:@"%@/%@",_course.num,@20] forState:UIControlStateNormal];
+//    [_joinNumLbl setTitleEdgeInsets:UIEdgeInsetsMake(0, -ZGPadding, 0, ZGPadding)];
+    _joinNumLbl.text = [NSString stringWithFormat:@"在线人数:%@/%@",_course.num,_course.limit];
+    
     
     _timeLbl.text = _course.period;
     

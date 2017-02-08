@@ -10,4 +10,6 @@
 
 @interface WLAnswerViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *kid; 
+
 @end

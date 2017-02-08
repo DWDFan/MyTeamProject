@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *dis_price;
 @property (nonatomic, strong) NSNumber *status;
+@property (nonatomic, strong) NSNumber *zbStatus; 
 @property (nonatomic, copy) NSString *publictime;
 @end
 /*

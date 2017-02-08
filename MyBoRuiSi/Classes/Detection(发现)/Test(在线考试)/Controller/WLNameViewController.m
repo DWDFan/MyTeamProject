@@ -14,6 +14,7 @@
 #import "WLChooseViewController.h"
 #import "WLJudgmentsViewController.h"
 #import "WLQuestionViewController.h"
+#import "WLEssayViewController.h"
 #import "WLExaminationHelper.h"
 #import "WLHomeDataHandle.h"
 #import "WLSubmitSureView.h"
@@ -176,7 +177,7 @@
             [self.navigationController pushViewController:fillVC animated:YES];
             
         } failure:^(NSError *error) {
-            
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }];
     }else if ([type isEqualToString:@"判断题"]) {
         
@@ -189,7 +190,7 @@
             [self.navigationController pushViewController:fillVC animated:YES];
             
         } failure:^(NSError *error) {
-            
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }];
     }else if ([type isEqualToString:@"选择题"]) {
         
@@ -202,7 +203,20 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         } failure:^(NSError *error) {
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        }];
+    }else if ([type isEqualToString:@"回答题"]){
+        
+        [WLHomeDataHandle requestExaminationContentWithUid:[WLUserInfo share].userId kid:_kid type:@"回答题" success:^(id responseObject) {
             
+            WLEssayViewController *vc = [[WLEssayViewController alloc] init];
+            vc.questionArray = responseObject[@"data"];
+            vc.kid = self.kid;
+            vc.index = 0;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        } failure:^(NSError *error) {
+            [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }];
     }
     

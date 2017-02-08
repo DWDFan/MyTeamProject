@@ -25,11 +25,7 @@
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:@"推荐好友" forState:UIControlStateNormal];
     self.navigationItem.titleView = btn;
-    
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];
-
 }
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color

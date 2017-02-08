@@ -11,5 +11,7 @@
 @interface WLCourseWarePreViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *courseWareId;
+@property (nonatomic, assign) BOOL hadDownload;
+@property (nonatomic, strong) NSString *fileUrl;
 
 @end

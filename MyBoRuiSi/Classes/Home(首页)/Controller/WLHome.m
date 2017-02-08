@@ -41,13 +41,15 @@
 
 @interface WLHome ()<SDCycleScrollViewDelegate,UISearchBarDelegate,UIAlertViewDelegate>
 
-@property(nonatomic,strong) UIView *views;
+@property (nonatomic, strong) UIView *views;
 
-@property (nonatomic,strong) NSMutableArray *arr_curriculum;
+@property (nonatomic, strong) SDCycleScrollView *adCycleView;
 
-@property (nonatomic,strong)NSMutableArray *teacherArray;
+@property (nonatomic, strong) NSMutableArray *arr_curriculum;
 
-@property (nonatomic,strong)NSMutableArray *arr_Recommendation;
+@property (nonatomic, strong) NSMutableArray *teacherArray;
+
+@property (nonatomic, strong) NSMutableArray *arr_Recommendation;
 
 @property (nonatomic, strong) NSArray *adsArray;
 
@@ -90,14 +92,14 @@
 
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-//    [self postUpLoad];
-    
+
     //图片轮播器
-    SDCycleScrollView *scrollview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:[UIImage imageNamed:@"图层-50_88"]];
+    self.adCycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:[UIImage imageNamed:@"图层-50_88"]];
     
-    self.tableView.tableHeaderView = scrollview;
+    self.tableView.tableHeaderView = self.adCycleView;
     self.tableView.showsVerticalScrollIndicator = NO;
     
     UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 60)];
@@ -105,28 +107,11 @@
     search.delegate = self;
     self.navigationItem.titleView = search;
    
-    [MOHTTP Post:@"API/index.php?action=Ad&do=homeAd" parameters:@{} success:^(id responseObject) {
-        
-        NSDictionary *dic = responseObject;
-        //返回参数
-        if ([dic[@"code"] intValue] == 1 ) {
-            
-            self.adsArray = dic[@"data"];
-            NSMutableArray *mutabArray = [NSMutableArray array];
-            for (NSDictionary *dic  in self.adsArray) {
-                [mutabArray addObject:dic[@"img"]];
-            }
-            scrollview.imageURLStringsGroup = mutabArray;
-        }else{
-            
-            [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-  
+    //广告轮播图数据
+    [self getAdData];
+    
     //精选课程数据
-    [self getData];
+    [self getCourseData];
 
     //推荐讲师数据
     [self getAlecturer];
@@ -135,31 +120,46 @@
     [self getRecommendation];
 }
 
-- (void)getData
+// 广告数据
+- (void)getAdData
 {
-    NSDictionary *params = @{ @"num" : @"10"};
-    
-    [MOHTTP Post:@"API/index.php?action=Ad&do=GoodKc" parameters:params success:^(id responseObject) {
-        NSLog(@"%@+++++++",responseObject);
+    [MOHTTP Post:@"API/index.php?action=Ad&do=homeAd" parameters:@{} success:^(id responseObject) {
+        
         NSDictionary *dic = responseObject;
-        //返回参数
+        
         if ([dic[@"code"] intValue] == 1 ) {
             
-            //用数组取值
-            NSArray *array_main = dic[@"data"];
-            
-            self.arr_curriculum = [CurriculumModel mj_objectArrayWithKeyValuesArray:array_main];
-            [self.tableView reloadData];
-            
+            self.adsArray = dic[@"data"];
+            NSMutableArray *mutabArray = [NSMutableArray array];
+            for (NSDictionary *dic  in self.adsArray) {
+                [mutabArray addObject:dic[@"img"]];
+            }
+            self.adCycleView.imageURLStringsGroup = mutabArray;
         }else{
             
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
-            
         }
-
-//        NSLog(@"%@",responseObject);
     } failure:^(NSError *error) {
         
+    }];
+}
+
+- (void)getCourseData
+{
+    NSDictionary *params = @{@"num" : @"10"};
+    
+    [MOHTTP Post:@"API/index.php?action=Ad&do=GoodKc" parameters:params success:^(id responseObject) {
+        NSDictionary *dic = responseObject;
+        if ([dic[@"code"] intValue] == 1 ) {
+            
+            NSArray *array_main = dic[@"data"];
+            self.arr_curriculum = [CurriculumModel mj_objectArrayWithKeyValuesArray:array_main];
+            [self.tableView reloadData];
+        }else{
+            [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
+        }
+    } failure:^(NSError *error) {
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 
@@ -167,27 +167,19 @@
     NSDictionary *param = @{@"num" : @"10"};
     
     [MOHTTP Post:@"API/index.php?action=Ad&do=GoodJs" parameters:param success:^(id responseObject) {
-        NSLog(@"%@+++++++",responseObject);
+
         NSDictionary *dic = responseObject;
-        //返回参数
         if ([dic[@"code"] intValue] == 1 ) {
             
-            //用数组取值
             NSArray *array_mains = dic[@"data"];
-            
             self.teacherArray = [RecommendModell mj_objectArrayWithKeyValuesArray:array_mains];
-            
             [self.tableView reloadData];
             
         }else{
-            
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
-            
         }
-//                NSLog(@"%@",responseObject);
-
     } failure:^(NSError *error) {
-        
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 
 }
@@ -197,27 +189,18 @@
     NSDictionary *params = @{@"num" : @"10"};
     
     [MOHTTP Post:@"API/index.php?action=Ad&do=GoodJg" parameters:params success:^(id responseObject) {
-        NSLog(@"%@+++++++",responseObject);
+       
         NSDictionary *dic = responseObject;
-        //返回参数
         if ([dic[@"code"] intValue] == 1 ) {
             
-            //用数组取值
             NSArray *array_maina = dic[@"data"];
-            
             self.arr_Recommendation = [RecommendationModelll mj_objectArrayWithKeyValuesArray:array_maina];
-            
             [self.tableView reloadData];
-            
         }else{
-            
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
         }
-
-        NSLog(@"%@",self.arr_Recommendation);
-
     } failure:^(NSError *error) {
-        
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
     }];
 }
 
@@ -227,17 +210,37 @@
     NSDictionary *dict = self.adsArray[index];
     NSString *type = dict[@"type"];
     
-    if ([type isEqualToString:@"kecheng"]) {
+    if ([type isEqualToString:@"点播课程"]) {
         
         WLCourseDetailViewController *VC = [[WLCourseDetailViewController alloc] init];
-        VC.courseId = dict[@"url"];
+        VC.courseId = dict[@"app"];
         [self.navigationController pushViewController:VC animated:YES];
-    }else if ([type isEqualToString:@"bbs"]) {
+        
+    }else if ([type isEqualToString:@"直播课程"]) {
+        
+        WLLiveCourseDetailViewController *VC = [[WLLiveCourseDetailViewController alloc] init];
+        VC.courseId = dict[@"app"];
+        [self.navigationController pushViewController:VC animated:YES];
+        
+    }else if ([type isEqualToString:@"机构"]) {
+        
+        WLorganVC *vc = [[WLorganVC alloc]init];
+        vc.institutionId = dict[@"app"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else if ([type isEqualToString:@"讲师"]) {
+        
+        WLDetailsViewController *details = [[WLDetailsViewController alloc]init];
+        details.teacherId = dict[@"app"];
+        [self.navigationController pushViewController:details animated:YES];
+        
+    }else if ([type isEqualToString:@"帖子"]) {
     
         WLArticleDetailViewController *VC = [[WLArticleDetailViewController alloc] init];
-        VC.articleId = dict[@"url"];
+        VC.articleId = dict[@"app"];
         [self.navigationController pushViewController:VC animated:YES];
-    }else if ([type isEqualToString:@"other"]){
+        
+    }else if ([type isEqualToString:@"链接"]){
     
         WebViewController *VC = [[WebViewController alloc] init];
         VC.urlstr = dict[@"url"];
@@ -246,26 +249,16 @@
     }
 }
 
-//cancel按钮点击时调用
+// cancel按钮点击时调用
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-
-{    WLSearchTableViewController *search = [[WLSearchTableViewController alloc]init];
-    //    search.hidesBottomBarWhenPushed = YES;
+{
+    WLSearchTableViewController *search = [[WLSearchTableViewController alloc]init];
     [self.navigationController pushViewController:search animated:YES];
-
     return NO;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
+#pragma mark - Tableview data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
     return 4;
 }
 
@@ -304,12 +297,13 @@
     if (indexPath.section == 1) {
         //课程详情
         CurriculumModel *model = _arr_curriculum[indexPath.row];
-        
         if ([model.type isEqualToNumber:@1]) {
+            // 点播
             WLCourseDetailViewController *detail = [[WLCourseDetailViewController alloc] init];
             detail.courseId = [_arr_curriculum[indexPath.row] id];
             [self.navigationController pushViewController:detail animated:YES];
         }else {
+            // 直播
             WLLiveCourseDetailViewController *vc = [[WLLiveCourseDetailViewController alloc] init];
             vc.courseId =  [_arr_curriculum[indexPath.row] id];
             [self.navigationController pushViewController:vc animated:YES];
@@ -329,15 +323,10 @@
     }
 }
 
-//cell
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    id cell;
-
-        __weak typeof(self) weakSelf = self;
-
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    __weak typeof(self) weakSelf = self;
     if (indexPath.section == 0) {
         
         static NSString *deteID = @"WLHomeTableViewCell";
@@ -347,45 +336,41 @@
             cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
             cells.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-                //证书查询
-                cells.WLHomeTableViewCellBlock = ^(){
-                    
-                    //证书查询
-                    if (![WLUserInfo share].isLogin) {
-                        
-                        [self alertLogin];
-                        return ;
-                    }
-                    WLInquiryViewController *inqui = [[WLInquiryViewController alloc]init];
-                    [weakSelf.navigationController pushViewController:inqui animated:YES];
-               };
+        //证书查询
+        cells.WLHomeTableViewCellBlock = ^(){
+            
+            if (![WLUserInfo share].isLogin) {
+                [weakSelf alertLogin];
+                return ;
+            }
+            WLInquiryViewController *inqui = [[WLInquiryViewController alloc]init];
+            [weakSelf.navigationController pushViewController:inqui animated:YES];
+        };
 
-                cells.WLHomeTableViewCellBlockTwo = ^(){
-                    
-                    if (![WLUserInfo share].isLogin) {
-                        
-                        [self alertLogin];
-                        return ;
-                    }
-                    //在线测评
-                    WLEvaluationViewController *evaluation = [[WLEvaluationViewController alloc]init];
-                    [weakSelf.navigationController pushViewController:evaluation animated:YES];
-                };
-                
-                cells.WLHomeTableViewCellBlockThree = ^(){
-                    
-                    //推荐讲师
-                    WLTeacherViewController *teacher = [[WLTeacherViewController alloc]init];
-                    [weakSelf.navigationController pushViewController:teacher animated:YES];
-                };
-
-                cells.WLHomeTableViewCellBlockFour = ^(){
-                    
-                    //推荐机构
-                    WLorganizationgViewController *org = [[WLorganizationgViewController alloc]init];
-                    [weakSelf.navigationController pushViewController:org animated:YES];
-                };
+        //在线测评
+        cells.WLHomeTableViewCellBlockTwo = ^(){
+            
+            if (![WLUserInfo share].isLogin) {
+                [weakSelf alertLogin];
+                return ;
+            }
+            WLEvaluationViewController *evaluation = [[WLEvaluationViewController alloc]init];
+            [weakSelf.navigationController pushViewController:evaluation animated:YES];
+        };
         
+        cells.WLHomeTableViewCellBlockThree = ^(){
+            
+            //推荐讲师
+            WLTeacherViewController *teacher = [[WLTeacherViewController alloc]init];
+            [weakSelf.navigationController pushViewController:teacher animated:YES];
+        };
+
+        cells.WLHomeTableViewCellBlockFour = ^(){
+            
+            //推荐机构
+            WLorganizationgViewController *org = [[WLorganizationgViewController alloc]init];
+            [weakSelf.navigationController pushViewController:org animated:YES];
+        };
         cell = cells;
 
     }else if (indexPath.section == 1){
@@ -407,10 +392,8 @@
         if (cells == nil) {
             cells = [[[NSBundle mainBundle] loadNibNamed:deteID owner:nil options:nil] lastObject];
         }
-        
         RecommendModell *modell = self.teacherArray[indexPath.row];
         cells.Modell = modell;
-        
         cell = cells;
 
     }else{
@@ -423,12 +406,8 @@
         }
         RecommendationModelll *modelll = self.arr_Recommendation[indexPath.row];
         cells.Modelll = modelll;
-        
         cell = cells;
-        
     }
-    
-    
     return cell;
 }
 
@@ -445,37 +424,21 @@
     }
 }
 
-//开始触摸
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
- 
-//    [self postUpLoad];
-}
-
-//已登录
--(void)CanbtnClik:(UIButton *)btn{
-  
-    
-}
-
-
 //cell高
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     int i = 100;
     if (indexPath.section == 2) {
         i = 262;
     }else if (indexPath.section == 3){
         i = 262;
     }
-    
     return i;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     NSString *str = @"";
-    
-    
     if (section == 1) {
         str = @"精选课程";
     }else if (section == 2){
@@ -483,17 +446,15 @@
     }else if (section == 3){
         str = @"推荐机构";
     }
-    
     return str;
 }
 
 //返回组头view
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor whiteColor];
-    
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 100, 20)];
-    
     if (section == 1) {
          label.text = @"精选课程";
     }else if (section == 2){
@@ -501,24 +462,16 @@
     }else if (section == 3){
            label.text = @"推荐机构";
     }
-    
-   
     label.font = [UIFont systemFontOfSize:16];
     [view addSubview:label];
-    
-    
-    
     return view;
 }
 
 
-- (void)viewWillAppear:(BOOL)animated{
-    
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(139.0, 23.0, 55.0, 1)] forBarMetrics:UIBarMetricsDefault];
-    
 }
 
 

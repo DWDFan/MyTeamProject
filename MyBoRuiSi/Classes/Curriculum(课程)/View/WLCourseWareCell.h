@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *sizeLbl;
 
 @property (nonatomic, copy) void(^block)(NSInteger operationType, NSInteger row);
+@property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
 
 @end

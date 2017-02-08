@@ -30,29 +30,22 @@
 /**
  *  点击搜索调到下一个界面
  */
--(void)Transmission{
-    
-    
+-(void)Transmission
+{
     [self.view endEditing:YES];
-
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-   
-
     [self addNavigationHead];
-
-    
-    
 }
 
 
-- (void)addNavigationHead{
-    
-    
+- (void)addNavigationHead
+{
     //添加主view
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(50, 25, Swidth - 80, 35)];
     
@@ -80,22 +73,6 @@
     self.button_main = button_main;
     
     [view addSubview:textField_main];
-    
-    
-    
-    //    UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width - 75, 35)];
-    //    search.placeholder = @"请输入名称";
-    //
-    //    [search setTintColor:[UIColor clearColor]];
-    //
-    //    [search setContentMode:UIViewContentModeRight];
-    //
-    //    [search setBackgroundColor:[UIColor clearColor]];
-    //
-    //    [search setBackgroundImage:[UIImage imageNamed:@"00008"]];
-    //
-    //    search.delegate = self;
-    //
     
     //添加view
     

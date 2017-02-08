@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIButton *timeBtn;
 @property (nonatomic, strong) WLExaminationHelper *examHelper;
+@property (nonatomic, assign) BOOL isShowAnswer;     // 查答案
 
 @end

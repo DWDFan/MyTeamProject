@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSNumber *kc_num;
 @property (nonatomic, strong) NSNumber *xy_num;
 @property (nonatomic, strong) NSNumber *gz_num;
+@property (nonatomic, strong) NSString *level;
+@property (nonatomic, strong) NSString *jigou;
 
 @property (nonatomic, strong) NSString *tid;
 @property (nonatomic, strong) NSString *id;

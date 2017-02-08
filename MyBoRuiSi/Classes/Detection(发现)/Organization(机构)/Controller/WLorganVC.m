@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
 @property (nonatomic, strong) WLInstitutionModel *institution;
 @property (nonatomic, strong) NSArray *courseArray;
+@property (nonatomic, strong) UIView *emptyView;
 
 
 @end
@@ -69,10 +70,30 @@
     [WLHomeDataHandle requestInstitutionCourseListWithUid:[WLUserInfo share].userId jid:_institutionId type:nil success:^(id responseObject) {
         
         _courseArray = [WLCourseListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        if (_courseArray.count == 0) {
+            self.tableView_main.tableFooterView = self.emptyView;
+        }
         [self.tableView_main reloadData];
     } failure:^(NSError *error) {
         
     }];
+}
+
+- (UIView *)emptyView
+{
+    if (!_emptyView) {
+        _emptyView = [[UIView alloc] init];
+        _emptyView.frame = CGRectMake(0, 0, WLScreenW, 150);
+        
+        UILabel *emptyLbl = [[UILabel alloc] init];
+        emptyLbl.frame = CGRectMake(0, 0, _emptyView.width, _emptyView.height);
+        emptyLbl.font = [UIFont systemFontOfSize:17];
+        emptyLbl.textAlignment = NSTextAlignmentCenter;
+        emptyLbl.textColor = COLOR_WORD_GRAY_2;
+        emptyLbl.text = @"暂无数据";
+        [_emptyView addSubview:emptyLbl];
+    }
+    return _emptyView;
 }
 
 #pragma mark加入机构
@@ -105,7 +126,6 @@
 }
 //返回有多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 3;
 }
 //返回组有多少个cell
@@ -114,12 +134,21 @@
     
     if (section == 2) {
         i = _courseArray.count;
+    }else if (section == 1 && self.institution.goodTeacher.count == 0) {
+        i = 0;
     }
     return i;
 }
 //返回组头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return section == 0 ? 0.000001 : 44;
+
+    if (section == 0) {
+        return 0.00001;
+    }else if (section == 1 && self.institution.goodTeacher.count == 0) {
+        return 0.00001;
+    }else {
+        return 44;
+    }
 }
 //反回每个对应cell的内容
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -135,6 +164,7 @@
         WLInstitutionInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoID];
         if (!infoCell) {
             infoCell = [[[NSBundle mainBundle] loadNibNamed:infoID owner:nil options:nil] lastObject];
+            infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         infoCell.institution = _institution;
         [infoCell setBlock:^(UIButton *button) {
@@ -154,12 +184,13 @@
         }];
         cell = infoCell;
         
-    }else if (indexPath.section == 1) {
+    }else if (indexPath.section == 1 && self.institution.goodTeacher.count != 0) {
         
         WLorgTableViewCell *cello = [tableView dequeueReusableCellWithIdentifier:orgID];
         
         if (cello == nil) {
             cello = [[[NSBundle mainBundle] loadNibNamed:orgID owner:nil options:nil] lastObject];
+            cello.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cello.institution = _institution;
         [cello setBlock:^(NSString *tid) {
@@ -199,7 +230,7 @@
 
     int i = 100;
     if (indexPath.section == 0) {
-        i = 180;
+        i = self.institution.descHeight + 125 + 10;
     }else if(indexPath.section == 1) {
         i = 93;
     }
@@ -210,49 +241,50 @@
 //返回组头view
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    if (section == 0) {
-        return nil;
-    }
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor whiteColor];
-    
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 100, 44)];
-    
-    if (section == 1) {
-        label.text = @"优秀讲师";
-    }else if (section == 2){
-        label.text = @"机构课程";
-    }
-    
-    
-    label.font = [UIFont systemFontOfSize:14];
-    [view addSubview:label];
-    
-    CGFloat btnX = WLScreenW - 20;
-    CGFloat btnY = 17;
-  
-    if (section == 1) {
+    if (section == 1 && self.institution.goodTeacher.count != 0) {
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor whiteColor];
         
-         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(btnX, btnY, 10, 10)];
-            
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 100, 44)];
+        label.font = [UIFont systemFontOfSize:14];
+        [view addSubview:label];
+        label.text = @"优秀讲师";
+        [view addSubview:label];
+        
+        CGFloat btnX = WLScreenW - 20;
+        CGFloat btnY = 17;
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(btnX, btnY, 10, 10)];
         [btn setImage:[UIImage imageNamed:@"素彩网www.sc115.com-138-拷贝-4"] forState:UIControlStateNormal];
-            
         [view addSubview:btn];
-            
+        
         UIButton *btnt = [[UIButton alloc]initWithFrame:CGRectMake(btn.frame.origin.x-60,0, 60, 44)];
         [btnt setTitle:@"讲师列表" forState:UIControlStateNormal];
         btnt.titleLabel.font = [UIFont systemFontOfSize:14];
         [ btnt setTitleColor:RGBA(139, 34, 56, 1) forState:UIControlStateNormal];
         [view addSubview:btnt];
-        //监听按钮方法
         [btnt addTarget:self action:@selector(someButtonClicked)forControlEvents:UIControlEventTouchUpInside];
+        return view;
         
+    }else if (section == 2) {
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor whiteColor];
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 100, 44)];
+        label.font = [UIFont systemFontOfSize:14];
+        [view addSubview:label];
+        label.text = @"机构课程";
+        [view addSubview:label];
+        return view;
+    }else {
+        return nil;
     }
-    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (section == 1 && self.institution.goodTeacher.count == 0) {
+        return 0.00001;
+    }
     return 10;
 }
 
@@ -270,10 +302,11 @@
 //点击cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.tableView_main deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 2) {
         
+        [self.tableView_main deselectRowAtIndexPath:indexPath animated:YES];
+
         //课程详情
 //        WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc]init];
 //        vc.courseId = [_institution.list[indexPath.row] id];

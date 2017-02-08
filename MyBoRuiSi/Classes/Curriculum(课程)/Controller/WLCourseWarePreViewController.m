@@ -15,7 +15,7 @@
 @interface WLCourseWarePreViewController ()
 
 @property (nonatomic, strong) UIButton *downloadBtn;
-
+@property (nonatomic, strong) UIWebView *webView;
 
 @end
 
@@ -38,7 +38,7 @@
     self.downloadBtn.titleEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);
     [self.downloadBtn setTitle:@"大小:0M   格式:PDF" forState:UIControlStateNormal];
     [self.view addSubview:self.downloadBtn];
-    
+
     UILabel *downLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 7, WLScreenW, 16)];
     downLbl.font = [UIFont systemFontOfSize:16];
     downLbl.textColor = [UIColor whiteColor];
@@ -46,6 +46,12 @@
     downLbl.text = @"下载";
     [self.downloadBtn addSubview:downLbl];
     
+    
+    if ([ZGDownLoadUtil hadDownloadFile:self.fileUrl]) {
+        downLbl.text = @"已下载";
+        self.downloadBtn.enabled = NO;
+    }
+    [self loadDocument];
     [self requestData];
 }
 
@@ -96,5 +102,35 @@
     [imageV sd_setImageWithURL:[NSURL URLWithString:self.dataSoureArray[indexPath.row][@"image"]] placeholderImage:PHOTO_PLACE];
     return cell;
 }
+
+-(void)loadDocument
+{
+    NSURL *url;
+    if (self.hadDownload) {
+        NSString *fileName = [self.fileUrl lastPathComponent];
+        NSString* docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString* filePath = [docPath stringByAppendingPathComponent:fileName];
+        url = [NSURL fileURLWithPath:filePath];
+    }else {
+        url = [NSURL URLWithString:self.fileUrl];
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
+}
+
+
+- (UIWebView *)webView
+{
+    if (!_webView) {
+        _webView = [[UIWebView alloc] init];
+        _webView.frame = CGRectMake(0, 0, WLScreenW, WLScreenH - 64 - 49);
+        _webView.scalesPageToFit=YES;
+        _webView.multipleTouchEnabled=YES;
+        _webView.userInteractionEnabled=YES;
+        [self.view addSubview:_webView];
+    }
+    return _webView;
+}
+
 
 @end

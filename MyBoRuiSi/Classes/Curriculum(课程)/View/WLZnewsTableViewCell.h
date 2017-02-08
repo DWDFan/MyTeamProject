@@ -18,6 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *priceLbl;
 @property (weak, nonatomic) IBOutlet UIButton *liveStatusImgV;
-@property (weak, nonatomic) IBOutlet UIButton *joinNumLbl;
+@property (weak, nonatomic) IBOutlet UILabel *joinNumLbl;
 
 @end

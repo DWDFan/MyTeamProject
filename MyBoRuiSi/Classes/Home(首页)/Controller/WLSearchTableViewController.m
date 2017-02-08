@@ -133,12 +133,9 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + 1, 0, -labelWidth);
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth - 5, 0, imageWidth);
     _typeBtn = btn;
-
-    //[btn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -5, 0.0, 0.0)];
     
     self.navigationItem.titleView = view;
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"搜索" style:UIBarButtonItemStyleDone target:self action:@selector(Transmission)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"搜索" style:UIBarButtonItemStyleDone target:self action:@selector(searchWithKeyword:)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     [btn addTarget:self action:@selector(btnClik:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -155,42 +152,33 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     _isHistoryData = YES;
 }
 
-
 #pragma mark textFile的代理方法
 //开始编辑的时候调用
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
     self.button_main.hidden = YES;
-    
-    
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
     
-    if (string.length > 0) {
-         self.button_main.hidden = YES;
-    }else{
-         self.button_main.hidden = NO;
+    if (textField.text.length != 0) {
+        self.button_main.hidden = YES;
     }
-    
-    return YES;
-    
+
 }
 
 //清空
--(BOOL)textFieldShouldClear:(UITextField *)textField{
-
-   //  [self.view endEditing:YES];
-     self.button_main.hidden = NO;
+-(BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    self.button_main.hidden = NO;
     [_textFiled_main resignFirstResponder];
-    
     return YES;
-    
 }
 
 //点击
--(void)btnClik:(UIButton *)btn{
-    
+-(void)btnClik:(UIButton *)btn
+{
     btn.selected = !btn.selected;
     
     if (!btn.selected) {
@@ -198,20 +186,18 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
         return;
     };
     
-    CGFloat btnX  =  CGRectGetMaxX(btn.frame);
-    CGFloat btnY  =  CGRectGetMaxY (btn.frame);
+    CGFloat btnX = CGRectGetMaxX(btn.frame);
+    CGFloat btnY = CGRectGetMaxY(btn.frame);
     
     NSArray *menuItems =
     @[[KxMenuItem menuItem:@"机构"
                      image:[UIImage imageNamed:@"btn_chat"]
                     target:self
                     action:@selector(btn_chat:)],
-      
       [KxMenuItem menuItem:@"讲师"
                      image:[UIImage imageNamed:@"btn_addf"]
                     target:self
                     action:@selector(btn_addf:)],
-      
       [KxMenuItem menuItem:@"课程"
                      image:[UIImage imageNamed:@"btn_add_saoyisao"]
                     target:self
@@ -227,34 +213,33 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     KxMenuItem *first = menuItems[0];
     first.foreColor = [UIColor colorWithRed:136/255.0f green:136/255.0f blue:136/255.0f alpha:1.0];
     first.alignment = NSTextAlignmentCenter;
-//    [KxMenu showMenuInView:self.view
-//                  fromRect:CGRectMake(btnX, btnY - 30, 0, 0)
-//                 menuItems:menuItems];
     [KxMenu showMenuInView:self.view fromRect:CGRectMake(btnX, btnY - 30, 0, 0) menuItems:menuItems dismissBlock:^{
         _typeBtn.selected = NO;
     }];
 }
-//机构
+
+// 机构
 - (void)btn_chat:(id)sender{
     _typeBtn.selected = NO;
     [_typeBtn setTitle:@"机构" forState:UIControlStateNormal];
     _searchType = ZGSearchTypeInstitution;
 }
 
-/****讲师*/
+// 讲师
 - (void)btn_addf:(id)sender{
     _typeBtn.selected = NO;
     [_typeBtn setTitle:@"讲师" forState:UIControlStateNormal];
     _searchType = ZGSearchTypeLecturer;
 }
 
-/***课程**/
+// 课程
 - (void)btn_add_saoyisao:(id)sender{
     _typeBtn.selected = NO;
     [_typeBtn setTitle:@"课程" forState:UIControlStateNormal];
     _searchType = ZGSearchTypeCourse;
 }
 
+// 帖子
 - (void)btn_addArticle:(id)sender
 {
     _typeBtn.selected = NO;
@@ -262,6 +247,7 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     _searchType = ZGSearchTypeArticle;
 }
 
+// 标准
 - (void)btn_addStandard:(id)sender
 {
     _typeBtn.selected = NO;
@@ -269,16 +255,14 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     _searchType = ZGSearchTypeStandard;
 }
 
-////点击屏幕退出
+// 点击屏幕退出
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/**
- *  搜索
- */
-- (void)Transmission
+// 搜索
+- (void)searchWithKeyword:(id)keyword
 {
     if (!_isSearch) {
         _isSearch = YES;
@@ -288,10 +272,17 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
             [weakSelf loadMoreData];
         }];
     }
+    if ([keyword isKindOfClass:[NSString class]])
+    {
+        _button_main.hidden = YES;
+        _textFiled_main.text = keyword;
+    }
+    
     _page = 2;
     [_dataSourceArray removeAllObjects];
     [self.view endEditing:YES];
-    if (_textFiled_main.text.length > 0) {
+    NSUInteger index = [_historyArray indexOfObject:_textFiled_main.text];
+    if (_textFiled_main.text.length > 0 && index == NSNotFound) {
         [_historyArray addObject:_textFiled_main.text];
         [[NSUserDefaults standardUserDefaults] setObject:_historyArray forKey:@"searchCache"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -623,6 +614,7 @@ typedef NS_ENUM(NSUInteger, ZGSearchType) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (!_isSearch) {
+        [self searchWithKeyword:_historyArray[indexPath.row]];
         return;
     }
     

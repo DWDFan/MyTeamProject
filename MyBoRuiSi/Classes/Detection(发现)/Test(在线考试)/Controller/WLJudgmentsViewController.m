@@ -43,24 +43,42 @@
 {
     NSDictionary *dict = self.questionArray[self.index];
     NSString *question = dict[@"title"];
+    NSArray *tureAnser = dict[@"ok_answer"];
     question = [NSString stringWithFormat:@"%ld.%@", self.index + 1, question];
     self.questionLbl.text = question;
     
-    self.indexBtn.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
     
-    NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
-    if ([answer isEqualToString:@"是"]) {
-        self.tureBtn.selected = YES;
-        self.tureBtn.backgroundColor = kColor_button_bg;
-        self.faultBtn.selected = NO;
-        self.faultBtn.backgroundColor = [UIColor whiteColor];
-    }else if ([answer isEqualToString:@"否"]){
-        self.tureBtn.selected = NO;
-        self.tureBtn.backgroundColor = [UIColor whiteColor];
-        self.faultBtn.selected = YES;
-        self.faultBtn.backgroundColor = kColor_button_bg;
+    if (self.isShowAnswer) {
+        self.tureBtn.enabled = NO;
+        self.faultBtn.enabled = NO;
+        if ([tureAnser[0] isEqualToString:@"是"]) {
+            [self.tureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+            self.tureBtn.backgroundColor = kColor_green;
+            self.faultBtn.selected = NO;
+            self.faultBtn.backgroundColor = [UIColor whiteColor];
+        }else {
+            self.tureBtn.selected = NO;
+            self.tureBtn.backgroundColor = [UIColor whiteColor];
+            [self.faultBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+            self.faultBtn.backgroundColor = kColor_green;
+        }
+    }else {
+        NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
+        if ([answer isEqualToString:@"是"]) {
+            self.tureBtn.selected = YES;
+            self.tureBtn.backgroundColor = kColor_button_bg;
+            self.faultBtn.selected = NO;
+            self.faultBtn.backgroundColor = [UIColor whiteColor];
+        }else if ([answer isEqualToString:@"否"]){
+            self.tureBtn.selected = NO;
+            self.tureBtn.backgroundColor = [UIColor whiteColor];
+            self.faultBtn.selected = YES;
+            self.faultBtn.backgroundColor = kColor_button_bg;
+        }
     }
     
+    
+    self.indexBtn.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
     if (self.index == self.questionArray.count - 1) {
         self.nextBtn.selected = YES;
     }
@@ -145,6 +163,7 @@
     vc.questionArray = self.questionArray;
     vc.kid = self.kid;
     vc.index = self.index + 1;
+    vc.isShowAnswer = self.isShowAnswer;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

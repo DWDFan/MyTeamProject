@@ -40,8 +40,6 @@
     [self.tableView addHeaderWithCallback:^{
         [self requestData];
     }];
-    
-//    [self requestData];
 }
 
 - (void)viewWillAppear:(BOOL)animated

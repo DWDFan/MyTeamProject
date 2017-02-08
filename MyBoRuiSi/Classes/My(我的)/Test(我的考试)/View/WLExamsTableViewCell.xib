@@ -15,36 +15,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="矢量智能对象1" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-yd-axU">
-                        <rect key="frame" x="10" y="10" width="100" height="80"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="矢量智能对象1" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-yd-axU">
+                        <rect key="frame" x="10" y="15" width="100" height="72"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="b1W-Ca-N4B"/>
-                            <constraint firstAttribute="height" constant="80" id="dQ8-Jj-Bcw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="试卷1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3g-Ca-Sva">
-                        <rect key="frame" x="120" y="5" width="44" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="120" y="15" width="91" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-cI-WgJ">
-                        <rect key="frame" x="120" y="39" width="36.5" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="120" y="42.5" width="34" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="考试时间：2016-06-29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFn-oA-aWE">
-                        <rect key="frame" x="120" y="68" width="119.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="120" y="73" width="119.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-0J-9Uk">
-                        <rect key="frame" x="253" y="61" width="44" height="26"/>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-IV-Emp">
+                        <rect key="frame" x="298" y="75" width="8" height="9"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-0J-9Uk">
+                        <rect key="frame" x="253" y="70" width="44" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <state key="normal" title="查看答案">
                             <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,24 +55,21 @@
                             <action selector="lookAnswerAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hIv-XW-1uX"/>
                         </connections>
                     </button>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-IV-Emp">
-                        <rect key="frame" x="300" y="70" width="6" height="9"/>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SFn-oA-aWE" firstAttribute="top" secondItem="a43-cI-WgJ" secondAttribute="bottom" constant="9.5" id="EXS-Vy-Mtr"/>
+                    <constraint firstItem="29Q-IV-Emp" firstAttribute="centerY" secondItem="KdM-0J-9Uk" secondAttribute="centerY" id="Efd-2C-h2v"/>
                     <constraint firstItem="29Q-IV-Emp" firstAttribute="leading" secondItem="KdM-0J-9Uk" secondAttribute="trailing" constant="3" id="FQq-TE-fhO"/>
-                    <constraint firstItem="S3g-Ca-Sva" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Ksf-p9-sqM"/>
+                    <constraint firstItem="SFn-oA-aWE" firstAttribute="bottom" secondItem="QaQ-yd-axU" secondAttribute="bottom" constant="5" id="FtG-Gx-qQ1"/>
+                    <constraint firstItem="S3g-Ca-Sva" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Ksf-p9-sqM"/>
                     <constraint firstItem="SFn-oA-aWE" firstAttribute="leading" secondItem="QaQ-yd-axU" secondAttribute="trailing" constant="10" id="SQt-SH-nGR"/>
                     <constraint firstItem="S3g-Ca-Sva" firstAttribute="leading" secondItem="QaQ-yd-axU" secondAttribute="trailing" constant="10" id="Sex-KW-zoK"/>
                     <constraint firstItem="a43-cI-WgJ" firstAttribute="leading" secondItem="QaQ-yd-axU" secondAttribute="trailing" constant="10" id="ZyK-q4-D2r"/>
-                    <constraint firstItem="29Q-IV-Emp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="70" id="boE-1q-ayq"/>
-                    <constraint firstItem="KdM-0J-9Uk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="61" id="eRD-3u-2RR"/>
-                    <constraint firstAttribute="bottom" secondItem="QaQ-yd-axU" secondAttribute="bottom" constant="9.5" id="hkL-GH-Q7W"/>
+                    <constraint firstAttribute="bottom" secondItem="QaQ-yd-axU" secondAttribute="bottom" constant="15" id="hkL-GH-Q7W"/>
                     <constraint firstItem="KdM-0J-9Uk" firstAttribute="leading" secondItem="SFn-oA-aWE" secondAttribute="trailing" constant="13.5" id="oKC-3c-iaJ"/>
-                    <constraint firstItem="a43-cI-WgJ" firstAttribute="top" secondItem="S3g-Ca-Sva" secondAttribute="bottom" constant="13.5" id="t3n-uY-HhD"/>
+                    <constraint firstItem="KdM-0J-9Uk" firstAttribute="centerY" secondItem="SFn-oA-aWE" secondAttribute="centerY" id="raD-QV-dAV"/>
+                    <constraint firstItem="a43-cI-WgJ" firstAttribute="top" secondItem="S3g-Ca-Sva" secondAttribute="bottom" constant="11" id="t3n-uY-HhD"/>
                     <constraint firstItem="QaQ-yd-axU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wZK-DE-kOg"/>
-                    <constraint firstItem="QaQ-yd-axU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="x5W-Zi-Gux"/>
+                    <constraint firstItem="QaQ-yd-axU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="x5W-Zi-Gux"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

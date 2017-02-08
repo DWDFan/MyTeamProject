@@ -32,6 +32,10 @@
 #import "WLLoginDataHandle.h"
 
 #import "UIImage+Image.h"
+#import "WLAddOrderViewController.h"
+#import "WLForgetViewController.h"
+#import "WLInputBagPwdView.h"
+
 @interface WLMyController ()
 
 @end
@@ -336,13 +340,38 @@
         };
         view.buyVipBlock = ^(NSNumber *year){
             //会员购买
-            [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year success:^(id responseObject) {
-                //刷新有效日期值
-                [self requestGetUserInfo];
-                 [weakView removeFromSuperview];
-            } failure:^(NSError *error) {
-                 [weakView removeFromSuperview];
-            }];
+            
+//            WLAddOrderViewController *vc = [[WLAddOrderViewController alloc]init];
+////            vc.dataSource = self.selectDataArray;
+////            vc.money = (float)self.amount;
+//            vc.type = @"vip";
+//            [self.navigationController pushViewController:vc animated:YES];
+
+//            [self.navigationController pushViewController:vc animated:YES];
+            //验证钱包密码
+            WLInputBagPwdView *pwdView = [WLInputBagPwdView inputBagPawdView];
+            pwdView.frame = [UIApplication sharedApplication].keyWindow.bounds;
+            [[UIApplication sharedApplication].keyWindow addSubview:pwdView];
+            
+            __weak typeof(pwdView) weakPwdView = pwdView;
+            __weak typeof(self) weakSelf = self;
+            pwdView.closeBlock = ^(){
+                [weakPwdView removeFromSuperview];
+            };
+            pwdView.completeBlock = ^(NSString *pwd){
+                [weakPwdView removeFromSuperview];
+                [WLMyDataHandle requestBuyVipWithUid:[WLUserInfo share].userId year:year pwd:pwd success:^(id responseObject) {
+                    //刷新有效日期值
+                    [self requestGetUserInfo];
+                    [weakView removeFromSuperview];
+                } failure:^(NSError *error) {
+                    [weakView removeFromSuperview];
+                }];
+            };
+            pwdView.forgetPwdBlock = ^(){
+                WLForgetViewController *Forget = [[WLForgetViewController alloc]init];
+                [weakSelf.navigationController pushViewController:Forget animated:YES];
+            };
         };
     } failure:^(NSError *error) {
         

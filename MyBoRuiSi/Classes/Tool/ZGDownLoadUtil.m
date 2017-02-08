@@ -27,7 +27,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     // 文件路径
-    NSString* ceches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString* ceches = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString* filepath = [ceches stringByAppendingPathComponent:response.suggestedFilename];
     WLLog(@"===================%@",filepath);
     // 创建一个空的文件到沙盒中
@@ -73,5 +73,21 @@
     
     self.completion ? self.completion(YES) : nil;
 }
+
++ (BOOL)hadDownloadFile:(NSString *)fileUrlStr
+{
+    NSString *fileName = [fileUrlStr lastPathComponent];
+    NSFileManager *file_manager = [NSFileManager defaultManager];
+    return [file_manager fileExistsAtPath:[self get_filename:fileName]];
+}
+
+
++ (NSString *)get_filename:(NSString *)name
+{
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+            stringByAppendingPathComponent:name];
+}
+
+
 
 @end

@@ -37,4 +37,7 @@
 @property (nonatomic, assign) BOOL isfollow;
 @property (nonatomic, assign) BOOL isJoin;
 
+@property (nonatomic, strong) NSMutableAttributedString *descAttrString;
+@property (nonatomic, assign) CGFloat descHeight;
+
 @end

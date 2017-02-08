@@ -17,7 +17,7 @@
 @property (nonatomic, copy) NSString *kid;
 @property (nonatomic, copy) NSString *photo;
 @property (nonatomic, copy) NSString *starttime;
-@property (nonatomic, copy) NSString *status;
+@property (nonatomic, assign) NSInteger status;
 @property (nonatomic, copy) NSString *score;
 
 

@@ -105,7 +105,7 @@
         switch ([shopCarModel.status intValue]) {
             case 0:
                 [self.status_btn setTitle:@"直播未开始" forState:UIControlStateNormal];
-                [self.status_btn setImage:nil forState:UIControlStateNormal];
+                [self.status_btn setImage:[UIImage imageNamed:@"直播未开始"] forState:UIControlStateNormal];
                 [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
                 if(self.cellType == waitPayType){//待支付
                     //显示付款按钮
@@ -119,7 +119,7 @@
                 break;
             case 2:
                 [self.status_btn setTitle:@"直播结束" forState:UIControlStateNormal];
-                [self.status_btn setImage:nil forState:UIControlStateNormal];
+                [self.status_btn setImage:[UIImage imageNamed:@"直播未开始"] forState:UIControlStateNormal];
                 [self.status_btn setTitleColor:RGB(193, 193, 193) forState:UIControlStateNormal];
                 break;
             default:

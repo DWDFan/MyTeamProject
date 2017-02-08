@@ -9,6 +9,7 @@
 #import "WLTestViewController.h"
 #import "WLExamsTableViewCell.h"
 #import "WLAnswerTableViewController.h"
+#import "WLAnswerViewController.h"
 
 #import "WLHomeDataHandle.h"
 #import "WLMyDataHandle.h"
@@ -45,7 +46,7 @@
     
     self.TestTabble.delegate = self;
     self.TestTabble.dataSource = self;
-    
+    self.TestTabble.showsHorizontalScrollIndicator = NO;
     self.TestTabble.rowHeight =100;
     
     WEAKSELF;
@@ -88,10 +89,13 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WLExamsTableViewCell" owner:nil options:nil] lastObject];
     }
+    cell.model = self.dataSource[indexPath.row];
     cell.lookAnswerBlock = ^(){
         //查看答案
+        WLAnswerViewController *vc = [[WLAnswerViewController alloc] init];
+        vc.kid = [self.dataSource[indexPath.row] kid];
+        [self.navigationController pushViewController:vc animated:YES];
     };
-    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 

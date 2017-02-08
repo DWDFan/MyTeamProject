@@ -85,37 +85,58 @@
 
 - (void)loadData
 {
+    
     NSDictionary *dict = self.questionArray[self.index];
+    NSArray *tureAnser = dict[@"ok_answer"];
     NSArray *option = dict[@"answer"];
     NSString *question = dict[@"title"];
-    question = [question stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    question = [question stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
     question = [NSString stringWithFormat:@"%ld.%@", self.index + 1, question];
     self.questionLbl.text = question;
     
-    self.indexLbl.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
+    if (self.isShowAnswer) {
+        for (int i = 0; i < 4; i++) {
+            
+            UIButton *optionBtn = (UIButton *)[self.view viewWithTag:1000 + i];
+            if (i < option.count) {
+                [optionBtn setTitle:option[i] forState:UIControlStateNormal];
+                optionBtn.enabled = NO;
+                NSString *optionFlag = [optionBtn.titleLabel.text substringToIndex:1];
+                if ([optionFlag isEqualToString:tureAnser[0]]) {
+                    optionBtn.backgroundColor = kColor_green;
+                    [optionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                }
+            }else {
+                optionBtn.hidden = YES;
+            }
+        }
+    }else {
+        
+        NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
+        
+        for (int i = 0; i < 4; i ++) {
+            
+            UIButton *optionBtn = (UIButton *)[self.view viewWithTag:1000 + i];
+            if (i < option.count) {
+                [optionBtn setTitle:option[i] forState:UIControlStateNormal];
+                if ([optionBtn.titleLabel.text isEqualToString:answer]) {
+                    optionBtn.selected = YES;
+                    optionBtn.backgroundColor = kColor_button_bg;
+                }
+                
+            }else {
+                optionBtn.hidden = YES;
+            }
+        }
+    }
+
     
+    self.indexLbl.text = [NSString stringWithFormat:@"%ld/%ld",self.index + 1,self.questionArray.count];
     if (self.index == self.questionArray.count - 1) {
         self.nextBtn.selected = YES;
     }
     if (self.index == 0) {
         self.preBtn.enabled = NO;
-    }
-
-    NSString *answer = [self.examHelper getAnswerByQuestionId:dict[@"id"]];
-    
-    for (int i = 0; i < 4; i ++) {
-        
-        UIButton *optionBtn = (UIButton *)[self.view viewWithTag:1000 + i];
-        if (i < option.count) {
-            [optionBtn setTitle:option[i] forState:UIControlStateNormal];
-            if ([optionBtn.titleLabel.text isEqualToString:answer]) {
-                optionBtn.selected = YES;
-                optionBtn.backgroundColor = kColor_button_bg;
-            }
-            
-        }else {
-            optionBtn.hidden = YES;
-        }
     }
 }
 
@@ -219,8 +240,8 @@
         
         _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_nextBtn setTitle:@"下一题" forState:UIControlStateNormal];
+        [_nextBtn setTitle:@"完成" forState:UIControlStateSelected];
         [_nextBtn setTitleColor:kColor_button_bg forState:UIControlStateNormal];
-        [_nextBtn setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
         _nextBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [_nextBtn addTarget:self action:@selector(nextBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         [_bottomView addSubview:_nextBtn];
@@ -267,21 +288,29 @@
         [self.navigationController popToViewController:self.navigationController.childViewControllers[2] animated:YES];
         return;
     }
+    
+    WLChooseViewController *vc = [[WLChooseViewController alloc] init];
+    vc.questionArray = self.questionArray;
+    vc.kid = self.kid;
+    vc.index = self.index + 1;
+    vc.isShowAnswer = self.isShowAnswer;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)optionBtnAction:(UIButton *)sender
 {
-    if (sender == self.selectBtn) {
-        return;
-    }
+//    if (sender == self.selectBtn) {
+//        return;
+//    }
 
-    self.selectBtn.selected = NO;
-    self.selectBtn.backgroundColor = [UIColor whiteColor];
-    
-    self.selectBtn = sender;
-    self.selectBtn.selected = YES;
-    self.selectBtn.backgroundColor = kColor_button_bg;
-    
+    if (sender != self.selectBtn) {
+        self.selectBtn.selected = NO;
+        self.selectBtn.backgroundColor = [UIColor whiteColor];
+        
+        self.selectBtn = sender;
+        self.selectBtn.selected = YES;
+        self.selectBtn.backgroundColor = kColor_button_bg;
+    }
     
     [[WLExaminationHelper sharedInstance] addAnswer:sender.titleLabel.text questionId:self.questionArray[self.index][@"id"] type:@"选择题"];
     

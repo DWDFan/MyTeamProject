@@ -53,12 +53,13 @@ NSInteger const kPageSize = 20;
 
 - (void)setNavigationBarStyleDefultWithTitle:(NSString *)title
 {
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 70, 30)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
     btn.backgroundColor = [UIColor clearColor];
     [btn setBackgroundColor:[UIColor clearColor]];
     [btn setImage:[UIImage imageNamed:@"图层-47"] forState:UIControlStateNormal];
     [btn setTitleColor:RGBA(51, 51, 51, 1) forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     self.navigationItem.titleView = btn;
     self.titleBtn = btn;
     [self.navigationController.navigationBar setBackgroundImage:[MOTool createImageWithColor:RGBA(255, 255, 255, 1)] forBarMetrics:UIBarMetricsDefault];

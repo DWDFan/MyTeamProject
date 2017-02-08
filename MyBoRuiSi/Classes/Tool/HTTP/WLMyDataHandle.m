@@ -61,11 +61,13 @@
  *  @param failure
  */
 + (void)requestBuyVipWithUid:(NSString *)uid
-                           year:(NSNumber *)year
+                        year:(NSNumber *)year
+                         pwd:(NSString *)pwd
                         success:(void (^)(id responseObject))success
                         failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
-                            @"year": year};
+                            @"year":year,
+                            @"pwd":pwd};
     [MOProgressHUD show];
     [MOHTTP GET:@"API/index.php?action=Vip&do=buyVip" parameters:param success:^(id responseObject) {
         [MOProgressHUD dismiss];
@@ -401,7 +403,7 @@
                           failure:(void (^)(NSError *error))failure{
     NSDictionary *param = @{@"uid":uid,
                             @"page":page};
-    [MOHTTP GET:@"API/index.php?action=UCenter&do=myQiyeKc" parameters:param success:^(id responseObject) {
+    [MOHTTP GET:@"API/index.php?action=UCenter&do=myNbClass" parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
             NSMutableArray *dataSource = [NSMutableArray array];
             for (NSDictionary *dict in responseObject[@"data"]) {

@@ -53,8 +53,8 @@
         }
     }
     
-    _leverLbl.text = @"XX机构";
-    _institutionLbl.text = @"优秀教师";
+    _leverLbl.text = lecturer.level;
+    _institutionLbl.text = lecturer.jigou;
 }
 
 - (IBAction)followBtnAction:(id)sender {

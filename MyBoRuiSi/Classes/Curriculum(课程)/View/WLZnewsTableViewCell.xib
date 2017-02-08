@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="411" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="411" height="96.666666666666671"/>
+                <rect key="frame" x="0.0" y="0.0" width="411" height="96.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="002" translatesAutoresizingMaskIntoConstraints="NO" id="6vo-EI-kyQ">
@@ -27,12 +31,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="讲师:王丽行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-Re-DEw">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="31J-MY-Mgc"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="报名人数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucs-lo-oM2">
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -58,22 +60,22 @@
                             <color key="titleColor" red="0.26379796862602234" green="0.2637900710105896" blue="0.26379451155662537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeO-EX-Knv">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名人数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="No0-oM-c7F">
+                        <rect key="frame" x="297" y="35" width="86" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="B58-t6-zkf"/>
-                            <constraint firstAttribute="height" constant="20" id="Lj0-Xc-zQu"/>
+                            <constraint firstAttribute="width" constant="86" id="3vE-7V-lVm"/>
+                            <constraint firstAttribute="height" constant="21" id="HIw-Vl-fBJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="16/18">
-                            <color key="titleColor" red="0.26379796862602234" green="0.2637900710105896" blue="0.26379451155662537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="qf5-pU-TDF" secondAttribute="trailing" constant="10" id="5Xe-ay-8d5"/>
                     <constraint firstItem="fg3-i9-iHM" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="CyA-rk-M23"/>
                     <constraint firstItem="fg3-i9-iHM" firstAttribute="top" secondItem="u2M-MI-mrk" secondAttribute="bottom" constant="5" id="GWA-W3-yLQ"/>
-                    <constraint firstItem="jeO-EX-Knv" firstAttribute="leading" secondItem="Ucs-lo-oM2" secondAttribute="trailing" constant="-5" id="Np8-9S-kep"/>
+                    <constraint firstItem="No0-oM-c7F" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-3" id="JPv-CI-hM8"/>
                     <constraint firstItem="6vo-EI-kyQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RNF-eR-SND"/>
                     <constraint firstItem="VFT-Re-DEw" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="Vqj-mR-bQf"/>
                     <constraint firstItem="u2M-MI-mrk" firstAttribute="top" secondItem="VFT-Re-DEw" secondAttribute="bottom" constant="5" id="Yg2-eC-5s6"/>
@@ -81,16 +83,14 @@
                     <constraint firstItem="qf5-pU-TDF" firstAttribute="centerY" secondItem="fg3-i9-iHM" secondAttribute="centerY" id="cNu-k1-N0e"/>
                     <constraint firstItem="74m-SE-yxB" firstAttribute="leading" secondItem="6vo-EI-kyQ" secondAttribute="trailing" constant="10" id="l9i-fb-Qxw"/>
                     <constraint firstItem="VFT-Re-DEw" firstAttribute="top" secondItem="74m-SE-yxB" secondAttribute="bottom" constant="10" id="oPJ-Nu-l1j"/>
-                    <constraint firstItem="Ucs-lo-oM2" firstAttribute="leading" secondItem="VFT-Re-DEw" secondAttribute="trailing" constant="25" id="paC-vJ-WjW"/>
-                    <constraint firstItem="Ucs-lo-oM2" firstAttribute="centerY" secondItem="VFT-Re-DEw" secondAttribute="centerY" id="qJX-JV-PFz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="No0-oM-c7F" secondAttribute="trailing" constant="20" id="sYD-Pg-4By"/>
                     <constraint firstItem="6vo-EI-kyQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xaa-O5-n8n"/>
-                    <constraint firstItem="jeO-EX-Knv" firstAttribute="centerY" secondItem="Ucs-lo-oM2" secondAttribute="centerY" id="y3d-eX-jLB"/>
                     <constraint firstItem="74m-SE-yxB" firstAttribute="top" secondItem="6vo-EI-kyQ" secondAttribute="top" id="zKg-dF-9Pf"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorLbl" destination="VFT-Re-DEw" id="aRh-7x-uce"/>
-                <outlet property="joinNumLbl" destination="jeO-EX-Knv" id="89T-I7-8bf"/>
+                <outlet property="joinNumLbl" destination="No0-oM-c7F" id="QIG-4m-io0"/>
                 <outlet property="liveStatusImgV" destination="qf5-pU-TDF" id="CkU-5p-srL"/>
                 <outlet property="nameLbl" destination="74m-SE-yxB" id="sXw-yp-QTy"/>
                 <outlet property="photoImgV" destination="6vo-EI-kyQ" id="d1T-xC-aQp"/>

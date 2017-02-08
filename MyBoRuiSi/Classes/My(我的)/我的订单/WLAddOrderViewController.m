@@ -40,7 +40,7 @@
     
     for (WLShopCarModel *model in self.dataSource) {
         [title_array addObject:model.name];
-        [cid_array addObject:model.gid];
+        [cid_array addObject:model.id];
         if ([model.vipFree isEqualToNumber:@1] && [WLUserInfo share].vip) {
             [money_array addObject:@0];
         }else{
