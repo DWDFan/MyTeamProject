@@ -11,6 +11,7 @@
 #import "DLTabedSlideView.h"
 #import "WLJg1ViewController.h"
 #import "WLJs1ViewController.h"
+#import "WLMyDataHandle.h"
 
 @interface WLAttentionViewController ()<DLTabedSlideViewDelegate>
 
@@ -37,7 +38,21 @@
     
     
     [self addchern];
+    
+    [self requestGetMyFollowJsWithPage:1];
 }
+
+- (void)requestGetMyFollowJsWithPage:(NSInteger )page{
+    [WLMyDataHandle requestGetMyFollowJgWithUid:[WLUserInfo share].userId page:@(page) success:^(id responseObject) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refleshInstitutionNum"
+                                                            object:nil
+                                                          userInfo:@{@"num":@([responseObject count])}];
+    } failure:^(NSError *error) {
+
+    }];
+}
+
 //颜色转图片
 - (UIImage*) createImageWithColor: (UIColor*) color
 {
@@ -61,8 +76,6 @@
     [self.arr_vc addObject:[[WLJg1ViewController alloc]init]];
     
     
-    
-    
     self.view_mian.delegate = self;
     self.view_mian.baseViewController = self;
     /** 点击之前的文字颜色*/
@@ -80,8 +93,8 @@
     
     self.view_mian.tabbarBottomSpacing = 1.0;
     
-    DLTabedbarItem *item1 = [DLTabedbarItem itemWithTitle:@"讲师(4)" image: nil selectedImage:nil];
-    DLTabedbarItem *item2 = [DLTabedbarItem itemWithTitle:@"机构(4)" image: nil selectedImage:nil];
+    DLTabedbarItem *item1 = [DLTabedbarItem itemWithTitle:@"讲师(0)" image: nil selectedImage:nil];
+    DLTabedbarItem *item2 = [DLTabedbarItem itemWithTitle:@"机构(0)" image: nil selectedImage:nil];
     
     self.view_mian.tabbarItems = @[item1,item2];
     [self.view_mian buildTabbar];

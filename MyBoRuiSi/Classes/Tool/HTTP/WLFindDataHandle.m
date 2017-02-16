@@ -420,10 +420,22 @@
  @param success
  @param failure
  */
-+ (void)requestFindCircleListSuccess:(void (^)(id responseObject))success
++ (void)requestFindCircleListWithPid:(NSString *)pid
+                             success:(void (^)(id responseObject))success
                              failure:(void (^)(NSError *error))failure
 {
-    [MOHTTP GET:@"API/index.php?action=Bbs&do=quan" parameters:nil success:^(id responseObject) {
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=quan" parameters:@{@"pid":[MOTool getNULLString:pid]} success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)requestFindCircleTypeSuccess:(void (^)(id responseObject))success
+                             failure:(void (^)(NSError *error))failure
+{
+    [MOHTTP GET:@"API/index.php?action=Bbs&do=quanTypes" parameters:nil success:^(id responseObject) {
         
         success(responseObject);
     } failure:^(NSError *error) {

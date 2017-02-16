@@ -359,7 +359,12 @@
                 }
                 
             }else if (indexPath.row == 2) {
-                cell.textLabel.text = [NSString stringWithFormat:@"有效期 : %@个月",[MOTool getNULLString:_course.period]];
+                if ([_course.period integerValue] == 0) {
+                    cell.textLabel.text = @"有效期 : 永久";
+                }else {
+                    cell.textLabel.text = [NSString stringWithFormat:@"有效期 : %@个月",[MOTool getNULLString:_course.period]];
+                }
+
             }else {
                 cell.textLabel.text = [NSString stringWithFormat:@"发布 : %@",[MOTool getNULLString:_course.aname]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

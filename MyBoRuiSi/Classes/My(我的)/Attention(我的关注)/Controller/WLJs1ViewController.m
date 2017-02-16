@@ -114,6 +114,9 @@
             [self.tableView footerEndRefreshing];
         }
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refleshLecturerNum"
+                                                            object:nil
+                                                          userInfo:@{@"num":@(self.dataSource.count)}];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         if (page == 1) {

@@ -241,7 +241,8 @@
  @param success
  @param failure
  */
-+ (void)requestFindCircleListSuccess:(void (^)(id responseObject))success
++ (void)requestFindCircleListWithPid:(NSString *)pid
+                             success:(void (^)(id responseObject))success
                              failure:(void (^)(NSError *error))failure;
 
 
@@ -313,4 +314,6 @@
                                success:(void (^)(id responseObject))success
                                failure:(void (^)(NSError *error))failure;
 
++ (void)requestFindCircleTypeSuccess:(void (^)(id responseObject))success
+                             failure:(void (^)(NSError *error))failure;
 @end

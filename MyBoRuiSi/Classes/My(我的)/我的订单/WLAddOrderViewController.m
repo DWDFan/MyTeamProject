@@ -94,7 +94,12 @@
     
     if (sender.selected) {
        self.userScore = (float)[[WLUserInfo share].score integerValue] / 100;
-        self.amount -= self.userScore;
+        if (self.userScore >= self.money) {
+            self.userScore = self.money;
+            self.amount = 0;
+        }else {
+            self.amount = self.money - self.userScore;
+        }
     }else{
         self.userScore = 0;
         self.amount = self.money;
@@ -172,6 +177,7 @@
             vc.needMoney = self.amount;
             vc.orderId = dict[@"id"];
             vc.type = orderPayType;
+            vc.useScore = self.userScore * 100;
             [self.navigationController pushViewController:vc animated:YES];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(0)}];

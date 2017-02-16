@@ -8,6 +8,7 @@
 
 #import "WLxqusViewController.h"
 #import "WLCirCleDetailViewController.h"
+#import "WLCircleListViewController.h"
 #import "WLCurriculumTableViewCell.h"
 #import "WLFindDataHandle.h"
 #import "WLCircleModel.h"
@@ -32,13 +33,22 @@
 
 - (void)requestData
 {
-    [WLFindDataHandle requestFindCircleListSuccess:^(id responseObject) {
+    [WLFindDataHandle requestFindCircleTypeSuccess:^(id responseObject) {
         
         _circleArray = [WLcircleTypeModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.tableView reloadData];
+
     } failure:^(NSError *error) {
         
     }];
+    
+//    [WLFindDataHandle requestFindCircleListSuccess:^(id responseObject) {
+//        
+//        _circleArray = [WLcircleTypeModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        [self.tableView reloadData];
+//    } failure:^(NSError *error) {
+//        
+//    }];
 }
 
 #pragma mark - Table view data source
@@ -58,7 +68,7 @@
     
     WLcircleTypeModel *type = _circleArray[indexPath.section];
     
-    return [WLCirCleCell heightWithCount:type.data.count];
+    return [WLCirCleCell heightWithCount:type.child.count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -70,14 +80,18 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     WLcircleTypeModel *type = _circleArray[indexPath.section];
-    cell.circlesArray = type.data;
+    cell.circlesArray = type.child;
     
     [cell setBlock:^(NSString *typeId, NSString *name) {
         
-        WLCirCleDetailViewController *detailVC = [[WLCirCleDetailViewController alloc] init];
-        detailVC.circleId = typeId;
-        detailVC.circleName = name;
-        [self.navigationController pushViewController:detailVC animated:YES];
+        WLCircleListViewController *listVC = [[WLCircleListViewController alloc] init];
+        listVC.pid = typeId;
+        listVC.title = name;
+        [self.navigationController pushViewController:listVC animated:YES];
+//        WLCirCleDetailViewController *detailVC = [[WLCirCleDetailViewController alloc] init];
+//        detailVC.circleId = typeId;
+//        detailVC.circleName = name;
+//        [self.navigationController pushViewController:detailVC animated:YES];
     }];
     return cell;
 }

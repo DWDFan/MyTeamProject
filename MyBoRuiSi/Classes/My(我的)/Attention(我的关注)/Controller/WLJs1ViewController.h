@@ -10,4 +10,6 @@
 
 @interface WLJs1ViewController : UIViewController
 
+@property (nonatomic, strong) void(^changeLecturerNumBlock)(NSUInteger number);
+
 @end

@@ -122,8 +122,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    if (_type == 1 && _liveCourseArray.count == 0) {
-        return 1;
+    if (_type == 1 && _liveCourseArray.count != 0) {
+        return 3;
     }
     return 2;
 }
@@ -252,24 +252,46 @@
         }
     }else{
         if (_type == 1) {        // ************ 直播
-            if (indexPath.row == 0) {
-                
-                cellTwo.label_main.text = @"热门课程";
-                cellTwo.imageName.image = [UIImage imageNamed:@"矢量智能对象"];
-                cell = cellTwo;
-                
-            }else{
-                
-                cellFive.typeArray = _hotCourseArray;
-
-                [cellFive setBlock:^(NSString *typeId) {
-                    WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
-                    vc.sortId = typeId;
-                    [self.navigationController pushViewController:vc animated:YES];
-
-                }];
-                cell = cellFive;
+            if (indexPath.section == 1 && _liveCourseArray.count != 0) {
+                if (indexPath.row == 0) {
+                    
+                    cellTwo.label_main.text = @"热门课程";
+                    cellTwo.imageName.image = [UIImage imageNamed:@"矢量智能对象"];
+                    cell = cellTwo;
+                    
+                }else{
+                    
+                    cellFive.typeArray = _hotCourseArray;
+                    
+                    [cellFive setBlock:^(NSString *typeId) {
+                        WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                        vc.sortId = typeId;
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    }];
+                    cell = cellFive;
+                }
+            }else {
+                if (indexPath.row == 0) {
+                    
+                    cellTwo.label_main.text = @"推荐课程";
+                    cellTwo.imageName.image = [UIImage imageNamed:@"推荐"];
+                    cell = cellTwo;
+                    
+                }else{
+                    
+                    cellFive.typeArray = _recommendArray;
+                    
+                    [cellFive setBlock:^(NSString *typeId) {
+                        WLLiveCourseListViewController *vc = [[WLLiveCourseListViewController alloc]init];
+                        vc.sortId = typeId;
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    }];
+                    cell = cellFive;
+                }
             }
+            
         }else{                  // ============ 点播
             if (indexPath.row == 0) {
                 

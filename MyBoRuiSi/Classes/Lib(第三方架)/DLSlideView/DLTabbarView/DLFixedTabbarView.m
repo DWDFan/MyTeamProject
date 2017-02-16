@@ -56,6 +56,28 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     
     [scrollView_ addGestureRecognizer:tap];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshLecturerNum:)
+                                                 name:@"refleshLecturerNum"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshInstitutionNum:)
+                                                 name:@"refleshInstitutionNum"
+                                               object:nil];
+}
+
+- (void)refreshLecturerNum:(NSNotification *)noti
+{
+    UILabel *lecturerLbl = [self viewWithTag:kLabelTagBase + 0];
+    lecturerLbl.text = [NSString stringWithFormat:@"讲师(%@)",noti.userInfo[@"num"]];
+}
+
+- (void)refreshInstitutionNum:(NSNotification *)noti
+{
+    UILabel *institutionLbl = [self viewWithTag:kLabelTagBase + 1];
+    institutionLbl.text = [NSString stringWithFormat:@"机构(%@)",noti.userInfo[@"num"]];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
@@ -117,6 +139,7 @@
         [self layoutTabbar];
     }
 }
+
 
 - (void)layoutSubviews{
     [super layoutSubviews];

@@ -121,6 +121,12 @@
 //    }
 //}
 
+- (void)setTitle:(NSString *)title index:(NSUInteger)index
+{
+    DLFixedTabbarViewTabItem *item = tabbar_.tabbarItems[index];
+    item.title = title;
+}
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
     _selectedIndex = selectedIndex;
     [slideView_ setSelectedIndex:selectedIndex];

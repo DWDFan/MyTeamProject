@@ -15,7 +15,7 @@
 - (void)setModel:(CurriculumModel *)model
 {
     self.Price.text = [NSString stringWithFormat:@"￥%@",model.disPrice];
-    self.Tmlong.text = [NSString stringWithFormat:@"%@小时",[MOTool getNULLString:model.tmlong]];
+    self.Tmlong.text = [NSString stringWithFormat:@"%@分钟",[MOTool getNULLString:model.tmlong]];
     
     NSMutableAttributedString *disPriceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@",model.price]];
     [disPriceStr addAttributes: @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, disPriceStr.length)];

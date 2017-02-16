@@ -16,13 +16,22 @@
 
 + (NSDictionary *)mj_objectClassInArray
 {
-    return @{@"data":[WLCircleModel class]};
+    return @{@"child":[WLCircleSubTypeModel class]};
 }
+
+@end
+
+@implementation WLCircleSubTypeModel
+
+
 
 @end
 
 @implementation WLCircleInfoModel
 
-
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"icon":@"photo"};
+}
 
 @end

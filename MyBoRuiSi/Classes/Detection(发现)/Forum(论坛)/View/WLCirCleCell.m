@@ -52,7 +52,7 @@
     
     for (int i = 0; i < circlesArray.count; i ++) {
         
-        WLCircleModel *circle = _circlesArray[i];
+        WLCircleSubTypeModel *circle = _circlesArray[i];
         CGFloat row = i / 4;
         CGFloat col = i % 4;
         
@@ -66,7 +66,7 @@
         item.titleLabel.textAlignment = NSTextAlignmentCenter;
         item.imageView.layer.masksToBounds = YES;
         item.imageView.layer.cornerRadius = (WLScreenW/4 - 50)/2;
-        [item sd_setImageWithURL:[NSURL URLWithString:circle.photo] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"组-3@2x_41"]];
+        [item sd_setImageWithURL:[NSURL URLWithString:circle.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"组-3@2x_41"]];
         [item addTarget:self action:@selector(itemAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:item];
     }

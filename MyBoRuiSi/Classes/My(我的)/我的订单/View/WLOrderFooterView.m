@@ -40,7 +40,7 @@
 }
 - (IBAction)payAction:(UIButton *)sender {
     if (self.payBlock) {
-        self.payBlock(self.orderModel.id, @"");
+        self.payBlock(self.orderModel.id, self.orderModel.total);
     }
 }
 - (IBAction)detailAction:(UIButton *)sender {

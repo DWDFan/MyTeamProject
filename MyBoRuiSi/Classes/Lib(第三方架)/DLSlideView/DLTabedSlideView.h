@@ -56,4 +56,6 @@
 //清除缓存
 - (void)cleanCache;
 
+- (void)setTitle:(NSString *)title index:(NSUInteger)index;
+
 @end

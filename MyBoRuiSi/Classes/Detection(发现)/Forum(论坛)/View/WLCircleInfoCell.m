@@ -14,7 +14,7 @@
 {
     _circleInfo = circleInfo;
     
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:circleInfo.photo] placeholderImage:PHOTO_PLACE];
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:circleInfo.icon] placeholderImage:PHOTO_PLACE];
     
     _nameLbl.text = circleInfo.name;
     

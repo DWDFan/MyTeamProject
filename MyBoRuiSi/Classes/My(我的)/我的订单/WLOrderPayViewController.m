@@ -278,6 +278,10 @@
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
             [MOProgressHUD showSuccessWithStatus:@"支付成功"];
+            
+            CGFloat score = [self.amountStr floatValue] / 10 - self.useScore;
+            NSString *scoreStr = [NSString stringWithFormat:@"%f",score];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refleshScore" object:nil userInfo:@{@"amount":scoreStr}];
         }else{
             [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
         }

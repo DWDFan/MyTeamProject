@@ -17,4 +17,5 @@ typedef NS_ENUM(NSUInteger) {
 @property (nonatomic, assign) float needMoney;
 @property (nonatomic, copy) NSString *orderId; //订单id
 @property (nonatomic, assign) payType type;
+@property (nonatomic, assign) float useScore; //积分
 @end
