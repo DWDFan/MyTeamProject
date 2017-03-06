@@ -4407,7 +4407,7 @@
 				TargetAttributes = {
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 323HX38M55;
+						DevelopmentTeam = 7KEVJJYH5P;
 						ProvisioningStyle = Manual;
 					};
 					F1A9458C1D4CF4270097FFEF = {
@@ -5279,7 +5279,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				DEVELOPMENT_TEAM = 7KEVJJYH5P;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5300,10 +5300,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b027704d-7be3-4ef5-b7cd-607d45c8dc72";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
+				PROVISIONING_PROFILE = "d3af5213-3b52-4cc0-b8e4-2529bb5be19a";
+				PROVISIONING_PROFILE_SPECIFIER = BRSDISPRO;
 			};
 			name = Debug;
 		};
@@ -5314,7 +5314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 323HX38M55;
+				DEVELOPMENT_TEAM = 7KEVJJYH5P;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5335,10 +5335,10 @@
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/ping++/One",
 					"$(PROJECT_DIR)/MyBoRuiSi/Classes/Lib(第三方架)/LivePlayer_iOS_SDK_v1.2.0/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b027704d-7be3-4ef5-b7cd-607d45c8dc72";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDIS;
+				PROVISIONING_PROFILE = "d3af5213-3b52-4cc0-b8e4-2529bb5be19a";
+				PROVISIONING_PROFILE_SPECIFIER = BRSDISPRO;
 			};
 			name = Release;
 		};

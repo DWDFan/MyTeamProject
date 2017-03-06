@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="课件名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m81-Yp-J04">
@@ -68,6 +68,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="zvi-py-kuo" secondAttribute="trailing" id="HGk-dz-qnB"/>
                     <constraint firstItem="zvi-py-kuo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IIZ-v7-u4r"/>
                     <constraint firstItem="m81-Yp-J04" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="RPV-Sh-l9p"/>
+                    <constraint firstItem="NLs-pE-sq3" firstAttribute="leading" secondItem="m81-Yp-J04" secondAttribute="trailing" constant="20" id="Vjg-ec-tXT"/>
                     <constraint firstItem="e9d-A9-Ik0" firstAttribute="leading" secondItem="NLs-pE-sq3" secondAttribute="trailing" constant="15" id="inC-50-EDa"/>
                     <constraint firstItem="NLs-pE-sq3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xYJ-Ed-mN4"/>
                     <constraint firstItem="e9d-A9-Ik0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yKE-bj-7Ou"/>
