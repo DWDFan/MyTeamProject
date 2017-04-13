@@ -83,7 +83,7 @@
     
     self.tabedSlideView.tabbarItems = @[item1,item2,item3,item4];
     [self.tabedSlideView buildTabbar];
-    self.tabedSlideView.selectedIndex = 0;
+    self.tabedSlideView.selectedIndex = _selectedIndex;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -117,17 +117,17 @@
 
 #pragma mark - Implementaion Notification
 - (void)reloadShopTalbeViewController:(NSNotification *)noti{
-    [self.arr_vc removeAllObjects];
-    
-    
-    [self.arr_vc addObject:[[WLShoppingsTableViewController1 alloc]init]];
-    [self.arr_vc addObject:[[WLShoppingsTableViewController2 alloc]init]];
-    [self.arr_vc addObject:[[WLShoppingsTableViewController3 alloc]init]];
-    [self.arr_vc addObject:[[WLShoppingsTableViewController4 alloc]init]];
-    
-    NSNumber *index = noti.userInfo[@"selectIndex"];
-    self.tabedSlideView.selectedIndex = [index integerValue];
-    [self.tabedSlideView cleanCache];//清除缓存
+//    [self.arr_vc removeAllObjects];
+//    
+//    
+//    [self.arr_vc addObject:[[WLShoppingsTableViewController1 alloc]init]];
+//    [self.arr_vc addObject:[[WLShoppingsTableViewController2 alloc]init]];
+//    [self.arr_vc addObject:[[WLShoppingsTableViewController3 alloc]init]];
+//    [self.arr_vc addObject:[[WLShoppingsTableViewController4 alloc]init]];
+//    
+//    NSNumber *index = noti.userInfo[@"selectIndex"];
+//    self.tabedSlideView.selectedIndex = [index integerValue];
+//    [self.tabedSlideView cleanCache];//清除缓存
 }
 
 @end

@@ -108,9 +108,9 @@
         } failure:^(NSError *error) {
             [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }];
-    }else if ([type isEqualToString:@"回答题"]){
+    }else if ([type isEqualToString:@"问答题"]){
         
-        [WLHomeDataHandle requestExaminationContentWithUid:[WLUserInfo share].userId kid:_kid type:@"回答题" success:^(id responseObject) {
+        [WLHomeDataHandle requestExaminationContentWithUid:[WLUserInfo share].userId kid:_kid type:@"问答题" success:^(id responseObject) {
             
             WLEssayViewController *vc = [[WLEssayViewController alloc] init];
             vc.questionArray = responseObject[@"data"];

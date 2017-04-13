@@ -16,6 +16,7 @@
 //#import "ZGArticleModel.h"
 #import "WLCourceModel.h"
 #import "KxMenu.h"
+#import <IQKeyboardManager.h>
 
 @interface WLArticleDetailViewController ()
 
@@ -189,8 +190,8 @@
     WLSharetowViewController *share = [[WLSharetowViewController alloc]init];
     share.shareTitle = _articleViewModel.article.title;
     share.descStr = _articleViewModel.article.content;
-//    share.imageUrl = _articleViewModel.article.photo;
-    
+    share.imageUrl = _articleViewModel.article.photo;
+    share.webpageUrl = [NSString stringWithFormat:@"%@%@",kArticleShareURL,self.articleId];
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     
@@ -385,6 +386,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [IQKeyboardManager sharedManager].enable = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     [self requestData];
@@ -393,6 +396,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [IQKeyboardManager sharedManager].enable = YES;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }

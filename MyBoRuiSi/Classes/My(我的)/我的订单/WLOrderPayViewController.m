@@ -18,7 +18,7 @@
 
 #import "Pingpp.h"
 
-#define kUrlScheme      @"demoapp001"
+#define kUrlScheme      @"wxc52ed69ae4e6d5c9"
 @interface WLOrderPayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView_main;
@@ -48,15 +48,33 @@
         }else{
             self.arr_str = [NSMutableArray arrayWithArray:@[@[orderName,amountStr,accountStr],
                                                             @[needMoneyStr],
-                                                            @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+                                                            @[@"支付宝支付",@"微信支付"]]];
         }
     }else if (self.type == rechargeType){
         self.arr_str = [NSMutableArray arrayWithArray:@[@[@"",@"",@""],
                                                         @[needMoneyStr],
-                                                        @[@"支付宝支付",@"微信支付",@"银联支付"]]];
+                                                        @[@"支付宝支付",@"微信支付"]]];
     }
     
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(payFinish)
+                                                 name:@"payFinish"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)clickBalancePay:(UIButton *)button
 {
     switch (button.tag) {
@@ -111,36 +129,48 @@
     }else{
         __weak typeof(self) weakSelf = self;
         [MOProgressHUD showImage:nil withStatus:@"正在获取支付凭据,请稍后..."];
-        [WLOrderDataHandle requestChannelWithUid:[WLUserInfo share].userId channel:self.channel amount:[NSString stringWithFormat:@"%.2f",self.needMoney] success:^(id responseObject) {
+        [WLOrderDataHandle requestChannelWithUid:[WLUserInfo share].userId
+                                         channel:self.channel
+                                          amount:[NSString stringWithFormat:@"%.2f",self.needMoney * 100]
+                                         subject:self.type == orderPayType ? @"订单支付" : @"账号充值"
+                                             oid:self.orderId
+                                           score:@(self.useScore)
+                                         success:^(id responseObject) {
+                                             
             dispatch_async(dispatch_get_main_queue(), ^{
+        
                 [MOProgressHUD dismiss];
                 [Pingpp createPayment:responseObject
                        viewController:weakSelf
-                         appURLScheme:kUrlScheme
+                         appURLScheme:@"wxfb47bc395d2a44e7"
                        withCompletion:^(NSString *result, PingppError *error) {
-                           if ([result isEqualToString:@"success"]) {
-                               // 支付成功 调用dopay接口。
-                               if (self.type == orderPayType) {
-                                    [self dopay];
-                               }else if (self.type == rechargeType){
-                                   //充值不需要调用dopay
-                                   [self requestGetUserInfo];
-                                   
-                               }
-                               
-                           } else if ([result isEqualToString:@"cancel"]){
-                               //支付取消
-                               [MOProgressHUD showErrorWithStatus:@"支付取消"];
-                           }else if ([result isEqualToString:@"fail"]){
-                               // 支付失败
-                               [MOProgressHUD showErrorWithStatus:@"支付失败"];
-                               
-                           }
-                       }];
+                           
+                   if ([result isEqualToString:@"success"]) {
+                       // 支付成功 调用dopay接口。
+                       if (self.type == orderPayType) {
+                            [self payFinish];
+                           
+                       }else if (self.type == rechargeType) {
+                           //充值不需要调用dopay
+                           [self requestGetUserInfo];
+                       }
+                       
+                   }else if ([result isEqualToString:@"cancel"]){
+                       //支付取消
+                       [MOProgressHUD showErrorWithStatus:@"支付取消"];
+                   }else if ([result isEqualToString:@"fail"]){
+                       // 支付失败
+                       [MOProgressHUD showErrorWithStatus:@"支付失败"];
+                   }else if ([result isEqualToString:@"invalid"]) {
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                           [MOProgressHUD showErrorWithStatus:@"支付失败，请确认是否安装客户端"];
+                       });
+                   }
+               }];
             });
-            
+                                             
         } failure:^(NSError *error) {
-            
+            [MOProgressHUD showErrorWithStatus:error.localizedFailureReason];
         }];
 
     }
@@ -268,33 +298,50 @@
 }
 
 #pragma mark - Request
-- (void)dopay{
-     [MOProgressHUD show];
-    [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
-        NSDictionary *dict = responseObject;
-        if ([dict[@"code"]integerValue] == 1) {
-            WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
-            [MOProgressHUD showSuccessWithStatus:@"支付成功"];
-            
-            CGFloat score = [self.amountStr floatValue] / 10 - self.useScore;
-            NSString *scoreStr = [NSString stringWithFormat:@"%f",score];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refleshScore" object:nil userInfo:@{@"amount":scoreStr}];
-        }else{
-            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
-        }
-    } failure:^(NSError *error) {
-         [MOProgressHUD showErrorWithStatus:@"支付失败"];
-    }];
+- (void)payFinish{
+
+    WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
+    [MOProgressHUD showSuccessWithStatus:@"支付成功"];
+    
+//    CGFloat score = [self.amountStr floatValue] / 10 - self.useScore;
+//    NSString *scoreStr = [NSString stringWithFormat:@"%f",score];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginStatus" object:nil userInfo:nil];
+
+    
+//    [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
+//        NSDictionary *dict = responseObject;
+//        if ([dict[@"code"]integerValue] == 1) {
+//            WLOrderPayOKViewController *vc = [[WLOrderPayOKViewController alloc]init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"kReloadShopTalbeViewController" object:nil userInfo:@{@"selectIndex": @(1)}];
+//            [MOProgressHUD showSuccessWithStatus:@"支付成功"];
+//            
+//            CGFloat score = [self.amountStr floatValue] / 10 - self.useScore;
+//            NSString *scoreStr = [NSString stringWithFormat:@"%f",score];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"refleshScore" object:nil userInfo:@{@"amount":scoreStr}];
+//        }else{
+//            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+//        }
+//    } failure:^(NSError *error) {
+//         [MOProgressHUD showErrorWithStatus:@"支付失败"];
+//    }];
 }
 
 
 - (void)requestCheckoutPwd:(NSString *)pwd{
+    [MOProgressHUD showWithStatus:@"正在支付..."];
     [WLMyDataHandle requestCheckPwdWithUid:[WLUserInfo share].userId pwd:pwd success:^(id responseObject) {
         //支付
-        [self dopay];
+        [WLOrderDataHandle requestDopayWithUid:[WLUserInfo share].userId oid:self.orderId success:^(id responseObject) {
+            [self payFinish];
+        } failure:^(NSError *error) {
+             [MOProgressHUD showErrorWithStatus:@"支付失败"];
+        }];
+
     } failure:^(NSError *error) {
         
     }];

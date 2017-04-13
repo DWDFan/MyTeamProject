@@ -17,7 +17,7 @@
 + (void)showSuccessWithStatus:(NSString *)meagess;
 + (void)showImage:(UIImage *)image withStatus:(NSString *)status;
 + (void)showWithStatus:(NSString *)status;
-
++ (void)showInfo:(NSString *)info;
 
 
 @end

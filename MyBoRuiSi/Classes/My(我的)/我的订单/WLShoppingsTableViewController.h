@@ -10,4 +10,6 @@
 #import "MOTempViewController.h"
 @interface WLShoppingsTableViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger selectedIndex;
+
 @end

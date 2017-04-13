@@ -46,10 +46,15 @@
         [weakSelf requestGePayedWithPage:weakSelf.page];
         
     }];
-    
-    [self.tableView_main headerBeginRefreshing];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.page = 1;
+    [self requestGePayedWithPage:self.page];
+}
 
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{

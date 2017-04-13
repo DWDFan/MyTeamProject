@@ -73,7 +73,7 @@
         });
     } failure:^(NSError *error) {
         [self resetExaminationData];
-        [MOProgressHUD showSuccessWithStatus:error.userInfo[@"msg"]];
+        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             completion ? completion() : nil;
         });
@@ -98,12 +98,14 @@
 
 - (void)setTimelong:(NSInteger)timelong
 {
+    if (!self.kid) return;
+    
     _timelong = timelong;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
         
         _timelong --;
         _timelongStr = [self getTimelongStringWithSecond:_timelong];
-        if (_timelong == 0) {
+        if (_timelong <= 0) {
             //考试时间到
             [_timer invalidate];
             _timer = nil;

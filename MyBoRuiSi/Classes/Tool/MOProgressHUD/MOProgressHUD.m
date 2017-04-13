@@ -51,6 +51,11 @@
     
 }
 
++ (void)showInfo:(NSString *)info
+{
+    [SVProgressHUD showInfoWithStatus:info];
+}
+
 + (void)initProgress
 {
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];

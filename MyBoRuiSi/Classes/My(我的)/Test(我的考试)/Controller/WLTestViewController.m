@@ -48,6 +48,7 @@
     self.TestTabble.dataSource = self;
     self.TestTabble.showsHorizontalScrollIndicator = NO;
     self.TestTabble.rowHeight =100;
+    self.TestTabble.tableFooterView = [UIView new];
     
     WEAKSELF;
     [self.TestTabble addFooterWithCallback:^{

@@ -95,7 +95,7 @@
     cell.textLabel.text = model.action;
     cell.detailTextLabel.text = model.addtime;
     
-    UILabel *right_lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
+    UILabel *right_lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 21)];
     right_lab.textAlignment = NSTextAlignmentRight;
     right_lab.textColor = [UIColor greenColor];
     right_lab.font = [UIFont systemFontOfSize:15];

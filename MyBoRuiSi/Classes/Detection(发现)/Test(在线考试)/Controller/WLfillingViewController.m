@@ -133,7 +133,7 @@
     fillVC.questionArray = self.questionArray;
     fillVC.kid = self.kid;
     fillVC.index = self.index + 1;
-    fillVC.isShowAnswer = YES;
+    fillVC.isShowAnswer = self.isShowAnswer;
     [self.navigationController pushViewController:fillVC animated:YES];
 }
 

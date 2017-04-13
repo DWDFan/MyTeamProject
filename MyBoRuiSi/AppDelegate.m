@@ -15,6 +15,9 @@
 #import "WLHomeDataHandle.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <IQKeyboardManager.h>
+#import "AFNetworkReachabilityManager.h"
+#import "CZNewfeatureController.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate ()
 
@@ -38,12 +41,14 @@
     [self setupAdveriseView];
 
     [Pingpp setDebugMode:YES];
-    
+//    [Pingpp setAppId:@"wxfb47bc395d2a44e7"];
     //加载用户信息
     [[WLUserInfo share] loadUserInfo];
     
     //友盟分享及第三方登录初始化
     [self initLoadUMSocial];
+    
+    [self starNetworkMonitor];
     
     return YES;
 }
@@ -70,42 +75,33 @@
     //打开日志
 //    [[UMSocialManager defaultManager] openLog:YES];
     //设置友盟appkey
-    [[UMSocialManager defaultManager] setUmSocialAppkey:@"57b432afe0f55a9832001a0a"];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"580f143e75ca354d62002dd5"];
     
     // 获取友盟social版本号
     NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
     
     //各平台的详细配置
     //设置微信的appId和appKey
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxfb47bc395d2a44e7" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
     
     //设置分享到QQ互联的appId和appKey
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"100424468"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106031750"  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
     //设置新浪的appId和appKey
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"251755376"  appSecret:@"840417395e137947d0e968d95bfd615b" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 }
 
 
 // iOS 8 及以下请用这个
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-    if (!result) {
-        // 其他如支付等SDK的回调
-        result = [Pingpp handleOpenURL:url withCompletion:nil];
-    }
-    return result;
-}
+    return [Pingpp handleOpenURL:url withCompletion:nil] ||
+           [[UMSocialManager defaultManager] handleOpenURL:url];}
 
 // iOS 9 以上请用这个
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
-   
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-    if (!result) {
-        // 其他如支付等SDK的回调
-        result = [Pingpp handleOpenURL:url withCompletion:nil];
-    }
-    return result;
+
+    return [Pingpp handleOpenURL:url withCompletion:nil] ||
+           [[UMSocialManager defaultManager] handleOpenURL:url];
 }
 
 #pragma mark - 键盘收回管理
@@ -120,6 +116,41 @@
     //    manager.enableAutoToolbar = NO;
 }
 
+- (void)starNetworkMonitor
+{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[CZNewfeatureController class]]) {
+                    [MOProgressHUD showInfo:@"未知的网络"];
+                }
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable:
+                if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[CZNewfeatureController class]]) {
+                    [MOProgressHUD showInfo:@"无法连接网络"];
+                }
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[CZNewfeatureController class]]) {
+                    [MOProgressHUD showInfo:@"正在使用WIFI网络"];
+                }
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[CZNewfeatureController class]]) {
+                    [MOProgressHUD showInfo:@"正在使用手机移动网络"];
+                }
+                break;
+            default:
+                break;
+        }
+    }];
+    [manager startMonitoring];
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

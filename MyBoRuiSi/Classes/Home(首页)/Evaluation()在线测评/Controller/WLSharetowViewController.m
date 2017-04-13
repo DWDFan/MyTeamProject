@@ -41,7 +41,7 @@
     //创建网页内容对象
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_shareTitle descr:_descStr thumImage:_imageUrl ? _imageUrl : [UIImage imageNamed:@"logo"]];
     //设置网页地址
-    shareObject.webpageUrl = @"http://www.esd-resource.com/";
+    shareObject.webpageUrl = self.webpageUrl;
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

@@ -173,6 +173,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WLCourseDetailViewController *vc = [[WLCourseDetailViewController alloc] init];
     vc.courseId = [_courses[indexPath.row] id];
+    vc.isVOD = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

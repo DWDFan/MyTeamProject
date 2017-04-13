@@ -66,7 +66,7 @@
         _vip_Imv.image = [UIImage imageNamed:@"icon-会员"];
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScore:) name:@"refleshScore" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshScore:) name:@"refleshScore" object:nil];
 }
 - (IBAction)pushPersonalDataVC:(UITapGestureRecognizer *)sender {
     if (self.tapHeaderBlock) {
@@ -84,14 +84,14 @@
     !self.openVipBlock ?: self.openVipBlock();
 }
 
-- (void)refreshScore:(NSNotification *)noti
-{
-    NSString *amountStr = [noti.userInfo objectForKey:@"amount"];
-    NSInteger addScore = [amountStr integerValue];
-    NSInteger scrScore = [[WLUserInfo share].score integerValue];
-    NSInteger allScore = scrScore + addScore;
-    _score.text = [NSString stringWithFormat:@"%ld",allScore];
-}
+//- (void)refreshScore:(NSNotification *)noti
+//{
+//    NSString *amountStr = [noti.userInfo objectForKey:@"amount"];
+//    NSInteger addScore = [amountStr integerValue];
+//    NSInteger scrScore = [[WLUserInfo share].score integerValue];
+//    NSInteger allScore = scrScore + addScore;
+//    _score.text = [NSString stringWithFormat:@"%ld",allScore];
+//}
 
 #pragma mark - Public Method
 - (void)reloadData{

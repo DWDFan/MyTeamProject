@@ -41,7 +41,7 @@
     [super viewDidLoad];
     
     //图片轮播器
-    SDCycleScrollView *sycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:PHOTO_PLACE];
+    SDCycleScrollView *sycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:nil];
     _sycleView = sycleView;
     self.tableView.tableHeaderView = _sycleView;
     self.tableView.showsVerticalScrollIndicator = NO;

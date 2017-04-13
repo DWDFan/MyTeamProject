@@ -119,22 +119,29 @@
         
         NSArray *questionsArray = [WLQuetionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
 
-        WLQuetionModel *questionModel = questionsArray[0];
+        if (questionsArray.count == 0) {
+           
+            [MOProgressHUD showErrorWithStatus:@"该测评暂无题..."];
+            return ;
+        }else {
+            WLQuetionModel *questionModel = questionsArray[0];
+            
+            [WLHomeDataHandle requestPaperStarTestWithUid:[WLUserInfo share].userId tid:questionModel.tid success:^(id responseObject) {
+                
+                WLTestDetailViewController *testVC = [[WLTestDetailViewController alloc] init];
+                testVC.title = _paperArray[indexPath.row][@"name"];
+                testVC.questionsArray = questionsArray;
+                testVC.questionId= [questionsArray[0] id];
+                testVC.testId = responseObject[@"id"];
+                testVC.testPaperId = questionModel.tid;
+                testVC.questionIndex = 0;
+                [self.navigationController pushViewController:testVC animated:YES];
+                
+            } failure:^(NSError *error) {
+                
+            }];
+        }
         
-        [WLHomeDataHandle requestPaperStarTestWithUid:[WLUserInfo share].userId tid:questionModel.tid success:^(id responseObject) {
-            
-            WLTestDetailViewController *testVC = [[WLTestDetailViewController alloc] init];
-            testVC.title = _paperArray[indexPath.row][@"name"];
-            testVC.questionsArray = questionsArray;
-            testVC.questionId= [questionsArray[0] id];
-            testVC.testId = responseObject[@"id"];
-            testVC.testPaperId = questionModel.tid;
-            testVC.questionIndex = 0;
-            [self.navigationController pushViewController:testVC animated:YES];
-
-        } failure:^(NSError *error) {
-            
-        }];
         
     } failure:^(NSError *error) {
         

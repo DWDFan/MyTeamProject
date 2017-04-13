@@ -131,7 +131,7 @@ bool ismute     = NO;
     
     
     //底部控制栏
-    self.bottomControlView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, screenWidth, 50)];
+    self.bottomControlView = [[UIView alloc] initWithFrame:CGRectMake(0, screenWidth - 50, screenWidth, 50)];
     self.bottomControlView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ic_background_black.png"]];
     self.bottomControlView.alpha = 0.8;
     
@@ -212,10 +212,11 @@ bool ismute     = NO;
     if (self.liveplayer == nil) { // 返回空则表示初始化失败
         NSLog(@"player initilize failed, please tay again!");
     }
-    self.liveplayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.liveplayer.view.frame = CGRectMake(0, 80, screenWidth, 300);
-    [self.liveplayer setScalingMode:NELPMovieScalingModeFill];
-    
+//    self.liveplayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    self.liveplayer.view.frame = CGRectMake(0, 0, screenWidth, screenWidth);
+//    [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFill];
+//    self.liveplayer.view.backgroundColor = [UIColor blueColor];
+
     self.view.autoresizesSubviews = YES;
     
     [self.mediaControl addSubview:self.controlOverlay];
@@ -288,34 +289,15 @@ bool ismute     = NO;
 
 - (void)rightBtnAction:(id)sender
 {
-    WLReportViewController *VC = [[WLReportViewController alloc] init];
-    VC.articleId = _courseId;
-    [self.navigationController pushViewController:VC animated:YES];
+    [self interfaceOrientation:UIInterfaceOrientationPortrait];
+    self.scaleModeBtn.titleLabel.tag = 0;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        WLReportViewController *VC = [[WLReportViewController alloc] init];
+        VC.articleId = _courseId;
+        [self.navigationController pushViewController:VC animated:YES];
+    });
+    
 }
-
-////支持旋转
-//-(BOOL)shouldAutorotate{
-//    return YES;
-//}
-////
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//    return UIInterfaceOrientationLandscapeRight;
-//}
-//
-//- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
-//{
-//    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-//        SEL selector             = NSSelectorFromString(@"setOrientation:");
-//        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-//        [invocation setSelector:selector];
-//        [invocation setTarget:[UIDevice currentDevice]];
-//        int val                  = orientation;
-//        // 从2开始是因为0 1 两个参数已经被selector和target占用
-//        [invocation setArgument:&val atIndex:2];
-//        [invocation invoke];
-//    }
-//}
 
 
 #pragma mark - IBAction
@@ -388,23 +370,56 @@ bool ismute     = NO;
     switch (self.scaleModeBtn.titleLabel.tag) {
         case 0:
             [self.scaleModeBtn setImage:[UIImage imageNamed:@"btn_player_scale01"] forState:UIControlStateNormal];
-            [self.liveplayer setScalingMode:NELPMovieScalingModeNone];
-            
+//            [self.liveplayer setScalingMode:NELPMovieScalingModeNone];
+            [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
             self.scaleModeBtn.titleLabel.tag = 1;
             break;
         case 1:
             [self.scaleModeBtn setImage:[UIImage imageNamed:@"btn_player_scale02"] forState:UIControlStateNormal];
-            [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit];
+//            [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit];
+            [self interfaceOrientation:UIInterfaceOrientationPortrait];
             self.scaleModeBtn.titleLabel.tag = 0;
             break;
         default:
             [self.scaleModeBtn setImage:[UIImage imageNamed:@"btn_player_scale02"] forState:UIControlStateNormal];
-            [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit];
+//            [self.liveplayer setScalingMode:NELPMovieScalingModeAspectFit];
+            [self interfaceOrientation:UIInterfaceOrientationPortrait];
             self.scaleModeBtn.titleLabel.tag = 0;
             break;
     }
-//    [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
 
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
+{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector             = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val                  = orientation;
+        // 从2开始是因为0 1 两个参数已经被selector和target占用
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+        
+        self.bottomControlView.width = WLScreenW;
+        if (orientation == UIInterfaceOrientationPortrait) {
+            self.bottomControlView.y = WLScreenW - 50;
+            self.liveplayer.view.frame = CGRectMake(0, 0, WLScreenW, WLScreenW);
+        }else {
+            self.bottomControlView.y = WLScreenH - 80;
+            self.liveplayer.view.frame = CGRectMake(0, 0, WLScreenW, WLScreenH - 32);
+        }
+        self.videoProgress.frame = CGRectMake(100, 10, self.bottomControlView.width - 200, 30);
+        self.totalDuration.frame = CGRectMake(self.bottomControlView.width - 100, 15, 50, 20);
+        self.scaleModeBtn.frame = CGRectMake(self.bottomControlView.width - 50, 5, 40, 40);
+
+    }
 }
 
 //截图
@@ -563,5 +578,12 @@ bool ismute     = NO;
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerReleaseSueecssNotification object:_liveplayer];
 }
 
+- (void)leftBtnAction:(UIButton *)sender
+{
+    [self interfaceOrientation:UIInterfaceOrientationPortrait];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    });
+}
 
 @end

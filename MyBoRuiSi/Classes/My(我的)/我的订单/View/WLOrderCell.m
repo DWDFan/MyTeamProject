@@ -85,7 +85,7 @@
     [_photo sd_setImageWithURL:[NSURL URLWithString:_shopCarModel.photo] placeholderImage:PHOTO_AVATAR];
     _name.text = _shopCarModel.name;
     _jiangshi.text = [NSString stringWithFormat:@"讲师%@", _shopCarModel.jiangshi];
-    _price.text = [NSString stringWithFormat:@"￥%@.00",  _shopCarModel.disPrice ? [_shopCarModel.disPrice stringValue] : [_shopCarModel.price stringValue]];
+    _price.text = [NSString stringWithFormat:@"￥%.2f",  _shopCarModel.disPrice ? [_shopCarModel.disPrice floatValue] : [_shopCarModel.price floatValue]];
     if([_shopCarModel.vipFree isEqualToNumber:@1]){
         self.vipFree_btn.layer.borderWidth = 0.7;
         self.vipFree_btn.layer.borderColor = color_red.CGColor;

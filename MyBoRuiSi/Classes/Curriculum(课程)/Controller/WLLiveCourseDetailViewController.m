@@ -11,6 +11,7 @@
 #import "WLLookTableViewCell.h"
 #import "WLSharetowViewController.h"
 #import "WLOrderPayViewController.h"
+#import "WLShoppingsTableViewController.h"
 
 #import "WLorganVC.h"
 #import "WLAuthorCell.h"
@@ -45,9 +46,14 @@
     [super viewDidLoad];
     
     [self setSubviews];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self requestData];
 }
+
 
 - (void)setSubviews
 {
@@ -182,7 +188,7 @@
     share.shareTitle = _course.name;
     share.descStr = _course.desc;
     share.imageUrl = _course.photo;
-
+    share.webpageUrl = [NSString stringWithFormat:@"http://brs.che1988.com/zbdetails?id=%@",self.courseId];
     
     share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
@@ -217,7 +223,15 @@
 {
     if (buttonIndex == 1) {
         [MOTool pushLoginViewControllerWithController:self];
+    }else if(alertView.tag == 1000) {
+        // 前往结算
+//        self.navigationController.tabBarController.selectedIndex = 3;
+//        UINavigationController *nav = self.navigationController.tabBarController.childViewControllers[3];
+//        WLShoppingsTableViewController *vc = [[WLShoppingsTableViewController alloc]init];
+//        vc.selectedIndex = 1;
+//        [nav pushViewController:vc animated:YES];
     }
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -432,46 +446,70 @@
 
 /** 立即购买 */
 - (void)requestBuyWithGoodId:(NSString *)goodId{
-    if (self.course.vipFree && [WLUserInfo share].vip) {
-        self.amount = 0;
-    }else{
-        self.amount = self.course.disPrice ? [self.course.disPrice integerValue] : [self.course.price integerValue];
-    }
+  
     
-    [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId goodid:goodId success:^(id responseObject) {
-        NSDictionary *dict = responseObject;
-        NSString *Gid = dict[@"data"];//data 字段是购物ID
-        if ([dict[@"code"]integerValue] == 1) {
-            //加入订单
-            [WLOrderDataHandle requestCommitOrderWithUid:[WLUserInfo share].userId cid:Gid type:@"kecheng" jifen:nil  success:^(id responseObject) {
-                NSDictionary *dict = responseObject;
-                if ([dict[@"code"]integerValue] == 1) {
-                    //支付界面
+    [WLCourseDataHandle requestCourseLiveDetailWithId:_courseId success:^(id responseObject) {
+        
+        _course = [WLCourceModel mj_objectWithKeyValues:responseObject[@"data"]];
+        
+        if (self.course.vipFree && [WLUserInfo share].vip) {
+            self.amount = 0;
+        }else{
+            self.amount = self.course.disPrice ? [self.course.disPrice floatValue] : [self.course.price floatValue];
+        }
+        
+        [WLOrderDataHandle requestAddCartWithUid:[WLUserInfo share].userId goodid:goodId success:^(id responseObject) {
+            NSDictionary *dict = responseObject;
+            NSString *Gid = dict[@"data"];//data 字段是购物ID
+            if ([dict[@"code"]integerValue] == 1) {
+                //加入订单
+                [WLOrderDataHandle requestCommitOrderWithUid:[WLUserInfo share].userId cid:Gid type:@"kecheng" jifen:nil  success:^(id responseObject) {
                     NSDictionary *dict = responseObject;
                     if ([dict[@"code"]integerValue] == 1) {
-                        WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
-                        vc.amountStr = [NSString stringWithFormat:@"%.2f",self.amount];
-                        vc.needMoney = self.amount;
-                        vc.orderId = dict[@"id"];
-                        vc.type = orderPayType;
-                        [self.navigationController pushViewController:vc animated:YES];
+                        //支付界面
+                        NSDictionary *dict = responseObject;
+                        if ([dict[@"code"]integerValue] == 1) {
+                            WLOrderPayViewController *vc = [[WLOrderPayViewController alloc]init];
+                            vc.amountStr = [NSString stringWithFormat:@"%.2f",self.amount];
+                            vc.needMoney = self.amount;
+                            vc.orderId = dict[@"id"];
+                            vc.type = orderPayType;
+                            [self.navigationController pushViewController:vc animated:YES];
+                            
+                        }else{
+                            [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
+                        }
                         
                     }else{
                         [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
                     }
-                    
-                }else{
-                    [MOProgressHUD showErrorWithStatus:dict[@"msg"]];
-                }
-            } failure:^(NSError *error) {
-                [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
-            }];
-            
-        }else{
-            [MOProgressHUD showErrorWithStatus:@"购买失败"];
-        }
+                } failure:^(NSError *error) {
+                    [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+                }];
+                
+            }else{
+                [MOProgressHUD showErrorWithStatus:@"购买失败"];
+            }
+        } failure:^(NSError *error) {
+            NSString *msg = error.userInfo[@"msg"];
+            //你已经加入购物车了
+            if ([msg isEqualToString:@"你已经加入购物车了"]) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"你已经加入过购物车了，前往\"我的订单\"->\"待付款\"，结算后即可学习"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"确定"
+                                                          otherButtonTitles:nil, nil];
+                alertView.tag = 1000;
+                [alertView show];
+            }else {
+                [MOProgressHUD showErrorWithStatus:msg];
+            }
+        }];
+
+        
     } failure:^(NSError *error) {
-        [MOProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
+        
     }];
+    
 }
 @end

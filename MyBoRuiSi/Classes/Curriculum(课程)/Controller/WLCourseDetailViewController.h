@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface WLCourseDetailViewController : UIViewController
 
 @property(nonatomic, strong) NSString *courseId;
 @property (nonatomic, assign) BOOL isMine;
-
+@property (nonatomic, assign) BOOL isVOD; 
 @end

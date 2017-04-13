@@ -58,7 +58,11 @@
     [self requestData];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
 
 - (void)requestData
 {
@@ -180,8 +184,8 @@
         
         NSString *timeLongStr = self.paperArray[self.index][@"timelong"];
         NSInteger timelong = [timeLongStr integerValue] * 60;
-        [WLExaminationHelper sharedInstance].timelong = timelong;
         [WLExaminationHelper sharedInstance].kid = kid;
+        [WLExaminationHelper sharedInstance].timelong = timelong;
         
         WLNameViewController *name = [[WLNameViewController alloc]init];
         name.title = _paperName;

@@ -139,8 +139,11 @@
  *  @param failure
  */
 + (void)requestChannelWithUid:(NSString *)uid
-                       channel:(NSString *)channel
+                      channel:(NSString *)channel
                        amount:(NSString *)amount
+                      subject:(NSString *)subject
+                          oid:(NSString *)oid
+                        score:(NSNumber *)score
                       success:(void (^)(id responseObject))success
                       failure:(void (^)(NSError *error))failure;
 

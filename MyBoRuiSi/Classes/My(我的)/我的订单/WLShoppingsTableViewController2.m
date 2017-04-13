@@ -47,11 +47,18 @@
         
     }];
     
-    [self.tableView_main headerBeginRefreshing];
-
+    self.page = 1;
+    [self requestGetWaitPayWithPage:self.page];
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.page = 1;
+    [self requestGetWaitPayWithPage:self.page];
+}
 
 #pragma mark - Getter
 - (NSMutableArray *)dataSource{

@@ -65,7 +65,7 @@
         //设置右边的按钮图片没有渲染
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"通知"] style:UIBarButtonItemStyleDone target:self action:@selector(Notice)];
     }
-    
+    self.tableView.showsVerticalScrollIndicator = NO;
     //监听是否登录
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloaWLLoginStatus:) name:@"changeLoginStatus" object:nil];
     
@@ -158,6 +158,7 @@
             [self requestVipList];
         }
     };
+    [header reloadData];
     self.tableView.tableHeaderView = header;
 }
 

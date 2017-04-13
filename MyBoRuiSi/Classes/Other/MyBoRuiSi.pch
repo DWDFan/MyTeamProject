@@ -83,6 +83,9 @@
 #define kSocial_Sina_Account @"3921700954"
 #define kSocial_Sina_RedirectURL @"http://sns.whalecloud.com/sina2/callback"
 
+#define kArticleShareURL @"http://182.254.228.211:8082/forum/post_details/"
+#define kCourseShareURL @"http://brs.che1988.com/zbdetails?id="
+
 #import "UIImage+Image.h"
 #import "UIView+Frame.h"
 #import "MJExtension.h"

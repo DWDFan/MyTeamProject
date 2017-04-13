@@ -10,6 +10,7 @@
 #import "ZGLivePlayerViewController.h"
 #import "WLCourseDataHandle.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "WLNavigationController.h"
 
 @interface WLCourceOutlineVIewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -194,7 +195,10 @@
         ZGLivePlayerViewController *playerVC = [[ZGLivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
         playerVC.tipLbl.hidden = YES;
         playerVC.courseId = _outLineArray[indexPath.section][@"kc"][indexPath.row - 1][@"id"];
-        [self.navigationController pushViewController:playerVC animated:YES];
+
+        WLNavigationController *nav = [[WLNavigationController alloc] initWithRootViewController:playerVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+//        [self.navigationController pushViewController:playerVC animated:YES];
     }
 }
 

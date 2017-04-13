@@ -8,6 +8,7 @@
 
 #import "MOHTTP.h"
 #import "AFNetworking.h"
+#import "CZNewfeatureController.h"
 
 @implementation MOHTTP
 + (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
@@ -88,6 +89,7 @@
     }];
     
 }
+
 
 /*  上传
  *  urlString  url

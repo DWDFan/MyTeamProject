@@ -36,11 +36,11 @@
 - (void)setOrderModel:(WLOrderModel *)orderModel{
     _orderModel = orderModel;
     
-    _amount_lab.text = [NSString stringWithFormat:@"￥%@.00",orderModel.total];
+    _amount_lab.text = [NSString stringWithFormat:@"￥%.2f",[orderModel.total floatValue]];
 }
 - (IBAction)payAction:(UIButton *)sender {
     if (self.payBlock) {
-        self.payBlock(self.orderModel.id, self.orderModel.total);
+        self.payBlock(self.orderModel.id, [NSString stringWithFormat:@"%@", self.orderModel.total]);
     }
 }
 - (IBAction)detailAction:(UIButton *)sender {

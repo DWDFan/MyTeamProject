@@ -10,6 +10,11 @@
 
 @implementation WLCircleModel
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"icon":@"photo"};
+}
+
 @end
 
 @implementation WLcircleTypeModel

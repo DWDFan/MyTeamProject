@@ -97,22 +97,32 @@
     [super viewDidLoad];
 
     //图片轮播器
-    self.adCycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:[UIImage imageNamed:@"图层-50_88"]];
+    self.adCycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, Swidth, 210) delegate:self placeholderImage:nil];
     
+    WEAKSELF;
     self.tableView.tableHeaderView = self.adCycleView;
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView addHeaderWithCallback:^{
+        [weakSelf requestData];
+    }];
+    
     
     UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 60)];
     search.placeholder = @"搜索";
     search.delegate = self;
     self.navigationItem.titleView = search;
    
+    [self requestData];
+}
+
+- (void)requestData
+{
     //广告轮播图数据
     [self getAdData];
     
     //精选课程数据
     [self getCourseData];
-
+    
     //推荐讲师数据
     [self getAlecturer];
     
@@ -135,12 +145,13 @@
                 [mutabArray addObject:dic[@"img"]];
             }
             self.adCycleView.imageURLStringsGroup = mutabArray;
+            [self.tableView headerEndRefreshing];
         }else{
             
             [MOProgressHUD showErrorWithStatus:dic[@"msg"]];
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView headerEndRefreshing];
     }];
 }
 

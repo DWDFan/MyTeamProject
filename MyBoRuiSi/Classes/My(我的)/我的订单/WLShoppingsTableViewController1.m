@@ -59,8 +59,15 @@
         
     }];
     
-    [self.tableView_main headerBeginRefreshing];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.page = 1;
+    [self requestGetCarWithPage:self.page];
 }
 
 #pragma mark - Getter

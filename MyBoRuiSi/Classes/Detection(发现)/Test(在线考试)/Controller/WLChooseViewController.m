@@ -322,6 +322,7 @@
     vc.questionArray = self.questionArray;
     vc.kid = self.kid;
     vc.index = self.index + 1;
+    vc.isShowAnswer = self.isShowAnswer;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

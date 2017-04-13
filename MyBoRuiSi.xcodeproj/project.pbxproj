@@ -141,6 +141,7 @@
 		9A7058F21E24DAED009289D7 /* WLAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7058F11E24DAED009289D7 /* WLAnswerViewController.m */; };
 		9A732FD91E55F3AB00077783 /* WLCircleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A732FD81E55F3AB00077783 /* WLCircleListViewController.m */; };
 		9A8C48B81E1F415500800CA1 /* WLQuetionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */; };
+		9AE5C3221E9C97310017A081 /* WLPlayNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5C3211E9C97310017A081 /* WLPlayNavViewController.m */; };
 		9AF430901E2257FA000157EC /* WLChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4308F1E2257FA000157EC /* WLChooseViewController.m */; };
 		CD2190A51D53791700F13FEE /* WLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2190981D53791700F13FEE /* WLTestViewController.m */; };
 		CD2190A61D53791700F13FEE /* WLTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2190991D53791700F13FEE /* WLTestViewController.xib */; };
@@ -868,6 +869,8 @@
 		9A732FD81E55F3AB00077783 /* WLCircleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCircleListViewController.m; sourceTree = "<group>"; };
 		9A8C48B61E1F415500800CA1 /* WLQuetionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuetionModel.h; sourceTree = "<group>"; };
 		9A8C48B71E1F415500800CA1 /* WLQuetionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuetionModel.m; sourceTree = "<group>"; };
+		9AE5C3201E9C97310017A081 /* WLPlayNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPlayNavViewController.h; sourceTree = "<group>"; };
+		9AE5C3211E9C97310017A081 /* WLPlayNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLPlayNavViewController.m; sourceTree = "<group>"; };
 		9AF4308E1E2257FA000157EC /* WLChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChooseViewController.h; sourceTree = "<group>"; };
 		9AF4308F1E2257FA000157EC /* WLChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLChooseViewController.m; sourceTree = "<group>"; };
 		CD2190971D53791700F13FEE /* WLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTestViewController.h; sourceTree = "<group>"; };
@@ -3945,6 +3948,8 @@
 				F1C597B91D4CFCA400529553 /* WLTabBarController.m */,
 				F1C597B51D4CFC3F00529553 /* WLNavigationController.h */,
 				F1C597B61D4CFC3F00529553 /* WLNavigationController.m */,
+				9AE5C3201E9C97310017A081 /* WLPlayNavViewController.h */,
+				9AE5C3211E9C97310017A081 /* WLPlayNavViewController.m */,
 			);
 			name = Controller;
 			path = "../Main(主入口)/Controller";
@@ -4408,7 +4413,7 @@
 					F1A945731D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 7KEVJJYH5P;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					F1A9458C1D4CF4270097FFEF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4892,6 +4897,7 @@
 				F7C0ECBB1D9D6DAB00338A15 /* WLAuthorCell.m in Sources */,
 				F183062F1DB473980073F413 /* UIBezierPath+SVG.m in Sources */,
 				F1FB855F1D532EA9005AAED3 /* WLTabulationerableViewCell.m in Sources */,
+				9AE5C3221E9C97310017A081 /* WLPlayNavViewController.m in Sources */,
 				F188F4E31D503C0700A46FF1 /* UIView+Frame.m in Sources */,
 				F7EC17781DB36B680057D7D6 /* UIImageView+WebCache.m in Sources */,
 				CDEB07A01D564485009A0011 /* WLPayViewController.m in Sources */,
@@ -5278,8 +5284,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 7KEVJJYH5P;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5302,8 +5308,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3af5213-3b52-4cc0-b8e4-2529bb5be19a";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDISPRO;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -5313,8 +5319,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangzhou zijing Internet Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 7KEVJJYH5P;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5337,8 +5343,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ZhiJing.cn.MyBoRuiSi02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3af5213-3b52-4cc0-b8e4-2529bb5be19a";
-				PROVISIONING_PROFILE_SPECIFIER = BRSDISPRO;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

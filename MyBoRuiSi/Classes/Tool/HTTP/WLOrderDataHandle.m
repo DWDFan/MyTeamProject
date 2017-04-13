@@ -7,7 +7,7 @@
 //
 
 #import "WLOrderDataHandle.h"
-
+#import "AFNetworking.h"
 @implementation WLOrderDataHandle
 /**
  *  加入购物车
@@ -166,14 +166,47 @@
 + (void)requestChannelWithUid:(NSString *)uid
                       channel:(NSString *)channel
                        amount:(NSString *)amount
+                      subject:(NSString *)subject
+                          oid:(NSString *)oid
+                        score:(NSNumber *)score
                       success:(void (^)(id responseObject))success
-                      failure:(void (^)(NSError *error))failure{
-    NSDictionary *param = @{@"uid":uid, @"channel":channel, @"amount":amount};
-    [MOHTTP Post:@"API/pingjj/example/pay.php" parameters:param success:^(id responseObject) {
+                      failure:(void (^)(NSError *error))failure
+{
+    
+    NSMutableDictionary *param = @{@"uid":uid,
+                            @"channel":channel,
+                            @"amount":amount,
+                            @"subject":[MOTool getNULLString:subject]}.mutableCopy;
+    
+    // 订单支付增加参数
+    if ([subject isEqualToString:@"订单支付"]) {
+        [param setObject:[MOTool getNULLString:oid] forKey:@"oid"];
+        [param setObject:score forKey:@"score"];
+    }
+    
+//    [MOHTTP GET:@"API/pingjj/example/pay.php" parameters:param success:^(id responseObject) {
+//        success(responseObject);
+//    } failure:^(NSError *error) {
+//        failure(error);
+//    }];
+    
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    AFJSONResponseSerializer *response = [[AFJSONResponseSerializer alloc] init];
+    response.removesKeysWithNullValues = YES;
+    mgr.responseSerializer = response;
+    //拼接URL
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@",PostUrl,@"API/pingjj/example/pay.php"];
+    [mgr GET:URLStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         success(responseObject);
-    } failure:^(NSError *error) {
-        failure(error);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
     }];
+    
+
 }
 
 /**
